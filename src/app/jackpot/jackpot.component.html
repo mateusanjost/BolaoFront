@@ -1,0 +1,22 @@
+<div class="container">
+    <!-- Card -->
+    <div class="card mb-5">
+        <!-- Card content -->
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12 pt-3">
+                    <h3>Editar Acumulado</h3>
+                    <p>acumulado atual: <span style="font-weight: bold; color: red">{{ jackpot }}</span></p>
+                </div>
+                <div class="col-6  pb-3">
+                    <input type="text" class="form-control" placeholder="Novo Acumulado" id="jackpot">
+                </div>
+                <div class="col-6  pb-3">
+                    <button class="m-0 p-2" type="button" mdbBtn color="primary" (click)="changeJackpot()"
+                        mdbWavesEffect>Alterar Acumulado</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Card -->
+</div>

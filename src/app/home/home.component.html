@@ -1,0 +1,124 @@
+<!--Body-->
+<!-- Loading (desapears when is loaded) -->
+<div *ngIf="!isLoaded" id="spinner-loading" class="container my-body justify-content-center">Carregando...
+    <div class="spinner-border"role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<div class="container my-body" *ngIf="isLoaded">
+    <!-- Jackpot and prize-->
+    <div class="row">
+        <div class="col clean-spaces">
+            <p class="jackpot-title">acumulado</p>
+            <h3 style="color: yellow">{{jackpot}}</h3>
+        </div>
+        <div class="col clean-spaces">
+            <p class="jackpot-title">rateio</p>
+            <h3 style="color: yellow">{{prizeAmount}}</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col clean-spaces">
+            <p class="jackpot-title">prêmio total</p>
+            <!--<p class="jackpot">R$ {{prizes[0].gathered + prizes[1].gathered}},00</p>-->
+            <p class="jackpot">{{fullPrize}}</p>
+        </div>
+    </div>
+    <!-- Jackpot and prize-->
+    <!--Round period-->
+    <div class="row">
+        <div class="col-12 justify-content-center pb-3">
+            <h5>Rodada nº {{ round.number }} - {{ dateBegin | date: 'dd/MM'}} a {{ dateEnd | date: 'dd/MM' }}</h5>
+        </div>
+    </div>
+    <!--Round period-->
+
+    <!--Games-->
+    <div class="row row-game" *ngFor="let game of responseGames; let i = index">
+            <div class="col-12" style="text-align: center">
+                    <button id="{{i}}a" (click)="chooseGameResult(i, '1')" class="small-spaces" type="button" mdbBtn
+                    color="light" mdbWavesEffect>
+                    {{game.homeAbbreviation}} <img src="../assets/image/{{game.imgLogoTeamHome}}" alt="mandante">
+                </button>
+                <button id="{{i}}b" (click)="chooseGameResult(i, 'X')" class="small-spaces" type="button" mdbBtn color="light"
+                    mdbWavesEffect>EMPATE
+                </button>
+                <button id="{{i}}c" (click)="chooseGameResult(i, '2')" class="small-spaces" type="button" mdbBtn
+                    color="light" mdbWavesEffect>
+                    {{game.visitAbbreviation}} <img src="../assets/image/{{game.imgLogoTeamVisit}}" alt="visitante">
+                </button>
+            </div>
+            <div class="col-12 justify-content-center pt-3">
+                {{ game.dateBegin | date: 'dd/MM'}} - {{ game.hourBegin | date: 'HH:mm' }}
+            </div>
+        </div>
+    <!--Games-->
+
+    <!--Button to create bet-->
+    <div class="row justify-content-center">
+    
+        <!-- Default form row -->
+        <form>
+            <!-- Grd row -->
+            <div class="form-row pb-3">
+                <!-- Grid column -->
+                <div class="col-7">
+                    <!-- Default input -->
+                    <input mdbInput type="text" id="player-name" class="form-control" placeholder="Nome do Jogador">
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-5">
+                    <button (click)="frame2.show()" type="button" mdbBtn size="sm" color="success" mdbWavesEffect>Apostar</button>
+                </div>
+            </div>
+            <!-- Grd row -->
+        </form>
+        <!-- Default form row -->
+    
+    </div>
+    <!--Button to create bet-->
+</div>
+<!--Body-->
+
+<!--Modal confirm ticket-->
+<div mdbModal #frame2="mdbModal" class="modal fade" id="frameModalTop" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true" (open)="onOpen($event)">
+  <div class="modal-dialog modal-notify modal-warning" role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header">
+        <p class="heading lead">Confirmar bilhete</p>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame2.hide()">
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body" *ngIf="!isLogged">
+        <div class="text-center">
+          <p>Precisa estar logado.</p>
+        </div>
+      </div>
+
+      <div class="modal-body" *ngIf="isLogged">
+            <div class="text-center">
+              <p id="final-msg" [innerHtml]="htmlToAdd"></p>
+            </div>
+          </div>
+
+      <!--Footer-->
+      <div class="modal-footer justify-content-center">
+        <a type="button" mdbBtn color="success" class="waves-light" (click)="postTicket()" mdbWavesEffect *ngIf="isLogged && checkTicket()">Confirmar
+        </a>
+        <a type="button" mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect (click)="frame2.hide()"
+          data-dismiss="modal">Voltar</a>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+<!--Modal confirm ticket-->

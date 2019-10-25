@@ -1,0 +1,84 @@
+<!--Post result-->
+<div class="container">
+    <!-- Card -->
+    <div class="card mb-5">
+        <!-- Card content -->
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12 pt-3">
+                    <h3>Postar resultado</h3>
+                </div>
+                <!-- Loading (desapears when is loaded) -->
+                <div *ngIf="!isLoaded" id="spinner-loading" class="justify-content-center">Carregando...
+                        <div class="spinner-border"role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                </div>
+                <div class="col-12" *ngIf="isLoaded">
+                    <p>Rodada Nº {{ round.number }} de {{ dateBegin | date: 'dd/MM/yyyy'}} até {{ dateEnd | date: 'dd/MM/yyyy' }} </p>
+                    <p>Postar placares:</p>
+                </div>
+                <div class="col-12 pb-3" *ngIf="isLoaded">
+                    <ul class="list-group">
+                        <li class="list-group-item" *ngFor="let game of responseGames; let i = index" style="text-align: center">
+                            {{ game.teamHome }} <img src="../../assets/image/{{game.imgLogoTeamHome}}"> X <img
+                                src="../../assets/image/{{game.imgLogoTeamVisit}}"> {{ game.teamVisit }}
+                            <!-- Default input -->
+                            <input type="text" id="home-score{{i}}" class="form-control" value="{{ game.homeTeamScore }}">
+                            <input type="text" id="visit-score{{i}}" class="form-control" value="{{ game.awayTeamScore }}">
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 pb-3" style="text-align: center" *ngIf="isLoaded">
+                    <button class="m-0 p-2" type="button" mdbBtn color="primary" (click)="frame.show()"
+                        mdbWavesEffect>Postar Resultado</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Card -->
+</div>
+<!--Post result-->
+
+<!--Modal confirmation-->
+<div mdbModal #frame="mdbModal" class="modal fade" scrollY="true" maxHeight="200" id="frameModalTop" tabindex="-1"
+    role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" (open)="checkResult()">
+    <div class="modal-dialog modal-notify modal-warning" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+                <p class="heading lead">Confirmar Resultados</p>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+                    <span aria-hidden="true" class="white-text">&times;</span>
+                </button>
+            </div>
+
+            <!--Body Error-->
+            <div class="modal-body" *ngIf="!postingOk">
+                <div class="text-center">
+                    <p>Existe campo vazio.</p>
+                    <p>É obrigatório o preenchimento de todos os campos.</p>
+                </div>
+            </div>
+            <!--Body Error-->
+
+            <!--Body OK-->
+            <div class="modal-body" *ngIf="postingOk">
+                <div class="col-12" [innerHtml]="msgFinalResult"></div>
+            </div>
+            <!--Body OK-->
+
+            <!--Footer-->
+            <div class="modal-footer justify-content-center">
+                <a type="button" mdbBtn color="primary" class="waves-light" mdbWavesEffect *ngIf="postingOk"
+                    (click)="confirmResults()">Confirmar</a>
+                <a type="button" mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect
+                    (click)="frame.hide()" data-dismiss="modal">Voltar</a>
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
+<!--Modal confirmation-->

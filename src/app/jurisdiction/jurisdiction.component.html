@@ -1,0 +1,216 @@
+<div class="container">
+
+    <!-- Olda Card -->
+    <div class="card">
+    
+        <!-- Card content -->
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12 pt-3">
+                    <h3>Jurisdição</h3>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <!-- dynamic tree-->
+                <div class="col-12">
+                    <button class="p-2" type="button" mdbBtn color="success" mdbWavesEffect (click)="frame.show()">Criar
+                        Juridição</button>
+                    <button class="p-2" type="button" mdbBtn color="danger" mdbWavesEffect (click)="frame2.show()">Excluir
+                        Juridição</button>
+                </div>
+                <div class="col-12">
+                    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+                        <!-- This is the tree node template for leaf nodes -->
+                        <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+                            <!-- use a disabled button to provide padding for tree leaf -->
+                            <button mat-icon-button disabled></button>
+                            <img src="../../assets/image/{{node.jurisdictionId + 1}}.png" width="20px" height="20px"
+                                style="margin-right: 3px">{{node.name}}
+                        </mat-tree-node>
+                        <!-- This is the tree node template for expandable nodes -->
+                        <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+                            <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'toggle ' + node.name">
+                                <mat-icon class="mat-icon-rtl-mirror">
+                                    {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                                </mat-icon>
+                            </button>
+                            <img src="../../assets/image/{{node.jurisdictionId + 1}}.png" width="20px" height="20px"
+                                style="margin-right: 3px">{{node.name}}
+                        </mat-tree-node>
+                    </mat-tree>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+    <!-- Card -->
+
+</div>
+
+<!--Modal create jurisdiction-->
+<div mdbModal #frame="mdbModal" class="modal fade" scrollY="true" maxHeight="200" id="frameModalTop" tabindex="-1"
+    role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-notify modal-success" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+                <p class="heading lead">Criar Jurisdição</p>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+                    <span aria-hidden="true" class="white-text">&times;</span>
+                </button>
+            </div>
+
+            <!--Body-->
+            <div class="modal-body">
+                <div class="col-12">
+                    <!-- Form -->
+                    <form style="color: #757575;" action="#!">
+
+                        <!-- Group of material radios - option 1 -->
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="materialGroupExample1"
+                                name="groupOfMaterialRadios">
+                            <label class="form-check-label" for="materialGroupExample1">Nacional</label>
+                        </div>
+
+                        <!-- Group of material radios - option 2 -->
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="materialGroupExample2"
+                                name="groupOfMaterialRadios">
+                            <label class="form-check-label" for="materialGroupExample2">Regional</label>
+                        </div>
+
+                        <!-- Group of material radios - option 3 -->
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="materialGroupExample3"
+                                name="groupOfMaterialRadios">
+                            <label class="form-check-label" for="materialGroupExample3">Distrito</label>
+                        </div>
+
+                        <!-- Group of material radios - option 4 -->
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="materialGroupExample4"
+                                name="groupOfMaterialRadios">
+                            <label class="form-check-label" for="materialGroupExample4">Local</label>
+                        </div>
+
+                        <!-- Group of material radios - option 5 -->
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="materialGroupExample5"
+                                name="groupOfMaterialRadios" checked>
+                            <label class="form-check-label" for="materialGroupExample5">Clube</label>
+                        </div>
+
+                        <!-- Login -->
+                        <div class="md-form mt-3">
+                            <input type="text" id="login" class="form-control" placeholder="login*">
+                        </div>
+
+                        <!-- Password -->
+                        <div class="md-form">
+                            <input type="password" id="password" class="form-control" placeholder="senha*">
+                        </div>
+
+                        <!-- Confirm Password -->
+                        <div class="md-form">
+                            <input type="password" id="confirm-password" class="form-control"
+                                placeholder="confirmar senha*">
+                        </div>
+
+                        <!-- E-mail -->
+                        <div class="md-form">
+                            <input type="email" id="email" class="form-control" placeholder="e-mail*">
+                        </div>
+
+                        <!-- Subject -->
+                        <span> Pai* </span>
+                        <select class="mdb-select" id="father">
+                            <option value="" selected>Escolher...</option>
+                            <option value="1">loRJ</option>
+                            <option value="2">loManaus</option>
+                        </select>
+
+                        <!--Message-->
+                        <div class="md-form">
+                            <textarea id="materialContactFormMessage" class="form-control md-textarea"
+                                rows="3"></textarea>
+                            <label for="materialContactFormMessage">Observação</label>
+                        </div>
+
+                    </form>
+                    <!-- Form -->
+                </div>
+            </div>
+            <!--Body-->
+
+            <!--Footer-->
+            <div class="modal-footer justify-content-center">
+                <a type="button" mdbBtn color="success" class="waves-light" mdbWavesEffect
+                    (click)="confirmCreate()">Confirmar</a>
+                <a type="button" mdbBtn color="success" outline="true" class="waves-effect" mdbWavesEffect
+                    (click)="frame.hide()" data-dismiss="modal">Voltar</a>
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
+<!--Modal create jurisdiction-->
+
+<!--Modal delete jurisdiction-->
+<div mdbModal #frame2="mdbModal" class="modal fade" scrollY="true" maxHeight="200" id="frameModalTop" tabindex="-1"
+    role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-notify modal-danger" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+                <p class="heading lead">Criar Jurisdição</p>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame2.hide()">
+                    <span aria-hidden="true" class="white-text">&times;</span>
+                </button>
+            </div>
+
+            <!--Body-->
+            <div class="modal-body">
+                <div class="col-12">
+                    <!-- Form -->
+                    <form style="color: #757575;" action="#!">
+
+                        <!-- Jurisdiction -->
+                        <span>Jurisdição </span>
+                        <select class="mdb-select" id="jurisdiction">
+                            <option value="" selected>Escolher...</option>
+                            <option value="1">naBrasil</option>
+                            <option value="1">reSudeste</option>
+                            <option value="1">reNorte</option>
+                            <option value="1">diRJ</option>
+                            <option value="1">diManaus</option>
+                            <option value="1">loRJ</option>
+                            <option value="1">loManaus</option>
+                            <option value="1">clRio</option>
+                            <option value="1">clAgencia01</option>
+                            <option value="1">clMN</option>
+                        </select>
+
+                    </form>
+                    <!-- Form -->
+                </div>
+            </div>
+            <!--Body-->
+
+            <!--Footer-->
+            <div class="modal-footer justify-content-center">
+                <a type="button" mdbBtn color="danger" class="waves-light" mdbWavesEffect
+                    (click)="confirmDelete()">Confirmar</a>
+                <a type="button" mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect
+                    (click)="frame2.hide()" data-dismiss="modal">Voltar</a>
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
+<!--Modal delete jurisdiction-->

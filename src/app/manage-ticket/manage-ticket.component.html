@@ -1,0 +1,148 @@
+<div class="container">
+  <div class="row">
+
+    <!-- Card -->
+    <div class="card mb-5">
+
+        <!-- Loading (desapears when is loaded) -->
+        <div *ngIf="!isLoaded" id="spinner-loading" class="card-body justify-content-center">Carregando...
+                <div class="spinner-border"role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+        </div>
+
+      <!-- Card content -->
+      <div class="card-body"  *ngIf="isLoaded" >
+
+        <!-- Title -->
+        <div class="col-12 pt-3">
+          <h3>Gerenciar Bilhetes</h3>
+        </div>
+        <!-- Text -->
+        <!-- Search system -->
+        <div class="col-12 mb-3">
+          <!-- Search form -->
+          <form class="form-inline waves-light" mdbWavesEffect>
+              <div class="md-form mt-0">
+                  <input id="ticket-id" class="form-control mr-sm-2" type="text" placeholder="código do bilhete" required>
+                  <button type="button" mdbBtn color="warning" mdbWavesEffect (click)="searchTicket()">Procurar</button>
+              </div>
+          </form>
+          <div class="row content-hidden" id="result-text" [innerHtml]="resultSearch"></div>
+        </div>
+        <!-- Search system -->
+        <div class="row">
+          <!--Table-->
+          <table class="table table-striped" scrollX="true">
+
+            <!--Table head-->
+            <thead>
+              <tr>
+                <th>código</th>
+                <th>jogador</th>
+                <th>situação</th>
+                <th>ações</th>
+              </tr>
+            </thead>
+            <!--Table head-->
+
+            <!--Table body-->
+            <tbody>
+              <tr *ngFor="let ticket of bets; let i = index">
+                <th scope="row">{{ticket.id}}</th>
+                <td>{{ticket.playerName}}</td>
+                <td>{{(ticket.status == true ? "Ativo" : "Cancelado")}}</td>
+                <td>
+                  <button mdbBtn class="small-spaces" type="button" color="primary" (click)="makeTicket(i, 1)"
+                    mdbWavesEffect>
+                    <mdb-icon fas icon="eye"></mdb-icon>
+                  </button>
+                  <button *ngIf="ticket.status" mdbBtn class="small-spaces" type="button" (click)="makeTicket(i, 2)"
+                    color="red" mdbWavesEffect>
+                    <mdb-icon fas icon="ban"></mdb-icon>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+            <!--Table body-->
+
+          </table>
+          <!--Table-->
+        </div>
+
+      </div>
+
+    </div>
+    <!-- Card -->
+  </div>
+
+
+</div>
+
+<!--Modal show ticket-->
+<div mdbModal #frame2="mdbModal" class="modal fade" id="frameModalTop" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-notify modal-primary" role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header">
+        <p class="heading lead">Visualizar bilhete</p>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame2.hide()">
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <div class="text-center">
+          <p id="final-msg" [innerHtml]="viewTicket"></p>
+        </div>
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer justify-content-center">
+        <a type="button" mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect
+          (click)="frame2.hide()" data-dismiss="modal">Voltar</a>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+<!--Modal show ticket-->
+
+<!--Modal cancel ticket-->
+<div mdbModal #frame3="mdbModal" class="modal fade" id="frameModalTop" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-notify modal-danger" role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header">
+        <p class="heading lead">Confirmar Cancelamento</p>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame3.hide()">
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <div class="text-center">
+          <p id="final-msg" [innerHtml]="viewTicket"></p>
+        </div>
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer justify-content-center">
+        <a type="button" mdbBtn color="danger" class="waves-light" (click)="cancelTicket()" mdbWavesEffect>Confirmar
+        </a>
+        <a type="button" mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect
+          (click)="frame3.hide()" data-dismiss="modal">Voltar</a>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+<!--Modal cancel ticket-->

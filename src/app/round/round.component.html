@@ -1,0 +1,173 @@
+<div class="container">
+
+    <!-- Card -->
+    <div class="card mb-5">
+        <!-- Card content -->
+        <div class="card-body">
+            <!--Showing current round-->
+            <div class="row" *ngIf="!creatingNew">
+                <div class="col-6 pt-3">
+                    <h3>Rodadas</h3>
+                </div>
+                <div class="col-6 pt-3">
+                    <button class="m-0 p-2" type="button" mdbBtn color="primary" (click)="creatingRound()"
+                        mdbWavesEffect>Nova
+                        rodada</button>
+                </div>
+                <div class="col-12" *ngIf="isLoaded">
+                    <p>Rodada Nº {{ idRound }} de {{ dateBegin | date: 'dd/MM/yyyy' }} até {{ dateEnd | date: 'dd/MM/yyyy' }}</p>
+                </div>
+                <!-- Loading (desapears when is loaded) -->
+                <div *ngIf="!isLoaded" id="spinner-loading" class="justify-content-center">Carregando...
+                        <div class="spinner-border"role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                </div>
+                <div class="col-12 pb-3">
+                    <ul class="list-group">
+                        <li class="list-group-item" *ngFor="let game of responseGames; let i = index">
+                                <div class="row">
+                                <div class="col" style="text-align: right;">{{ game.teamHome }} <img src="../../assets/image/{{game.imgLogoTeamHome}}"></div>
+                                <div class="col"style="text-align: center"> X </div>
+                                <div class="col"><img src="../../assets/image/{{game.imgLogoTeamVisit}}"> {{ game.teamVisit}}</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--Showing current round-->
+
+            <!--Creating new round-->
+            <div class="row" *ngIf="creatingNew">
+                <div class="col-6 pt-3">
+                    <h3>Rodadas</h3>
+                </div>
+                <div class="col-6 pt-3">
+
+                </div>
+                <div class="col-12">
+                    <!-- Grid row -->
+                    <div class="form-row">
+                        <!-- Grid column -->
+                        <div class="col">
+                            <!-- Material input -->
+                            <div class="md-form mt-0">
+                                Número da Rodada:
+                                <input type="text" class="form-control" id="round-num" value="{{ round.number + 1 }}">
+                            </div>
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div class="col" style="text-align: right">
+                            <button class="m-0 p-2" type="button" mdbBtn color="danger" (click)="cancelingCreation()"
+                                mdbWavesEffect>Cancelar</button>
+                        </div>
+                        <!-- Grid column -->
+                    </div>
+                    <div class="col-12 pb-3">
+                        <ul class="list-group">
+                            <li class="list-group-item" *ngFor="let game of responseGames; let i = index"
+                                style="text-align: center">
+                                <h5 style="text-align: center">Jogo {{ i + 1 }}</h5>
+                                <div class="form-row">
+                                    <!-- Grid column -->
+                                    <div class="col">
+                                        Data: 
+                                        <!--<input type="text" id="date{{ i + 1 }}" value="09/10/2019"/>-->
+                                        <mat-form-field>
+                                            <input matInput [matDatepicker]="picker1" [formControl]="date">
+                                            <mat-datepicker-toggle matSuffix [for]="picker1"  style="color: black"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker1></mat-datepicker>
+                                        </mat-form-field>
+                                    </div>
+                                    <!-- Grid column -->
+
+                                    <!-- Grid column -->
+                                    <div class="col">
+                                        Horário: 
+                                        <input type="text" id="hour{{ i }}" value="16:00"/>
+                                    </div>
+                                    <!-- Grid column -->
+                                </div>
+                                <select class="browser-default custom-select" id="teamA{{ i }}">
+                                    <!--<option selected value="0">Atlético Paranaense</option>-->
+                                    <option *ngFor="let team of teams" value="{{team.id - 1}}">{{team.name}}
+                                    </option>
+                                </select>
+                                X
+                                <select class="browser-default custom-select" id="teamB{{ i }}">
+                                    <!--<option selected value="1">Atlético Mineiro</option> -->
+                                    <option *ngFor="let team of teams" value="{{team.id - 1}}">{{team.name}}
+                                    </option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-12 pb-3" style="text-align: center">
+                        <button class="m-0 p-2" type="button" mdbBtn color="primary" (click)="frame.show()"
+                            mdbWavesEffect>Ativar nova rodada</button>
+                    </div>
+                </div>
+                <!--Creating new round-->
+
+            </div>
+
+        </div>
+        <!-- Card -->
+    </div>
+</div>
+
+<!--Modal confirmation-->
+<div mdbModal #frame="mdbModal" class="modal fade" scrollY="true" maxHeight="200" id="frameModalTop" tabindex="-1"
+    role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" (open)="checkRound()">
+    <div class="modal-dialog modal-notify modal-warning" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+                <p class="heading lead">Confirmar Rodada</p>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+                    <span aria-hidden="true" class="white-text">&times;</span>
+                </button>
+            </div>
+
+            <!--Body Error-->
+            <div class="modal-body" *ngIf="!testForm">
+                <div class="text-center">
+                    <p>Existe campo vazio.</p>
+                    <p>É obrigatório o preenchimento de todos os campos.</p>
+                </div>
+            </div>
+            <!--Body Error-->
+
+            <!--Body OK-->
+            <div class="modal-body" *ngIf="testForm">
+                <table mdbTable mdbTableScroll scrollY="true" maxHeight="200" bordered="true">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nº</th>
+                            <th scope="col">Casa</th>
+                            <th scope="col">Data/Hora</th>
+                            <th scope="col">Visitante</th>
+                        </tr>
+                    </thead>
+                    <tbody [innerHtml]="previewGames">
+                    </tbody>
+                </table>
+            </div>
+            <!--Body OK-->
+
+            <!--Footer-->
+            <div class="modal-footer justify-content-center">
+                <a type="button" mdbBtn color="primary" class="waves-light" mdbWavesEffect *ngIf="testForm"
+                    (click)="confirmRound()">Confirmar</a>
+                <a type="button" mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect
+                    (click)="frame.hide()" data-dismiss="modal">Voltar</a>
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
+<!--Modal confirmation-->

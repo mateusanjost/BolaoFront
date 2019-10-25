@@ -1,0 +1,105 @@
+<div class="container">
+    <div class="row">
+        <!-- Card -->
+        <div class="card mb-5">
+
+            <div class="card-body" *ngIf="!isLoaded" id="spinner-loading">
+                <!-- Loading (desapears when is loaded) -->
+                <div  class="justify-content-center">Carregando...
+                    <div class="spinner-border"role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card content -->
+            <div class="card-body" *ngIf="isLoaded" >
+        
+                <!-- Title -->
+                <div class="col-12 pt-3">
+                    <h3>Resultado</h3>
+                </div>
+
+                <!-- Text -->
+                <div class="col-12">
+                    <p style="text-align: center">Rodada {{idRound}} - {{dateBegin | date: 'dd/MM'}} a {{dateEnd | date: 'dd/MM'}}</p>
+                </div>
+
+                <div class="row">
+                        <!--Table-->
+                        <table class="table table-striped">
+                
+                            <!--Table head-->
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center">placar</th>
+                                    <th style="text-align: center">resultado</th>
+                                </tr>
+                            </thead>
+                            <!--Table head-->
+                
+                            <!--Table body-->
+                            <tbody>
+                                <tr *ngFor="let game of responseGames; let i = index">
+                                    <td style="text-align: center">
+                                        <img src="../../assets/image/{{game.imgLogoTeamHome}}">{{game.teamHome}} 
+                                        <span class="goals">{{game.homeTeamScore}}</span> x <span class="goals">{{game.awayTeamScore}}</span> {{game.teamVisit}}<img src="../../assets/image/{{game.imgLogoTeamVisit}}">
+                                    </td>
+                                    <td style="text-align: center">
+                                        <span class="goals">{{game.result}}</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <!--Table body-->
+                
+                        </table>
+                        <!--Table-->
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 style="text-align: center">Prêmio Pago: <br/><span style="color: red; font-weight: bold;">R$ 11.250,00</span></h2>
+                            <p><span style="font-weight: bold;">Total de ganhadores:</span> 3</p>
+                            <p><span style="font-weight: bold;">Valor para cada ganhador:</span> R$ 3.750,00</p>
+                            <p><span style="font-weight: bold;">Número de acertos:</span> 8</p>
+                        </div>
+                        <div class="col-12">
+                            <p>Bilhetes vencedores:</p>
+                            <!--Table-->
+                        <table class="table table-striped" mdbTable mdbTableScroll scrollX="true" maxWidth="50%" bordered="true">
+                
+                                <!--Table head-->
+                                <thead>
+                                    <tr>
+                                        <th style="text-align: center">Bilhete</th>
+                                        <th style="text-align: center">Operador</th>
+                                        <th style="text-align: center">País</th>
+                                        <th style="text-align: center">Cidade</th>
+                                        <th style="text-align: center">Jogador</th>
+                                    </tr>
+                                </thead>
+                                <!--Table head-->
+                    
+                                <!--Table body-->
+                                <tbody>
+                                    <tr *ngFor="let ticket of winners; let i = index">
+                                        <td style="text-align: center">{{ticket.num}}</td>
+                                        <td style="text-align: center">{{ticket.operator}}</td>
+                                        <td style="text-align: center">{{ticket.country}}</td>
+                                        <td style="text-align: center">{{ticket.city}}</td>
+                                        <td style="text-align: center">{{ticket.player}}</td>
+                                    </tr>
+                                </tbody>
+                                <!--Table body-->
+                    
+                            </table>
+                            <!--Table-->
+                        </div>
+                    </div>
+        
+            </div>
+        
+        </div>
+        <!-- Card -->
+    </div>
+</div>

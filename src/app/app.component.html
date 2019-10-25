@@ -1,0 +1,119 @@
+<!-- The background video -->
+<video autoplay muted loop id="myVideo">
+    <source src="../assets/image/bg-video.mp4" type="video/mp4">
+</video>
+
+<!--Top page-->
+<div class="col-md-12 top">
+    <a href="http://www.jogobrasil.com.br"><img src="../assets/image/logo.png" class="img-fluid"
+            alt="Bolao Futebol"></a>
+</div>
+<!--Top page-->
+
+<!--Menu-->
+<div class="col-md-12 menu">
+    <!--Navbar-->
+    <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark">
+
+        <!-- Collapsible content -->
+        <links>
+
+            <!-- Links -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a routerLink="/home" class="nav-link waves-light" mdbWavesEffect>home</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/result" class="nav-link waves-light" mdbWavesEffect>resultado</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/ticket" class="nav-link waves-light" mdbWavesEffect>bilhetes</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/rule" class="nav-link waves-light" mdbWavesEffect>regras</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/contact" class="nav-link waves-light" mdbWavesEffect>contato</a>
+                </li>
+                <li class="nav-item dropdown btn-group"  *ngIf="isLogged" dropdown>
+                    <a dropdownToggle type="button" class="nav-link dropdown-toggle waves-light admin-style" mdbWavesEffect>
+                        admin<span class="caret"></span></a>
+                    <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                        <a class="dropdown-item waves-light" routerLink="/manage-ticket" href="#" mdbWavesEffect>gerenciar bilhete</a>
+                        <a class="dropdown-item waves-light" routerLink="/report" href="#" mdbWavesEffect>relatório</a>
+                        <div class="divider dropdown-divider"></div>
+                        <a class="dropdown-item waves-light" routerLink="/jurisdiction" href="#" mdbWavesEffect>jurisdição</a>
+                        <div class="divider dropdown-divider"></div>
+                        <a class="dropdown-item waves-light" routerLink="/round" href="#" mdbWavesEffect>criar rodada</a>
+                        <a class="dropdown-item waves-light" routerLink="/post-result" href="#" mdbWavesEffect>postar resultado</a>
+                        <a class="dropdown-item waves-light" routerLink="/jackpot" href="#" mdbWavesEffect>editar acumulado</a>
+                    </div>
+                </li>
+            </ul>
+            <!-- Links -->
+
+            <!-- Login button -->
+            <div class="md-form my-0">
+                <a class="nav-link waves-light admin-style" mdbWaverEffect (click)="frame.show()" *ngIf="!isLogged">login</a>
+                <a class="nav-link waves-light admin-style" mdbWaverEffect (click)="logout()" *ngIf="isLogged" routerLink="/home">logout {{ userAdmin.name }}</a>
+            </div>
+        </links>
+        <!-- Collapsible content -->
+
+        <!-- Hidden Navbar brand -->
+        <mdb-navbar-brand><a class="navbar-brand" style="color: #00AC43">B</a></mdb-navbar-brand>
+
+    </mdb-navbar>
+    <!--/.Navbar-->
+</div>
+<!--Menu-->
+
+<!--Content Pages-->
+<router-outlet></router-outlet>
+<!--Content Pages-->
+
+<!--Modal Login-->
+<!--OLD CODE <form (submit)="login($event)">-->
+<div mdbModal #frame="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Entrar</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3">
+                <div class="md-form mb-5">
+                    <mdb-icon fas icon="user" class="prefix grey-text"></mdb-icon>
+                    <input type="text" id="defaultForm-name" [formControl]="loginFormModalName" class="form-control"
+                        mdbInput mdbValidate>
+                    <label for="defaultForm-name">Login</label>
+                </div>
+
+                <div class="md-form mb-4">
+                    <mdb-icon fas icon="lock" class="prefix grey-text"></mdb-icon>
+                    <input type="password" id="defaultForm-pass" [formControl]="loginFormModalPassword"
+                        class="form-control" mdbInput mdbValidate>
+                    <label for="defaultForm-pass">Senha</label>
+                </div>
+
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <button mdbBtn color="default" class="waves-light" (click)="getLogin()" mdbWavesEffect>Login</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- OLD CODE </form> -->
+<!--Modal Login-->
+
+<!-- Footer -->
+<div class="col-md-12 my-footer">
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-1 align-text-top">&copy; 2019 Copyright: jogobrasil.com.br
+    </div>
+    <!-- Copyright -->
+</div>
+<!-- Footer -->
