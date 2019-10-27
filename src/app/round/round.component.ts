@@ -58,11 +58,11 @@ export class RoundComponent implements OnInit {
 
     this.listTeams();
     
-    setTimeout(() => {
-      document.getElementById("spinner-loading").classList.add("hidden");
-      this.initRound();
-      this.isLoaded = true;
-    }, 3000);
+    // setTimeout(() => {
+    //   document.getElementById("spinner-loading").classList.add("hidden");
+    //   this.initRound();
+    //   this.isLoaded = true;
+    // }, 3000);
   }
 
   listTeams() {
@@ -100,6 +100,9 @@ export class RoundComponent implements OnInit {
     this.configService.getGames(this.round.id)
     .subscribe(data => {
       this.games = data;
+      document.getElementById("spinner-loading").classList.add("hidden");
+      this.initRound();
+      this.isLoaded = true;
     }, error => {
       console.log(error);
     });

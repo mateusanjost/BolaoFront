@@ -5,14 +5,14 @@
 
             <!-- Loading (desapears when is loaded) -->
             <div *ngIf="!isLoaded" id="spinner-loading" class="card-body justify-content-center">Carregando...
-                    <div class="spinner-border"role="status">
-                        <span class="sr-only">Loading...</span>
-                    </div>
+                <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
             </div>
-        
+
             <!-- Card content -->
             <div class="card-body" *ngIf="isLoaded">
-        
+
                 <!-- Title -->
                 <div class="col-12">
                     <h3>Bilhetes</h3>
@@ -20,48 +20,51 @@
 
                 <!-- Text -->
                 <div class="col-12 mb-3">
-                        <!-- Search form -->
-                        <form class="form-inline waves-light" mdbWavesEffect>
-                            <div class="md-form mt-0">
-                                <input id="ticket-id" class="form-control mr-sm-2" type="text" placeholder="código do bilhete" required>
-                                <button type="button" mdbBtn color="warning" mdbWavesEffect (click)="searchTicket()">Procurar</button>
-                            </div>
-                        </form>
-                        <div class="row content-hidden" id="result-text" [innerHtml]="resultSearch"></div>
-                    </div>
-                    <div class="row">
-                
-                        <!--Table-->
-                        <table class="table table-striped" mdbTable mdbTableScroll maxWidth="50%" scrollX="true" bordered="true">
-                
-                            <!--Table head-->
-                            <thead>
-                                <tr>
-                                    <th>código</th>
-                                    <th>operador</th>
-                                    <th>jogador</th>
-                                    <th>resultados</th>
-                                </tr>
-                            </thead>
-                            <!--Table head-->
-                
-                            <!--Table body-->
-                            <tbody>
-                                <tr *ngFor="let bets of bets; let i = index">
-                                    <th scope="row">{{ bets.id }}</th>
-                                    <td>{{ userNameToShow[i] }}</td>
-                                    <td>{{ bets.playerName }}</td>
-                                    <td>{{ bets.results }}</td>
-                                </tr>
-                            </tbody>
-                            <!--Table body-->
-                
-                        </table>
-                        <!--Table-->
-                    </div>
-        
+                    <!-- Search form -->
+                    <form class="form-inline waves-light" mdbWavesEffect>
+                        <div class="md-form mt-0">
+                            <input id="ticket-id" class="form-control mr-sm-2" type="text"
+                                placeholder="código do bilhete" required>
+                            <button type="button" mdbBtn color="warning" mdbWavesEffect
+                                (click)="searchTicket()">Procurar</button>
+                        </div>
+                    </form>
+                    <div class="row content-hidden" id="result-text" [innerHtml]="resultSearch"></div>
+                </div>
+                <div class="row">
+
+                    <!--Table-->
+                    <table class="table table-striped" mdbTable mdbTableScroll maxWidth="50%" scrollX="true"
+                        bordered="true">
+
+                        <!--Table head-->
+                        <thead>
+                            <tr>
+                                <th>código</th>
+                                <th>operador</th>
+                                <th>jogador</th>
+                                <th>resultados</th>
+                            </tr>
+                        </thead>
+                        <!--Table head-->
+
+                        <!--Table body-->
+                        <tbody>
+                            <tr *ngFor="let bets of bets; let i = index">
+                                <th scope="row">{{ bets.id }}</th>
+                                <td>{{ userNameToShow[i] }}</td>
+                                <td>{{ bets.playerName }}</td>
+                                <td>{{ bets.results }}</td>
+                            </tr>
+                        </tbody>
+                        <!--Table body-->
+
+                    </table>
+                    <!--Table-->
+                </div>
+
             </div>
-        
+
         </div>
         <!-- Card -->
     </div>

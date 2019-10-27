@@ -24,11 +24,11 @@ export class TicketComponent implements OnInit {
   ngOnInit() {
     this.getLastRound();
 
-    setTimeout(() => {
-      document.getElementById("spinner-loading").classList.add("hidden");
-      this.isLoaded = true;
-      this.listUserNames();
-    }, 2000);
+    // setTimeout(() => {
+    //   document.getElementById("spinner-loading").classList.add("hidden");
+    //   this.isLoaded = true;
+    //   this.listUserNames();
+    // }, 2000);
 
   }
 
@@ -80,6 +80,9 @@ export class TicketComponent implements OnInit {
     this.configService.listUsers()
     .subscribe(data => {
       this.users = data;
+      document.getElementById("spinner-loading").classList.add("hidden");
+      this.isLoaded = true;
+      this.listUserNames();
     }, error => {
       console.log(error);
     })

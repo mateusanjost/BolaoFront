@@ -20,6 +20,11 @@
                         Juridição</button>
                 </div>
                 <div class="col-12">
+                    <div *ngIf="!isLoaded" id="spinner-loading" class="justify-content-center">Carregando...
+                        <div class="spinner-border"role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
                     <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
                         <!-- This is the tree node template for leaf nodes -->
                         <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>

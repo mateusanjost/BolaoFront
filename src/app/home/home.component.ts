@@ -51,11 +51,9 @@ export class HomeComponent implements OnInit {
     this.listTeams();
     this.getPrize();
 
-    setTimeout(() => {
-      document.getElementById("spinner-loading").classList.add("hidden");
-      this.initRound();
-      this.isLoaded = true;
-    }, 4000);
+    // setTimeout(() => {
+      
+    // }, 4000);
   }
 
   getPrize(){
@@ -94,6 +92,9 @@ export class HomeComponent implements OnInit {
     this.configService.getGames(this.round.id)
     .subscribe(data => {
       this.games = data;
+      this.initRound();
+      document.getElementById("spinner-loading").classList.add("hidden");
+      this.isLoaded = true;
     }, error => {
       console.log(error);
     });

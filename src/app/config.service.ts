@@ -16,7 +16,7 @@ import { Bet } from './bet.interface';
 export class ConfigService {
 
   apiUrl = 'http://api.socialawp.com';
-  //apiUrl = 'https://localhost:44341';
+  // apiUrl = 'https://localhost:44341';
 
   constructor(private http: HttpClient) { }
   
@@ -31,9 +31,12 @@ export class ConfigService {
 
   }
 
-
   listUsers(){
     return this.http.get<User[]>(`${this.apiUrl}/users/`);
+  }
+
+  listUsersByParentId(userId: number){
+    return this.http.get<User>(`${this.apiUrl}/common/GetTreeByParentId?userId=`+userId);
   }
 
   listTeams(){
@@ -153,6 +156,8 @@ export class ConfigService {
 
     return this.http.put<Game[]>(`${this.apiUrl}/matches/UpdateMatches/`, games, { headers: header });
   }
+
+
 
 
 }
