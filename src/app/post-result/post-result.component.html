@@ -21,8 +21,7 @@
                 <div class="col-12 pb-3" *ngIf="isLoaded">
                     <ul class="list-group">
                         <li class="list-group-item" *ngFor="let game of responseGames; let i = index" style="text-align: center">
-                            {{ game.teamHome }} <img src="../../assets/image/{{game.imgLogoTeamHome}}"> X <img
-                                src="../../assets/image/{{game.imgLogoTeamVisit}}"> {{ game.teamVisit }}
+                            {{ game.teamHome }} X {{ game.teamVisit }}
                             <!-- Default input -->
                             <input type="text" id="home-score{{i}}" class="form-control" value="{{ game.homeTeamScore }}">
                             <input type="text" id="visit-score{{i}}" class="form-control" value="{{ game.awayTeamScore }}">

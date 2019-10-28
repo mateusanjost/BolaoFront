@@ -1,7 +1,7 @@
-export interface Team {
+/*export interface Team {
     id: number;
     name: string;
     fileDataId: string;
-    teamCrest: string;
+    //teamCrest: string;
     abbreviation: string;
-}
+}*/

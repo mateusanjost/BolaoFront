@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { ModalDirective } from 'angular-bootstrap-md';
 import { ConfigService } from '../config.service';
-import { Team } from '../team.interface';
+//import { Team } from '../team.interface';
 import { Round } from '../round.interface';
 import { Game } from '../game.interface';
 import { ResponseGame } from '../response-game.class';
@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   isLogged: boolean = false;
   htmlToAdd: any;
   currentRound = new Array<any>();
-  teams: Team[];
+  //teams: Team[];
   round: Round;
   games: Game[];
   isLoaded: boolean = false;
@@ -48,7 +48,8 @@ export class HomeComponent implements OnInit {
     this.isLogged = this.appComponent.isLogged;
     //this.getRound();
 
-    this.listTeams();
+    //this.listTeams();
+    this.getLastRound();
     this.getPrize();
 
     // setTimeout(() => {
@@ -68,6 +69,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  /*
   listTeams() {
     this.configService.listTeams()
     .subscribe(data => {
@@ -77,6 +79,7 @@ export class HomeComponent implements OnInit {
       console.log(error);
     });
   }
+  */
 
   getLastRound(){
     this.configService.getLastRound()
@@ -117,12 +120,12 @@ export class HomeComponent implements OnInit {
     for(let i = 0; i < this.games.length; i++){
       this.responseGames[i] = new ResponseGame();
       this.responseGames[i].idGame = this.games[i].id;
-      this.responseGames[i].teamHome = this.teams[this.games[i].homeTeamId - 1].name;
-      this.responseGames[i].teamVisit = this.teams[this.games[i].awayTeamId - 1].name;
-      this.responseGames[i].homeAbbreviation = this.teams[this.games[i].homeTeamId - 1].abbreviation;
-      this.responseGames[i].visitAbbreviation = this.teams[this.games[i].awayTeamId - 1].abbreviation;
-      this.responseGames[i].imgLogoTeamHome = this.teams[this.games[i].homeTeamId - 1].fileDataId;
-      this.responseGames[i].imgLogoTeamVisit = this.teams[this.games[i].awayTeamId - 1].fileDataId;
+      this.responseGames[i].teamHome = this.games[i].homeName;
+      this.responseGames[i].teamVisit = this.games[i].awayName;
+      //this.responseGames[i].homeAbbreviation = this.teams[this.games[i].homeTeamId - 1].abbreviation;
+      //this.responseGames[i].visitAbbreviation = this.teams[this.games[i].awayTeamId - 1].abbreviation;
+      //this.responseGames[i].imgLogoTeamHome = this.teams[this.games[i].homeTeamId - 1].fileDataId;
+      //this.responseGames[i].imgLogoTeamVisit = this.teams[this.games[i].awayTeamId - 1].fileDataId;
       this.responseGames[i].homeTeamScore = this.games[i].homeTeamScore;
       this.responseGames[i].awayTeamScore = this.games[i].awayTeamScore;
       this.responseGames[i].dateBegin = this.games[i].dateTime;
@@ -205,11 +208,11 @@ export class HomeComponent implements OnInit {
           msgResult += this.responseGames[i].teamHome + ' X ' + this.responseGames[i].teamVisit + ' : ' + result + '<br/>';
         let showDateHour = new Date(this.ticket.date);
         this.htmlToAdd = 
-        //'id bilhete: '+ this.ticket.id + ' - rodada: ' + this.ticket.roundId + '<p/>' +
+        /*'id bilhete: '+ this.ticket.id + ' - */'rodada: ' + this.ticket.roundId + '<p/>' +
         //' data: ' + this.ticket.date + ' - hora: ' + this.ticket.hour + '<br/>'+
-        ' data: ' + showDateHour.getDate()+'/'+ (showDateHour.getMonth()+1) + ' - hora: ' + showDateHour.getHours()+':'+ showDateHour.getMinutes() + '<br/>'+
-        'operador: ' + this.appComponent.userAdmin.name + ' - jogador: ' + this.ticket.playerName + '<br/>'+
-        '<p>resultados: </p>' + msgResult;
+        ' criação: ' + showDateHour.getDate()+'/'+ (showDateHour.getMonth()+1) + ' - ' + showDateHour.getHours()+':'+ showDateHour.getMinutes() + '<br/>'+
+        'operador: ' + this.appComponent.userAdmin.name + ' - jogador: ' + this.ticket.playerName + '<br/><br/>'+
+        msgResult;
         }
       }
       else {
@@ -235,7 +238,7 @@ export class HomeComponent implements OnInit {
     }
     else {
       this.ticket.id = 10;
-      this.ticket.roundId = 20;
+      this.ticket.roundId = this.round.id;
       this.ticket.playerName = playerName;
       this.ticket.date = new Date(Date.now());
       this.ticket.hour = new Date(Date.now());

@@ -42,8 +42,8 @@
                             <tbody>
                                 <tr *ngFor="let game of responseGames; let i = index">
                                     <td style="text-align: center">
-                                        <img src="../../assets/image/{{game.imgLogoTeamHome}}">{{game.teamHome}} 
-                                        <span class="goals">{{game.homeTeamScore}}</span> x <span class="goals">{{game.awayTeamScore}}</span> {{game.teamVisit}}<img src="../../assets/image/{{game.imgLogoTeamVisit}}">
+                                        {{game.teamHome}} 
+                                        <span class="goals">{{game.homeTeamScore}}</span> x <span class="goals">{{game.awayTeamScore}}</span> {{game.teamVisit}}
                                     </td>
                                     <td style="text-align: center">
                                         <span class="goals">{{game.result}}</span>

@@ -3,7 +3,7 @@ import {FormControl} from '@angular/forms';
 import { ModalDirective } from 'angular-bootstrap-md';
 
 import { ConfigService } from '../config.service';
-import { Team } from '../team.interface';
+//import { Team } from '../team.interface';
 import { Round } from '../round.interface';
 import { Game } from '../game.interface';
 import { ResponseGame } from '../response-game.class';
@@ -39,7 +39,7 @@ export class RoundComponent implements OnInit {
   hourBegin: string;
   dateEnd: string;
   hourEnd: string;
-  teams: Team[];
+  //teams: Team[];
   round: Round;
   newRound: Round;
   games: Game[];
@@ -56,7 +56,8 @@ export class RoundComponent implements OnInit {
 
   ngOnInit() {
 
-    this.listTeams();
+    //this.listTeams();
+    this.getLastRound();
     
     // setTimeout(() => {
     //   document.getElementById("spinner-loading").classList.add("hidden");
@@ -65,7 +66,7 @@ export class RoundComponent implements OnInit {
     // }, 3000);
   }
 
-  listTeams() {
+  /*listTeams() {
     this.configService.listTeams()
     .subscribe(data => {
       this.teams = data;
@@ -73,7 +74,7 @@ export class RoundComponent implements OnInit {
     }, error =>{
       console.log(error);
     });
-  }
+  }*/
 
   getLastRound(){
     this.configService.getLastRound()
@@ -145,10 +146,10 @@ export class RoundComponent implements OnInit {
       else {
         this.previewGames +=
       '<tr>' +
-        '<th scope="row">' + this.games[i].id + '</th>'+
-        '<td style="text-align: right">' + this.teams[team1].name + ' <img src="../../assets/image/' + this.teams[team1].fileDataId + '">' + '</td>'+
+        '<th scope="row">' + (i + 1) + '</th>'+
+        '<td style="text-align: right">' + team1 + '</td>'+
         '<td>'+ date +'<br/>'+ hour +'</td>'+
-        '<td>' + ' <img src="../../assets/image/' + this.teams[team2].fileDataId + '">' + this.teams[team2].name + '</td>'+
+        '<td>' + team2 + '</td>'+
       '</tr>';
       
       this.gamesConstruction[i] = new ResponseGame();
@@ -162,12 +163,12 @@ export class RoundComponent implements OnInit {
       this.gamesConstruction[i].dateEnd = new Date(newDate);
       this.gamesConstruction[i].hourEnd = new Date(newDate);
       this.gamesConstruction[i].hourEnd.setTime(this.gamesConstruction[i].dateBegin.getTime() + (2*60*60*1000));
-      this.gamesConstruction[i].teamHome = this.teams[team1].name;
-      this.gamesConstruction[i].teamVisit = this.teams[team2].name;
-      this.gamesConstruction[i].idHome = this.teams[team1].id;
-      this.gamesConstruction[i].idVisit = this.teams[team2].id;
-      this.gamesConstruction[i].imgLogoTeamHome = this.teams[team1].imgLogo;
-      this.gamesConstruction[i].imgLogoTeamVisit = this.teams[team2].imgLogo;
+      this.gamesConstruction[i].teamHome = team1;
+      this.gamesConstruction[i].teamVisit = team2;
+      this.gamesConstruction[i].idHome = 100;
+      this.gamesConstruction[i].idVisit = 100;
+      this.gamesConstruction[i].imgLogoTeamHome = team1 + ".png";
+      this.gamesConstruction[i].imgLogoTeamVisit = team2 + ".png";
       }
     }
 
@@ -197,7 +198,9 @@ export class RoundComponent implements OnInit {
           this.newGames[i].roundId = data.id;
           this.newGames[i].dateTime = this.gamesConstruction[i].dateBegin;
           this.newGames[i].homeTeamId = this.gamesConstruction[i].idHome;
+          this.newGames[i].homeName = this.gamesConstruction[i].teamHome;
           this.newGames[i].awayTeamId = this.gamesConstruction[i].idVisit;
+          this.newGames[i].awayName = this.gamesConstruction[i].teamVisit;
           this.newGames[i].homeTeamScore = 0;
           this.newGames[i].awayTeamScore = 0;
           //console.log(this.newGames);
@@ -238,10 +241,10 @@ export class RoundComponent implements OnInit {
     for(let i = 0; i < this.games.length; i++){
       this.responseGames[i] = new ResponseGame();
       this.responseGames[i].idGame = this.games[i].id;
-      this.responseGames[i].teamHome = this.teams[this.games[i].homeTeamId - 1].name;
-      this.responseGames[i].teamVisit = this.teams[this.games[i].awayTeamId - 1].name;
-      this.responseGames[i].imgLogoTeamHome = this.teams[this.games[i].homeTeamId - 1].fileDataId;
-      this.responseGames[i].imgLogoTeamVisit = this.teams[this.games[i].awayTeamId - 1].fileDataId;
+      this.responseGames[i].teamHome = this.games[i].homeName;
+      this.responseGames[i].teamVisit = this.games[i].awayName;
+      this.responseGames[i].imgLogoTeamHome = this.games[i].homeName + ".png";
+      this.responseGames[i].imgLogoTeamVisit = this.games[i].awayName + ".png";
       this.responseGames[i].dateBegin = this.games[i].dateTime;
       this.responseGames[i].hourBegin = this.games[i].dateTime;
       this.responseGames[i].dateEnd = this.games[i].dateTime;

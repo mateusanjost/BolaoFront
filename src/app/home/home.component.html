@@ -33,26 +33,50 @@
     </div>
     <!--Round period-->
 
-    <!--Games-->
+    <!-- New Games-->
     <div class="row row-game" *ngFor="let game of responseGames; let i = index">
-            <div class="col-12" style="text-align: center">
-                    <button id="{{i}}a" (click)="chooseGameResult(i, '1')" class="small-spaces" type="button" mdbBtn
-                    color="light" mdbWavesEffect>
-                    {{game.homeAbbreviation}} <img src="../assets/image/{{game.imgLogoTeamHome}}" alt="mandante">
-                </button>
-                <button id="{{i}}b" (click)="chooseGameResult(i, 'X')" class="small-spaces" type="button" mdbBtn color="light"
-                    mdbWavesEffect>EMPATE
-                </button>
-                <button id="{{i}}c" (click)="chooseGameResult(i, '2')" class="small-spaces" type="button" mdbBtn
-                    color="light" mdbWavesEffect>
-                    {{game.visitAbbreviation}} <img src="../assets/image/{{game.imgLogoTeamVisit}}" alt="visitante">
-                </button>
-            </div>
-            <div class="col-12 justify-content-center pt-3">
-                {{ game.dateBegin | date: 'dd/MM'}} - {{ game.hourBegin | date: 'HH:mm' }}
-            </div>
+        <div class="col-6" style="text-align: right;">
+            {{game.teamHome}} - {{game.teamVisit}}
+        </div>
+        <div class="col-6" style="text-align: left">
+                <button id="{{i}}a" (click)="chooseGameResult(i, '1')" class="small-spaces" type="button" mdbBtn
+                color="light" mdbWavesEffect>
+                1
+            </button>
+            <button id="{{i}}b" (click)="chooseGameResult(i, 'X')" class="small-spaces" type="button" mdbBtn color="light"
+                mdbWavesEffect>X
+            </button>
+            <button id="{{i}}c" (click)="chooseGameResult(i, '2')" class="small-spaces" type="button" mdbBtn
+                color="light" mdbWavesEffect>
+                2
+            </button>
+        </div>
+        <div class="col-12 justify-content-center pt-1">
+            {{ game.dateBegin | date: 'dd/MM'}} - {{ game.hourBegin | date: 'HH:mm' }}
+        </div>
         </div>
     <!--Games-->
+
+    <!--OLD Games
+    <div class="row row-game" *ngFor="let game of responseGames; let i = index">
+        <div class="col-12" style="text-align: center">
+                <button id="{{i}}a" (click)="chooseGameResult(i, '1')" class="small-spaces" type="button" mdbBtn
+                color="light" mdbWavesEffect>
+                {{game.homeAbbreviation}} <img src="../assets/image/{{game.imgLogoTeamHome}}" alt="mandante">
+            </button>
+            <button id="{{i}}b" (click)="chooseGameResult(i, 'X')" class="small-spaces" type="button" mdbBtn color="light"
+                mdbWavesEffect>EMPATE
+            </button>
+            <button id="{{i}}c" (click)="chooseGameResult(i, '2')" class="small-spaces" type="button" mdbBtn
+                color="light" mdbWavesEffect>
+                {{game.visitAbbreviation}} <img src="../assets/image/{{game.imgLogoTeamVisit}}" alt="visitante">
+            </button>
+        </div>
+        <div class="col-12 justify-content-center pt-3">
+            {{ game.dateBegin | date: 'dd/MM'}} - {{ game.hourBegin | date: 'HH:mm' }}
+        </div>
+    </div>
+    Games-->
 
     <!--Button to create bet-->
     <div class="row justify-content-center">
@@ -105,7 +129,7 @@
       </div>
 
       <div class="modal-body" *ngIf="isLogged">
-            <div class="text-center">
+            <div>
               <p id="final-msg" [innerHtml]="htmlToAdd"></p>
             </div>
           </div>

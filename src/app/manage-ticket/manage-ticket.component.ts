@@ -60,7 +60,7 @@ export class ManageTicketComponent implements OnInit {
   }
 
   getBets(){
-    this.configService.getBets(this.round.id)
+    this.configService.getAllBets(this.round.id)
     .subscribe(data => {
       this.bets = data;
       this.getUsers();

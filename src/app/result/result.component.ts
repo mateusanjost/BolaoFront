@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfigService } from '../config.service';
-import { Team } from '../team.interface';
+//import { Team } from '../team.interface';
 import { Round } from '../round.interface';
 import { Game } from '../game.interface';
 import { ResponseGame } from '../response-game.class';
@@ -17,7 +17,7 @@ export class ResultComponent implements OnInit {
   winners: Array<any>;
 
   isLoaded: boolean = false;
-  teams: Team[];
+  //teams: Team[];
   round: Round;
   allRounds: Round[];
   games: Game[];
@@ -37,7 +37,8 @@ export class ResultComponent implements OnInit {
   }
 
  ngOnInit() {
-   this.listTeams();
+   //this.listTeams();
+   this.getRounds();
    this.getPrize();
   //  setTimeout(() => {
   //    document.getElementById("spinner-loading").classList.add("hidden");
@@ -47,7 +48,7 @@ export class ResultComponent implements OnInit {
 
  }
 
- listTeams() {
+ /*listTeams() {
    this.configService.listTeams()
    .subscribe(data => {
      this.teams = data;
@@ -55,7 +56,7 @@ export class ResultComponent implements OnInit {
    }, error =>{
      console.log(error);
    });
- }
+ }*/
 
  getRounds(){
    this.configService.getRound()
@@ -106,10 +107,10 @@ export class ResultComponent implements OnInit {
      // object to show the response to user
      this.responseGames[i] = new ResponseGame();
      this.responseGames[i].idGame = this.games[i].id;
-     this.responseGames[i].teamHome = this.teams[this.games[i].homeTeamId - 1].name;
-     this.responseGames[i].teamVisit = this.teams[this.games[i].awayTeamId - 1].name;
-     this.responseGames[i].imgLogoTeamHome = this.teams[this.games[i].homeTeamId - 1].fileDataId;
-     this.responseGames[i].imgLogoTeamVisit = this.teams[this.games[i].awayTeamId - 1].fileDataId;
+     this.responseGames[i].teamHome = this.games[i].homeName;
+     this.responseGames[i].teamVisit = this.games[i].awayName;
+     //this.responseGames[i].imgLogoTeamHome = this.teams[this.games[i].homeTeamId - 1].fileDataId;
+     //this.responseGames[i].imgLogoTeamVisit = this.teams[this.games[i].awayTeamId - 1].fileDataId;
      this.responseGames[i].homeTeamScore = this.games[i].homeTeamScore;
      this.responseGames[i].awayTeamScore = this.games[i].awayTeamScore;
      this.responseGames[i].dateBegin = this.games[i].dateTime;

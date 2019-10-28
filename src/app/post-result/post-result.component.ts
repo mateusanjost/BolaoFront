@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ConfigService } from '../config.service';
-import { Team } from '../team.interface';
+//import { Team } from '../team.interface';
 import { Round } from '../round.interface';
 import { Game } from '../game.interface';
 import { ResponseGame } from '../response-game.class';
@@ -18,7 +18,7 @@ export class PostResultComponent implements OnInit {
   postingOk: boolean = false;
   msgFinalResult: string = "";
   isLoaded: boolean = false;
-  teams: Team[];
+  //teams: Team[];
   round: Round;
   games: Game[];
   newGames: Game[];
@@ -32,17 +32,18 @@ export class PostResultComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.listTeams();
+    this.getLastRound();
+    /*this.listTeams();
 
     setTimeout(() => {
       document.getElementById("spinner-loading").classList.add("hidden");
       this.initRound();
       this.isLoaded = true;
-    }, 3000);
+    }, 3000);*/
 
   }
 
-  listTeams() {
+  /*listTeams() {
     this.configService.listTeams()
     .subscribe(data => {
       this.teams = data;
@@ -50,7 +51,7 @@ export class PostResultComponent implements OnInit {
     }, error =>{
       console.log(error);
     });
-  }
+  }*/
 
   getLastRound(){
     this.configService.getLastRound()
@@ -66,6 +67,9 @@ export class PostResultComponent implements OnInit {
     this.configService.getGames(this.round.id)
     .subscribe(data => {
       this.games = data;
+      this.initRound();
+      document.getElementById("spinner-loading").classList.add("hidden");
+      this.isLoaded = true;
     }, error => {
       console.log(error);
     });
@@ -89,10 +93,10 @@ export class PostResultComponent implements OnInit {
       // object to show the response to user
       this.responseGames[i] = new ResponseGame();
       this.responseGames[i].idGame = this.games[i].id;
-      this.responseGames[i].teamHome = this.teams[this.games[i].homeTeamId - 1].name;
-      this.responseGames[i].teamVisit = this.teams[this.games[i].awayTeamId - 1].name;
-      this.responseGames[i].imgLogoTeamHome = this.teams[this.games[i].homeTeamId - 1].fileDataId;
-      this.responseGames[i].imgLogoTeamVisit = this.teams[this.games[i].awayTeamId - 1].fileDataId;
+      this.responseGames[i].teamHome = this.games[i].homeName;
+      this.responseGames[i].teamVisit = this.games[i].awayName;
+      //this.responseGames[i].imgLogoTeamHome = this.teams[this.games[i].homeTeamId - 1].fileDataId;
+      //this.responseGames[i].imgLogoTeamVisit = this.teams[this.games[i].awayTeamId - 1].fileDataId;
       this.responseGames[i].homeTeamScore = this.games[i].homeTeamScore;
       this.responseGames[i].awayTeamScore = this.games[i].awayTeamScore;
       this.responseGames[i].dateBegin = this.games[i].dateTime;
@@ -128,9 +132,7 @@ export class PostResultComponent implements OnInit {
         test = false;
       }
       else {
-        this.msgFinalResult += ' <img src="../../assets/image/' + this.responseGames[i].imgLogoTeamHome + '">' +
-        this.responseGames[i].teamHome + ' '+ homeScore +' X ' + visitScore + ' '+ this.responseGames[i].teamVisit +
-        ' <img src="../../assets/image/' + this.responseGames[i].imgLogoTeamVisit + '">'+
+        this.msgFinalResult += this.responseGames[i].teamHome + ' '+ homeScore +' X ' + visitScore + ' '+ this.responseGames[i].teamVisit +
          ': ' + currentResult + '<br/>';
       }
 

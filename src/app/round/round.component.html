@@ -27,9 +27,9 @@
                     <ul class="list-group">
                         <li class="list-group-item" *ngFor="let game of responseGames; let i = index">
                                 <div class="row">
-                                <div class="col" style="text-align: right;">{{ game.teamHome }} <img src="../../assets/image/{{game.imgLogoTeamHome}}"></div>
+                                <div class="col" style="text-align: right;">{{ game.teamHome }}</div>
                                 <div class="col"style="text-align: center"> X </div>
-                                <div class="col"><img src="../../assets/image/{{game.imgLogoTeamVisit}}"> {{ game.teamVisit}}</div>
+                                <div class="col"> {{ game.teamVisit}}</div>
                             </div>
                         </li>
                     </ul>
@@ -90,17 +90,20 @@
                                     </div>
                                     <!-- Grid column -->
                                 </div>
+                                <div class="col">
+                                    Mandante: <input type="text" id="teamA{{ i }}"/>
+                                    Visitante: <input type="text" id="teamB{{ i }}"/>
+                                </div>
+                                <!--old select
                                 <select class="browser-default custom-select" id="teamA{{ i }}">
-                                    <!--<option selected value="0">Atlético Paranaense</option>-->
                                     <option *ngFor="let team of teams" value="{{team.id - 1}}">{{team.name}}
                                     </option>
                                 </select>
                                 X
                                 <select class="browser-default custom-select" id="teamB{{ i }}">
-                                    <!--<option selected value="1">Atlético Mineiro</option> -->
                                     <option *ngFor="let team of teams" value="{{team.id - 1}}">{{team.name}}
                                     </option>
-                                </select>
+                                </select>-->
                             </li>
                         </ul>
                     </div>

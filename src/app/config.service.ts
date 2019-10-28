@@ -16,7 +16,7 @@ import { Bet } from './bet.interface';
 export class ConfigService {
 
   apiUrl = 'http://api.socialawp.com';
-  // apiUrl = 'https://localhost:44341';
+  //apiUrl = 'https://localhost:44341';
 
   constructor(private http: HttpClient) { }
   
@@ -88,6 +88,10 @@ export class ConfigService {
   }
 
   getBets(roundId: number){
+    return this.http.get<Bet[]>(`${this.apiUrl}/common/GetActivatedBetsByRound/?roundId=` + roundId);
+  }
+  
+  getAllBets(roundId: number){
     return this.http.get<Bet[]>(`${this.apiUrl}/common/GetBetsByRound/?roundId=` + roundId);
   }
 
@@ -101,9 +105,10 @@ export class ConfigService {
       "resultBetId": 1,
       "playerId": 1,
       "playerName": bet.playerName,
-      "roundId": 6,
+      "roundId": bet.roundId,
       "userAdminId": bet.userId,
-      "results": bet.resultToPass
+      "results": bet.resultToPass,
+      "status": 1
     }
 
     return this.http.post<Bet>(this.apiUrl + '/bets/', jsonToPass, { headers: header });
@@ -138,8 +143,10 @@ export class ConfigService {
     });
 
     let jsonToPass = { 
-      "HomeTeamId" : newGame.homeTeamId, 
+      "HomeTeamId" : newGame.homeTeamId,
+      "HomeName" : newGame.homeName,
       "AwayTeamId" : newGame.awayTeamId, 
+      "AwayName" : newGame.awayName,
       "RoundId" : newGame.roundId, 
       "HomeTeamScore" : 0,
       "AwayTeamScore" : 0,
