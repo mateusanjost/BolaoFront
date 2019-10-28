@@ -88,15 +88,15 @@ export class JurisdictionComponent implements OnInit {
     };
   }
 
-  myUsers = new Array<User>();
-  
-  //TREE_USERS: JurisdictionNode[] = [];
-  TREE_USERS: JurisdictionNode[] = [
-    { 
-      name: "Casino",
-      jurisdictionId: 1,
-    }
-  ];
+  //myUsers = new Array<User>();
+  myUsers: User;
+  TREE_USERS: JurisdictionNode[] = [];
+  // TREE_USERS: JurisdictionNode[] = [
+  //   { 
+  //     name: "Casino",
+  //     jurisdictionId: 1
+  //   }
+  // ];
 
   treeControl = new FlatTreeControl<ExampleFlatNode>(
       node => node.jurisdictionId, node => node.expandable);
@@ -136,6 +136,8 @@ export class JurisdictionComponent implements OnInit {
 
   msgResponse: string = "";
 
+  isLoaded: boolean = false;
+
   constructor(private configService: ConfigService) {
     //this.dataSource.data = TREE_DATA;
     this.dataSource.data = this.TREE_USERS;
@@ -144,33 +146,49 @@ export class JurisdictionComponent implements OnInit {
 
   ngOnInit() {
     this.listUsers();
-    for (let i = this.myUsers.length; i > 1; i--){
-      this.TREE_USERS[i].name = this.myUsers[i].name;
-      this.TREE_USERS[i].jurisdictionId = this.myUsers[i].jurisdictionId;
-    }
+    // for (let i = this.myUsers.length; i > 1; i--){
+    //   this.TREE_USERS[i].name = this.myUsers[i].name;
+    //   this.TREE_USERS[i].jurisdictionId = this.myUsers[i].jurisdictionId;
+    // }
 
     /*this.TREE_USERS;*/
     //this.dataSource.data = this.listUsers();
-    this.TREE_USERS = [
-      { 
-        name: "Kiko",
-        jurisdictionId: 1,
-        children: [
-          {
-            name: "Dido",
-            jurisdictionId: 2
-          }
-        ]
-      }
-    ];
-    this.dataSource.data = this.TREE_USERS;
+    // this.TREE_USERS = [
+    //   { 
+    //     name: "Kiko",
+    //     jurisdictionId: 1,
+    //     children: [
+    //       {
+    //         name: "Dido",
+    //         jurisdictionId: 2
+    //       }
+    //     ]
+    //   }
+    // ];
+    // this.dataSource.data = this.TREE_USERS;
   }
 
   listUsers(){
-    this.configService.listUsers()
+    this.configService.listUsersByParentId(6) // passar o id do usuário logado
     .subscribe(data => {
       this.myUsers = data;
       console.log(this.myUsers);
+
+      this.TREE_USERS.push({
+        name: this.myUsers.name,
+        jurisdictionId: this.myUsers.jurisdictionId,
+        children: this.myUsers.children
+      });
+
+      this.dataSource.data = this.TREE_USERS
+
+      // this.TREE_USERS[0].name = this.myUsers[0].name;
+      // this.TREE_USERS[0].jurisdictionId = this.myUsers[0].jurisdictionId;
+      // this.TREE_USERS[0].children = this.myUsers[0].children;
+
+      document.getElementById("spinner-loading").classList.add("hidden");
+      this.isLoaded = true;
+
     }, error =>{
       console.log(error);
     });
