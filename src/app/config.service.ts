@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { AnonymousSubject } from 'rxjs/internal/Subject';
 
 import { User } from './user.interface';
-import { Team } from './team.interface';
+//import { Team } from './team.interface';
 import { Round } from './round.interface';
 import { Game } from './game.interface';
 import { Prize } from './prize.interface';
@@ -39,9 +39,9 @@ export class ConfigService {
     return this.http.get<User>(`${this.apiUrl}/common/GetTreeByParentId?userId=`+userId);
   }
 
-  listTeams(){
+  /*listTeams(){
     return this.http.get<Team[]>(`${this.apiUrl}/teams/`);
-  }
+  }*/
 
   getPrize(){
     return this.http.get<Prize>(`${this.apiUrl}/prizes/`);
