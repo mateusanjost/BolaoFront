@@ -10,26 +10,23 @@ import {
 import { MatSliderModule } from '@angular/material/slider';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
+const MATERIAL_MODULES = [
+    MatButtonModule,
+    MatIconModule,
+    MatTreeModule,
+    MatSliderModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule
+];
+
 @NgModule({
     imports: [
-        MatButtonModule,
-        MatIconModule,
-        MatTreeModule,
-        MatSliderModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatFormFieldModule,
-        MatInputModule
+        MATERIAL_MODULES
     ],
     exports: [
-        MatButtonModule,
-        MatIconModule,
-        MatTreeModule,
-        MatSliderModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatFormFieldModule,
-        MatInputModule
+        MATERIAL_MODULES
     ]
 })
 
