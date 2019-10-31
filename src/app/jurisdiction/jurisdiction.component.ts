@@ -5,6 +5,7 @@ import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
 
 import { User } from '../user.interface';
 import { ConfigService } from '../config.service';
+import { AppComponent } from '../app.component';
 //import { ConsoleReporter } from 'jasmine';
 
 interface FoodNode {
@@ -138,7 +139,7 @@ export class JurisdictionComponent implements OnInit {
 
   isLoaded: boolean = false;
 
-  constructor(private configService: ConfigService) {
+  constructor(private configService: ConfigService, private appComponent: AppComponent) {
     //this.dataSource.data = TREE_DATA;
     this.dataSource.data = this.TREE_USERS;
     //this.dataSource.data = this.listUsers();
@@ -169,7 +170,7 @@ export class JurisdictionComponent implements OnInit {
   }
 
   listUsers(){
-    this.configService.listUsersByParentId(6) // passar o id do usuário logado
+    this.configService.listUsersByParentId(this.appComponent.userAdmin.id) // passar o id do usuário logado
     .subscribe(data => {
       this.myUsers = data;
       console.log(this.myUsers);
@@ -180,11 +181,7 @@ export class JurisdictionComponent implements OnInit {
         children: this.myUsers.children
       });
 
-      this.dataSource.data = this.TREE_USERS
-
-      // this.TREE_USERS[0].name = this.myUsers[0].name;
-      // this.TREE_USERS[0].jurisdictionId = this.myUsers[0].jurisdictionId;
-      // this.TREE_USERS[0].children = this.myUsers[0].children;
+      this.dataSource.data = this.TREE_USERS;
 
       document.getElementById("spinner-loading").classList.add("hidden");
       this.isLoaded = true;

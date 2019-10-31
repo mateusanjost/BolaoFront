@@ -15,8 +15,8 @@ import { Bet } from './bet.interface';
 })
 export class ConfigService {
 
-  apiUrl = 'http://api.socialawp.com';
-  //apiUrl = 'https://localhost:44341';
+  //apiUrl = 'http://api.socialawp.com';
+  apiUrl = 'https://localhost:44341';
 
   constructor(private http: HttpClient) { }
   
