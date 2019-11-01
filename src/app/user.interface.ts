@@ -11,5 +11,7 @@ export interface User {
     jurisdiction: string;
     userPermission: string;
     id: number;
+    country: string;
+    city: string;
     children: User[];
 }

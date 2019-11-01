@@ -5,6 +5,8 @@ import { Round } from '../round.interface';
 import { Game } from '../game.interface';
 import { ResponseGame } from '../response-game.class';
 import { Prize } from '../prize.interface';
+import { Bet } from '../bet.interface';
+import { User } from '../user.interface';
 
 @Component({
   selector: 'app-result',
@@ -21,10 +23,15 @@ export class ResultComponent implements OnInit {
   round: Round;
   allRounds: Round[];
   games: Game[];
+  tickets: Bet[];
+  ticketsUsed: Bet[] = [];
+  users: User[];
+  usersUsed: User[] = [];
   idRound: number;
   dateBegin: string;
   dateEnd: string;
   responseGames = new Array<ResponseGame>();
+  finalTable: any[] = [];
 
   prizes: Prize;
   jackpot: string;
@@ -39,24 +46,9 @@ export class ResultComponent implements OnInit {
  ngOnInit() {
    //this.listTeams();
    this.getRounds();
-   this.getPrize();
-  //  setTimeout(() => {
-  //    document.getElementById("spinner-loading").classList.add("hidden");
-  //    this.initRound();
-  //    this.isLoaded = true;
-  //  }, 3000);
+   //this.getPrize();
 
  }
-
- /*listTeams() {
-   this.configService.listTeams()
-   .subscribe(data => {
-     this.teams = data;
-     this.getRounds();
-   }, error =>{
-     console.log(error);
-   });
- }*/
 
  getRounds(){
    this.configService.getRound()
@@ -71,10 +63,41 @@ export class ResultComponent implements OnInit {
    this.configService.getSpecificRound(roundId)
    .subscribe(data => {
     this.round = data;
-    this.getGames();
+    this.getWinners();
+    //this.getGames();
    }, error => {
      console.log(error);
    })
+ }
+
+ getWinners(){
+   this.configService.listRoundWinners(this.round.id)
+   .subscribe(data => {
+     this.winners = data;
+     this.getBets();
+   }, error => {
+     console.log(error);
+   });
+ }
+
+ getBets(){
+   this.configService.getBets(this.round.id)
+   .subscribe(data => {
+     this.tickets = data;
+     this.getUsers();
+   }, error => {
+     console.log(error);
+   });
+ }
+
+ getUsers(){
+   this.configService.listUsers()
+   .subscribe(data => {
+     this.users = data;
+     this.getGames();
+   }, error => {
+     console.log(error);
+   });
  }
 
  getGames(){
@@ -89,12 +112,31 @@ export class ResultComponent implements OnInit {
    });
  }
 
- // will be used to get data from DB
  initRound(){
 
    this.idRound = this.round.number;
    this.dateBegin = this.round.startDateTime.toString();
    this.dateEnd = this.round.endDateTime.toString();
+   this.prizeSharing = this.winners[0].value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+   // filtering tickets and users, then mounting the table result
+   for (let i = 0; i < this.winners.length; i++){
+     this.ticketsUsed.push(this.tickets.find(x => x.id == this.winners[i].betId));
+     this.usersUsed.push(this.users.find(x => x.id == this.tickets[i].userAdminId));
+     this.finalTable.push(
+       { "betId":this.winners[i].betId,
+       "operator": this.usersUsed[i].name,
+       "country": this.usersUsed[i].country,
+       "city": this.usersUsed[i].city,
+       "playerName": this.ticketsUsed[i].playerName
+      });
+    }
+
+   let tempAmount = 0;
+   for (let i = 0; i < this.winners.length; i++){
+     tempAmount += this.winners[i].value;
+   }
+   this.prizeAmount = tempAmount.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
    this.generateGames();
  }
@@ -122,7 +164,7 @@ export class ResultComponent implements OnInit {
    }
  }
 
-  getPrize(){
+  /*getPrize(){
     this.configService.getPrize()
     .subscribe(data => {
       this.prizes = data;
@@ -134,9 +176,9 @@ export class ResultComponent implements OnInit {
     }, error =>{
       console.log(error);
     });
-  }
+  }*/
 
-  getWinners() {
+  /*getWinners() {
     
     let ticket1 = { num: "1032", operator: "AGENCIA01", country: "Brasil", city: "Rio de Janeiro", player: "Carlos H" };
     let ticket2 = { num: "1044", operator: "MN", country: "Brasil", city: "Manaus", player: "anônimo" };
@@ -145,6 +187,6 @@ export class ResultComponent implements OnInit {
     this.winners = [ ticket1, ticket2, ticket3 ];
 
     this.prizeSharing = (this.prizes[0].gathered / this.winners.length).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-  }
+  }*/
 
 }

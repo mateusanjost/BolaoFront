@@ -61,7 +61,7 @@
                             <h2 style="text-align: center">Prêmio Pago: <br/><span style="color: red; font-weight: bold;">{{prizeAmount}}</span></h2>
                             <p><span style="font-weight: bold;">Total de ganhadores: </span>{{winners.length}}</p>
                             <p><span style="font-weight: bold;">Valor para cada ganhador: </span>{{prizeSharing}}</p>
-                            <p><span style="font-weight: bold;">Número de acertos: </span>8</p>
+                            <p><span style="font-weight: bold;">Número de acertos: </span>{{winners[0].points}}</p>
                         </div>
                         <div class="col-12">
                             <p>Bilhetes vencedores:</p>
@@ -82,12 +82,12 @@
                     
                                 <!--Table body-->
                                 <tbody>
-                                    <tr *ngFor="let ticket of winners; let i = index">
-                                        <td style="text-align: center">{{ticket.num}}</td>
-                                        <td style="text-align: center">{{ticket.operator}}</td>
-                                        <td style="text-align: center">{{ticket.country}}</td>
-                                        <td style="text-align: center">{{ticket.city}}</td>
-                                        <td style="text-align: center">{{ticket.player}}</td>
+                                    <tr *ngFor="let table of finalTable; let i = index">
+                                        <td style="text-align: center">{{table.betId}}</td>
+                                        <td style="text-align: center">{{table.operator}}</td>
+                                        <td style="text-align: center">{{table.country}}</td>
+                                        <td style="text-align: center">{{table.city}}</td>
+                                        <td style="text-align: center">{{table.playerName}}</td>
                                     </tr>
                                 </tbody>
                                 <!--Table body-->

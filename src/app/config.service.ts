@@ -35,6 +35,10 @@ export class ConfigService {
     return this.http.get<User[]>(`${this.apiUrl}/users/`);
   }
 
+  getUser(userId: number){
+    return this.http.get<User>(`${this.apiUrl}/users/` + userId);
+  }
+
   listUsersByParentId(userId: number){
     return this.http.get<User>(`${this.apiUrl}/common/GetTreeByParentId?userId=`+userId);
   }
@@ -85,6 +89,10 @@ export class ConfigService {
     let jsonToPass = { "number" : newRound.number, "startDateTime" : newRound.startDateTime, "endDateTime" : newRound.endDateTime }
     
     return this.http.post<Round>(this.apiUrl + '/rounds/', jsonToPass, { headers: header });
+  }
+
+  getBet(betId: number){
+    return this.http.get<Bet>(`${this.apiUrl}/bets/` + betId);
   }
 
   getBets(roundId: number){
@@ -164,7 +172,7 @@ export class ConfigService {
     return this.http.put<Game[]>(`${this.apiUrl}/matches/UpdateMatches/`, games, { headers: header });
   }
 
-
-
-
+  listRoundWinners(roundId: number){
+    return this.http.get<any[]>(`${this.apiUrl}/common/GetWinnersByRound/?roundId=` + roundId);
+  }
 }
