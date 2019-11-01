@@ -7,6 +7,7 @@ import { ResponseGame } from '../response-game.class';
 import { Prize } from '../prize.interface';
 import { Bet } from '../bet.interface';
 import { User } from '../user.interface';
+import { Jurisdiction } from '../jurisdiction.interface';
 
 @Component({
   selector: 'app-result',
@@ -188,5 +189,24 @@ export class ResultComponent implements OnInit {
 
     this.prizeSharing = (this.prizes[0].gathered / this.winners.length).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   }*/
+
+  createJurisdiction(){
+
+    let newJurisdiction: Jurisdiction;
+
+    // this.configService.addJurisdiction(newJurisdiction).subscribe(response => {
+    //   console.log(response);
+    // }, error => { 
+    //   console.log(error);
+    // });
+  }
+
+  removeJurisdiction(jurisdictionId){
+    // this.configService.removeJurisdiction(jurisdictionId).subscribe(response => {
+    //   console.log(response);
+    // }, error => { 
+    //   console.log(error);
+    // });
+  }
 
 }
