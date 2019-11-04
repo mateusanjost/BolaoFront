@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AnonymousSubject } from 'rxjs/internal/Subject';
 
 import { User } from './user.interface';
 //import { Team } from './team.interface';
@@ -9,6 +8,7 @@ import { Round } from './round.interface';
 import { Game } from './game.interface';
 import { Prize } from './prize.interface';
 import { Bet } from './bet.interface';
+import { Jurisdiction } from './jurisdiction.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -178,5 +178,25 @@ export class ConfigService {
 
   listRoundWinners(roundId: number){
     return this.http.get<any[]>(`${this.apiUrl}/common/GetWinnersByRound/?roundId=` + roundId);
+  }
+
+  addJurisdiction(newJurisdiction: Jurisdiction){
+    const header = new HttpHeaders({
+      'Content-type': 'application/json'
+    });
+
+    return this.http.post<Jurisdiction>(this.apiUrl + '/jurisdictions/', newJurisdiction, { headers: header });
+  }
+
+  updateJurisdiction(jurisdiction: Jurisdiction){
+    const header = new HttpHeaders({
+      'Content-type': 'application/json'
+    });
+
+    return this.http.put<Jurisdiction>(`${this.apiUrl}/jurisdictions/`+ jurisdiction.jurisdictionId, jurisdiction, { headers: header });
+  }
+
+  removeJurisdiction(jurisdictionId: number){
+    return this.http.delete<Jurisdiction>(`${this.apiUrl}/jurisdictions/` + jurisdictionId);
   }
 }
