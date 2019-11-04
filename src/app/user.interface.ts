@@ -13,5 +13,6 @@ export interface User {
     id: number;
     country: string;
     city: string;
+    credit: number;
     children: User[];
 }

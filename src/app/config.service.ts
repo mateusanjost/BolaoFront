@@ -43,6 +43,10 @@ export class ConfigService {
     return this.http.get<User>(`${this.apiUrl}/common/GetTreeByParentId?userId=`+userId);
   }
 
+  getUsersListByParentId(userId: number){
+    return this.http.get<User[]>(`${this.apiUrl}/common/GetListByParentId?userId=`+userId);
+  }
+
   /*listTeams(){
     return this.http.get<Team[]>(`${this.apiUrl}/teams/`);
   }*/

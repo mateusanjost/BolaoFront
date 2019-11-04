@@ -24,6 +24,7 @@ import { ManageTicketComponent } from './manage-ticket/manage-ticket.component';
 import { ReportComponent } from './report/report.component';
 import { JurisdictionComponent } from './jurisdiction/jurisdiction.component';
 import { MAT_DATE_LOCALE } from '@angular/material';
+import { CreditTransferComponent } from './credit-transfer/credit-transfer.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { MAT_DATE_LOCALE } from '@angular/material';
     JackpotComponent,
     ManageTicketComponent,
     ReportComponent,
-    JurisdictionComponent
+    JurisdictionComponent,
+    CreditTransferComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +65,7 @@ import { MAT_DATE_LOCALE } from '@angular/material';
       {path: 'manage-ticket', component: ManageTicketComponent},
       {path: 'report', component: ReportComponent},
       {path: 'jurisdiction', component: JurisdictionComponent},
+      {path: 'credit-transfer', component: CreditTransferComponent},
       { path: '', redirectTo: '/home', pathMatch: 'full' }
     ])
   ],

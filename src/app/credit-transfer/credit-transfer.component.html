@@ -1,0 +1,48 @@
+<div class="container">
+    <!-- Card -->
+    <div class="card mb-5">
+        <!-- Card content -->
+
+        <div class="card-body" *ngIf="!isLoaded" id="spinner-loading">
+            <!-- Loading (desapears when is loaded) -->
+            <div  class="justify-content-center">Carregando...
+                <div class="spinner-border"role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body" *ngIf="isLoaded">
+            <div class="row">
+                <div class="col-12 pt-3">
+                    <h3>Transferência de Crédito</h3>
+                    <p>Seu crédito é de: {{ownCredit}}</p>
+                    <p><mat-form-field>
+                        <mat-label>Transação</mat-label>
+                        <select matNativeControl>
+                          <option value="1">Retirar</option>
+                          <option value="2">Creditar</option>
+                        </select>
+                    </mat-form-field>
+                    </p>
+                    <p>
+                    <mat-form-field>
+                        <mat-label>Jurisdição</mat-label>
+                        <mat-select>
+                          <mat-option *ngFor="let user of myUsers; let i = index" value="user{{user.id}}">
+                            {{user.name}} {{user.credit}}
+                          </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-form-field>
+                            <input matInput placeholder="Valor">
+                        </mat-form-field>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Card -->
+</div>
