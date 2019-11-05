@@ -19,18 +19,35 @@ export class CreditTransferComponent implements OnInit {
   constructor(private configService: ConfigService, private appComponent: AppComponent) { }
 
   ngOnInit() {
-    this.listUsers();
-    this.user = this.appComponent.userAdmin;
-    this.ownCredit = this.user.credit.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    this.getUser();
+    //this.user = this.appComponent.userAdmin;
+    //this.ownCredit = this.user.credit.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   }
   
+  getUser(){
+    this.configService.getUser(this.appComponent.userAdmin.id)
+    .subscribe(data => {
+      this.user = data;
+      this.listUsers();
+    }, error => {
+      console.log(error);
+    });
+  }
+
   listUsers(){
     this.configService.getUsersListByParentId(this.appComponent.userAdmin.id)
     .subscribe(data => {
       this.myUsers = data;
-      this.isLoaded = true;
-      document.getElementById("spinner-loading").classList.add("hidden");
+      this.setOwnCredit();
+    }, error => {
+      console.log(error);
     });
+  }
+
+  setOwnCredit(){
+    this.ownCredit = this.user.credit.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    this.isLoaded = true;
+    document.getElementById("spinner-loading").classList.add("hidden");
   }
 
   onSubmit(form: NgForm){

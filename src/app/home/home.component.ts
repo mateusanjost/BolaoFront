@@ -251,15 +251,32 @@ export class HomeComponent implements OnInit {
   }
 
   postTicket(){
-    this.configService.postBet(this.ticket)
+    let userId = this.appComponent.userAdmin.id;
+    let newUserCredit = this.appComponent.userAdmin.credit - 10;
+    if (newUserCredit >= 0){
+      this.configService.postBet(this.ticket)
+      .subscribe(data => {
+        this.updateUserCredit(userId, newUserCredit);
+        //this.updateJackpot();
+        //this.clearTicket();
+      }, error => {
+        alert("Erro de conexão! Cód: 99");
+        console.log(error);
+      });
+    }
+    else {
+      alert("Você não possui crédito suficiente para criar aposta.");
+    }
+
+  }
+
+  updateUserCredit(userId: number, newUserCredit: number){
+    this.configService.updateUserCredit(userId, newUserCredit)
     .subscribe(data => {
       this.updateJackpot();
-      //this.clearTicket();
     }, error => {
-      alert("Erro de conexão! Cód: 99");
-      console.log(error);
-    })
-
+      alert("Erro de conexão! Cód: 103");
+    });
   }
 
   updateJackpot(){
