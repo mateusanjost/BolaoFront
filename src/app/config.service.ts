@@ -47,6 +47,15 @@ export class ConfigService {
     return this.http.get<User[]>(`${this.apiUrl}/common/GetListByParentId?userId=`+userId);
   }
 
+  updateUserCredit(userId: number, credit: number){
+    const header = new HttpHeaders({
+      'Content-type': 'application/json'
+    });
+    
+    //return this.http.put<any>(`${this.apiUrl}/common/UpdateCreditTransfer/?userId=`+userId, credit, { headers: header });
+    return this.http.put<any>(`${this.apiUrl}/common/UpdateCreditTransfer/?userId=`+userId+'&credit='+credit, { headers: header });
+  }
+
   /*listTeams(){
     return this.http.get<Team[]>(`${this.apiUrl}/teams/`);
   }*/

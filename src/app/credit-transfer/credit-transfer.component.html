@@ -17,9 +17,13 @@
                 <div class="col-12 pt-3">
                     <h3>Transferência de Crédito</h3>
                     <p>Seu crédito é de: {{ownCredit}}</p>
+                </div>
+                <div class="col-12" style="text-align: center;">
+
+                    <form  #f="ngForm" (ngSubmit)="onSubmit(f)">
                     <p><mat-form-field>
                         <mat-label>Transação</mat-label>
-                        <select matNativeControl>
+                        <select matNativeControl name="operation" ngModel required>
                           <option value="1">Retirar</option>
                           <option value="2">Creditar</option>
                         </select>
@@ -28,8 +32,8 @@
                     <p>
                     <mat-form-field>
                         <mat-label>Jurisdição</mat-label>
-                        <mat-select>
-                          <mat-option *ngFor="let user of myUsers; let i = index" value="user{{user.id}}">
+                        <mat-select name="jurisdiction" required ngModel>
+                          <mat-option *ngFor="let user of myUsers; let i = index" value="{{user.id}}">
                             {{user.name}} {{user.credit}}
                           </mat-option>
                         </mat-select>
@@ -37,9 +41,13 @@
                     </p>
                     <p>
                         <mat-form-field>
-                            <input matInput placeholder="Valor">
+                            <input matInput placeholder="Valor" name="credit" required ngModel>
                         </mat-form-field>
                     </p>
+                    <p>
+                        <button mat-raised-button color="success" [disabled]="f.invalid">Primary</button>
+                    </p>
+                </form>
                 </div>
             </div>
         </div>
