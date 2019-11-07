@@ -122,10 +122,6 @@ export class HomeComponent implements OnInit {
       this.responseGames[i].idGame = this.games[i].id;
       this.responseGames[i].teamHome = this.games[i].homeName;
       this.responseGames[i].teamVisit = this.games[i].awayName;
-      //this.responseGames[i].homeAbbreviation = this.teams[this.games[i].homeTeamId - 1].abbreviation;
-      //this.responseGames[i].visitAbbreviation = this.teams[this.games[i].awayTeamId - 1].abbreviation;
-      //this.responseGames[i].imgLogoTeamHome = this.teams[this.games[i].homeTeamId - 1].fileDataId;
-      //this.responseGames[i].imgLogoTeamVisit = this.teams[this.games[i].awayTeamId - 1].fileDataId;
       this.responseGames[i].homeTeamScore = this.games[i].homeTeamScore;
       this.responseGames[i].awayTeamScore = this.games[i].awayTeamScore;
       this.responseGames[i].dateBegin = this.games[i].dateTime;
@@ -232,7 +228,7 @@ export class HomeComponent implements OnInit {
     }
 
     // check if is there the player name; if so, fullfill the ticket object to go ahead
-    let playerName = (<HTMLInputElement>document.getElementById("player-name")).value;
+    let playerName = (<HTMLInputElement>document.getElementById("player-name")).value != "" ? (<HTMLInputElement>document.getElementById("player-name")).value : "";
     if (playerName == "") {
       test = false;
     }
@@ -251,14 +247,18 @@ export class HomeComponent implements OnInit {
   }
 
   postTicket(){
+    this.modalCreate.hide();
+    this.isLoaded = false;
+
     let userId = this.appComponent.userAdmin.id;
+    console.log("crédito anterior: " + this.appComponent.userAdmin.credit);
     let newUserCredit = this.appComponent.userAdmin.credit - 10;
+    console.log("novo crédito: " + newUserCredit);
     if (newUserCredit >= 0){
       this.configService.postBet(this.ticket)
       .subscribe(data => {
+        this.appComponent.userAdmin.credit = newUserCredit;
         this.updateUserCredit(userId, newUserCredit);
-        //this.updateJackpot();
-        //this.clearTicket();
       }, error => {
         alert("Erro de conexão! Cód: 99");
         console.log(error);
@@ -313,6 +313,8 @@ export class HomeComponent implements OnInit {
 
   clearTicket(){
     alert("Aposta Realizada!");
+    /*
+    this.isLoaded = true;
 
     this.ticket = 
     {
@@ -325,8 +327,9 @@ export class HomeComponent implements OnInit {
     (<HTMLInputElement>document.getElementById("player-name")).value = "";
 
     this.modalCreate.hide();
-
+    */
     this.router.navigate(['/ticket']);
+    
 
     //window.location.reload();
 

@@ -7,21 +7,7 @@ import { ConfigService } from '../config.service';
 import { Round } from '../round.interface';
 import { Game } from '../game.interface';
 import { ResponseGame } from '../response-game.class';
-
-/*
-class ResponseGame {
-  
-  idGame: number;
-  teamHome: string;
-  teamVisit: string;
-  imgLogoTeamHome: string;
-  imgLogoTeamVisit: string;
-  dateBegin: string;
-  hourBegin: string;
-  dateEnd: string;
-  hourEnd: string;
-
-}*/
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-round',
@@ -52,29 +38,11 @@ export class RoundComponent implements OnInit {
   isLoaded: boolean = false;
   errorCreation: boolean = false;
 
-  constructor(private configService: ConfigService) { }
+  constructor(private configService: ConfigService, private router: Router) { }
 
   ngOnInit() {
-
-    //this.listTeams();
     this.getLastRound();
-    
-    // setTimeout(() => {
-    //   document.getElementById("spinner-loading").classList.add("hidden");
-    //   this.initRound();
-    //   this.isLoaded = true;
-    // }, 3000);
   }
-
-  /*listTeams() {
-    this.configService.listTeams()
-    .subscribe(data => {
-      this.teams = data;
-      this.getLastRound();
-    }, error =>{
-      console.log(error);
-    });
-  }*/
 
   getLastRound(){
     this.configService.getLastRound()
@@ -85,17 +53,6 @@ export class RoundComponent implements OnInit {
       console.log(error);
     });
   }
-  
-  /*getRound(){
-    this.configService.getRound()
-    .subscribe(data => {
-      //this.allRounds = data;
-      this.round = data[data.length - 2];
-      this.getGames();
-    }, error => {
-      console.log(error);
-    });
-  }*/
 
   getGames(){
     this.configService.getGames(this.round.id)
@@ -109,12 +66,7 @@ export class RoundComponent implements OnInit {
     });
   }
 
-  // will be used to get data from DB
   initRound(){
-    // var str = "Hello world!";
-    // var res = str.substring(1, 4);
-
-    // console.log(res);
 
     this.idRound = this.round.number;
     this.dateBegin = this.round.startDateTime.toString();
@@ -180,20 +132,18 @@ export class RoundComponent implements OnInit {
   }
 
   confirmRound(){
-
-    //this.responseGames = this.gamesConstruction;
+    this.modalCreate.hide();
+    this.isLoaded = false;
+    
     this.newRound = this.round;
-    //this.newRound.id++;
     this.newRound.number++;
     this.newRound.startDateTime = this.gamesConstruction[0].dateBegin;
     this.newRound.endDateTime = this.gamesConstruction[9].hourEnd;
-    //console.log(this.newRound);
     
     this.newGames = this.games;
     
     this.configService.createRound(this.newRound)
       .subscribe(data => {
-        //this.newGames.id = data.id;
         for (let i = 0; i < this.gamesConstruction.length; i++){
           this.newGames[i].roundId = data.id;
           this.newGames[i].dateTime = this.gamesConstruction[i].dateBegin;
@@ -203,7 +153,6 @@ export class RoundComponent implements OnInit {
           this.newGames[i].awayName = this.gamesConstruction[i].teamVisit;
           this.newGames[i].homeTeamScore = 0;
           this.newGames[i].awayTeamScore = 0;
-          //console.log(this.newGames);
     
           this.configService.createGame(this.newGames[i])
             .subscribe(data => {
@@ -225,11 +174,11 @@ export class RoundComponent implements OnInit {
       }
       else {
         alert("Rodada Criada com Sucesso!");
+        this.ngOnInit();
+        //this.router.navigate(['/home']);
       }
 
     this.creatingNew = false;
-
-    this.modalCreate.hide();
   }
 
   cancelingCreation(){
