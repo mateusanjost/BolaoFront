@@ -1,0 +1,37 @@
+<div class="container">
+    <!-- Card -->
+    <div class="card mb-5">
+        <!-- Card content -->
+
+        <div class="card-body" *ngIf="!isLoaded" id="spinner-loading">
+            <!-- Loading (desapears when is loaded) -->
+            <div class="justify-content-center">Carregando...
+                <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body" *ngIf="isLoaded">
+            <div class="row">
+                <div class="col-12 pt-3">
+                    <h3>Configurações</h3>
+                    <div class="row">
+                        <div class="col-md-4">Login: {{user.login}} <a style="color: blue; text-decoration: underline">(alterar senha)</a></div>
+                        <div class="col-md-4">Crédito: {{ownCredit}} </div>
+                        <div class="col-md-4">Comissão: {{ user.comission }} %</div>
+                        <div class="col-md-4">Nome: {{user.name}} </div>
+                        <div class="col-md-4">Sobrenome: {{ user.lastName }}</div>
+                        <div class="col-md-4">E-mail: {{ user.email }}</div>
+                        <div class="col-md-4">País: {{ user.country }}</div>
+                        <div class="col-md-4">Cidade: {{ user.city }}</div>
+                    </div>
+                    <div class="col-12" style="text-align: center;">
+                        <button class="mt-1 p-2" type="button" mdbBtn color="primary" mdbWavesEffect>Alterar Dados</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Card -->
+</div>

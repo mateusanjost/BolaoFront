@@ -25,6 +25,7 @@ import { ReportComponent } from './report/report.component';
 import { JurisdictionComponent } from './jurisdiction/jurisdiction.component';
 import { MAT_DATE_LOCALE } from '@angular/material';
 import { CreditTransferComponent } from './credit-transfer/credit-transfer.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { CreditTransferComponent } from './credit-transfer/credit-transfer.compo
     ManageTicketComponent,
     ReportComponent,
     JurisdictionComponent,
-    CreditTransferComponent
+    CreditTransferComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -66,6 +68,7 @@ import { CreditTransferComponent } from './credit-transfer/credit-transfer.compo
       {path: 'report', component: ReportComponent},
       {path: 'jurisdiction', component: JurisdictionComponent},
       {path: 'credit-transfer', component: CreditTransferComponent},
+      {path: 'settings', component: SettingsComponent},
       { path: '', redirectTo: '/home', pathMatch: 'full' }
     ])
   ],

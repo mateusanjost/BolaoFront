@@ -8,6 +8,8 @@ import { Game } from '../game.interface';
 import { ResponseGame } from '../response-game.class';
 import { Prize } from '../prize.interface';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +18,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   @ViewChild('frame2', { static: true }) modalCreate: ModalDirective;
+  betForm: FormGroup;
 
   isLogged: boolean = false;
   htmlToAdd: any;
@@ -34,7 +37,7 @@ export class HomeComponent implements OnInit {
   fullPrize: string;
 
   ticket = {
-    id: 0, date: new Date(Date.now()), hour: new Date(Date.now()), userName: "", playerName: "", status: "inactivated", roundId: 0,
+    id: 0, date: new Date(Date.now()), hour: new Date(Date.now()), userName: "", playerName: "", status: "inactivated", roundId: 0, roundNum: 0,
     results: ["", "", "", "", "", "", "", "", "", ""],  resultToPass: "", userId: 1
   };
 
@@ -46,15 +49,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.isLogged = this.appComponent.isLogged;
-    //this.getRound();
-
-    //this.listTeams();
     this.getLastRound();
     this.getPrize();
 
-    // setTimeout(() => {
-      
-    // }, 4000);
+    this.betForm = new FormGroup({
+      user: new FormControl('', { validators: [Validators.required] })
+    });
   }
 
   getPrize(){
@@ -68,18 +68,6 @@ export class HomeComponent implements OnInit {
       console.log(error);
     });
   }
-
-  /*
-  listTeams() {
-    this.configService.listTeams()
-    .subscribe(data => {
-      this.teams = data;
-      this.getLastRound();
-    }, error =>{
-      console.log(error);
-    });
-  }
-  */
 
   getLastRound(){
     this.configService.getLastRound()
@@ -176,14 +164,17 @@ export class HomeComponent implements OnInit {
     }
 
   }
-  onOpen(event: any) {
+  onOpen(form: NgForm) {
+    this.modalCreate.show();
+
     // allways when opens the modal to confirm the bet, must be logged in
     this.isLogged = this.appComponent.isLogged;
 
     // once logged in, verify if is everything allright with the current ticket; if so, show the ticket
     if (this.isLogged) {
-      if (this.checkTicket()) {
+      if (this.checkTicket(form.value.player_name)) {
         let msgResult = "";
+        this.ticket.resultToPass = "";
         for (let i = 0; i < 10; i++){
           let result = "";
           if (this.ticket.results[i] == '1'){
@@ -204,7 +195,7 @@ export class HomeComponent implements OnInit {
           msgResult += this.responseGames[i].teamHome + ' X ' + this.responseGames[i].teamVisit + ' : ' + result + '<br/>';
         let showDateHour = new Date(this.ticket.date);
         this.htmlToAdd = 
-        /*'id bilhete: '+ this.ticket.id + ' - */'rodada: ' + this.ticket.roundId + '<p/>' +
+        /*'id bilhete: '+ this.ticket.id + ' - */'rodada: ' + this.ticket.roundNum + '<p/>' +
         //' data: ' + this.ticket.date + ' - hora: ' + this.ticket.hour + '<br/>'+
         ' criação: ' + showDateHour.getDate()+'/'+ (showDateHour.getMonth()+1) + ' - ' + showDateHour.getHours()+':'+ showDateHour.getMinutes() + '<br/>'+
         'operador: ' + this.appComponent.userAdmin.name + ' - jogador: ' + this.ticket.playerName + '<br/><br/>'+
@@ -217,7 +208,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  checkTicket() {
+  checkTicket(playerName: string) {
     let test: boolean = true;
 
     // check whether all results was choosen
@@ -228,13 +219,10 @@ export class HomeComponent implements OnInit {
     }
 
     // check if is there the player name; if so, fullfill the ticket object to go ahead
-    let playerName = (<HTMLInputElement>document.getElementById("player-name")).value != "" ? (<HTMLInputElement>document.getElementById("player-name")).value : "";
-    if (playerName == "") {
-      test = false;
-    }
-    else {
+    if (test && playerName != undefined) {
       this.ticket.id = 10;
       this.ticket.roundId = this.round.id;
+      this.ticket.roundNum = this.round.number;
       this.ticket.playerName = playerName;
       this.ticket.date = new Date(Date.now());
       this.ticket.hour = new Date(Date.now());
@@ -251,9 +239,7 @@ export class HomeComponent implements OnInit {
     this.isLoaded = false;
 
     let userId = this.appComponent.userAdmin.id;
-    console.log("crédito anterior: " + this.appComponent.userAdmin.credit);
     let newUserCredit = this.appComponent.userAdmin.credit - 10;
-    console.log("novo crédito: " + newUserCredit);
     if (newUserCredit >= 0){
       this.configService.postBet(this.ticket)
       .subscribe(data => {

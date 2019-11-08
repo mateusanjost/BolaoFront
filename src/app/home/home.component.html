@@ -57,50 +57,38 @@
         </div>
     <!--Games-->
 
-    <!--OLD Games
-    <div class="row row-game" *ngFor="let game of responseGames; let i = index">
-        <div class="col-12" style="text-align: center">
-                <button id="{{i}}a" (click)="chooseGameResult(i, '1')" class="small-spaces" type="button" mdbBtn
-                color="light" mdbWavesEffect>
-                {{game.homeAbbreviation}} <img src="../assets/image/{{game.imgLogoTeamHome}}" alt="mandante">
-            </button>
-            <button id="{{i}}b" (click)="chooseGameResult(i, 'X')" class="small-spaces" type="button" mdbBtn color="light"
-                mdbWavesEffect>EMPATE
-            </button>
-            <button id="{{i}}c" (click)="chooseGameResult(i, '2')" class="small-spaces" type="button" mdbBtn
-                color="light" mdbWavesEffect>
-                {{game.visitAbbreviation}} <img src="../assets/image/{{game.imgLogoTeamVisit}}" alt="visitante">
-            </button>
-        </div>
-        <div class="col-12 justify-content-center pt-3">
-            {{ game.dateBegin | date: 'dd/MM'}} - {{ game.hourBegin | date: 'HH:mm' }}
-        </div>
-    </div>
-    Games-->
-
     <!--Button to create bet-->
     <div class="row justify-content-center">
+            <div class="card mb-3">
+
+                    <div class="card-body">
     
         <!-- Default form row -->
-        <form>
+        <form #f="ngForm" (ngSubmit)="onOpen(f)">
             <!-- Grd row -->
-            <div class="form-row pb-3">
+            <div class="form-row">
                 <!-- Grid column -->
                 <div class="col-7">
                     <!-- Default input -->
-                    <input mdbInput type="text" id="player-name" class="form-control" placeholder="Nome do Jogador">
+                        <!--<input mdbInput type="text" name="player-name" id="player-name" class="form-control" placeholder="Nome do Jogador" required ngModel>-->
+                    <mat-form-field>
+                        <input matInput placeholder="Nome do Jogador" id="player_name" name="player_name" required ngModel style="color: black">
+                        <mat-error>Preencha o nome do jogador.</mat-error>
+                    </mat-form-field>
                 </div>
                 <!-- Grid column -->
 
                 <!-- Grid column -->
                 <div class="col-5">
-                    <button (click)="frame2.show()" type="button" mdbBtn size="sm" color="success" mdbWavesEffect>Apostar</button>
+                    <!--<button (click)="frame2.show()" type="button" mdbBtn size="sm" color="success" mdbWavesEffect>Apostar</button>-->
+                    <button mat-raised-button color="primary" [disabled]="f.invalid" style="background-color: #00AC43;">Apostar</button>
                 </div>
             </div>
             <!-- Grd row -->
         </form>
         <!-- Default form row -->
-    
+        </div>
+    </div>
     </div>
     <!--Button to create bet-->
 </div>
@@ -108,7 +96,7 @@
 
 <!--Modal confirm ticket-->
 <div mdbModal #frame2="mdbModal" class="modal fade" id="frameModalTop" tabindex="-1" role="dialog"
-  aria-labelledby="myModalLabel" aria-hidden="true" (open)="onOpen($event)">
+  aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-notify modal-warning" role="document">
     <!--Content-->
     <div class="modal-content">

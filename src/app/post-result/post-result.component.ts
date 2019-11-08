@@ -146,19 +146,22 @@ export class PostResultComponent implements OnInit {
   }
 
   confirmResults(){
+    this.isLoaded = false;
+    this.modalPost.hide();
     
     // call the server function
     this.configService.updateMatches(this.newGames)
     .subscribe(data => {
       alert("Resultados postados com sucesso!");
+      this.ngOnInit();
     }, error =>{
       console.log(error);
       alert("Não postado por algum erro de conexão!");
+      this.ngOnInit();
     });
 
     this.postingOk = false;
 
-    this.modalPost.hide();
   }
 
 }

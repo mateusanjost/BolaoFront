@@ -8,6 +8,7 @@ import { Round } from '../round.interface';
 import { Game } from '../game.interface';
 import { ResponseGame } from '../response-game.class';
 import { Router } from '@angular/router';
+import { Prize } from '../prize.interface';
 
 @Component({
   selector: 'app-round',
@@ -26,6 +27,7 @@ export class RoundComponent implements OnInit {
   dateEnd: string;
   hourEnd: string;
   //teams: Team[];
+  prizes: Prize;
   round: Round;
   newRound: Round;
   games: Game[];
@@ -58,6 +60,16 @@ export class RoundComponent implements OnInit {
     this.configService.getGames(this.round.id)
     .subscribe(data => {
       this.games = data;
+      this.getPrizes();
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  getPrizes(){
+    this.configService.getPrize()
+    .subscribe(data => {
+      this.prizes = data;
       document.getElementById("spinner-loading").classList.add("hidden");
       this.initRound();
       this.isLoaded = true;
@@ -89,7 +101,7 @@ export class RoundComponent implements OnInit {
     for (let i = 0; i < 10; i++){
       let team1 = (<HTMLInputElement>document.getElementById("teamA"+(i))).value;
       let team2 = (<HTMLInputElement>document.getElementById("teamB"+(i))).value;
-      let date = (<HTMLInputElement>document.getElementById("mat-input-"+(i))).value;
+      let date = (<HTMLInputElement>document.getElementById("mat-input-"+(i+1))).value;
       let hour = (<HTMLInputElement>document.getElementById("hour"+(i))).value;
 
       if(roundNum == "" || team1 == "" || team2 == "" || date == "" || hour == ""){
@@ -156,12 +168,25 @@ export class RoundComponent implements OnInit {
     
           this.configService.createGame(this.newGames[i])
             .subscribe(data => {
-              // creationg OK
+              // Creation OK
             }, error => {
               console.log("internal code: 102 " + error);
               this.errorCreation = true;
             });
         }
+        this.prizes[0].roundId = data.id;
+        this.prizes[1].roundId = data.id;
+        this.configService.updateJackpot(this.prizes[0])
+        .subscribe(data => {
+          this.configService.updateApportionment(this.prizes[1])
+          .subscribe(data => {
+            // Updates successfull
+          }, error => {
+            console.log(error);
+          });
+        }, error => {
+          console.log(error);
+        });
       }, error => {
         console.log("internal code: 101 " + error);
         this.errorCreation = true;
@@ -175,7 +200,6 @@ export class RoundComponent implements OnInit {
       else {
         alert("Rodada Criada com Sucesso!");
         this.ngOnInit();
-        //this.router.navigate(['/home']);
       }
 
     this.creatingNew = false;
