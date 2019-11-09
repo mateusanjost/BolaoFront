@@ -2,7 +2,7 @@
 
     <!-- Olda Card -->
     <div class="card">
-    
+
         <!-- Card content -->
         <div class="card-body">
             <div class="row">
@@ -16,38 +16,48 @@
                 <div class="col-12">
                     <button class="p-2" type="button" mdbBtn color="success" mdbWavesEffect (click)="frame.show()">Criar
                         Juridição</button>
-                    <button class="p-2" type="button" mdbBtn color="danger" mdbWavesEffect (click)="frame2.show()">Excluir
-                        Juridição</button>
+                    <button class="p-2" type="button" mdbBtn color="danger" mdbWavesEffect
+                        (click)="frame2.show()">Excluir Juridição</button>
                 </div>
                 <div class="col-12">
                     <div *ngIf="!isLoaded" id="spinner-loading" class="justify-content-center">Carregando...
-                        <div class="spinner-border"role="status">
+                        <div class="spinner-border" role="status">
                             <span class="sr-only">Loading...</span>
                         </div>
                     </div>
                     <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
                         <!-- This is the tree node template for leaf nodes -->
-                        <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
-                            <!-- use a disabled button to provide padding for tree leaf -->
-                            <button mat-icon-button disabled></button>
-                            <img src="../../assets/image/{{node.jurisdictionId + 1}}.png" width="20px" height="20px"
-                                style="margin-right: 3px">{{node.name}}
+                        <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
+                            <li class="mat-tree-node">
+                                <!-- use a disabled button to provide padding for tree leaf -->
+                                <button mat-icon-button disabled></button>
+                                <img src="../../assets/image/{{node.jurisdictionId}}.png" width="20px" height="20px"
+                                    style="margin-right: 3px">{{node.name}}
+                            </li>
                         </mat-tree-node>
                         <!-- This is the tree node template for expandable nodes -->
-                        <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
-                            <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'toggle ' + node.name">
-                                <mat-icon class="mat-icon-rtl-mirror">
-                                    {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-                                </mat-icon>
-                            </button>
-                            <img src="../../assets/image/{{node.jurisdictionId + 1}}.png" width="20px" height="20px"
-                                style="margin-right: 3px">{{node.name}}
-                        </mat-tree-node>
+                        <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+                            <li style="list-style: none">
+                                <div class="mat-tree-node">
+                                    <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'toggle ' + node.name">
+                                        <mat-icon class="mat-icon-rtl-mirror">
+                                            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                                        </mat-icon>
+                                    </button>
+                                    <img src="../../assets/image/{{node.jurisdictionId}}.png" width="20px" height="20px"
+                                        style="margin-right: 3px">{{node.name}}
+                                </div>
+                                <ul [class.example-tree-invisible]="!treeControl.isExpanded(node)"
+                                    style="list-style: none">
+                                    <ng-container matTreeNodeOutlet></ng-container>
+                                </ul>
+                            </li>
+                        </mat-nested-tree-node>
                     </mat-tree>
                 </div>
             </div>
         </div>
-    
+
     </div>
     <!-- Card -->
 
@@ -55,7 +65,8 @@
 
 <!--Modal create jurisdiction-->
 <div mdbModal #frame="mdbModal" class="modal fade" scrollY="true" maxHeight="200" id="frameModalTop" tabindex="-1"
-    role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+    [config]="{backdrop: false, ignoreBackdropClick: true}">
     <div class="modal-dialog modal-notify modal-success" role="document">
         <!--Content-->
         <div class="modal-content">
@@ -72,78 +83,46 @@
             <div class="modal-body">
                 <div class="col-12">
                     <!-- Form -->
-                    <form style="color: #757575;" action="#!">
+                    <form style="color: #757575;" #jurisdictionForm="ngForm" >
 
-                        <!-- Group of material radios - option 1 -->
-                        <div class="form-check">
-                            <input type="radio" class="form-check-input" id="materialGroupExample1"
-                                name="groupOfMaterialRadios">
-                            <label class="form-check-label" for="materialGroupExample1">Nacional</label>
+                        <div *ngFor="let jur of jurisdicoesPai">
+                            <input type="radio" [value]="jur.value" name="jurType" [(ngModel)]="jurisdictionForm.jurisdictionId" required>
+                            <label for="jurType">{{jur.label}}</label>
                         </div>
 
-                        <!-- Group of material radios - option 2 -->
-                        <div class="form-check">
-                            <input type="radio" class="form-check-input" id="materialGroupExample2"
-                                name="groupOfMaterialRadios">
-                            <label class="form-check-label" for="materialGroupExample2">Regional</label>
-                        </div>
+                        <mat-form-field class="w-100">
+                            <mat-label>Login</mat-label>
+                            <input matInput required [(ngModel)]="jurisdictionForm.login" name="login">
+                        </mat-form-field>
 
-                        <!-- Group of material radios - option 3 -->
-                        <div class="form-check">
-                            <input type="radio" class="form-check-input" id="materialGroupExample3"
-                                name="groupOfMaterialRadios">
-                            <label class="form-check-label" for="materialGroupExample3">Distrito</label>
-                        </div>
+                        <mat-form-field class="w-100">
+                            <mat-label>Senha</mat-label>
+                            <input matInput required [(ngModel)]="jurisdictionForm.password" name="password">
+                        </mat-form-field>
 
-                        <!-- Group of material radios - option 4 -->
-                        <div class="form-check">
-                            <input type="radio" class="form-check-input" id="materialGroupExample4"
-                                name="groupOfMaterialRadios">
-                            <label class="form-check-label" for="materialGroupExample4">Local</label>
-                        </div>
+                        <mat-form-field class="w-100">
+                            <mat-label>Confirmar senha</mat-label>
+                            <input matInput type="password" required>
+                        </mat-form-field>
 
-                        <!-- Group of material radios - option 5 -->
-                        <div class="form-check">
-                            <input type="radio" class="form-check-input" id="materialGroupExample5"
-                                name="groupOfMaterialRadios" checked>
-                            <label class="form-check-label" for="materialGroupExample5">Clube</label>
-                        </div>
+                        <mat-form-field class="w-100">
+                            <mat-label>E-mail</mat-label>
+                            <input matInput type="email" required [(ngModel)]="jurisdictionForm.email" name="email">
+                        </mat-form-field>
 
-                        <!-- Login -->
-                        <div class="md-form mt-3">
-                            <input type="text" id="login" class="form-control" placeholder="login*">
-                        </div>
+                        <mat-form-field class="w-100">
+                            <mat-label>Jurisdição Pai</mat-label>
+                            <mat-select required [(ngModel)]="jurisdictionForm.parentId" name="parent">
+                                <mat-option *ngFor="let jurisdicaoPai of jurisdicoesPai" [value]="jurisdicaoPai.value">
+                                    {{jurisdicaoPai.label}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
 
-                        <!-- Password -->
-                        <div class="md-form">
-                            <input type="password" id="password" class="form-control" placeholder="senha*">
-                        </div>
-
-                        <!-- Confirm Password -->
-                        <div class="md-form">
-                            <input type="password" id="confirm-password" class="form-control"
-                                placeholder="confirmar senha*">
-                        </div>
-
-                        <!-- E-mail -->
-                        <div class="md-form">
-                            <input type="email" id="email" class="form-control" placeholder="e-mail*">
-                        </div>
-
-                        <!-- Subject -->
-                        <span> Pai* </span>
-                        <select class="mdb-select" id="father">
-                            <option value="" selected>Escolher...</option>
-                            <option value="1">loRJ</option>
-                            <option value="2">loManaus</option>
-                        </select>
-
-                        <!--Message-->
-                        <div class="md-form">
-                            <textarea id="materialContactFormMessage" class="form-control md-textarea"
-                                rows="3"></textarea>
-                            <label for="materialContactFormMessage">Observação</label>
-                        </div>
+                        <mat-form-field class="w-100">
+                            <mat-label>Observação</mat-label>
+                            <textarea matInput rows="3" [(ngModel)]="jurisdictionForm.obs" name="obs"></textarea>
+                        </mat-form-field>
 
                     </form>
                     <!-- Form -->
@@ -153,10 +132,10 @@
 
             <!--Footer-->
             <div class="modal-footer justify-content-center">
-                <a type="button" mdbBtn color="success" class="waves-light" mdbWavesEffect
-                    (click)="confirmCreate()">Confirmar</a>
-                <a type="button" mdbBtn color="success" outline="true" class="waves-effect" mdbWavesEffect
-                    (click)="frame.hide()" data-dismiss="modal">Voltar</a>
+                <button type="submit" mdbBtn color="success" class="waves-light" mdbWavesEffect (click)="onSubmit(jurisdictionForm)"
+                    [disabled]="!jurisdictionForm.form.valid">Confirmar</button>
+                <button type="submit" mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect
+                    (click)="frame.hide()" data-dismiss="modal">Cancelar</button>
             </div>
         </div>
         <!--/.Content-->
@@ -166,7 +145,8 @@
 
 <!--Modal delete jurisdiction-->
 <div mdbModal #frame2="mdbModal" class="modal fade" scrollY="true" maxHeight="200" id="frameModalTop" tabindex="-1"
-    role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+    [config]="{backdrop: false, ignoreBackdropClick: true}">
     <div class="modal-dialog modal-notify modal-danger" role="document">
         <!--Content-->
         <div class="modal-content">
@@ -212,7 +192,7 @@
                 <a type="button" mdbBtn color="danger" class="waves-light" mdbWavesEffect
                     (click)="confirmDelete()">Confirmar</a>
                 <a type="button" mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect
-                    (click)="frame2.hide()" data-dismiss="modal">Voltar</a>
+                    (click)="frame2.hide()" data-dismiss="modal">Cancelar</a>
             </div>
         </div>
         <!--/.Content-->

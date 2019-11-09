@@ -9,6 +9,7 @@ import { Game } from './game.interface';
 import { Prize } from './prize.interface';
 import { Bet } from './bet.interface';
 import { Jurisdiction } from './jurisdiction.interface';
+import { JurisdictionForm } from './JurisdictionForm.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -197,15 +198,16 @@ export class ConfigService {
     return this.http.post<Jurisdiction>(this.apiUrl + '/jurisdictions/', newJurisdiction, { headers: header });
   }
 
-  updateJurisdiction(jurisdiction: Jurisdiction){
+  addNewUser(user: JurisdictionForm){
     const header = new HttpHeaders({
       'Content-type': 'application/json'
     });
 
-    return this.http.put<Jurisdiction>(`${this.apiUrl}/jurisdictions/`+ jurisdiction.jurisdictionId, jurisdiction, { headers: header });
+    return this.http.post<Jurisdiction>(`${this.apiUrl}/users/`, user, { headers: header });
   }
 
-  removeJurisdiction(jurisdictionId: number){
-    return this.http.delete<Jurisdiction>(`${this.apiUrl}/jurisdictions/` + jurisdictionId);
+  removeUser(userId: number){
+    return this.http.delete<Jurisdiction>(`${this.apiUrl}/users/` + userId);
   }
+  
 }

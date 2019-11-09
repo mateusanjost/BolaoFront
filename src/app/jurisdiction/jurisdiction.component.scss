@@ -25,3 +25,15 @@
     width: 100%;
     background: rgba(255, 255, 255, 0.95);
 }
+
+.example-tree ul,
+.example-tree li {
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.example-tree-invisible {
+    display: none;
+    list-style: none;
+  }
