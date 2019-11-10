@@ -85,9 +85,10 @@
                     <!-- Form -->
                     <form style="color: #757575;" #jurisdictionForm="ngForm" >
 
-                        <div *ngFor="let jur of jurisdicoesPai">
-                            <input type="radio" [value]="jur.value" name="jurType" [(ngModel)]="jurisdictionForm.jurisdictionId" required>
-                            <label for="jurType">{{jur.label}}</label>
+                        <label>Tipo *</label>
+                        <div *ngFor="let jurisdiction of jurisdictions" style="margin-left: 15px">
+                            <input type="radio" [value]="jurisdiction.id" name="jurType" [(ngModel)]="jurisdictionForm.jurisdictionId" required>
+                            <label for="jurType">{{jurisdiction.name}}</label>
                         </div>
 
                         <mat-form-field class="w-100">
@@ -113,8 +114,8 @@
                         <mat-form-field class="w-100">
                             <mat-label>Jurisdição Pai</mat-label>
                             <mat-select required [(ngModel)]="jurisdictionForm.parentId" name="parent">
-                                <mat-option *ngFor="let jurisdicaoPai of jurisdicoesPai" [value]="jurisdicaoPai.value">
-                                    {{jurisdicaoPai.label}}
+                                <mat-option *ngFor="let user of treeList" [value]="user.id">
+                                    {{user.jurisdictionId}}-{{user.name}}
                                 </mat-option>
                             </mat-select>
                         </mat-form-field>
@@ -132,7 +133,7 @@
 
             <!--Footer-->
             <div class="modal-footer justify-content-center">
-                <button type="submit" mdbBtn color="success" class="waves-light" mdbWavesEffect (click)="onSubmit(jurisdictionForm)"
+                <button type="submit" mdbBtn color="success" class="waves-light" mdbWavesEffect (click)="addNewUserAdmin(jurisdictionForm)"
                     [disabled]="!jurisdictionForm.form.valid">Confirmar</button>
                 <button type="submit" mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect
                     (click)="frame.hide()" data-dismiss="modal">Cancelar</button>
@@ -163,23 +164,18 @@
             <div class="modal-body">
                 <div class="col-12">
                     <!-- Form -->
-                    <form style="color: #757575;" action="#!">
+                    <form style="color: #757575;">
 
                         <!-- Jurisdiction -->
-                        <span>Jurisdição </span>
-                        <select class="mdb-select" id="jurisdiction">
-                            <option value="" selected>Escolher...</option>
-                            <option value="1">naBrasil</option>
-                            <option value="1">reSudeste</option>
-                            <option value="1">reNorte</option>
-                            <option value="1">diRJ</option>
-                            <option value="1">diManaus</option>
-                            <option value="1">loRJ</option>
-                            <option value="1">loManaus</option>
-                            <option value="1">clRio</option>
-                            <option value="1">clAgencia01</option>
-                            <option value="1">clMN</option>
-                        </select>
+                        <mat-form-field class="w-100">
+                            <mat-label>Jurisdição a excluir</mat-label>
+                            <mat-select required [(ngModel)]="juridictionToDelete" name="parent">
+                                <mat-option [value]="0">Escolha...</mat-option>
+                                <mat-option *ngFor="let user of treeList" [value]="user.id">
+                                    {{user.jurisdictionId}}-{{user.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
 
                     </form>
                     <!-- Form -->
@@ -189,10 +185,10 @@
 
             <!--Footer-->
             <div class="modal-footer justify-content-center">
-                <a type="button" mdbBtn color="danger" class="waves-light" mdbWavesEffect
-                    (click)="confirmDelete()">Confirmar</a>
-                <a type="button" mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect
-                    (click)="frame2.hide()" data-dismiss="modal">Cancelar</a>
+                <button type="submit" mdbBtn color="danger" class="waves-light" [disabled]="!juridictionToDelete" 
+                        mdbWavesEffect (click)="addNewUserAdmin(jurisdictionForm)" >Excluir</button>
+                <button mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect 
+                (click)="frame2.hide()" data-dismiss="modal">Cancelar</button>
             </div>
         </div>
         <!--/.Content-->

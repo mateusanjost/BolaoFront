@@ -40,12 +40,16 @@ export class ConfigService {
     return this.http.get<User>(`${this.apiUrl}/users/` + userId);
   }
 
-  listUsersByParentId(userId: number){
-    return this.http.get<User>(`${this.apiUrl}/common/GetTreeByParentId?userId=`+userId);
+  getUserTree(userId: number){
+    return this.http.get<User>(`${this.apiUrl}/common/GetUserTree?userId=`+userId);
   }
 
-  getUsersListByParentId(userId: number){
-    return this.http.get<User[]>(`${this.apiUrl}/common/GetListByParentId?userId=`+userId);
+  getUsersTreeList(userId: number){
+    return this.http.get<User[]>(`${this.apiUrl}/common/GetUsersTreeList?userId=`+userId);
+  }
+
+  getJurisdictionsById(jurisdictionId: number){
+    return this.http.get<Jurisdiction[]>(`${this.apiUrl}/common/GetJurisdictionsById?jurisdictionId=`+jurisdictionId);
   }
 
   updateUserCredit(userId: number, credit: number){

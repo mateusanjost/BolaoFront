@@ -35,7 +35,7 @@ export class CreditTransferComponent implements OnInit {
   }
 
   listUsers(){
-    this.configService.getUsersListByParentId(this.appComponent.userAdmin.id)
+    this.configService.getUsersTreeList(this.appComponent.userAdmin.id)
     .subscribe(data => {
       this.myUsers = data;
       this.setOwnCredit();

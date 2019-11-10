@@ -1,11 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ModalDirective } from 'angular-bootstrap-md';
-import { NestedTreeControl} from '@angular/cdk/tree';
 import { MatTreeNestedDataSource} from '@angular/material/tree';
+import { NestedTreeControl} from '@angular/cdk/tree';
+import { ModalDirective } from 'angular-bootstrap-md';
+
+import { AppComponent } from '../app.component';
+import { ConfigService } from '../config.service';
 
 import { User } from '../user.interface';
-import { ConfigService } from '../config.service';
-import { AppComponent } from '../app.component';
+import { Jurisdiction } from '../jurisdiction.interface';
 import { JurisdictionForm } from '../JurisdictionForm.interface';
 
 interface JurisdictionNode {
@@ -24,37 +26,50 @@ export class JurisdictionComponent implements OnInit {
   @ViewChild('frame2', { static: true }) modalDelete: ModalDirective;
 
   myUsers: User;
-  TREE_USERS: JurisdictionNode[] = [];
-  
-  jurisdicoesPai: Array<any>;
+  treeList: User[];
   jurisdictionForm: JurisdictionForm;
-
+  jurisdictionToDelete: number;
+  jurisdictions: Jurisdiction[];
   msgResponse: string = "";
-
   isLoaded: boolean = false;
-
+  
+  TREE_USERS: JurisdictionNode[] = [];
   treeControl = new NestedTreeControl<JurisdictionNode>(node => node.children);
   dataSource = new MatTreeNestedDataSource<JurisdictionNode>();
 
-  constructor(private configService: ConfigService, private appComponent: AppComponent) {
-    this.jurisdicoesPai = [
-      { value: '1', label: 'Option 1' },
-      { value: '2', label: 'Option 2' },
-      { value: '3', label: 'Option 3' }
-    ];
-  }
+  constructor(private configService: ConfigService, private appComponent: AppComponent) { }
 
   hasChild = (_: number, node: JurisdictionNode) => !!node.children && node.children.length > 0;
 
   ngOnInit() {
-    this.listUsers();    
+    this.listTree();    
+    this.listJurisdiction();
+    this.listUsers();
   }
 
   listUsers(){
-    this.configService.listUsersByParentId(this.appComponent.userAdmin.id)
+    this.configService.getUsersTreeList(this.appComponent.userAdmin.id)
+    .subscribe(data => {
+      this.treeList = data;
+      console.log(this.treeList);
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  listJurisdiction(){
+    this.configService.getJurisdictionsById(this.appComponent.userAdmin.jurisdictionId)
+    .subscribe(data => {
+      this.jurisdictions = data;           
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  listTree(){
+    this.configService.getUserTree(this.appComponent.userAdmin.id)
     .subscribe(data => {
       this.myUsers = data;
-      console.log(this.myUsers); //fazer map de user pra jurisdictionNode?
 
       this.TREE_USERS.push({
         name: this.myUsers.name,
@@ -72,20 +87,7 @@ export class JurisdictionComponent implements OnInit {
     });
   }
 
-  confirmDelete(){
-    let jurisdiction = (<HTMLInputElement>document.getElementById("jurisdiction")).value;
-
-    if (jurisdiction == ""){
-      alert("Necessário escolher jurisdição que deseja excluir.");
-    }
-    else {
-      alert("Jurisdição deletada com sucesso!");
-      this.modalDelete.hide();
-    }
-
-  }
-
-  onSubmit(formSubmit,) { 
+  addNewUserAdmin(formSubmit) { 
     this.jurisdictionForm = {
       email: formSubmit.email,
       jurisdictionId: formSubmit.jurisdictionId,
@@ -103,37 +105,13 @@ export class JurisdictionComponent implements OnInit {
     });
   }
 
-  confirmCreate(){
-    let login = (<HTMLInputElement>document.getElementById("login")).value;
-    let password = (<HTMLInputElement>document.getElementById("password")).value;
-    let confirmPassword = (<HTMLInputElement>document.getElementById("confirm-password")).value;
-    let email = (<HTMLInputElement>document.getElementById("email")).value;
-    let father = (<HTMLInputElement>document.getElementById("father")).value;
-    
-    if (login == "" || password == "" || confirmPassword == "" || email == "" || father == "" ){
-      this.msgResponse = "Os campos login, senha, confirmação de senha, e-mail e pai são obrigatórios!";
-      alert(this.msgResponse);
-    } else if (password != confirmPassword){
-      this.msgResponse = "A senha e a confirmação de senha não correspondem!";
-      alert(this.msgResponse);
-    }
-    else {
-      this.msgResponse = "Jurisdição criada com sucesso!";
-
-      alert(this.msgResponse);
-
-      (<HTMLInputElement>document.getElementById("login")).value = "";
-      (<HTMLInputElement>document.getElementById("password")).value = "";
-      (<HTMLInputElement>document.getElementById("confirm-password")).value = "";
-      (<HTMLInputElement>document.getElementById("email")).value = "";
-      (<HTMLInputElement>document.getElementById("father")).value = "";
-
-      this.modalCreate.hide();
-
-    }
-
-    this.msgResponse = "";
-
-  }
+  removeNewUserAdmin(userAdminId) {    
+    this.configService.removeUser(userAdminId)
+    .subscribe(() => {
+      alert("Usuário " + this.jurisdictionForm.login + " removido com sucesso.");
+    }, error => {
+      console.log(error);
+    });
+  }  
   
 }
