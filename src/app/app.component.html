@@ -74,10 +74,12 @@
 <router-outlet></router-outlet>
 <!--Content Pages-->
 
+<app-loader></app-loader>
+
 <!--Modal Login-->
 <!--OLD CODE <form (submit)="login($event)">-->
 <div mdbModal #frame="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog"
-    aria-labelledby="myModalLabel" aria-hidden="true">
+    aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header text-center">

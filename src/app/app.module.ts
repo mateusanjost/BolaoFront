@@ -1,16 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { ConfigService } from './config.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MAT_DATE_LOCALE } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from "@angular/router";
 
 import { MaterialModule } from './material.module';
 
-import { AppComponent } from './app.component';
-
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule, Routes } from "@angular/router";
+
+import { AppComponent } from './app.component';
 import { ResultComponent } from './result/result.component';
 import { HomeComponent } from './home/home.component';
 import { TicketComponent } from './ticket/ticket.component';
@@ -23,10 +23,15 @@ import { JackpotComponent } from './jackpot/jackpot.component';
 import { ManageTicketComponent } from './manage-ticket/manage-ticket.component';
 import { ReportComponent } from './report/report.component';
 import { JurisdictionComponent } from './jurisdiction/jurisdiction.component';
-import { MAT_DATE_LOCALE } from '@angular/material';
 import { CreditTransferComponent } from './credit-transfer/credit-transfer.component';
 import { SettingsComponent } from './settings/settings.component';
+import { LoaderComponent } from './components/shared/loader/loader.component';
 
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoaderService } from '../services/loader.service';
+import { LoaderInterceptor } from 'src/services/loader.interceptor';
+
+import { ConfigService } from './config.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +49,8 @@ import { SettingsComponent } from './settings/settings.component';
     ReportComponent,
     JurisdictionComponent,
     CreditTransferComponent,
-    SettingsComponent
+    SettingsComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +80,9 @@ import { SettingsComponent } from './settings/settings.component';
   ],
   providers: [
     ConfigService,
-    {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'}
+    {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
+    LoaderService,
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

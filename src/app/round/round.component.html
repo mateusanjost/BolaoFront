@@ -113,7 +113,8 @@
 
 <!--Modal confirmation-->
 <div mdbModal #frame="mdbModal" class="modal fade" scrollY="true" maxHeight="200" id="frameModalTop" tabindex="-1"
-    role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" (open)="checkRound()">
+    role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" (open)="checkRound()"
+    [config]="{backdrop: false, ignoreBackdropClick: true}">
     <div class="modal-dialog modal-notify modal-warning" role="document">
         <!--Content-->
         <div class="modal-content">
