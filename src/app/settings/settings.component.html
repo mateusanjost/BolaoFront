@@ -17,9 +17,8 @@
                 <div class="col-12 pt-3">
                     <h3>Configurações</h3>
                     <div class="row">
-                        <div class="col-md-4">Login: {{user.login}} <a style="color: blue; text-decoration: underline">(alterar senha)</a></div>
+                        <div class="col-md-4">Login: {{user.login}} <a style="color: blue; text-decoration: underline" (click)="frame2.show()">(alterar senha)</a></div>
                         <div class="col-md-4">Crédito: {{ownCredit}} </div>
-                        <div class="col-md-4">Comissão: {{ user.comission }} %</div>
                         <div class="col-md-4">Nome: {{user.name}} </div>
                         <div class="col-md-4">Sobrenome: {{ user.lastName }}</div>
                         <div class="col-md-4">E-mail: {{ user.email }}</div>
@@ -27,7 +26,7 @@
                         <div class="col-md-4">Cidade: {{ user.city }}</div>
                     </div>
                     <div class="col-12" style="text-align: center;">
-                        <button class="mt-1 p-2" type="button" mdbBtn color="primary" mdbWavesEffect>Alterar Dados</button>
+                        <button class="mt-1 p-2" type="button" mdbBtn color="primary" (click)="frame.show()" mdbWavesEffect>Alterar Dados</button>
                     </div>
                 </div>
             </div>
@@ -35,3 +34,120 @@
     </div>
     <!-- Card -->
 </div>
+
+<!--Modal Edit User-->
+<div mdbModal #frame="mdbModal" class="modal fade" id="frameModalTop" tabindex="-1" role="dialog" onOpen="fullFillUserForm()"
+  aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}" >
+  <div class="modal-dialog modal-notify modal-primary" role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header">
+        <p class="heading lead">Editar Usuário</p>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <div class="text-center">
+            <form style="color: #757575;" #f="ngForm">
+        
+                <!-- User Data -->
+                <mat-form-field class="w-100">
+                    <mat-label>Nome *</mat-label>
+                    <input type="text" matInput [(ngModel)]="user.name" userName name="userName">
+                </mat-form-field>
+                <mat-form-field class="w-100">
+                    <mat-label>Sobrenome</mat-label>
+                    <input type="text" matInput [(ngModel)]="user.lastName" lastName name="lastName">
+                </mat-form-field>
+                <mat-form-field class="w-100">
+                    <mat-label>E-mail *</mat-label>
+                    <input type="text" matInput [(ngModel)]="user.email" userEmail ngModel name="userEmail">
+                </mat-form-field>
+                <mat-form-field class="w-100">
+                    <mat-label>País</mat-label>
+                    <input type="text" matInput [(ngModel)]="user.country" country ngModel name="country">
+                </mat-form-field>
+                <mat-form-field class="w-100">
+                    <mat-label>Cidade</mat-label>
+                    <input type="text" matInput [(ngModel)]="user.city" city ngModel name="city">
+                </mat-form-field>
+        
+            </form>
+            <div class="row">
+                <div class="col-6">
+                    <button mat-raised-button color="primary" (click)="editUser(f)">Alerar Senha</button>
+                </div>
+                <div class="col-6">
+                    <button mat-raised-button color="primary" (click)="closeModalUser()">Voltar</button>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!--Footer
+      <div class="modal-footer justify-content-center">
+            <button type="submit" mdbBtn color="primary" outline="true" class="waves-light" mdbWavesEffect
+                          [disabled]="f.invalid">Confirmar</button>
+        <a type="button" mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect
+          (click)="frame.hide()" data-dismiss="modal">Voltar</a>
+      </div>-->
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+<!--Modal Edit User-->
+
+<!--Modal Change Password-->
+<div mdbModal #frame2="mdbModal" class="modal fade" id="frameModalTop" tabindex="-1" role="dialog" onOpen="fullFillUserForm()"
+  aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}" >
+  <div class="modal-dialog modal-notify modal-primary" role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header">
+        <p class="heading lead">Alterar Senha</p>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame2.hide()">
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <div class="text-center">
+            <form style="color: #757575;" #f2="ngForm">
+        
+                <!-- User Data -->
+                <mat-form-field class="w-100">
+                    <mat-label>Senha Atual</mat-label>
+                    <input type="password" matInput required ngModel currentPassword name="currentPassword">
+                </mat-form-field>
+                <mat-form-field class="w-100">
+                    <mat-label>Nova Senha</mat-label>
+                    <input type="password" matInput required ngModel newPassword name="newPassword">
+                </mat-form-field>
+                <mat-form-field class="w-100">
+                    <mat-label>Confirmar Senha</mat-label>
+                    <input type="password" matInput required ngModel newPassword name="confirmPassword">
+                </mat-form-field>
+            </form>
+            <div class="row">
+                <div class="col">
+                    <button mat-raised-button color="primary" [disabled]="f2.invalid" (click)="changePassword(f2)">Alerar Senha</button>
+                </div>
+                <div class="col-6">
+                    <button mat-raised-button color="primary" (click)="closeModalPassword()">Voltar</button>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+<!--Modal Change Password-->

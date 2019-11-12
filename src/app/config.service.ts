@@ -15,8 +15,8 @@ import { Jurisdiction } from './jurisdiction.interface';
 })
 export class ConfigService {
 
-  //apiUrl = 'http://api.socialawp.com';
-  apiUrl = 'https://localhost:44341';
+  apiUrl = 'http://api.socialawp.com';
+  //apiUrl = 'https://localhost:44341';
 
   constructor(private http: HttpClient) { }
   
@@ -58,6 +58,30 @@ export class ConfigService {
     
     //return this.http.put<any>(`${this.apiUrl}/common/UpdateCreditTransfer/?userId=`+userId, credit, { headers: header });
     return this.http.put<any>(`${this.apiUrl}/common/UpdateCreditTransfer/?userId=`+userId+'&credit='+credit, { headers: header });
+  }
+
+  updateUser(userId: number, user: User){
+    const header = new HttpHeaders({
+      'Content-type': 'application/json'
+    });
+
+    let jsonToPass = {
+      "Id": user.id,
+      "Name": user.name,
+      "LastName": user.lastName,
+      "Email": user.email,
+      "Login": user.login,
+      "Password": user.password,
+      "Deleted": user.deleted,
+      "Commission": user.commission,
+      "ParentId": user.parentId,
+      "JurisdictionId": user.jurisdictionId,
+      "Country": user.country,
+      "City": user.city,
+      "Credit": user.credit
+    }
+    
+    return this.http.put<User>(this.apiUrl + '/users/'+ userId, jsonToPass, { headers: header });
   }
 
   /*listTeams(){

@@ -5,8 +5,8 @@ export interface User {
     login: string;
     password: string;
     deleted: boolean;
-    comission: number;
-    parent: number;
+    commission: number;
+    parentId: number;
     jurisdictionId: number;
     jurisdiction: string;
     userPermission: string;

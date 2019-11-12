@@ -72,7 +72,7 @@
                     <!-- Default input -->
                         <!--<input mdbInput type="text" name="player-name" id="player-name" class="form-control" placeholder="Nome do Jogador" required ngModel>-->
                     <mat-form-field>
-                        <input matInput placeholder="Nome do Jogador" id="player_name" name="player_name" required ngModel style="color: black">
+                        <input matInput placeholder="Nome do Jogador" id="player_name" player_name name="player_name" required ngModel style="color: black">
                         <mat-error>Preencha o nome do jogador.</mat-error>
                     </mat-form-field>
                 </div>
@@ -124,7 +124,7 @@
 
       <!--Footer-->
       <div class="modal-footer justify-content-center">
-        <a type="button" mdbBtn color="success" class="waves-light" (click)="postTicket()" mdbWavesEffect *ngIf="isLogged && checkTicket()">Confirmar
+        <a type="button" mdbBtn color="success" class="waves-light" (click)="postTicket()" mdbWavesEffect ngModel *ngIf="isLogged && isChecked">Confirmar
         </a>
         <a type="button" mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect (click)="frame2.hide()"
           data-dismiss="modal">Voltar</a>

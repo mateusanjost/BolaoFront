@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ConfigService } from '../config.service';
 import { AppComponent } from '../app.component';
 import { User } from '../user.interface';
+import { NgForm } from '@angular/forms';
+import { ModalDirective } from 'angular-bootstrap-md';
 
 @Component({
   selector: 'app-settings',
@@ -9,6 +11,8 @@ import { User } from '../user.interface';
   styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit {
+  @ViewChild('frame', { static: true }) modalUser: ModalDirective;
+  @ViewChild('frame2', { static: true }) modalPassword: ModalDirective;
 
   user: User;
   ownCredit: any;
@@ -36,6 +40,58 @@ export class SettingsComponent implements OnInit {
 
   setOwnCredit(){
     this.ownCredit = this.user.credit.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  }
+
+  closeModalPassword(){
+    this.modalPassword.hide();
+  }
+
+  closeModalUser(){
+    this.modalUser.hide();
+  }
+
+  changePassword(form: NgForm){
+    if (form.value.currentPassword == this.user.password && form.value.newPassword == form.value.confirmPassword){
+      this.modalPassword.hide();
+      this.isLoaded = false;
+      this.user.password = form.value.newPassword;
+      this.configService.updateUser(this.user.id, this.user)
+      .subscribe(data => {
+        alert("Senha alterada com sucesso!");
+        this.ngOnInit();
+      }, error => {
+        alert("Houve algum erro de conexão!");
+        console.log(error);
+        this.ngOnInit();
+      });
+    }
+    else {
+      alert("As senhas não coicidem!");
+    }
+  }
+
+  editUser(form: NgForm){
+    if (form.value.userName != "" && form.value.userEmail != ""){
+      this.modalUser.hide();
+      this.isLoaded = false;
+      this.user.name = form.value.userName;
+      this.user.lastName = form.value.lastName;
+      this.user.email = form.value.userEmail;
+      this.user.country = form.value.country;
+      this.user.city = form.value.city;
+      this.configService.updateUser(this.user.id, this.user)
+      .subscribe(data => {
+        alert("Dados alterados com sucesso!");
+        this.ngOnInit();
+      }, error => {
+        alert("Houve algum erro de conexão!");
+        console.log(error);
+        this.ngOnInit();
+      });
+    }
+    else {
+      alert("Existem campos obrigatórios vazios!");
+    }
   }
 
 }

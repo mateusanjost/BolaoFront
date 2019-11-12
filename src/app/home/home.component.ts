@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
   round: Round;
   games: Game[];
   isLoaded: boolean = false;
+  isChecked: boolean = false;
   idRound: number;
   dateBegin: string;
   dateEnd: string;
@@ -165,6 +166,7 @@ export class HomeComponent implements OnInit {
 
   }
   onOpen(form: NgForm) {
+    this.isChecked = false;
     this.modalCreate.show();
 
     // allways when opens the modal to confirm the bet, must be logged in
@@ -229,6 +231,8 @@ export class HomeComponent implements OnInit {
       this.ticket.status = "activated";
       this.ticket.userId = this.appComponent.userAdmin.id;
     }
+
+    this.isChecked = test;
 
     return test;
 
