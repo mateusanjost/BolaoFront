@@ -16,3 +16,12 @@ export interface User {
     credit: number;
     children: User[];
 }
+
+export interface UserLoginForm{
+    name: string;
+    login: string;
+    password: string;
+    parentId: number;
+    jurisdictionId: number;
+    email: string;
+}

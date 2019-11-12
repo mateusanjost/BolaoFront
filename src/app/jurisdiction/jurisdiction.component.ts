@@ -1,14 +1,16 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTreeNestedDataSource} from '@angular/material/tree';
+import { Validators, FormBuilder } from '@angular/forms';
 import { NestedTreeControl} from '@angular/cdk/tree';
+import { Router } from '@angular/router';
+
 import { ModalDirective } from 'angular-bootstrap-md';
 
 import { AppComponent } from '../app.component';
 import { ConfigService } from '../config.service';
 
-import { User } from '../user.interface';
+import { User, UserLoginForm } from '../user.interface';
 import { Jurisdiction } from '../jurisdiction.interface';
-import { JurisdictionForm } from '../JurisdictionForm.interface';
 
 interface JurisdictionNode {
   name: string;
@@ -27,21 +29,39 @@ export class JurisdictionComponent implements OnInit {
 
   myUsers: User;
   treeList: User[];
-  jurisdictionForm: JurisdictionForm;
+  treeListRemove: User[];
   jurisdictionToDelete: number;
   jurisdictions: Jurisdiction[];
   msgResponse: string = "";
   isLoaded: boolean = false;
+  senhaOk: boolean = false;
+  emailOk: boolean = false;
+
+  jurisdictionForm = this.fb.group({
+    jurisdictionId: ['', Validators.required],
+    login: ['', Validators.required],
+    password: ['', Validators.required],
+    confirmPassword: ['', Validators.required],
+    email: ['', [Validators.required,Validators.email] ] ,
+    parentId: ['', Validators.required],
+    obs: [''],
+    name: ['', Validators.required]
+  });
   
   TREE_USERS: JurisdictionNode[] = [];
   treeControl = new NestedTreeControl<JurisdictionNode>(node => node.children);
   dataSource = new MatTreeNestedDataSource<JurisdictionNode>();
 
-  constructor(private configService: ConfigService, private appComponent: AppComponent) { }
+  constructor(private configService: ConfigService, private appComponent: AppComponent, private fb: FormBuilder, private router: Router) { }
 
   hasChild = (_: number, node: JurisdictionNode) => !!node.children && node.children.length > 0;
 
   ngOnInit() {
+    this.TREE_USERS = [];
+    this.isLoaded = false;
+    this.senhaOk = false;
+    this.emailOk = false;
+
     this.listTree();    
     this.listJurisdiction();
     this.listUsers();
@@ -50,7 +70,8 @@ export class JurisdictionComponent implements OnInit {
   listUsers(){
     this.configService.getUsersTreeList(this.appComponent.userAdmin.id)
     .subscribe(data => {
-      this.treeList = data;
+      this.treeList = data.filter(x => x.jurisdictionId != 6); // remove club
+      this.treeListRemove = data;
       console.log(this.treeList);
     }, error => {
       console.log(error);
@@ -87,31 +108,44 @@ export class JurisdictionComponent implements OnInit {
     });
   }
 
-  addNewUserAdmin(formSubmit) { 
-    this.jurisdictionForm = {
-      email: formSubmit.email,
-      jurisdictionId: formSubmit.jurisdictionId,
-      login: formSubmit.login,
-      obs: formSubmit.obs,
-      parentId: formSubmit.parentId,
-      password: formSubmit.password
+  addNewUserAdmin(frame) { 
+    let newUser: UserLoginForm = {
+      email: this.jurisdictionForm.get('email').value,
+      jurisdictionId: this.jurisdictionForm.get('jurisdictionId').value,
+      login: this.jurisdictionForm.get('login').value,
+      //obs: this.jurisdictionForm.get('obs').value,
+      parentId: this.jurisdictionForm.get('parentId').value,
+      password: this.jurisdictionForm.get('password').value,      
+      name: this.jurisdictionForm.get('name').value
     }
 
-    this.configService.addNewUser(this.jurisdictionForm)
+    this.configService.addNewUser(newUser)
     .subscribe(() => {
-      alert("Usuário " + this.jurisdictionForm.login + " criado com sucesso.");
+      alert("Usuário " + this.jurisdictionForm.get('login').value + " criado com sucesso.");
+      this.ngOnInit();
+      frame.hide();
     }, error => {
       console.log(error);
     });
   }
 
-  removeNewUserAdmin(userAdminId) {    
-    this.configService.removeUser(userAdminId)
-    .subscribe(() => {
-      alert("Usuário " + this.jurisdictionForm.login + " removido com sucesso.");
+  removeUserAdmin(frame) {    
+    this.configService.removeUser(this.jurisdictionToDelete)
+    .subscribe((data: User) => {
+      alert("Usuário " +  data.name + " removido com sucesso.");
+      this.ngOnInit();
+      frame.hide();
     }, error => {
       console.log(error);
     });
   }  
+
+  compararSenha(){
+      this.senhaOk = this.jurisdictionForm.get('confirmPassword').value === this.jurisdictionForm.get('password').value;
+  }
+
+  emailErrado() {
+    this.emailOk = !this.jurisdictionForm.get('email').hasError('email');
+  }
   
 }

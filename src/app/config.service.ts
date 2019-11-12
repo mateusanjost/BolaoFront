@@ -2,14 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { User } from './user.interface';
+import { User, UserLoginForm } from './user.interface';
 //import { Team } from './team.interface';
 import { Round } from './round.interface';
 import { Game } from './game.interface';
 import { Prize } from './prize.interface';
 import { Bet } from './bet.interface';
 import { Jurisdiction } from './jurisdiction.interface';
-import { JurisdictionForm } from './JurisdictionForm.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -202,7 +201,7 @@ export class ConfigService {
     return this.http.post<Jurisdiction>(this.apiUrl + '/jurisdictions/', newJurisdiction, { headers: header });
   }
 
-  addNewUser(user: JurisdictionForm){
+  addNewUser(user: UserLoginForm){
     const header = new HttpHeaders({
       'Content-type': 'application/json'
     });
@@ -211,7 +210,7 @@ export class ConfigService {
   }
 
   removeUser(userId: number){
-    return this.http.delete<Jurisdiction>(`${this.apiUrl}/users/` + userId);
+    return this.http.delete<User>(`${this.apiUrl}/users/` + userId);
   }
   
 }

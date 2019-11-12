@@ -83,37 +83,44 @@
             <div class="modal-body">
                 <div class="col-12">
                     <!-- Form -->
-                    <form style="color: #757575;" #jurisdictionForm="ngForm" >
+                    <form style="color: #757575;" [formGroup]="jurisdictionForm">
 
                         <label>Tipo *</label>
                         <div *ngFor="let jurisdiction of jurisdictions" style="margin-left: 15px">
-                            <input type="radio" [value]="jurisdiction.id" name="jurType" [(ngModel)]="jurisdictionForm.jurisdictionId" required>
+                            <input type="radio" [value]="jurisdiction.id" formControlName="jurisdictionId" required>
                             <label for="jurType">{{jurisdiction.name}}</label>
                         </div>
 
                         <mat-form-field class="w-100">
+                            <mat-label>Nome</mat-label>
+                            <input matInput formControlName="name" required>
+                        </mat-form-field>
+
+                        <mat-form-field class="w-100">
                             <mat-label>Login</mat-label>
-                            <input matInput required [(ngModel)]="jurisdictionForm.login" name="login">
+                            <input matInput formControlName="login" required>
                         </mat-form-field>
 
                         <mat-form-field class="w-100">
                             <mat-label>Senha</mat-label>
-                            <input matInput required [(ngModel)]="jurisdictionForm.password" name="password">
+                            <input matInput type="password" formControlName="password" required>
                         </mat-form-field>
 
                         <mat-form-field class="w-100">
                             <mat-label>Confirmar senha</mat-label>
-                            <input matInput type="password" required>
+                            <input matInput type="password" formControlName="confirmPassword" (keyup)="compararSenha()" required> 
+                            <mat-error *ngIf="!senhaOk">As senhas não conferem</mat-error>
                         </mat-form-field>
 
                         <mat-form-field class="w-100">
                             <mat-label>E-mail</mat-label>
-                            <input matInput type="email" required [(ngModel)]="jurisdictionForm.email" name="email">
+                            <input matInput type="email" formControlName="email" (keyup)="emailErrado()" required>
+                            <mat-error *ngIf="!emailOk">E-mail inválido</mat-error>
                         </mat-form-field>
 
                         <mat-form-field class="w-100">
                             <mat-label>Jurisdição Pai</mat-label>
-                            <mat-select required [(ngModel)]="jurisdictionForm.parentId" name="parent">
+                            <mat-select formControlName="parentId" required>
                                 <mat-option *ngFor="let user of treeList" [value]="user.id">
                                     {{user.jurisdictionId}}-{{user.name}}
                                 </mat-option>
@@ -122,7 +129,7 @@
 
                         <mat-form-field class="w-100">
                             <mat-label>Observação</mat-label>
-                            <textarea matInput rows="3" [(ngModel)]="jurisdictionForm.obs" name="obs"></textarea>
+                            <textarea matInput rows="3" formControlName="obs"></textarea>
                         </mat-form-field>
 
                     </form>
@@ -133,8 +140,8 @@
 
             <!--Footer-->
             <div class="modal-footer justify-content-center">
-                <button type="submit" mdbBtn color="success" class="waves-light" mdbWavesEffect (click)="addNewUserAdmin(jurisdictionForm)"
-                    [disabled]="!jurisdictionForm.form.valid">Confirmar</button>
+                <button type="submit" mdbBtn color="success" class="waves-light" mdbWavesEffect (click)="addNewUserAdmin(frame)"
+                    [disabled]="!jurisdictionForm.valid && !senhaOk">Confirmar</button>
                 <button type="submit" mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect
                     (click)="frame.hide()" data-dismiss="modal">Cancelar</button>
             </div>
@@ -169,9 +176,9 @@
                         <!-- Jurisdiction -->
                         <mat-form-field class="w-100">
                             <mat-label>Jurisdição a excluir</mat-label>
-                            <mat-select required [(ngModel)]="juridictionToDelete" name="parent">
+                            <mat-select required [(ngModel)]="jurisdictionToDelete" name="parent">
                                 <mat-option [value]="0">Escolha...</mat-option>
-                                <mat-option *ngFor="let user of treeList" [value]="user.id">
+                                <mat-option *ngFor="let user of treeListRemove" [value]="user.id">
                                     {{user.jurisdictionId}}-{{user.name}}
                                 </mat-option>
                             </mat-select>
@@ -185,8 +192,8 @@
 
             <!--Footer-->
             <div class="modal-footer justify-content-center">
-                <button type="submit" mdbBtn color="danger" class="waves-light" [disabled]="!juridictionToDelete" 
-                        mdbWavesEffect (click)="addNewUserAdmin(jurisdictionForm)" >Excluir</button>
+                <button type="submit" mdbBtn color="danger" class="waves-light" [disabled]="!jurisdictionToDelete" 
+                        mdbWavesEffect (click)="removeUserAdmin(frame2)" >Excluir</button>
                 <button mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect 
                 (click)="frame2.hide()" data-dismiss="modal">Cancelar</button>
             </div>

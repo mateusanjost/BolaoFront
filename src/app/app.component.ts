@@ -2,8 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { ModalDirective } from 'angular-bootstrap-md';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import { ConfigService } from './config.service';
-import { User } from './user.interface';
 import { Login } from './login.interface';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-root',
@@ -15,18 +15,28 @@ export class AppComponent {
   title = 'mdb-angular-free';
   validatingForm: FormGroup;
 
-  isLogged: boolean = false;
+  public isLogged: boolean = false;
   userAdmin: any;
 
-  constructor(private configService: ConfigService){
+  public cookie: string;
 
-  }
+  constructor(private configService: ConfigService, private cookieService: CookieService){ }
 
   ngOnInit() {
     this.validatingForm = new FormGroup({
       loginFormModalName: new FormControl('', Validators.required),
       loginFormModalPassword: new FormControl('', Validators.required)
     });
+
+    if(this.cookieService.get('user') != null){
+      this.userAdmin = JSON.parse(this.cookieService.get('user'));
+      if(this.userAdmin != null){
+        this.isLogged = true;
+      }
+      else{
+        this.isLogged = false;
+      }
+    }      
   }
 
   // --- LOGIN COMPONENTS --- //
@@ -46,6 +56,7 @@ export class AppComponent {
     .subscribe((data: Login) => {
       this.userAdmin = data.user;
       this.isLogged = true;
+      this.cookieService.set('user', JSON.stringify(data.user));
       //console.log(this.userAdmin.name);
     }, error =>{
       //console.log(error);
@@ -60,7 +71,7 @@ export class AppComponent {
   }
 
   logout(){
-
+    this.cookieService.deleteAll();
     this.isLogged = false;
     this.userAdmin =  null;
 

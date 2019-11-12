@@ -32,6 +32,7 @@ import { LoaderService } from '../services/loader.service';
 import { LoaderInterceptor } from 'src/services/loader.interceptor';
 
 import { ConfigService } from './config.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,8 @@ import { ConfigService } from './config.service';
     ConfigService,
     {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
     LoaderService,
-    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
+    CookieService
   ],
   bootstrap: [AppComponent]
 })
