@@ -35,6 +35,9 @@
                 <li class="nav-item">
                     <a routerLink="/contact" class="nav-link waves-light" mdbWavesEffect>contato</a>
                 </li>
+                <li class="nav-item">
+                    
+                </li>
                 <li class="nav-item dropdown btn-group"  *ngIf="isLogged" dropdown>
                     <a dropdownToggle type="button" class="nav-link dropdown-toggle waves-light admin-style" mdbWavesEffect>
                         admin<span class="caret"></span></a>
@@ -56,6 +59,8 @@
 
             <!-- Login button -->
             <div class="md-form my-0">
+                <!--<a class="nav-link waves-light admin-style" mdbWaverEffect (click)="frame3.show()" *ngIf="!isLogged">registre-se</a>-->
+                <a href="" class="nav-link waves-light admin-style" *ngIf="!isLogged" data-toggle="modal" data-target="#modalLoginForm">registre-se</a>
                 <a class="nav-link waves-light admin-style" mdbWaverEffect (click)="frame.show()" *ngIf="!isLogged">login</a>
                 <a class="nav-link waves-light admin-style" mdbWaverEffect (click)="logout()" *ngIf="isLogged" routerLink="/home">logout {{ userAdmin.name }}</a>
             </div>
@@ -76,8 +81,16 @@
 
 <app-loader></app-loader>
 
+<!-- Footer -->
+<div class="col-md-12 my-footer">
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-1 align-text-top">&copy; 2019 Copyright: jogobrasil.com.br
+    </div>
+    <!-- Copyright -->
+</div>
+<!-- Footer -->
+
 <!--Modal Login-->
-<!--OLD CODE <form (submit)="login($event)">-->
 <div mdbModal #frame="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog"
     aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
     <div class="modal-dialog" role="document">
@@ -110,14 +123,94 @@
         </div>
     </div>
 </div>
-<!-- OLD CODE </form> -->
 <!--Modal Login-->
 
-<!-- Footer -->
-<div class="col-md-12 my-footer">
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-1 align-text-top">&copy; 2019 Copyright: jogobrasil.com.br
+<!--Modal Create Account
+<div mdbModal #frame3="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Entrar</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame3.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3">
+              <div class="md-form mb-5">
+                <i class="fas fa-user prefix grey-text"></i>
+                <input type="text" id="orangeForm-login" class="form-control validate" required>
+                <label data-error="wrong" data-success="right" for="orangeForm-login">Login *</label>
+              </div>
+              <div class="md-form mb-5">
+                <i class="fas fa-user prefix grey-text"></i>
+                <input type="text" id="orangeForm-name" class="form-control validate" required>
+                <label data-error="wrong" data-success="right" for="orangeForm-name">Nome *</label>
+              </div>
+              <div class="md-form mb-5">
+                <i class="fas fa-user prefix grey-text"></i>
+                <input type="text" id="orangeForm-lastname" class="form-control validate">
+                <label data-error="wrong" data-success="right" for="orangeForm-lastname">Sobrenome</label>
+              </div>
+              <div class="md-form mb-5">
+                <i class="fas fa-envelope prefix grey-text"></i>
+                <input type="email" id="orangeForm-email" class="form-control validate" required>
+                <label data-error="wrong" data-success="right" for="orangeForm-email">E-mail *</label>
+              </div>
+              <div class="md-form mb-5">
+                <i class="fas fa-envelope prefix grey-text"></i>
+                <input type="email" id="orangeForm-email2" class="form-control validate" required>
+                <label data-error="wrong" data-success="right" for="orangeForm-email2">Confirme o e-mail *</label>
+              </div>
+              <div class="md-form mb-4">
+                <i class="fas fa-lock prefix grey-text"></i>
+                <input type="password" id="orangeForm-pass" class="form-control validate" required>
+                <label data-error="wrong" data-success="right" for="orangeForm-pass">Senha</label>
+              </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <button mdbBtn color="default" class="waves-light" mdbWavesEffect (click)="register()">Registrar-se</button>
+                <button mdbBtn color="default" class="waves-light" (click)="frame3.hide()" mdbWavesEffect>Cancelar</button>
+            </div>
+        </div>
     </div>
-    <!-- Copyright -->
 </div>
-<!-- Footer -->
+Modal Create Account-->
+
+<!-- Modal create account-->
+<div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <i class="fas fa-user prefix grey-text"></i>
+          <input type="text" id="orangeForm-name" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="orangeForm-name">Your name</label>
+        </div>
+        <div class="md-form mb-5">
+          <i class="fas fa-envelope prefix grey-text"></i>
+          <input type="email" id="orangeForm-email" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="orangeForm-email">Your email</label>
+        </div>
+
+        <div class="md-form mb-4">
+          <i class="fas fa-lock prefix grey-text"></i>
+          <input type="password" id="orangeForm-pass" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="orangeForm-pass">Your password</label>
+        </div>
+
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button class="btn btn-deep-orange">Sign up</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal create account-->

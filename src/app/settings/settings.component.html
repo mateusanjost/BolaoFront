@@ -80,7 +80,7 @@
             </form>
             <div class="row">
                 <div class="col-6">
-                    <button mat-raised-button color="primary" (click)="editUser(f)">Alerar Senha</button>
+                    <button mat-raised-button color="primary" (click)="editUser(f)">Salvar Alterações</button>
                 </div>
                 <div class="col-6">
                     <button mat-raised-button color="primary" (click)="closeModalUser()">Voltar</button>
@@ -88,14 +88,6 @@
             </div>
         </div>
       </div>
-
-      <!--Footer
-      <div class="modal-footer justify-content-center">
-            <button type="submit" mdbBtn color="primary" outline="true" class="waves-light" mdbWavesEffect
-                          [disabled]="f.invalid">Confirmar</button>
-        <a type="button" mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect
-          (click)="frame.hide()" data-dismiss="modal">Voltar</a>
-      </div>-->
     </div>
     <!--/.Content-->
   </div>
@@ -138,7 +130,7 @@
             </form>
             <div class="row">
                 <div class="col">
-                    <button mat-raised-button color="primary" [disabled]="f2.invalid" (click)="changePassword(f2)">Alerar Senha</button>
+                    <button mat-raised-button color="primary" [disabled]="f2.invalid" (click)="changePassword(f2)">Alterar Senha</button>
                 </div>
                 <div class="col-6">
                     <button mat-raised-button color="primary" (click)="closeModalPassword()">Voltar</button>

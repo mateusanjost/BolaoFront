@@ -78,4 +78,11 @@ export class AppComponent {
   }
   // --- LOGIN COMPONENTS --- //
 
+  register(){
+    let login = (<HTMLInputElement>document.getElementById("orangeForm-login")).value;
+    let name = (<HTMLInputElement>document.getElementById("orangeForm-name")).value;
+
+    console.log(login + ' - ' + name);
+  }
+
 }
