@@ -11,7 +11,8 @@ import {
     MatRadioModule,
     MatDatepickerModule,
     MatSliderModule,
-    MatProgressSpinnerModule 
+    MatProgressSpinnerModule,
+    MatBadgeModule
     } from '@angular/material';
 
 const MATERIAL_MODULES = [
@@ -27,7 +28,8 @@ const MATERIAL_MODULES = [
     MatSelectModule,
     MatOptionModule,
     MatFormFieldModule,
-    MatProgressSpinnerModule 
+    MatProgressSpinnerModule,
+    MatBadgeModule
 ];
 
 @NgModule({

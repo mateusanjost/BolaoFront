@@ -13,36 +13,39 @@
             <mdb-card-body class="px-lg-5 pt-0">
 
                 <!-- Form -->
-                <form class="text-center" style="color: #757575;">
+                <form class="text-center" style="color: #757575;" [formGroup]="contactForm">
 
                     <!-- Name -->
                     <div class="md-form mt-3">
-                        <input type="text" id="materialContactFormName" class="form-control" mdbInput>
-                        <label for="materialContactFormName">Nome</label>
+                        <input type="text" id="materialContactFormName" class="form-control" mdbInput formControlName="name" required>
+                        <label for="materialContactFormName">Nome <small class="red-text">*</small></label>
+                        <mdb-error *ngIf="name.invalid && (name.dirty || name.touched)">Nome é obrigatório</mdb-error>
                     </div>
 
                     <!-- E-mail -->
                     <div class="md-form">
-                        <input type="email" id="materialContactFormEmail" class="form-control" mdbInput>
-                        <label for="materialContactFormEmail">E-mail</label>
+                        <input type="email" id="materialContactFormEmail" class="form-control" mdbInput formControlName="email"  required>
+                        <label for="materialContactFormEmail">E-mail <small class="red-text">*</small></label>
+                        <mdb-error *ngIf="email.invalid && (email.dirty || email.touched)">Email inválido</mdb-error>
                     </div>
 
                     <!-- Subject -->
                     <div class="md-form">
-                        <input type="email" id="materialContactFormSubject" class="form-control" mdbInput>
-                        <label for="materialContactFormSubject">Assunto</label>
+                        <input type="email" id="materialContactFormSubject" class="form-control" mdbInput formControlName="subject" required>
+                        <label for="materialContactFormSubject">Assunto <small class="red-text">*</small></label>
+                        <mdb-error *ngIf="subject.invalid && (subject.dirty || subject.touched)">Assunto deve ter no mínimo 10 caracteres</mdb-error>
                     </div>
 
                     <!--Message-->
                     <div class="md-form">
-                        <textarea type="text" id="materialContactFormMessage" class="form-control md-textarea"
-                            mdbInput></textarea>
-                        <label for="materialContactFormMessage">Messagem</label>
+                        <textarea type="text" id="materialContactFormMessage" class="form-control md-textarea" mdbInput formControlName="message" required></textarea>
+                        <label for="materialContactFormMessage">Messagem <small class="red-text">*</small></label>
+                        <mdb-error *ngIf="message.invalid && (message.dirty || message.touched)">Mensagem deve ter no mínimo 20 caracteres</mdb-error>
                     </div>
 
                     <!-- Send button -->
-                    <button mdbBtn color="success" outline="true" rounded="true" block="true"
-                        class="z-depth-0 my-4 waves-effect" mdbWavesEffect type="submit">Enviar</button>
+                    <button mdbBtn color="success" outline="true" rounded="true" block="true" [disabled]="!contactForm.valid"
+                        class="z-depth-0 my-4 waves-effect" mdbWavesEffect type="submit" (click)="sendMessage()">Enviar</button>
 
                 </form>
                 <!-- Form -->
