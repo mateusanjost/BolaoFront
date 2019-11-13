@@ -9,14 +9,15 @@ import { Game } from './game.interface';
 import { Prize } from './prize.interface';
 import { Bet } from './bet.interface';
 import { Jurisdiction } from './jurisdiction.interface';
+import { Contact } from './contact.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConfigService {
 
-  apiUrl = 'http://api.socialawp.com';
-  //apiUrl = 'https://localhost:44341';
+  //apiUrl = 'http://api.socialawp.com';
+  apiUrl = 'https://localhost:44341';
 
   constructor(private http: HttpClient) { }
   
@@ -236,5 +237,17 @@ export class ConfigService {
   removeUser(userId: number){
     return this.http.delete<User>(`${this.apiUrl}/users/` + userId);
   }
+
+  sendMessage(contact: any){
+    const header = new HttpHeaders({
+      'Content-type': 'application/json'
+    });
+
+    return this.http.post(`${this.apiUrl}/contacts/`, contact, { headers: header });
+  }
   
+  getUnreadMessages(){    
+    return this.http.get<Contact[]>(`${this.apiUrl}/contacts/`);
+  }
+
 }

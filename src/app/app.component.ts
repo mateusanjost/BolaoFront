@@ -17,6 +17,7 @@ export class AppComponent {
 
   public isLogged: boolean = false;
   userAdmin: any;
+  public messagesBadge: number;
 
   public cookie: string;
 
@@ -26,6 +27,13 @@ export class AppComponent {
     this.validatingForm = new FormGroup({
       loginFormModalName: new FormControl('', Validators.required),
       loginFormModalPassword: new FormControl('', Validators.required)
+    });
+
+    this.configService.getUnreadMessages()
+    .subscribe(data => {
+      this.messagesBadge = data.length;
+    }, error => {
+      console.log(error);
     });
 
     if(this.cookieService.get('user') != null){
