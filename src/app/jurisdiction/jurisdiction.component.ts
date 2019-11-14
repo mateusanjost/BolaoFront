@@ -72,7 +72,6 @@ export class JurisdictionComponent implements OnInit {
     .subscribe(data => {
       this.treeList = data.filter(x => x.jurisdictionId != 6); // remove club
       this.treeListRemove = data;
-      console.log(this.treeList);
     }, error => {
       console.log(error);
     });
@@ -116,7 +115,8 @@ export class JurisdictionComponent implements OnInit {
       //obs: this.jurisdictionForm.get('obs').value,
       parentId: this.jurisdictionForm.get('parentId').value,
       password: this.jurisdictionForm.get('password').value,      
-      name: this.jurisdictionForm.get('name').value
+      name: this.jurisdictionForm.get('name').value,
+      lastName: ""
     }
 
     this.configService.addNewUser(newUser)

@@ -16,8 +16,8 @@ import { Contact } from './contact.interface';
 })
 export class ConfigService {
 
-  //apiUrl = 'http://api.socialawp.com';
-  apiUrl = 'https://localhost:44341';
+  apiUrl = 'http://api.socialawp.com';
+  //apiUrl = 'https://localhost:44341';
 
   constructor(private http: HttpClient) { }
   
@@ -232,6 +232,18 @@ export class ConfigService {
     });
 
     return this.http.post<Jurisdiction>(`${this.apiUrl}/users/`, user, { headers: header });
+  }
+
+  createUser(user: User){
+    const header = new HttpHeaders({
+      'Content-type': 'application/json'
+    });
+
+    return this.http.post<User>(`${this.apiUrl}/users/`, user, { headers: header });
+  }
+
+  sendPasswordToEmail(name: string, email: string, password: string){
+    return this.http.get(`${this.apiUrl}/common/SendPasswordMail/?name=` + name + "&email=" + email + "&password=" + password);
   }
 
   removeUser(userId: number){

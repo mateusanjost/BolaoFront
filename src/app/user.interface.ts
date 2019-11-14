@@ -19,6 +19,7 @@ export interface User {
 
 export interface UserLoginForm{
     name: string;
+    lastName: string;
     login: string;
     password: string;
     parentId: number;
