@@ -138,27 +138,27 @@
             <div class="modal-body mx-3">
               <div class="md-form mb-4">
                 <i class="fas fa-user prefix grey-text"></i>
-                <input type="text" id="orangeForm-login" [formControl]="userFormLogin" class="form-control" mdbInput mdbValidate>
+                <input type="text" id="orangeForm-login" name="orangeForm-login" [formControl]="userFormLogin" class="form-control" mdbInput mdbValidate>
                 <label for="orangeForm-login">Login *</label>
               </div>
               <div class="md-form mb-4">
                 <i class="fas fa-user prefix grey-text"></i>
-                <input type="text" id="orangeForm-name" class="form-control" [formControl]="userFormName" mdbInput mdbValidate>
+                <input type="text" id="orangeForm-name" name="orangeForm-name" class="form-control" [formControl]="userFormName" mdbInput mdbValidate>
                 <label data-error="wrong" data-success="right" for="orangeForm-name">Nome *</label>
               </div>
               <div class="md-form mb-4">
                 <i class="fas fa-user prefix grey-text"></i>
-                <input type="text" id="orangeForm-lastname" class="form-control validate"  [formControl]="userFormLastName" mdbInput mdbValidate>
+                <input type="text" id="orangeForm-lastname" name="orangeForm-lastname" class="form-control validate"  [formControl]="userFormLastName" mdbInput mdbValidate>
                 <label data-error="wrong" data-success="right" for="orangeForm-lastname">Sobrenome</label>
               </div>
               <div class="md-form mb-4">
                 <i class="fas fa-envelope prefix grey-text"></i>
-                <input type="email" id="orangeForm-email" class="form-control" [formControl]="userFormEmail" mdbInput mdbValidate>
+                <input type="email" id="orangeForm-email" name="orangeForm-email" class="form-control" [formControl]="userFormEmail" mdbInput mdbValidate>
                 <label data-error="wrong" data-success="right" for="orangeForm-email">E-mail *</label>
               </div>
               <div class="md-form mb-4">
                 <i class="fas fa-envelope prefix grey-text"></i>
-                <input type="email" id="orangeForm-email2" class="form-control"  [formControl]="userFormConfirmEmail" mdbInput mdbValidate>
+                <input type="email" id="orangeForm-email2" name="orangeForm-email2" class="form-control"  [formControl]="userFormConfirmEmail" mdbInput mdbValidate>
                 <label data-error="wrong" data-success="right" for="orangeForm-email2">Confirme o e-mail *</label>
               </div>
               <!--<div class="md-form mb-4">
@@ -168,12 +168,12 @@
               </div>-->
               <div class="md-form mb-4">
                 <i class="fas fa-location-arrow prefix grey-text"></i>
-                <input type="text" id="orangeForm-country" class="form-control" [formControl]="userFormCountry" mdbInput mdbValidate value="Brasil">
+                <input type="text" id="orangeForm-country" name="orangeForm-country" class="form-control" [formControl]="userFormCountry" mdbInput mdbValidate value="Brasil">
                 <label data-error="wrong" data-success="right" for="orangeForm-country">País</label>
               </div>
               <div class="md-form mb-4">
                 <i class="fas fa-location-arrow prefix grey-text"></i>
-                <input type="text" id="orangeForm-city" class="form-control" [formControl]="userFormCity" mdbInput mdbValidate>
+                <input type="text" id="orangeForm-city" name="orangeForm-city" class="form-control" [formControl]="userFormCity" mdbInput mdbValidate>
                 <label data-error="wrong" data-success="right" for="orangeForm-city">Cidade</label>
               </div>
             </div>

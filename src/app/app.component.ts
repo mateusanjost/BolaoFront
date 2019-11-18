@@ -105,23 +105,23 @@ export class AppComponent {
 
   // --- REGISTER COMPONENTS --//
   get userFormLogin() {
-    return this.validatingForm.get('loginFormModalName');
+    return this.userValidatingForm.get('loginFormModalName');
   }
 
   get userFormName() {
-    return this.validatingForm.get('userFormName');
+    return this.userValidatingForm.get('userFormName');
   }
 
   get userFormLastName() {
-    return this.validatingForm.get('userFormLastName');
+    return this.userValidatingForm.get('userFormLastName');
   }
 
   get userFormEmail() {
-    return this.validatingForm.get('userFormEmail');
+    return this.userValidatingForm.get('userFormEmail');
   }
 
   get userFormConfirmEmail() {
-    return this.validatingForm.get('userFormConfirmEmail');
+    return this.userValidatingForm.get('userFormConfirmEmail');
   }
 
   /*get userFormPassword() {
@@ -129,11 +129,11 @@ export class AppComponent {
   }*/
   
   get userFormCountry() {
-    return this.validatingForm.get('userFormCountry');
+    return this.userValidatingForm.get('userFormCountry');
   }
   
   get userFormCity() {
-    return this.validatingForm.get('userFormCity');
+    return this.userValidatingForm.get('userFormCity');
   }
 
   generateRandomPassword(){
@@ -207,5 +207,7 @@ export class AppComponent {
       });
     }
   }
+
+  // --- REGISTER COMPONENTS --//
 
 }

@@ -303,25 +303,11 @@ export class HomeComponent implements OnInit {
 
   clearTicket(){
     alert("Aposta Realizada!");
-    /*
-    this.isLoaded = true;
+    
+    //window.print();
+    //window.open('/ticket');
 
-    this.ticket = 
-    {
-      id: 0, date: new Date(Date.now()), hour: new Date(Date.now()), userName: "", playerName: "", status: "inactivated", roundId: 0,
-      results: ["", "", "", "", "", "", "", "", "", ""], resultToPass: "", userId: 1
-    };
-
-    this.makeFormatting();
-
-    (<HTMLInputElement>document.getElementById("player-name")).value = "";
-
-    this.modalCreate.hide();
-    */
     this.router.navigate(['/ticket']);
     
-
-    //window.location.reload();
-
   }
 }
