@@ -245,17 +245,34 @@ export class ConfigService {
   sendPasswordToEmail(name: string, email: string, password: string){
     return this.http.get(`${this.apiUrl}/common/SendPasswordMail/?name=` + name + "&email=" + email + "&password=" + password);
   }
+  
+  sendRecoveryPassword(email: string){
+    return this.http.get(`${this.apiUrl}/common/RecoveryPasswordMail/?email=` + email);
+  }
 
   removeUser(userId: number){
     return this.http.delete<User>(`${this.apiUrl}/users/` + userId);
   }
 
+  /* NOT USED ANY MORE
   sendMessage(contact: any){
     const header = new HttpHeaders({
       'Content-type': 'application/json'
     });
 
     return this.http.post(`${this.apiUrl}/contacts/`, contact, { headers: header });
+  }
+  */
+
+  sendContactMessage(contact: any){
+    const header = new HttpHeaders({
+      'Content-type': 'application/json'
+    });
+
+    //onsole.log("nome: " + contact.name + " - email: " + contact.email + " - assunto: " + contact.subject + " - msg: " + contact.message);
+
+    return this.http.get(`${this.apiUrl}/common/SendContactMessage/?name=`+contact.name + 
+      "&email="+contact.email+"&subject="+contact.subject+"&message="+contact.message, { headers: header });
   }
   
   getUnreadMessages(){    

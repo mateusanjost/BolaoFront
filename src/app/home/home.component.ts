@@ -305,7 +305,7 @@ export class HomeComponent implements OnInit {
     alert("Aposta Realizada!");
     
     //window.print();
-    //window.open('/ticket');
+    window.open('http://localhost:4200/print');
 
     this.router.navigate(['/ticket']);
     

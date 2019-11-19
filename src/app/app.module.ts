@@ -33,6 +33,7 @@ import { LoaderInterceptor } from 'src/services/loader.interceptor';
 
 import { ConfigService } from './config.service';
 import { CookieService } from 'ngx-cookie-service';
+import { PrintComponent } from './print/print.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { CookieService } from 'ngx-cookie-service';
     JurisdictionComponent,
     CreditTransferComponent,
     SettingsComponent,
-    LoaderComponent
+    LoaderComponent,
+    PrintComponent
   ],
   imports: [
     BrowserModule,
@@ -76,6 +78,7 @@ import { CookieService } from 'ngx-cookie-service';
       {path: 'jurisdiction', component: JurisdictionComponent},
       {path: 'credit-transfer', component: CreditTransferComponent},
       {path: 'settings', component: SettingsComponent},
+      {path: 'print', component: PrintComponent},
       { path: '', redirectTo: '/home', pathMatch: 'full' }
     ])
   ],

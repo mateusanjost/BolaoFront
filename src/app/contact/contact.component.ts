@@ -38,10 +38,19 @@ export class ContactComponent implements OnInit {
       message: this.message.value,
     }
 
-
+    /* NOT USED ANY MORE
     this.configService.sendMessage(contact)
     .subscribe(data => {
       alert("Mensagem enviada com sucesso.")
+      this.contactForm.reset();
+    }, error => {
+      console.log(error);
+    });
+    */
+
+    this.configService.sendContactMessage(contact)
+    .subscribe(data => {
+      alert("Mensagem enviada com sucesso! Agradecemos o contato e retornaremos em breve.");
       this.contactForm.reset();
     }, error => {
       console.log(error);

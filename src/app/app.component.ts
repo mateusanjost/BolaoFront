@@ -14,10 +14,12 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 })
 export class AppComponent {
   @ViewChild('frame', { static: true }) modalLogin: ModalDirective;
+  @ViewChild('frame2', { static: true }) modalForgot: ModalDirective;
   @ViewChild('frame3', { static: true }) modalRegister: ModalDirective;
   title = 'mdb-angular-free';
   validatingForm: FormGroup;
   userValidatingForm: FormGroup;
+  forgotValidatingForm: FormGroup;
 
   public isLogged: boolean = false;
   userAdmin: any;
@@ -42,6 +44,10 @@ export class AppComponent {
       //userFormPassword: new FormControl('', Validators.required),
       userFormCountry: new FormControl(''),
       userFormCity: new FormControl('')
+    });
+
+    this.forgotValidatingForm = new FormGroup({
+      forgotFormEmail: new FormControl('', [Validators.required, Validators.email])
     });
 
     this.configService.getUnreadMessages()
@@ -82,6 +88,7 @@ export class AppComponent {
       this.userAdmin = data.user;
       this.isLogged = true;
       this.cookieService.set('user', JSON.stringify(data.user));
+      this.checkCredit();
       //console.log(this.userAdmin.name);
     }, error =>{
       //console.log(error);
@@ -95,11 +102,40 @@ export class AppComponent {
 
   }
 
+  checkCredit() {
+    if(this.userAdmin.credit < 10){
+      alert("Você não tem crédito suficiente para realizar apostas. Favor entrar em contato com a assistência para solicitação de créditos!");
+    }
+  }
+
   logout(){
     this.cookieService.deleteAll();
     this.isLogged = false;
     this.userAdmin =  null;
 
+  }
+
+  forgetPassword(){
+    this.modalLogin.hide();
+    this.modalForgot.show();
+  }
+
+  sendLogin(){
+    if (!this.forgotValidatingForm.get("forgotFormEmail").valid){
+      alert("Campo de e-mail inválido");
+    }
+    else {
+      this.modalForgot.hide();
+      this.isLogged = false;
+      this.configService.sendRecoveryPassword(this.forgotValidatingForm.get("forgotFormEmail").value)
+      .subscribe(data => {
+        alert("Credenciais enviadas! Cheque se e-mail.");
+        this.ngOnInit();
+      }, error => {
+        alert("Não enviado ("+ error.error +").");
+        this.ngOnInit();
+      })
+    }
   }
   // --- LOGIN COMPONENTS --- //
 
@@ -134,6 +170,10 @@ export class AppComponent {
   
   get userFormCity() {
     return this.userValidatingForm.get('userFormCity');
+  }
+  
+  get forgotFormEmail() {
+    return this.forgotValidatingForm.get('forgotFormEmail');
   }
 
   generateRandomPassword(){
@@ -197,12 +237,12 @@ export class AppComponent {
             this.ngOnInit();
           }
         }, error => {
-          alert("Houve um erro, cadastro não realizado! (" + error +")");
+          alert("Cadastro não realizado! (" + error.error +")");
           this.ngOnInit();
           console.log(error);
         })
       }, error =>{
-        alert("Houve um erro, cadastro não realizado! (" + error +")");
+        alert("Cadastro não realizado! (" + error.error +")");
         this.ngOnInit();
       });
     }

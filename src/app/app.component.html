@@ -45,13 +45,13 @@
                         <a class="dropdown-item waves-light" routerLink="/settings" href="#" mdbWavesEffect>configurações</a>
                         <a class="dropdown-item waves-light" routerLink="/manage-ticket" href="#" mdbWavesEffect>gerenciar bilhete</a>
                         <a class="dropdown-item waves-light" routerLink="/report" href="#" mdbWavesEffect>relatório</a>
-                        <div class="divider dropdown-divider"></div>
-                        <a class="dropdown-item waves-light" routerLink="/jurisdiction" href="#" mdbWavesEffect>jurisdição</a>
-                        <a class="dropdown-item waves-light" routerLink="/credit-transfer" href="#" mdbWavesEffect>transferência de crédito</a>
-                        <div class="divider dropdown-divider"></div>
-                        <a class="dropdown-item waves-light" routerLink="/round" href="#" mdbWavesEffect>criar rodada</a>
-                        <a class="dropdown-item waves-light" routerLink="/post-result" href="#" mdbWavesEffect>postar resultado</a>
-                        <a class="dropdown-item waves-light" routerLink="/jackpot" href="#" mdbWavesEffect>editar acumulado</a>
+                        <div *ngIf="(userAdmin.jurisdictionId <= 2)" class="divider dropdown-divider"></div>
+                        <a *ngIf="(userAdmin.jurisdictionId <= 2)" class="dropdown-item waves-light" routerLink="/jurisdiction" href="#" mdbWavesEffect>jurisdição</a>
+                        <a *ngIf="(userAdmin.jurisdictionId <= 2)" class="dropdown-item waves-light" routerLink="/credit-transfer" href="#" mdbWavesEffect>transferência de crédito</a>
+                        <div *ngIf="(userAdmin.jurisdictionId == 1)" class="divider dropdown-divider"></div>
+                        <a *ngIf="(userAdmin.jurisdictionId == 1)" class="dropdown-item waves-light" routerLink="/round" href="#" mdbWavesEffect>criar rodada</a>
+                        <a *ngIf="(userAdmin.jurisdictionId == 1)" class="dropdown-item waves-light" routerLink="/post-result" href="#" mdbWavesEffect>postar resultado</a>
+                        <a *ngIf="(userAdmin.jurisdictionId == 1)" class="dropdown-item waves-light" routerLink="/jackpot" href="#" mdbWavesEffect>editar acumulado</a>
                     </div>
                 </li>
             </ul>
@@ -113,12 +113,14 @@
                     <input type="password" id="defaultForm-pass" [formControl]="loginFormModalPassword"
                         class="form-control" mdbInput mdbValidate>
                     <label for="defaultForm-pass">Senha</label>
+                    <p><a (click)="forgetPassword()" style="color: blue">Esqueceu login ou senha</a></p>
                 </div>
 
             </div>
             <div class="modal-footer d-flex justify-content-center">
-                <button mdbBtn color="default" class="waves-light" (click)="getLogin()" mdbWavesEffect>Login</button>
+                <button mdbBtn color="default" class="waves-light" (click)="getLogin()" mdbWavesEffect>Login</button><br/>
             </div>
+            
         </div>
     </div>
 </div>
@@ -127,7 +129,7 @@
 <!--Modal Create Account -->
 <div mdbModal #frame3="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog"
     aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <div class="modal-header text-center">
                 <h4 class="modal-title w-100 font-weight-bold">Entrar</h4>
@@ -161,11 +163,6 @@
                 <input type="email" id="orangeForm-email2" name="orangeForm-email2" class="form-control"  [formControl]="userFormConfirmEmail" mdbInput mdbValidate>
                 <label data-error="wrong" data-success="right" for="orangeForm-email2">Confirme o e-mail *</label>
               </div>
-              <!--<div class="md-form mb-4">
-                <i class="fas fa-lock prefix grey-text"></i>
-                <input type="password" id="orangeForm-password" class="form-control" [formControl]="userFormPassword" mdbInput mdbValidate>
-                <label data-error="wrong" data-success="right" for="orangeForm-password">Senha *</label>
-              </div>-->
               <div class="md-form mb-4">
                 <i class="fas fa-location-arrow prefix grey-text"></i>
                 <input type="text" id="orangeForm-country" name="orangeForm-country" class="form-control" [formControl]="userFormCountry" mdbInput mdbValidate value="Brasil">
@@ -186,40 +183,32 @@
 </div>
 <!-- Modal Create Account-->
 
-<!-- Modal create account
-<div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <i class="fas fa-user prefix grey-text"></i>
-          <input type="text" id="orangeForm-name" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="orangeForm-name">Your name</label>
-        </div>
-        <div class="md-form mb-5">
-          <i class="fas fa-envelope prefix grey-text"></i>
-          <input type="email" id="orangeForm-email" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="orangeForm-email">Your email</label>
-        </div>
+<!--Modal Forgot Password-->
+<div mdbModal #frame2="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Esqueceu Credenciais</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame2.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3">
+                <div class="md-form mb-5">
+                    <mdb-icon fas icon="user" class="prefix grey-text"></mdb-icon>
+                    <input type="text" id="defaultForm-email3" [formControl]="forgotFormEmail" class="form-control validate"
+                        mdbInput mdbValidate>
+                    <!--<label for="defaultForm-email3">E-mail</label>-->
+                    <label data-error="Campo de e-mail obrigatório" for="defaultForm-email3">E-mail</label> 
+                </div>
 
-        <div class="md-form mb-4">
-          <i class="fas fa-lock prefix grey-text"></i>
-          <input type="password" id="orangeForm-pass" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="orangeForm-pass">Your password</label>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <button mdbBtn color="default" class="waves-light" (click)="sendLogin()" mdbWavesEffect>Enviar Credenciais</button><br/>
+            </div>
+            
         </div>
-
-      </div>
-      <div class="modal-footer d-flex justify-content-center">
-        <button class="btn btn-deep-orange">Sign up</button>
-      </div>
     </div>
-  </div>
 </div>
-Modal create account-->
+<!--Modal Forgot Password-->
