@@ -21,6 +21,8 @@ export class AppComponent {
   userValidatingForm: FormGroup;
   forgotValidatingForm: FormGroup;
 
+  registerLoading: boolean = false;
+
   public isLogged: boolean = false;
   userAdmin: any;
   public messagesBadge: number;
@@ -206,8 +208,7 @@ export class AppComponent {
       alert("Os campos de e-mail e confirmação não coicidem.");
     }
     else {
-      this.isLogged = false;
-      this.modalRegister.hide();
+      this.registerLoading = true;
       let newUser: User = {
         login: newLogin,
         name: newName,
@@ -226,24 +227,28 @@ export class AppComponent {
         id: 0,
         children: null
       }
-
+      
       this.configService.createUser(newUser)
       .subscribe(data => {
         this.configService.sendPasswordToEmail(newUser.name, newUser.email, newUser.password)
         .subscribe(data => {
           if (data){
-            alert("Cadastro realizado com sucesso! Favor acessar seu e-mail para capturar sua senha.");
+            alert("Cadastro realizado com sucesso! Favor acessar seu e-mail para receber sua senha.");
+            this.modalRegister.hide();
+            this.registerLoading = false;
             //this.getLogin(newUser.login, newUser.password);
-            this.ngOnInit();
+            //this.ngOnInit();
           }
         }, error => {
           alert("Cadastro não realizado! (" + error.error +")");
-          this.ngOnInit();
+          this.modalRegister.hide();
+          this.registerLoading = false;
           console.log(error);
         })
       }, error =>{
         alert("Cadastro não realizado! (" + error.error +")");
-        this.ngOnInit();
+        this.modalRegister.hide();
+        this.registerLoading = false;
       });
     }
   }

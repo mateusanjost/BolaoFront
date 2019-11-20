@@ -252,10 +252,12 @@ export class HomeComponent implements OnInit {
       }, error => {
         alert("Erro de conexão! Cód: 99");
         console.log(error);
+        this.ngOnInit();
       });
     }
     else {
       alert("Você não possui crédito suficiente para criar aposta.");
+      this.ngOnInit();
     }
 
   }
@@ -266,6 +268,7 @@ export class HomeComponent implements OnInit {
       this.updateJackpot();
     }, error => {
       alert("Erro de conexão! Cód: 103");
+      this.ngOnInit();
     });
   }
 
@@ -282,6 +285,7 @@ export class HomeComponent implements OnInit {
       }, error => {
         console.log(error);
         alert("Houve algum erro de conexão! Cód: 100");
+        this.ngOnInit();
       });
   }
 
@@ -297,6 +301,7 @@ export class HomeComponent implements OnInit {
       this.clearTicket();
     }, error => {
       alert("Houve algum erro de conexão! Cód: 101");
+      this.ngOnInit();
     });
   }
   // --- TICKET CREATION --- //
@@ -305,7 +310,7 @@ export class HomeComponent implements OnInit {
     alert("Aposta Realizada!");
     
     //window.print();
-    window.open('http://localhost:4200/print');
+    //window.open('http://localhost:4200/print');
 
     this.router.navigate(['/ticket']);
     

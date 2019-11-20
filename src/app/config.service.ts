@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { User, UserLoginForm } from './user.interface';
@@ -16,8 +16,8 @@ import { Contact } from './contact.interface';
 })
 export class ConfigService {
 
-  apiUrl = 'http://api.socialawp.com';
-  //apiUrl = 'https://localhost:44341';
+  //apiUrl = 'http://api.socialawp.com';
+  apiUrl = 'https://localhost:44341';
 
   constructor(private http: HttpClient) { }
   
@@ -139,6 +139,11 @@ export class ConfigService {
 
   getBets(roundId: number){
     return this.http.get<Bet[]>(`${this.apiUrl}/common/GetActivatedBetsByRound/?roundId=` + roundId);
+  }
+
+  getBetsByUserTree(userAdminId: number, roundId: number){
+
+    return this.http.get<Bet[]>(`${this.apiUrl}/common/GetBetsByUserTree/?userAdminId=` + userAdminId + "&roundId=" + roundId);
   }
   
   getAllBets(roundId: number){
