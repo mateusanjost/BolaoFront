@@ -61,7 +61,7 @@
             <div class="md-form my-0">
                 <a class="nav-link waves-light admin-style" mdbWaverEffect (click)="frame3.show()" *ngIf="!isLogged">registre-se</a>
                 <a class="nav-link waves-light admin-style" mdbWaverEffect (click)="frame.show()" *ngIf="!isLogged">login</a>
-                <a class="nav-link waves-light admin-style" mdbWaverEffect (click)="logout()" *ngIf="isLogged" routerLink="/home">logout {{ userAdmin.name }}</a>
+                <a class="nav-link waves-light admin-style" mdbWaverEffect (click)="logout()" *ngIf="isLogged" routerLink="/home">sair {{ userAdmin.login }}</a>
             </div>
         </links>
         <!-- Collapsible content -->
@@ -106,7 +106,7 @@
                     <mdb-icon fas icon="user" class="prefix grey-text"></mdb-icon>
                     <input type="text" id="defaultForm-name" [formControl]="loginFormModalName" class="form-control"
                         mdbInput mdbValidate>
-                    <label for="defaultForm-name">Login</label>
+                    <label for="defaultForm-name">Usuário</label>
                 </div>
 
                 <div class="md-form mb-4">
@@ -114,7 +114,7 @@
                     <input type="password" id="defaultForm-pass" [formControl]="loginFormModalPassword"
                         class="form-control" mdbInput mdbValidate>
                     <label for="defaultForm-pass">Senha</label>
-                    <p><a (click)="forgetPassword()" style="color: blue">Esqueceu login ou senha</a></p>
+                    <p><a (click)="forgetPassword()" style="color: blue">Esqueceu usuário ou senha</a></p>
                 </div>
 
             </div>
@@ -133,7 +133,7 @@
     <div class="modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <div class="modal-header text-center">
-                <h4 class="modal-title w-100 font-weight-bold">Entrar</h4>
+                <h4 class="modal-title w-100 font-weight-bold">Cadastro</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame3.hide()">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -150,14 +150,14 @@
               <div class="md-form mb-4">
                 <i class="fas fa-user prefix grey-text"></i>
                 <input type="text" id="orangeForm-login" name="orangeForm-login" [formControl]="userFormLogin" class="form-control" mdbInput mdbValidate>
-                <label for="orangeForm-login">Login *</label>
+                <label for="orangeForm-login">Usuário *</label>
               </div>
-              <div class="md-form mb-4">
+              <div class="md-form mb-4 " hidden>
                 <i class="fas fa-user prefix grey-text"></i>
                 <input type="text" id="orangeForm-name" name="orangeForm-name" class="form-control" [formControl]="userFormName" mdbInput mdbValidate>
                 <label data-error="wrong" data-success="right" for="orangeForm-name">Nome *</label>
               </div>
-              <div class="md-form mb-4">
+              <div class="md-form mb-4 " hidden>
                 <i class="fas fa-user prefix grey-text"></i>
                 <input type="text" id="orangeForm-lastname" name="orangeForm-lastname" class="form-control validate"  [formControl]="userFormLastName" mdbInput mdbValidate>
                 <label data-error="wrong" data-success="right" for="orangeForm-lastname">Sobrenome</label>
@@ -172,12 +172,12 @@
                 <input type="email" id="orangeForm-email2" name="orangeForm-email2" class="form-control"  [formControl]="userFormConfirmEmail" mdbInput mdbValidate>
                 <label data-error="wrong" data-success="right" for="orangeForm-email2">Confirme o e-mail *</label>
               </div>
-              <div class="md-form mb-4">
+              <div class="md-form mb-4 " hidden>
                 <i class="fas fa-location-arrow prefix grey-text"></i>
                 <input type="text" id="orangeForm-country" name="orangeForm-country" class="form-control" [formControl]="userFormCountry" mdbInput mdbValidate value="Brasil">
                 <label data-error="wrong" data-success="right" for="orangeForm-country">País</label>
               </div>
-              <div class="md-form mb-4">
+              <div class="md-form mb-4 " hidden>
                 <i class="fas fa-location-arrow prefix grey-text"></i>
                 <input type="text" id="orangeForm-city" name="orangeForm-city" class="form-control" [formControl]="userFormCity" mdbInput mdbValidate>
                 <label data-error="wrong" data-success="right" for="orangeForm-city">Cidade</label>
@@ -185,7 +185,7 @@
             </div>
             <div class="modal-footer d-flex justify-content-center">
                 <button mdbBtn color="default" class="waves-light" mdbWavesEffect (click)="register()">Registrar-se</button>
-                <button mdbBtn color="default" class="waves-light" (click)="frame3.hide()" mdbWavesEffect>Cancelar</button>
+                <!--<button mdbBtn color="default" class="waves-light" (click)="frame3.hide()" mdbWavesEffect>Cancelar</button>-->
             </div>
         </div>
     </div>

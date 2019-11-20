@@ -34,7 +34,7 @@
                         <mat-label>Jurisdição</mat-label>
                         <mat-select name="jurisdiction" required ngModel>
                           <mat-option *ngFor="let user of myUsers; let i = index" value="{{user.id}}">
-                            {{user.name}} {{user.credit}}
+                            {{user.login}} {{user.credit}}
                           </mat-option>
                         </mat-select>
                     </mat-form-field>

@@ -32,7 +32,7 @@
                                 <!-- use a disabled button to provide padding for tree leaf -->
                                 <button mat-icon-button disabled></button>
                                 <img src="../../assets/image/{{node.jurisdictionId}}.png" width="20px" height="20px"
-                                    style="margin-right: 3px">{{node.name}}
+                                    style="margin-right: 3px"><a (click)="editJurisdiction(node.id)">{{node.name}} <i class="fas fa-pencil-alt mr-1"></i></a>
                             </li>
                         </mat-tree-node>
                         <!-- This is the tree node template for expandable nodes -->
@@ -45,7 +45,7 @@
                                         </mat-icon>
                                     </button>
                                     <img src="../../assets/image/{{node.jurisdictionId}}.png" width="20px" height="20px"
-                                        style="margin-right: 3px">{{node.name}}
+                                        style="margin-right: 3px"><a (click)="editJurisdiction(node.id)">{{node.name}} <i class="fas fa-pencil-alt mr-1"></i></a>
                                 </div>
                                 <ul [class.example-tree-invisible]="!treeControl.isExpanded(node)"
                                     style="list-style: none">
@@ -202,3 +202,85 @@
     </div>
 </div>
 <!--Modal delete jurisdiction-->
+
+<!--Modal edit jurisdiction-->
+<div mdbModal #frame3="mdbModal" class="modal fade" scrollY="true" maxHeight="200" id="frameModalTop" tabindex="-1" 
+    role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+    [config]="{backdrop: false, ignoreBackdropClick: true}">
+    <div class="modal-dialog modal-notify modal-primary" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+                <p class="heading lead">Editar Jurisdição</p>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame3.hide()">
+                    <span aria-hidden="true" class="white-text">&times;</span>
+                </button>
+            </div>
+
+            <!--Body-->
+            <div class="modal-body">
+                <div class="text-center">
+                    <form style="color: #757575;" #f="ngForm">
+                        <!-- User Data -->
+                        <mat-form-field class="w-100">
+                            <mat-label>Username</mat-label>
+                            <input type="text" matInput [(ngModel)]="userEditable.login" userLogin name="userLogin" disabled>
+                        </mat-form-field>
+                        <mat-form-field class="w-100">
+                            <mat-label>Crédito</mat-label>
+                            <input type="text" matInput [(ngModel)]="userCredit" userCredit name="userCredit" disabled>
+                        </mat-form-field>
+                        <span *ngIf="!showPassword" style="text-align: left; text-decoration: underline; color: blue"><a (click)="showPasswordField()">Alterar Senha</a></span>
+                        <mat-form-field class="w-100" *ngIf="showPassword">
+                            <mat-label>Nova Senha</mat-label>
+                            <input type="password" matInput userPassword name="userPassword">
+                        </mat-form-field>
+                        <mat-form-field class="w-100">
+                            <mat-label>Nome *</mat-label>
+                            <input type="text" matInput [(ngModel)]="userEditable.name" userName name="userName">
+                        </mat-form-field>
+                        <mat-form-field class="w-100">
+                            <mat-label>Sobrenome</mat-label>
+                            <input type="text" matInput [(ngModel)]="userEditable.lastName" lastName name="lastName">
+                        </mat-form-field>
+                        <mat-form-field class="w-100">
+                            <mat-label>E-mail *</mat-label>
+                            <input type="text" matInput [(ngModel)]="userEditable.email" userEmail ngModel name="userEmail">
+                        </mat-form-field>
+                        <mat-form-field class="w-100">
+                            <mat-label>País</mat-label>
+                            <input type="text" matInput [(ngModel)]="userEditable.country" country ngModel name="country">
+                        </mat-form-field>
+                        <mat-form-field class="w-100">
+                            <mat-label>Cidade</mat-label>
+                            <input type="text" matInput [(ngModel)]="userEditable.city" city ngModel name="city">
+                        </mat-form-field>
+                    
+                    </form>
+                    
+                </div>
+            </div>
+            <!--Body-->
+
+            <!--Footer -->
+            <div class="modal-footer justify-content-center">
+                <div class="row">
+                        <div class="col-6">
+                            <button mat-raised-button color="primary" (click)="editUser(f)">Salvar Alterações</button>
+                        </div>
+                        <div class="col-6">
+                            <button mat-raised-button color="primary" (click)="frame3.hide()">Não Alterar</button>
+                        </div>
+                    </div>
+                <!--<button type="submit" mdbBtn color="danger" class="waves-light" [disabled]="!jurisdictionToDelete" 
+                        mdbWavesEffect (click)="removeUserAdmin(frame3)" >Excluir</button>
+                <button mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect 
+                (click)="frame3.hide()" data-dismiss="modal">Cancelar</button>-->
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
+<!--Modal edit jurisdiction-->

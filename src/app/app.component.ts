@@ -201,7 +201,7 @@ export class AppComponent {
 
     let newPassword = this.generateRandomPassword();
 
-    if (newLogin == "" || newName == "" || newEmail == "" || newConfirmEmail == ""){
+    if (newLogin == "" || /*newName == "" ||*/ newEmail == "" || newConfirmEmail == ""){
       alert("É necessário o preencimento de todos os campos obrigatórios.");
     }
     else if (newEmail != newConfirmEmail){

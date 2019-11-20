@@ -3,6 +3,7 @@ import { MatTreeNestedDataSource} from '@angular/material/tree';
 import { Validators, FormBuilder } from '@angular/forms';
 import { NestedTreeControl} from '@angular/cdk/tree';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 import { ModalDirective } from 'angular-bootstrap-md';
 
@@ -15,6 +16,7 @@ import { Jurisdiction } from '../jurisdiction.interface';
 interface JurisdictionNode {
   name: string;
   jurisdictionId: number;
+  id: number;
   children?: JurisdictionNode[];
 }
 
@@ -26,6 +28,7 @@ interface JurisdictionNode {
 export class JurisdictionComponent implements OnInit {
   @ViewChild('frame', { static: true }) modalCreate: ModalDirective;
   @ViewChild('frame2', { static: true }) modalDelete: ModalDirective;
+  @ViewChild('frame3', { static: true }) modalEdit: ModalDirective;
 
   myUsers: User;
   treeList: User[];
@@ -36,6 +39,10 @@ export class JurisdictionComponent implements OnInit {
   isLoaded: boolean = false;
   senhaOk: boolean = false;
   emailOk: boolean = false;
+
+  userEditable: User;
+  showPassword: boolean = false;
+  userCredit: string;
 
   jurisdictionForm = this.fb.group({
     jurisdictionId: ['', Validators.required],
@@ -65,6 +72,8 @@ export class JurisdictionComponent implements OnInit {
     this.listTree();    
     this.listJurisdiction();
     this.listUsers();
+    this.userEditable = this.appComponent.userAdmin;
+    this.userCredit = this.userEditable.credit.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   }
 
   listUsers(){
@@ -93,6 +102,7 @@ export class JurisdictionComponent implements OnInit {
 
       this.TREE_USERS.push({
         name: this.myUsers.name,
+        id: this.myUsers.id,
         jurisdictionId: this.myUsers.jurisdictionId,
         children: this.myUsers.children
       });
@@ -139,6 +149,53 @@ export class JurisdictionComponent implements OnInit {
       console.log(error);
     });
   }  
+
+  editJurisdiction(userId: number){
+    if (userId == this.appComponent.userAdmin.id){
+      this.router.navigate(['/settings']);
+    }
+    else {
+      this.configService.getUser(userId)
+      .subscribe(data => {
+        this.userEditable = data;
+        this.userCredit = data.credit.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        this.modalEdit.show();
+      }, error => {
+        console.log(error);
+      });
+    }
+  }
+
+  showPasswordField(){
+    this.showPassword = true;
+  }
+
+  editUser(form: NgForm){
+    if (form.value.userEmail != ""){
+      this.modalEdit.hide();
+      this.isLoaded = false;
+      this.userEditable.name = form.value.userName;
+      if (form.value.userPassword != ""){
+        this.userEditable.password = form.value.userPassword;
+      }
+      this.userEditable.lastName = form.value.lastName;
+      this.userEditable.email = form.value.userEmail;
+      this.userEditable.country = form.value.country;
+      this.userEditable.city = form.value.city;
+      this.configService.updateUser(this.userEditable.id, this.userEditable)
+      .subscribe(data => {
+        alert("Dados alterados com sucesso!");
+        this.ngOnInit();
+      }, error => {
+        alert("Houve algum erro de conexão!");
+        console.log(error);
+        this.ngOnInit();
+      });
+    }
+    else {
+      alert("O campo e-mail é obrigatório!");
+    }
+  }
 
   compararSenha(){
       this.senhaOk = this.jurisdictionForm.get('confirmPassword').value === this.jurisdictionForm.get('password').value;
