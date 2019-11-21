@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ModalDirective } from 'angular-bootstrap-md';
 
 @Component({
   selector: 'app-print',
@@ -6,12 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./print.component.scss']
 })
 export class PrintComponent implements OnInit {
+  @ViewChild('frame3', { static: true }) modalTicket: ModalDirective;
 
   isPrinting = true;
 
   constructor() { }
 
   ngOnInit() {
+    this.modalTicket.show();
   }
 
 }

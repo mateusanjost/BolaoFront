@@ -200,7 +200,7 @@ export class HomeComponent implements OnInit {
         /*'id bilhete: '+ this.ticket.id + ' - */'rodada: ' + this.ticket.roundNum + '<p/>' +
         //' data: ' + this.ticket.date + ' - hora: ' + this.ticket.hour + '<br/>'+
         ' criação: ' + showDateHour.getDate()+'/'+ (showDateHour.getMonth()+1) + ' - ' + showDateHour.getHours()+':'+ showDateHour.getMinutes() + '<br/>'+
-        'operador: ' + this.appComponent.userAdmin.name + ' - jogador: ' + this.ticket.playerName + '<br/><br/>'+
+        'operador: ' + this.appComponent.userAdmin.login + ' - jogador: ' + this.ticket.playerName + '<br/><br/>'+
         msgResult;
         }
       }

@@ -95,7 +95,7 @@ export class TicketComponent implements OnInit {
     while(count < limit){
       for (let i = 0; i < this.users.length; i++){
         if (this.users[i].id == this.bets[count].userAdminId){
-          this.userNameToShow[count] = this.users[i].name;
+          this.userNameToShow[count] = this.users[i].login;
         }
       }
 

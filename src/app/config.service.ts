@@ -18,8 +18,8 @@ import { ReportFilter } from './reportFilter.interface';
 })
 export class ConfigService {
 
-  //apiUrl = 'http://api.socialawp.com';
-  apiUrl = 'https://localhost:44341';
+  apiUrl = 'http://api.socialawp.com';
+  //apiUrl = 'https://localhost:44341';
 
   constructor(private http: HttpClient) { }
   
@@ -83,6 +83,8 @@ export class ConfigService {
       "City": user.city,
       "Credit": user.credit
     }
+
+    console.log("senha: " + jsonToPass.Password);
     
     return this.http.put<User>(this.apiUrl + '/users/'+ userId, jsonToPass, { headers: header });
   }
@@ -249,8 +251,8 @@ export class ConfigService {
     return this.http.post<User>(`${this.apiUrl}/users/`, user, { headers: header });
   }
 
-  sendPasswordToEmail(name: string, email: string, password: string){
-    return this.http.get(`${this.apiUrl}/common/SendPasswordMail/?name=` + name + "&email=" + email + "&password=" + password);
+  sendPasswordToEmail(name: string, login: string, email: string, password: string){
+    return this.http.get(`${this.apiUrl}/common/SendPasswordMail/?name=` + name + "&login=" + login + "&email=" + email + "&password=" + password);
   }
   
   sendRecoveryPassword(email: string){

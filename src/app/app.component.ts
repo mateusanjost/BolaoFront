@@ -230,7 +230,7 @@ export class AppComponent {
       
       this.configService.createUser(newUser)
       .subscribe(data => {
-        this.configService.sendPasswordToEmail(newUser.name, newUser.email, newUser.password)
+        this.configService.sendPasswordToEmail(newUser.name, newUser.login, newUser.email, newUser.password)
         .subscribe(data => {
           if (data){
             alert("Cadastro realizado com sucesso! Favor acessar seu e-mail para receber sua senha.");

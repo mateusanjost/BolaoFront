@@ -15,6 +15,7 @@ import { Jurisdiction } from '../jurisdiction.interface';
 
 interface JurisdictionNode {
   name: string;
+  login: string;
   jurisdictionId: number;
   id: number;
   children?: JurisdictionNode[];
@@ -101,7 +102,8 @@ export class JurisdictionComponent implements OnInit {
       this.myUsers = data;
 
       this.TREE_USERS.push({
-        name: this.myUsers.name,
+        name: this.myUsers.login,
+        login: this.myUsers.login,
         id: this.myUsers.id,
         jurisdictionId: this.myUsers.jurisdictionId,
         children: this.myUsers.children
@@ -175,7 +177,7 @@ export class JurisdictionComponent implements OnInit {
       this.modalEdit.hide();
       this.isLoaded = false;
       this.userEditable.name = form.value.userName;
-      if (form.value.userPassword != ""){
+      if (form.value.userPassword != undefined){
         this.userEditable.password = form.value.userPassword;
       }
       this.userEditable.lastName = form.value.lastName;

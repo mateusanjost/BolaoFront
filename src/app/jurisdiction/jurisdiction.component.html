@@ -32,7 +32,7 @@
                                 <!-- use a disabled button to provide padding for tree leaf -->
                                 <button mat-icon-button disabled></button>
                                 <img src="../../assets/image/{{node.jurisdictionId}}.png" width="20px" height="20px"
-                                    style="margin-right: 3px"><a (click)="editJurisdiction(node.id)">{{node.name}} <i class="fas fa-pencil-alt mr-1"></i></a>
+                                    style="margin-right: 3px"><a (click)="editJurisdiction(node.id)">{{node.login}} <i class="fas fa-pencil-alt mr-1"></i></a>
                             </li>
                         </mat-tree-node>
                         <!-- This is the tree node template for expandable nodes -->
@@ -45,7 +45,7 @@
                                         </mat-icon>
                                     </button>
                                     <img src="../../assets/image/{{node.jurisdictionId}}.png" width="20px" height="20px"
-                                        style="margin-right: 3px"><a (click)="editJurisdiction(node.id)">{{node.name}} <i class="fas fa-pencil-alt mr-1"></i></a>
+                                        style="margin-right: 3px"><a (click)="editJurisdiction(node.id)">{{node.login}} <i class="fas fa-pencil-alt mr-1"></i></a>
                                 </div>
                                 <ul [class.example-tree-invisible]="!treeControl.isExpanded(node)"
                                     style="list-style: none">
@@ -235,7 +235,7 @@
                         <span *ngIf="!showPassword" style="text-align: left; text-decoration: underline; color: blue"><a (click)="showPasswordField()">Alterar Senha</a></span>
                         <mat-form-field class="w-100" *ngIf="showPassword">
                             <mat-label>Nova Senha</mat-label>
-                            <input type="password" matInput userPassword name="userPassword">
+                            <input type="password" matInput [(ngModel)]="userEditable.password" userPassword name="userPassword">
                         </mat-form-field>
                         <mat-form-field class="w-100">
                             <mat-label>Nome *</mat-label>

@@ -126,7 +126,7 @@ export class ResultComponent implements OnInit {
      this.usersUsed.push(this.users.find(x => x.id == this.tickets[i].userAdminId));
      this.finalTable.push(
        { "betId":this.winners[i].betId,
-       "operator": this.usersUsed[i].name,
+       "operator": this.usersUsed[i].login,
        "country": this.usersUsed[i].country,
        "city": this.usersUsed[i].city,
        "playerName": this.ticketsUsed[i].playerName
@@ -165,40 +165,10 @@ export class ResultComponent implements OnInit {
    }
  }
 
-  /*getPrize(){
-    this.configService.getPrize()
-    .subscribe(data => {
-      this.prizes = data;
-      this.jackpot = (this.prizes[0].gathered).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-      this.prizeAmount = (this.prizes[1].gathered).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-      this.fullPrize = (this.prizes[0].gathered + this.prizes[1].gathered).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-
-      this.getWinners();
-    }, error =>{
-      console.log(error);
-    });
-  }*/
-
-  /*getWinners() {
-    
-    let ticket1 = { num: "1032", operator: "AGENCIA01", country: "Brasil", city: "Rio de Janeiro", player: "Carlos H" };
-    let ticket2 = { num: "1044", operator: "MN", country: "Brasil", city: "Manaus", player: "anônimo" };
-    let ticket3 = { num: "1098", operator: "AGENCIA01", country: "Brasil", city: "Rio de Janeiro", player: "Juca" };
-
-    this.winners = [ ticket1, ticket2, ticket3 ];
-
-    this.prizeSharing = (this.prizes[0].gathered / this.winners.length).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-  }*/
-
   createJurisdiction(){
 
     let newJurisdiction: Jurisdiction;
 
-    // this.configService.addJurisdiction(newJurisdiction).subscribe(response => {
-    //   console.log(response);
-    // }, error => { 
-    //   console.log(error);
-    // });
   }
 
   removeJurisdiction(jurisdictionId){
