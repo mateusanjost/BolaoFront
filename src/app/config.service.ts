@@ -10,6 +10,8 @@ import { Prize } from './prize.interface';
 import { Bet } from './bet.interface';
 import { Jurisdiction } from './jurisdiction.interface';
 import { Contact } from './contact.interface';
+import { Relatorio } from './report.interface';
+import { ReportFilter } from './reportFilter.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -282,6 +284,14 @@ export class ConfigService {
   
   getUnreadMessages(){    
     return this.http.get<Contact[]>(`${this.apiUrl}/contacts/`);
+  }
+
+  getReport(filter: ReportFilter){
+    const header = new HttpHeaders({
+      'Content-type': 'application/json'
+    });      
+
+    return this.http.post<Relatorio[]>(`${this.apiUrl}/common/GetReport/`, filter, { headers: header });
   }
 
 }

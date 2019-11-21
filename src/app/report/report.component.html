@@ -3,18 +3,60 @@
     <div class="card mb-5">
         <!-- Card content -->
         <div class="card-body">
-            <div class="row">
                 <div class="col-12 pt-3">
                     <h3>Relatórios</h3>
                 </div>
-                
-            </div>
-            <div class="row">
-                <!--Table-->
+                <form class="row" [formGroup]="reportForm">                    
+                    <div class="col-3 pt-3 pl-0 text-right">
+                        <mat-form-field>
+                            <mat-label>Data Início</mat-label>
+                            <input matInput [matDatepicker]="dateStart" formControlName="dateStart">
+                            <mat-datepicker-toggle matSuffix [for]="dateStart" style="color: black">
+                            </mat-datepicker-toggle>
+                            <mat-datepicker #dateStart></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-3 pt-3 pl-0 text-right">
+                        <mat-form-field>
+                            <mat-label>Data Fim</mat-label>
+                            <input matInput [matDatepicker]="dateEnd" formControlName="dateEnd">
+                            <mat-datepicker-toggle matSuffix [for]="dateEnd" style="color: black">
+                            </mat-datepicker-toggle>
+                            <mat-datepicker #dateEnd></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-3 pt-3 pl-0 text-right">
+                        <mat-form-field>
+                            <mat-label>Jurisdição</mat-label>
+                            <mat-select formControlName="jurisdictionId">
+                                <mat-option [value]="0">-</mat-option>
+                                <mat-option *ngFor="let jur of jurisdictions" [value]="jur.id">
+                                    {{jur.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-3 pt-3 pl-0 text-right">
+                        <mat-form-field>
+                            <mat-label>Rodada</mat-label>
+                            <mat-select formControlName="roundId">
+                                <mat-option [value]="0">-</mat-option>
+                                <mat-option *ngFor="let jur of jurisdictions" [value]="jur.id">
+                                    {{jur.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-12 pl-0 text-right">
+                        <button type="submit" mdbBtn color="primary" class="waves-light" mdbWavesEffect
+                            (click)="getReport()">Gerar Relatório</button>
+                    </div>
+                </form>
+
+            <!-- <div class="row">
                 <table class="table table-striped" mdbTable mdbTableScroll scrollX="true" maxWidth="50%"
                     bordered="true">
 
-                    <!--Table head-->
                     <thead>
                         <tr>
                             <th style="text-align: center">operador</th>
@@ -27,9 +69,7 @@
                             <th style="text-align: center">pago</th>
                         </tr>
                     </thead>
-                    <!--Table head-->
 
-                    <!--Table body-->
                     <tbody>
                         <tr>
                             <td style="text-align: center">AGENCIA01</td>
@@ -40,7 +80,6 @@
                             <td style="text-align: center">R$ 491,67</td>
                             <td style="text-align: center">R$ 0,00</td>
                             <td style="text-align: center">
-                                <!-- Material unchecked -->
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="materialUnchecked" checked
                                         disabled>
@@ -48,11 +87,59 @@
                             </td>
                         </tr>
                     </tbody>
-                    <!--Table body-->
 
                 </table>
-                <!--Table-->
-            </div>
+            </div> -->
+
+            <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
+
+                <ng-container matColumnDef="operator">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> operador </th>
+                    <td mat-cell *matCellDef="let element"> {{element.operator}} </td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="amountSold">
+                    <th mat-header-cell *matHeaderCellDef> vendido </th>
+                    <td mat-cell *matCellDef="let element"> {{element.amountSold}} </td>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="prizeValue">
+                    <th mat-header-cell *matHeaderCellDef> valor p/ prêmio </th>
+                    <td mat-cell *matCellDef="let element"> {{element.prizeValue}} </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="playerWinnings">
+                    <th mat-header-cell *matHeaderCellDef> ganho do jogador </th>
+                    <td mat-cell *matCellDef="let element"> {{element.playerWinnings}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="percentage">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> % a reter </th>
+                    <td mat-cell *matCellDef="let element"> {{element.percentage}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="amountToGive">
+                    <th mat-header-cell *matHeaderCellDef> valor a repassar </th>
+                    <td mat-cell *matCellDef="let element"> {{element.amountToGive}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="amountToReceive">
+                    <th mat-header-cell *matHeaderCellDef> valor a receber </th>
+                    <td mat-cell *matCellDef="let element"> {{element.amountToReceive}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="wasPaid">
+                    <th mat-header-cell *matHeaderCellDef> pago </th>
+                    <td mat-cell *matCellDef="let element"> {{element.wasPaid}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            </table>
         </div>
     </div>
     <!-- Card -->
