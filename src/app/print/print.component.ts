@@ -14,7 +14,7 @@ export class PrintComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.modalTicket.show();
+    
   }
 
 }
