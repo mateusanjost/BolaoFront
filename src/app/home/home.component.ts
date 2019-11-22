@@ -18,6 +18,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
   @ViewChild('frame2', { static: true }) modalCreate: ModalDirective;
+  @ViewChild('frame4', { static: true }) modalPrint: ModalDirective;
   betForm: FormGroup;
 
   isLogged: boolean = false;
@@ -312,7 +313,54 @@ export class HomeComponent implements OnInit {
     //window.print();
     //window.open('http://localhost:4200/print');
 
-    this.router.navigate(['/ticket']);
+    this.printTicket();
+
+    //this.router.navigate(['/ticket']);
     
+  }
+
+  printTicket(){
+    this.modalPrint.show();
+
+    let msgResult = "";
+    this.ticket.resultToPass = "";
+    for (let i = 0; i < 10; i++) {
+      let result = "";
+      if (this.ticket.results[i] == '1') {
+        result = this.responseGames[i].teamHome + ' [1]';
+        this.ticket.resultToPass += '1';
+        this.ticket.resultToPass += i < 9 ? '|' : '';
+      }
+      else if (this.ticket.results[i] == 'X') {
+        result = "EMPATE [X]";
+        this.ticket.resultToPass += 'X';
+        this.ticket.resultToPass += i < 9 ? '|' : '';
+      }
+      else {
+        result = this.responseGames[i].teamVisit + ' [2]';
+        this.ticket.resultToPass += '2';
+        this.ticket.resultToPass += i < 9 ? '|' : '';
+      }
+      msgResult += this.responseGames[i].teamHome + ' X ' + this.responseGames[i].teamVisit + ' : ' + result + '<br/>';
+      let showDateHour = new Date(this.ticket.date);
+      this.htmlToAdd =
+        /*'id bilhete: '+ this.ticket.id + ' - */'rodada: ' + this.ticket.roundNum + '<p/>' +
+        //' data: ' + this.ticket.date + ' - hora: ' + this.ticket.hour + '<br/>'+
+        ' criação: ' + showDateHour.getDate() + '/' + (showDateHour.getMonth() + 1) + ' - ' + showDateHour.getHours() + ':' + showDateHour.getMinutes() + '<br/>' +
+        'operador: ' + this.appComponent.userAdmin.login + ' - jogador: ' + this.ticket.playerName + '<br/><br/>' +
+        msgResult;
+    }
+    this.htmlToAdd += "<br/><br/>Nós do JogoBrasil lhe<br/>desejamos boa sorte!"
+
+    this.print();
+  }
+
+  print(){
+    window.print();
+  }
+
+  closePrintModal(){
+    this.modalPrint.hide();
+    location.reload();
   }
 }
