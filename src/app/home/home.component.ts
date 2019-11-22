@@ -311,12 +311,15 @@ export class HomeComponent implements OnInit {
     alert("Aposta Realizada!");
     
     //window.print();
-    //window.open('http://localhost:4200/print');
+    //window.open('http://localhost:4200/print',"Printing", "width=360,height=600");
+    let betId = 10;
+    window.open('http://localhost:4200/print',betId.toString(), "width=360,height=600");
+    //window.open('http://www.jogobrasil.com.br/print', betId.toString(), "width=360,height=600");
 
-    this.printTicket();
+    //this.printTicket();
 
-    //this.router.navigate(['/ticket']);
-    
+    this.router.navigate(['/ticket']);
+    //location.reload();
   }
 
   printTicket(){
