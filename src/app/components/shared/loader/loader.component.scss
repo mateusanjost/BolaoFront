@@ -14,3 +14,11 @@
     left:50%;
     transform: translate(-50%,-50%);
   }  
+
+  .spinner-grow{
+    width: 1rem !important;
+    height: 1rem !important;
+    position: relative;
+    top: 40px;
+    float: right;
+  }
