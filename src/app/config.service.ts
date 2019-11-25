@@ -154,6 +154,10 @@ export class ConfigService {
     return this.http.get<Bet[]>(`${this.apiUrl}/common/GetBetsByRound/?roundId=` + roundId);
   }
 
+  getLastUserBet(userId: number){
+    return this.http.get<Bet>(`${this.apiUrl}/common/GetLastUserBet/?userId=` + userId);
+  }
+
   postBet(bet: any){
     const header = new HttpHeaders({
       'Content-type': 'application/json'

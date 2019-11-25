@@ -248,6 +248,7 @@ export class HomeComponent implements OnInit {
     if (newUserCredit >= 0){
       this.configService.postBet(this.ticket)
       .subscribe(data => {
+        this.appComponent.betIdPrint = data.id;
         this.appComponent.userAdmin.credit = newUserCredit;
         this.updateUserCredit(userId, newUserCredit);
       }, error => {
@@ -311,10 +312,8 @@ export class HomeComponent implements OnInit {
     alert("Aposta Realizada!");
     
     //window.print();
-    //window.open('http://localhost:4200/print',"Printing", "width=360,height=600");
-    let betId = 10;
-    window.open('http://localhost:4200/print',betId.toString(), "width=360,height=600");
-    //window.open('http://www.jogobrasil.com.br/print', betId.toString(), "width=360,height=600");
+    //window.open('http://localhost:4200/print', "", "width=360,height=600");
+    window.open('http://www.jogobrasil.com.br/print', "", "width=360,height=600");
 
     //this.printTicket();
 

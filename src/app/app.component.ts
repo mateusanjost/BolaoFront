@@ -28,6 +28,7 @@ export class AppComponent {
   public messagesBadge: number;
 
   public cookie: string;
+  public betIdPrint: number;
 
   constructor(private configService: ConfigService, private cookieService: CookieService){ }
 
