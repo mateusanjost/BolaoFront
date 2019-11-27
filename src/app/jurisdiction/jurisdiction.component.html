@@ -179,7 +179,7 @@
                             <mat-select required [(ngModel)]="jurisdictionToDelete" name="parent">
                                 <mat-option [value]="0">Escolha...</mat-option>
                                 <mat-option *ngFor="let user of treeListRemove" [value]="user.id">
-                                    {{user.jurisdictionId}}-{{user.name}}
+                                    {{user.jurisdictionId}}-{{user.login}}
                                 </mat-option>
                             </mat-select>
                         </mat-form-field>

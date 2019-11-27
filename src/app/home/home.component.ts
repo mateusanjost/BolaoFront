@@ -10,6 +10,9 @@ import { Prize } from '../prize.interface';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { User } from '../user.interface';
+import { MessengerService } from 'src/services/messenger.service';
+
 
 @Component({
   selector: 'app-home',
@@ -27,6 +30,7 @@ export class HomeComponent implements OnInit {
   //teams: Team[];
   round: Round;
   games: Game[];
+  user: User = this.appComponent.userAdmin;
   isLoaded: boolean = false;
   isChecked: boolean = false;
   idRound: number;
@@ -45,7 +49,7 @@ export class HomeComponent implements OnInit {
 
   message = "Obrigatório escolher resultado para todos os jogos.";
 
-  constructor(private configService: ConfigService, private appComponent: AppComponent, private router: Router) {
+  constructor(private configService: ConfigService, private appComponent: AppComponent, private router: Router, private msgService: MessengerService) {
     this.isLogged = appComponent.isLogged;
   }
 
@@ -88,6 +92,15 @@ export class HomeComponent implements OnInit {
       this.initRound();
       document.getElementById("spinner-loading").classList.add("hidden");
       this.isLoaded = true;
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  getUser(){
+    this.configService.getUser(this.appComponent.userAdmin.id)
+    .subscribe(data => {
+      this.user = data;
     }, error => {
       console.log(error);
     });
@@ -244,7 +257,34 @@ export class HomeComponent implements OnInit {
     this.isLoaded = false;
 
     let userId = this.appComponent.userAdmin.id;
-    let newUserCredit = this.appComponent.userAdmin.credit - 10;
+    //let newUserCredit = this.appComponent.userAdmin.credit - 10;
+    //this.getUser();
+
+    this.configService.getUser(this.appComponent.userAdmin.id)
+    .subscribe(data => {
+      let newUserCredit = data.credit - 10;
+      if (newUserCredit >= 0){
+        this.configService.postBet(this.ticket)
+        .subscribe(data => {
+          this.appComponent.betIdPrint = data.id;
+          this.appComponent.userAdmin.credit = newUserCredit;
+          this.updateUserCredit(userId, newUserCredit);
+        }, error => {
+          alert("Erro de conexão! Cód: 99");
+          console.log(error);
+          this.ngOnInit();
+        });
+      }
+      else {
+        alert("Você não possui crédito suficiente para criar aposta.");
+        this.ngOnInit();
+      }
+    }, error => {
+      alert("Ação não realizada! Erro interno. ("+ error.error +")");
+      console.log(error);
+    });
+
+    /*let newUserCredit = this.user.credit - 10;
     if (newUserCredit >= 0){
       this.configService.postBet(this.ticket)
       .subscribe(data => {
@@ -260,7 +300,7 @@ export class HomeComponent implements OnInit {
     else {
       alert("Você não possui crédito suficiente para criar aposta.");
       this.ngOnInit();
-    }
+    }*/
 
   }
 
@@ -310,10 +350,11 @@ export class HomeComponent implements OnInit {
 
   clearTicket(){
     alert("Aposta Realizada!");
+    //this.msgService.messengerBox();
     
     //window.print();
-    //window.open('http://localhost:4200/print', "", "width=360,height=600");
-    window.open('http://www.jogobrasil.com.br/print', "", "width=360,height=600");
+    //window.open('http://localhost:4200/print', "", "width=360,height=700");
+    window.open('http://www.jogobrasil.com.br/print', "", "width=360,height=700");
 
     //this.printTicket();
 

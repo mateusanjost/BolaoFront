@@ -1,58 +1,107 @@
 <div class="container">
-    <div class="col-12 contact-space">
-        <!-- Material form contact -->
-        <mdb-card>
+    <div class="row">
+        <!-- Card -->
+        <div class="card mb-5">
 
-            <mdb-card-header class="success-color white-text text-center py-4">
-                <h5>
-                    <strong>Deixe-nos sua mensagem</strong>
-                </h5>
-            </mdb-card-header>
+            <!-- Card content -->
+            <div class="card-body">
 
-            <!--Card content-->
-            <mdb-card-body class="px-lg-5 pt-0">
-
-                <!-- Form -->
-                <form class="text-center" style="color: #757575;" [formGroup]="contactForm">
-
-                    <!-- Name -->
-                    <div class="md-form mt-3">
-                        <input type="text" id="materialContactFormName" class="form-control" mdbInput formControlName="name" required>
-                        <label for="materialContactFormName">Nome <small class="red-text">*</small></label>
-                        <mdb-error *ngIf="name.invalid && (name.dirty || name.touched)">Nome é obrigatório</mdb-error>
+                <div class="row">
+                    <!-- Title -->
+                    <div class="col-12 pt-3">
+                        <h3>Assistência</h3>
                     </div>
-
-                    <!-- E-mail -->
-                    <div class="md-form">
-                        <input type="email" id="materialContactFormEmail" class="form-control" mdbInput formControlName="email"  required>
-                        <label for="materialContactFormEmail">E-mail <small class="red-text">*</small></label>
-                        <mdb-error *ngIf="email.invalid && (email.dirty || email.touched)">Email inválido</mdb-error>
+    
+                    <!-- Text -->
+                    <div class="col-12">
+                        <p>
+                            Em caso de solicitação de créditos, dúvidas, críticas ou sugestões, fique 
+                            à vontade para entrar em contato com nossa assistência através dos meio de contato abaixo.
+                        </p>
+                        <p>
+                            <i class="fab fa-whatsapp"></i> Whatsapp: <a href="https://wa.me/393512690381" target="_blank">+39 351 269 0381</a><br/>
+                            <i class="far fa-envelope"></i> E-mail: <a href="mailto:stefano@jogobrasil.net">stefano@jogobrasil.net</a><br/>
+                        </p>
+                        <p>
+                            Ou mande-nos uma mensagem diretamente através do formulário abaixo que responderemos tão logo seja possível.
+                        </p>
                     </div>
+                    <div class="col-12 contact-space">
+                        <!-- Material form contact -->
+                        <mdb-card>
 
-                    <!-- Subject -->
-                    <div class="md-form">
-                        <input type="email" id="materialContactFormSubject" class="form-control" mdbInput formControlName="subject" required>
-                        <label for="materialContactFormSubject">Assunto <small class="red-text">*</small></label>
-                        <mdb-error *ngIf="subject.invalid && (subject.dirty || subject.touched)">Assunto deve ter no mínimo 10 caracteres</mdb-error>
+                            <mdb-card-header class="success-color white-text text-center py-4">
+                                <h5>
+                                    <strong>Deixe-nos sua mensagem</strong>
+                                </h5>
+                            </mdb-card-header>
+
+                            <!--Card content-->
+                            <mdb-card-body class="px-lg-5 pt-0">
+
+                                <!-- Form -->
+                                <form class="text-center" style="color: #757575;" [formGroup]="contactForm">
+
+                                    <!-- Name -->
+                                    <div class="md-form mt-3">
+                                        <input type="text" id="materialContactFormName" class="form-control" mdbInput
+                                            formControlName="name" required>
+                                        <label for="materialContactFormName">Nome <small
+                                                class="red-text">*</small></label>
+                                        <mdb-error *ngIf="name.invalid && (name.dirty || name.touched)">Nome é
+                                            obrigatório</mdb-error>
+                                    </div>
+
+                                    <!-- E-mail -->
+                                    <div class="md-form">
+                                        <input type="email" id="materialContactFormEmail" class="form-control" mdbInput
+                                            formControlName="email" required>
+                                        <label for="materialContactFormEmail">E-mail <small
+                                                class="red-text">*</small></label>
+                                        <mdb-error *ngIf="email.invalid && (email.dirty || email.touched)">Email
+                                            inválido</mdb-error>
+                                    </div>
+
+                                    <!-- Subject -->
+                                    <div class="md-form">
+                                        <input type="email" id="materialContactFormSubject" class="form-control"
+                                            mdbInput formControlName="subject" required>
+                                        <label for="materialContactFormSubject">Assunto <small
+                                                class="red-text">*</small></label>
+                                        <mdb-error *ngIf="subject.invalid && (subject.dirty || subject.touched)">Assunto
+                                            deve ter no mínimo 10 caracteres</mdb-error>
+                                    </div>
+
+                                    <!--Message-->
+                                    <div class="md-form">
+                                        <textarea type="text" id="materialContactFormMessage"
+                                            class="form-control md-textarea" mdbInput formControlName="message"
+                                            required></textarea>
+                                        <label for="materialContactFormMessage">Messagem <small
+                                                class="red-text">*</small></label>
+                                        <mdb-error *ngIf="message.invalid && (message.dirty || message.touched)">
+                                            Mensagem deve ter no mínimo 20 caracteres</mdb-error>
+                                    </div>
+
+                                    <!-- Send button -->
+                                    <button mdbBtn color="success" outline="true" rounded="true" block="true"
+                                        [disabled]="!contactForm.valid" class="z-depth-0 my-4 waves-effect"
+                                        mdbWavesEffect type="submit" (click)="sendMessage()">Enviar</button>
+
+                                </form>
+                                <!-- Form -->
+
+                            </mdb-card-body>
+
+                        </mdb-card>
+                        <!-- Material form contact -->
                     </div>
+                </div>
 
-                    <!--Message-->
-                    <div class="md-form">
-                        <textarea type="text" id="materialContactFormMessage" class="form-control md-textarea" mdbInput formControlName="message" required></textarea>
-                        <label for="materialContactFormMessage">Messagem <small class="red-text">*</small></label>
-                        <mdb-error *ngIf="message.invalid && (message.dirty || message.touched)">Mensagem deve ter no mínimo 20 caracteres</mdb-error>
-                    </div>
+            </div>
 
-                    <!-- Send button -->
-                    <button mdbBtn color="success" outline="true" rounded="true" block="true" [disabled]="!contactForm.valid"
-                        class="z-depth-0 my-4 waves-effect" mdbWavesEffect type="submit" (click)="sendMessage()">Enviar</button>
-
-                </form>
-                <!-- Form -->
-
-            </mdb-card-body>
-
-        </mdb-card>
-        <!-- Material form contact -->
+        </div>
+        <!-- Card -->
     </div>
+
 </div>

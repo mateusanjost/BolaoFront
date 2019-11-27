@@ -101,7 +101,7 @@ export class RoundComponent implements OnInit {
     for (let i = 0; i < 10; i++){
       let team1 = (<HTMLInputElement>document.getElementById("teamA"+(i))).value;
       let team2 = (<HTMLInputElement>document.getElementById("teamB"+(i))).value;
-      let date = (<HTMLInputElement>document.getElementById("mat-input-"+(i+1))).value;
+      let date = (<HTMLInputElement>document.getElementById("mat-input-"+(i/*+1*/))).value;
       let hour = (<HTMLInputElement>document.getElementById("hour"+(i))).value;
 
       if(roundNum == "" || team1 == "" || team2 == "" || date == "" || hour == ""){

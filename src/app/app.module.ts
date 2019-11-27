@@ -34,6 +34,8 @@ import { LoaderInterceptor } from 'src/services/loader.interceptor';
 import { ConfigService } from './config.service';
 import { CookieService } from 'ngx-cookie-service';
 import { PrintComponent } from './print/print.component';
+import { MessengerComponent } from './components/shared/messenger/messenger.component';
+import { MessengerService } from 'src/services/messenger.service';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,8 @@ import { PrintComponent } from './print/print.component';
     CreditTransferComponent,
     SettingsComponent,
     LoaderComponent,
-    PrintComponent
+    PrintComponent,
+    MessengerComponent
   ],
   imports: [
     BrowserModule,
@@ -79,6 +82,7 @@ import { PrintComponent } from './print/print.component';
       {path: 'credit-transfer', component: CreditTransferComponent},
       {path: 'settings', component: SettingsComponent},
       {path: 'print', component: PrintComponent},
+      {path: 'messenger', component: MessengerComponent},
       { path: '', redirectTo: '/home', pathMatch: 'full' }
     ])
   ],
@@ -87,7 +91,8 @@ import { PrintComponent } from './print/print.component';
     {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
     LoaderService,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
-    CookieService
+    CookieService,
+    MessengerService
   ],
   bootstrap: [AppComponent]
 })
