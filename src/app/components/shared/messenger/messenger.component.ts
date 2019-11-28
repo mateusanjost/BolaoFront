@@ -1,6 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ModalDirective } from 'angular-bootstrap-md';
-import { AppComponent } from 'src/app/app.component';
+import { Component, ViewChild } from '@angular/core';
 import { MessengerService } from 'src/services/messenger.service';
 
 @Component({
@@ -8,18 +6,11 @@ import { MessengerService } from 'src/services/messenger.service';
   templateUrl: './messenger.component.html',
   styleUrls: ['./messenger.component.scss']
 })
-export class MessengerComponent implements OnInit{
-  @ViewChild('frame4', { static: true }) modalMessage: ModalDirective;
+export class MessengerComponent{
 
-  constructor(private msgService: MessengerService) { }
+  openModal = this.msgService.openModal;
 
-  ngOnInit(){
-
-  }
-
-  showMessage(){
-    //this.modalMessage.show();
-    alert("Chegou modal page");
-  }
+  constructor(private msgService: MessengerService) {
+   }
 
 }

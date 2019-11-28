@@ -6,10 +6,13 @@ import { MessengerComponent } from '../app/components/shared/messenger/messenger
 })
 export class MessengerService {
 
+  public openModal = false;
+
   constructor() { }
 
   messengerBox(){
-    let msgComponent = new MessengerComponent(this);
-    msgComponent.showMessage();
+    this.openModal = true;
+    //let msgComponent = new MessengerComponent(this);
+    //msgComponent.showMessage();
   }
 }

@@ -18,8 +18,8 @@ import { ReportFilter } from './reportFilter.interface';
 })
 export class ConfigService {
 
-  apiUrl = 'http://api.socialawp.com';
-  //apiUrl = 'https://localhost:44341';
+  //apiUrl = 'http://api.socialawp.com';
+  apiUrl = 'https://localhost:44341';
 
   constructor(private http: HttpClient) { }
   
@@ -298,6 +298,10 @@ export class ConfigService {
     });      
 
     return this.http.post<Relatorio[]>(`${this.apiUrl}/common/GetReport/`, filter, { headers: header });
+  }
+
+  getAllRounds(){
+    return this.http.get<Round[]>(`${this.apiUrl}/rounds/`);
   }
 
 }
