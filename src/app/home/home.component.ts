@@ -349,12 +349,12 @@ export class HomeComponent implements OnInit {
   // --- TICKET CREATION --- //
 
   clearTicket(){
-    alert("Aposta Realizada!");
-    //this.msgService.messengerBox();
+    //alert("Aposta Realizada!");
+    this.msgService.messengerBox();
     
     //window.print();
-    //window.open('http://localhost:4200/print', "", "width=360,height=700");
-    window.open('http://www.jogobrasil.com.br/print', "", "width=360,height=700");
+    window.open('http://localhost:4200/print', "", "width=360,height=700");
+    //window.open('http://www.jogobrasil.com.br/print', "", "width=360,height=700");
 
     //this.printTicket();
 

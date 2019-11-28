@@ -18,8 +18,8 @@ export class MessengerComponent implements OnInit{
   }
 
   showMessage(){
-    this.modalMessage.show();
-    //alert("Chegou modal page");
+    //this.modalMessage.show();
+    alert("Chegou modal page");
   }
 
 }
