@@ -89,17 +89,18 @@ export class PrintComponent implements OnInit {
 
   generateTicket(){
     let showDateHour = new Date(this.bet.betDate);
-    let msgResult = "";
+    let msgResult = "<table width='100%' border='1'>";
     let result = (this.bet.results.replace(/\|/g,''));
     for(let i = 0; i < this.games.length; i++){
       this.bet.results.replace("|", "");
       //msgResult += this.games[i].homeName + " - " + this.games[i].awayName + ": <b>" + this.bet.results.substring((i + 1), (i + 2)) +"</b><br/>";
-      msgResult += this.games[i].homeName + " - " + this.games[i].awayName + ": <b>" + result.charAt(i) +"</b><br/>";
+      msgResult += "<tr><td>" + this.games[i].homeName + " - " + this.games[i].awayName + "</td><td style='text-align: right'><b>" + result.charAt(i) +"</b></td></tr>";
     }
+    msgResult += "</table>";
     console.log(msgResult);
     this.htmlToAdd += "id: " + this.bet.id + " - " +
     ' criação: ' + showDateHour.getDate() + '/' + (showDateHour.getMonth() + 1) + ' - ' + showDateHour.getHours() + ':' + showDateHour.getMinutes() + '<br/>' +
-      " - rodada: " + this.round.number + "<br/>" +
+      "rodada: " + this.round.number + "<br/>" +
       "operador: " + this.user.login + " - jogador: " + this.bet.playerName + "<br/>" +
       //"resultados: " + this.bet.results + 
       "resultados: <br/>" + msgResult + 

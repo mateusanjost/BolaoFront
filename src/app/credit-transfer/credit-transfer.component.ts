@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ConfigService } from '../config.service';
 import { AppComponent } from '../app.component';
 import { User } from '../user.interface';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormControl } from '@angular/forms';
+import { ModalDirective } from 'angular-bootstrap-md';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'app-credit-transfer',
@@ -10,18 +13,48 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./credit-transfer.component.scss']
 })
 export class CreditTransferComponent implements OnInit {
-
+  @ViewChild('frame', { static: true }) modalConfirm: ModalDirective;
+  
+  
   user: User;
   myUsers: User[] = [];
   ownCredit: string;
   isLoaded: boolean = false;
+  
+  adminNewCredit: number;
+  childNewCredit: number;
+  childId: number;
+  childLogin: string;
+  valueToTransfer: string;
+  transferType: string = "";
+  
+  options: string[] = [];
+  juris: number[] = [];
+
+  myControl = new FormControl();
+  filteredOptions: Observable<string[]>;
 
   constructor(private configService: ConfigService, private appComponent: AppComponent) { }
-
+  
   ngOnInit() {
     this.getUser();
-    //this.user = this.appComponent.userAdmin;
-    //this.ownCredit = this.user.credit.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    
+    /*this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value))
+    );*/
+  }   
+  
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    return this.options.filter(option => 
+      option.toLowerCase().includes(filterValue)
+    );
+  }
+    
+    
+  displayFn(subject){
+    return subject ? subject : undefined;
   }
   
   getUser(){
@@ -38,10 +71,27 @@ export class CreditTransferComponent implements OnInit {
     this.configService.getUsersTreeList(this.appComponent.userAdmin.id)
     .subscribe(data => {
       this.myUsers = data;
-      this.setOwnCredit();
+      this.setOptions();
     }, error => {
       console.log(error);
     });
+  }
+
+  setOptions(){
+    this.myUsers.forEach(element => {
+      let elementCredit = element.credit.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+      this.options.push(element.login + " " + elementCredit);
+      this.juris.push(element.id);
+    });
+    this.setFilteredOptions();
+  }
+
+  setFilteredOptions(){
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value))
+    );
+    this.setOwnCredit();
   }
 
   setOwnCredit(){
@@ -51,31 +101,51 @@ export class CreditTransferComponent implements OnInit {
   }
 
   onSubmit(form: NgForm){
-    let adminNewCredit = this.appComponent.userAdmin.credit;
-    let childNewCredit = this.myUsers.find(x => x.id == form.value.jurisdiction).credit;
+    this.adminNewCredit = this.appComponent.userAdmin.credit;
+    this.childNewCredit = this.myUsers.find(x => x.id == form.value.jurisdiction).credit;
+    this.valueToTransfer = (+form.value.credit).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    console.log(this.valueToTransfer);
 
     if (form.value.operation == 2){
-      if (adminNewCredit >= form.value.credit){
-        adminNewCredit -= +form.value.credit;
-        childNewCredit +=  +form.value.credit;
-        this.updateUserCredit(this.appComponent.userAdmin.id, adminNewCredit, form.value.jurisdiction, childNewCredit);
-        this.isLoaded = false; // this brings back the loading; when finish operation, will reload this page component
+      if (this.adminNewCredit >= form.value.credit){
+        this.adminNewCredit -= +form.value.credit;
+        this.childNewCredit +=  +form.value.credit;
+        this.childId = +form.value.jurisdiction;
+        this.childLogin = this.myUsers.find(x => x.id == this.childId).login;
+        this.transferType = "Creditar";
+        //this.updateUserCredit(this.appComponent.userAdmin.id, adminNewCredit, form.value.jurisdiction, childNewCredit);
+        this.showConfirmModal();
+        //this.isLoaded = false; // this brings back the loading; when finish operation, will reload this page component
       }
       else {
         alert('Você não tem crédito suficente para esta operação.');
       }
     }
     else {
-      if (childNewCredit >= form.value.credit){
-        adminNewCredit += +form.value.credit;
-        childNewCredit -= +form.value.credit;
-        this.updateUserCredit(this.appComponent.userAdmin.id, adminNewCredit, form.value.jurisdiction, childNewCredit);
-        this.isLoaded = false; // this brings back the loading; when finish operation, will reload this page component
+      if (this.childNewCredit >= form.value.credit){
+        this.adminNewCredit += +form.value.credit;
+        this.childNewCredit -= +form.value.credit;
+        this.childId = +form.value.jurisdiction;
+        this.childLogin = this.myUsers.find(x => x.id == this.childId).login;
+        this.transferType = "Retirar";
+        //this.updateUserCredit(this.appComponent.userAdmin.id, adminNewCredit, form.value.jurisdiction, childNewCredit);
+        this.showConfirmModal();
+        //this.isLoaded = false; // this brings back the loading; when finish operation, will reload this page component
       }
       else {
         alert('Valor a ser retirado excede o crédito atual do usuário');
       }
     }
+  }
+
+  showConfirmModal(){
+    this.modalConfirm.show();
+  }
+
+  confirmTransfer(){
+    this.isLoaded = false;
+    this.modalConfirm.hide();
+    this.updateUserCredit(this.appComponent.userAdmin.id, this.adminNewCredit, this.childId, this.childNewCredit);
   }
 
   updateUserCredit(adminId: number, creditAdmin: number, childId: number, creditChild: number){    

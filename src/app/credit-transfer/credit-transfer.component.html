@@ -19,38 +19,80 @@
                     <p>Seu crédito é de: {{ownCredit}}</p>
                 </div>
                 <div class="col-12" style="text-align: center;">
-
-                    <form  #f="ngForm" (ngSubmit)="onSubmit(f)">
-                    <p><mat-form-field>
-                        <mat-label>Transação</mat-label>
-                        <select matNativeControl name="operation" ngModel required>
-                          <option value="1">Retirar</option>
-                          <option value="2">Creditar</option>
-                        </select>
-                    </mat-form-field>
-                    </p>
-                    <p>
-                    <mat-form-field>
-                        <mat-label>Usuário</mat-label>
-                        <mat-select name="jurisdiction" required ngModel>
-                          <mat-option *ngFor="let user of myUsers; let i = index" value="{{user.id}}">
-                            {{user.login}} {{user.credit}}
-                          </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                    </p>
-                    <p>
-                        <mat-form-field>
-                            <input matInput placeholder="Valor" name="credit" required ngModel>
-                        </mat-form-field>
-                    </p>
-                    <p>
-                        <button mat-raised-button color="success" [disabled]="f.invalid">Transferir</button>
-                    </p>
-                </form>
+                
+                    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+                        <p>
+                            <mat-form-field>
+                                <mat-label>Transação</mat-label>
+                                <select matNativeControl name="operation" ngModel required>
+                                    <option value="1">Retirar</option>
+                                    <option value="2">Creditar</option>
+                                </select>
+                            </mat-form-field>
+                        </p>
+                        <p>
+                            <mat-form-field>
+                                <mat-label>Usuário</mat-label>
+                                <mat-select name="jurisdiction" required ngModel>
+                                    <mat-option *ngFor="let user of myUsers; let i = index" value="{{user.id}}">
+                                        {{user.login}} {{user.credit}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </p>
+                        <!--<p>
+                            <mat-form-field>
+                                <mat-label>Usuário *</mat-label>
+                                <input type="text" matInput [matAutocomplete]="auto" [formControl]="myControl"/>
+                                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                        {{option}}
+                                    </mat-option>
+                                </mat-autocomplete>
+                            </mat-form-field>
+                        </p>-->
+                        <p>
+                            <mat-form-field>
+                                <input matInput placeholder="Valor" name="credit" required ngModel>
+                            </mat-form-field>
+                        </p>
+                        <p>
+                            <button mat-raised-button color="success" [disabled]="f.invalid">Transferir</button>
+                        </p>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
     <!-- Card -->
 </div>
+
+<!--Modal confirm -->
+<div mdbModal #frame="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title font-weight-bold" style="text-align: left;">Confirmar Transferência</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body mx-3">
+                <div>
+                    <p>
+                        <span style="font-weight: bold">Tipo:  </span>{{transferType}}<br/>
+                        <span style="font-weight: bold">Para:  </span>{{childLogin}}<br/>
+                        <span style="font-weight: bold">Valor: </span>{{valueToTransfer}}<br/>
+                    </p>
+                </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-start">
+                <button mdbBtn color="default" class="waves-light" (click)="confirmTransfer()" mdbWavesEffect>Confirmar</button>
+                <button mdbBtn color="default" class="waves-light" (click)="frame.hide()" mdbWavesEffect>Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal confirm -->

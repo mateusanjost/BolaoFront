@@ -15,7 +15,8 @@ import {
     MatBadgeModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatAutocompleteModule
     } from '@angular/material';
 
 const MATERIAL_MODULES = [
@@ -35,7 +36,8 @@ const MATERIAL_MODULES = [
     MatBadgeModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatAutocompleteModule
 ];
 
 @NgModule({

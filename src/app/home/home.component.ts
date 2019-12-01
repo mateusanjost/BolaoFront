@@ -349,8 +349,8 @@ export class HomeComponent implements OnInit {
   // --- TICKET CREATION --- //
 
   clearTicket(){
-    //alert("Aposta Realizada!");
-    this.msgService.messengerBox();
+    alert("Aposta Realizada!");
+    //this.msgService.messengerBox();
     
     //window.print();
     window.open('http://localhost:4200/print', "", "width=360,height=700");
@@ -361,7 +361,7 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/ticket']);
     //location.reload();
   }
-
+/*
   printTicket(){
     this.modalPrint.show();
 
@@ -387,7 +387,7 @@ export class HomeComponent implements OnInit {
       msgResult += this.responseGames[i].teamHome + ' X ' + this.responseGames[i].teamVisit + ' : ' + result + '<br/>';
       let showDateHour = new Date(this.ticket.date);
       this.htmlToAdd =
-        /*'id bilhete: '+ this.ticket.id + ' - */'rodada: ' + this.ticket.roundNum + '<p/>' +
+        'rodada: ' + this.ticket.roundNum + '<p/>' +
         //' data: ' + this.ticket.date + ' - hora: ' + this.ticket.hour + '<br/>'+
         ' criação: ' + showDateHour.getDate() + '/' + (showDateHour.getMonth() + 1) + ' - ' + showDateHour.getHours() + ':' + showDateHour.getMinutes() + '<br/>' +
         'operador: ' + this.appComponent.userAdmin.login + ' - jogador: ' + this.ticket.playerName + '<br/><br/>' +
@@ -406,4 +406,5 @@ export class HomeComponent implements OnInit {
     this.modalPrint.hide();
     location.reload();
   }
+  */
 }
