@@ -1,7 +1,8 @@
-<!-- The background video -->
+<!-- The background video 
 <video autoplay muted loop id="myVideo">
     <source src="../assets/image/bg-video.mp4" type="video/mp4">
 </video>
+-->
 
 <!--Top page-->
 <div class="col-md-12 top">
@@ -67,7 +68,7 @@
         <!-- Collapsible content -->
 
         <!-- Hidden Navbar brand -->
-        <mdb-navbar-brand><a class="navbar-brand" style="color: #00AC43">B</a></mdb-navbar-brand>
+        <mdb-navbar-brand><a class="navbar-brand" style="color: #000">B</a></mdb-navbar-brand>
 
     </mdb-navbar>
     <!--/.Navbar-->
@@ -215,6 +216,33 @@
             </div>
             <div class="modal-footer d-flex justify-content-center">
                 <button mdbBtn color="default" class="waves-light" (click)="sendLogin()" mdbWavesEffect>Enviar Credenciais</button><br/>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<!--Modal Forgot Password-->
+
+<!--Modal Message-->
+<div mdbModal #frameMessage="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+    <div class="modal-dialog modal-notify modal-success" role="document" id="msgModalStandard">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold" [innerHtml]="titleToAdd"></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frameMessage.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3">
+                <div class="md-form mb-5">
+
+                    <p id="msg" [innerHtml]="msgToAdd"></p>
+
+                </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <button mdbBtn class="waves-light" (click)="frameMessage.hide()" mdbWavesEffect>OK</button><br/>
             </div>
             
         </div>

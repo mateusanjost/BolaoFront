@@ -118,7 +118,8 @@ export class CreditTransferComponent implements OnInit {
         //this.isLoaded = false; // this brings back the loading; when finish operation, will reload this page component
       }
       else {
-        alert('Você não tem crédito suficente para esta operação.');
+        //alert('Você não tem crédito suficente para esta operação.');
+        this.appComponent.msgStandard("Operação Não Realizada", "Você não tem crédito suficente para esta operação.", 4);
       }
     }
     else {
@@ -133,7 +134,8 @@ export class CreditTransferComponent implements OnInit {
         //this.isLoaded = false; // this brings back the loading; when finish operation, will reload this page component
       }
       else {
-        alert('Valor a ser retirado excede o crédito atual do usuário');
+        //alert('Valor a ser retirado excede o crédito atual do usuário');
+        this.appComponent.msgStandard("Nâo Permitido", "Valor a ser retirado excede o crédito atual do usuário.", 4);
       }
     }
   }
@@ -154,15 +156,18 @@ export class CreditTransferComponent implements OnInit {
       this.configService.updateUserCredit(adminId, creditAdmin)
       .subscribe(data => {
         this.appComponent.userAdmin.credit = creditAdmin;
-        alert('Transferência realizada!');
+        //alert('Transferência realizada!');
+        this.appComponent.msgStandard("Transferência Realizada", "Valor transferido com sucesso.", 3);
         this.ngOnInit();
       }, error => {
-        alert('Erro de conexão na transferência 101');
+        //alert('Erro de conexão na transferência 101');
+        this.appComponent.msgStandard("Transferência Não Realizada", "Erro na realização da transferência.", 4);
         console.log(error);
         this.ngOnInit();
       });
     }, error => {
-      alert('Erro de conexão na transferência 102');
+      //alert('Erro de conexão na transferência 102');
+      this.appComponent.msgStandard("Transferência Não Realizada", "Erro na realização da transferência.", 4);
       console.log(error);
       this.ngOnInit();
     });

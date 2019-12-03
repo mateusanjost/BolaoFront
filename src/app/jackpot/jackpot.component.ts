@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfigService } from '../config.service';
 import { Prize } from '../prize.interface';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-jackpot',
@@ -12,7 +13,7 @@ export class JackpotComponent implements OnInit {
   jackpot: string;
   prizes: Prize;
 
-  constructor(private configService: ConfigService) { }
+  constructor(private configService: ConfigService, private appComponent: AppComponent) { }
 
   ngOnInit() {
     this.getPrize();
@@ -40,17 +41,20 @@ export class JackpotComponent implements OnInit {
       
       this.configService.updateJackpot(newPrizes)
       .subscribe(data => {
-        alert("Valor alterado com sucesso!");
+        //alert("Valor alterado com sucesso!");
+        this.appComponent.msgStandard("Acumulado Alterado", "Valor alterado com sucesso.", 3);
         (<HTMLInputElement>document.getElementById("jackpot")).value = "";
         //(<HTMLInputElement>document.getElementById("jackpot")).setAttribute("placeholder", ('R$ ' + newValue));
         this.jackpot = (newPrizes.gathered).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
       }, error => {
         console.log(error);
-        alert("Houve algum erro de conexão!");
+        //alert("Houve algum erro de conexão!");
+        this.appComponent.msgStandard("Operação Não Realizada", "Erro na alteração do acumulado.", 4);
       });
     }
     else {
-      alert("O campo não pode estar vazio!");
+      //alert("O campo não pode estar vazio!");
+      this.appComponent.msgStandard("Campo Vazio", "O campo não pode estar vazio.", 4);
     }
 
      

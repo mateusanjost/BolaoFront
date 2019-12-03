@@ -270,17 +270,20 @@ export class HomeComponent implements OnInit {
           this.appComponent.userAdmin.credit = newUserCredit;
           this.updateUserCredit(userId, newUserCredit);
         }, error => {
-          alert("Erro de conexão! Cód: 99");
+          //alert("Erro de conexão! Cód: 99");
+          this.appComponent.msgStandard("Operação Não Realizada", "Erro na realização da aposta.", 4);
           console.log(error);
           this.ngOnInit();
         });
       }
       else {
-        alert("Você não possui crédito suficiente para criar aposta.");
+        //alert("Você não possui crédito suficiente para criar aposta.");
+        this.appComponent.msgStandard("Operação Não Realizada", "Você não possui crédito suficiente para criar aposta.", 4);
         this.ngOnInit();
       }
     }, error => {
-      alert("Ação não realizada! Erro interno. ("+ error.error +")");
+      //alert("Ação não realizada! Erro interno. ("+ error.error +")");
+      this.appComponent.msgStandard("Operação Não Realizada", "Erro na realização da aposta.", 4);
       console.log(error);
     });
 
@@ -309,7 +312,8 @@ export class HomeComponent implements OnInit {
     .subscribe(data => {
       this.updateJackpot();
     }, error => {
-      alert("Erro de conexão! Cód: 103");
+      //alert("Erro de conexão! Cód: 103");
+      this.appComponent.msgStandard("Operação Não Realizada", "Erro na finalização da aposta.", 4);
       this.ngOnInit();
     });
   }
@@ -326,7 +330,8 @@ export class HomeComponent implements OnInit {
         this.updateApportionment();
       }, error => {
         console.log(error);
-        alert("Houve algum erro de conexão! Cód: 100");
+        //alert("Houve algum erro de conexão! Cód: 100");
+        this.appComponent.msgStandard("Operação Não Realizada", "Erro na finalização da aposta.", 4);
         this.ngOnInit();
       });
   }
@@ -342,69 +347,26 @@ export class HomeComponent implements OnInit {
     .subscribe(data => {
       this.clearTicket();
     }, error => {
-      alert("Houve algum erro de conexão! Cód: 101");
+      //alert("Houve algum erro de conexão! Cód: 101");
+      this.appComponent.msgStandard("Operação Não Realizada", "Erro na finalização da aposta.", 4);
       this.ngOnInit();
     });
   }
   // --- TICKET CREATION --- //
 
   clearTicket(){
-    alert("Aposta Realizada!");
+    //alert("Aposta Realizada!");
     //this.msgService.messengerBox();
+    this.appComponent.msgStandard("Aposta Realizada", "Bilhete criado com sucesso!", 3);
     
     //window.print();
-    window.open('http://localhost:4200/print', "", "width=360,height=700");
-    //window.open('http://www.jogobrasil.com.br/print', "", "width=360,height=700");
+    //window.open('http://localhost:4200/print', "", "width=360,height=700");
+    window.open('http://www.jogobrasil.com.br/print', "", "width=360,height=700");
 
     //this.printTicket();
 
     this.router.navigate(['/ticket']);
     //location.reload();
   }
-/*
-  printTicket(){
-    this.modalPrint.show();
 
-    let msgResult = "";
-    this.ticket.resultToPass = "";
-    for (let i = 0; i < 10; i++) {
-      let result = "";
-      if (this.ticket.results[i] == '1') {
-        result = this.responseGames[i].teamHome + ' [1]';
-        this.ticket.resultToPass += '1';
-        this.ticket.resultToPass += i < 9 ? '|' : '';
-      }
-      else if (this.ticket.results[i] == 'X') {
-        result = "EMPATE [X]";
-        this.ticket.resultToPass += 'X';
-        this.ticket.resultToPass += i < 9 ? '|' : '';
-      }
-      else {
-        result = this.responseGames[i].teamVisit + ' [2]';
-        this.ticket.resultToPass += '2';
-        this.ticket.resultToPass += i < 9 ? '|' : '';
-      }
-      msgResult += this.responseGames[i].teamHome + ' X ' + this.responseGames[i].teamVisit + ' : ' + result + '<br/>';
-      let showDateHour = new Date(this.ticket.date);
-      this.htmlToAdd =
-        'rodada: ' + this.ticket.roundNum + '<p/>' +
-        //' data: ' + this.ticket.date + ' - hora: ' + this.ticket.hour + '<br/>'+
-        ' criação: ' + showDateHour.getDate() + '/' + (showDateHour.getMonth() + 1) + ' - ' + showDateHour.getHours() + ':' + showDateHour.getMinutes() + '<br/>' +
-        'operador: ' + this.appComponent.userAdmin.login + ' - jogador: ' + this.ticket.playerName + '<br/><br/>' +
-        msgResult;
-    }
-    this.htmlToAdd += "<br/><br/>Nós do JogoBrasil lhe<br/>desejamos boa sorte!"
-
-    this.print();
-  }
-
-  print(){
-    window.print();
-  }
-
-  closePrintModal(){
-    this.modalPrint.hide();
-    location.reload();
-  }
-  */
 }

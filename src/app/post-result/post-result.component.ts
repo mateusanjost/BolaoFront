@@ -5,6 +5,7 @@ import { Round } from '../round.interface';
 import { Game } from '../game.interface';
 import { ResponseGame } from '../response-game.class';
 import { ModalDirective } from 'angular-bootstrap-md';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-post-result',
@@ -27,7 +28,7 @@ export class PostResultComponent implements OnInit {
   dateEnd: string;
   responseGames = new Array<ResponseGame>();
 
-  constructor(private configService: ConfigService) {
+  constructor(private configService: ConfigService, private appComponent: AppComponent) {
     
    }
 
@@ -152,11 +153,13 @@ export class PostResultComponent implements OnInit {
     // call the server function
     this.configService.updateMatches(this.newGames)
     .subscribe(data => {
-      alert("Resultados postados com sucesso!");
+      //alert("Resultados postados com sucesso!");
+      this.appComponent.msgStandard("Resultado Postado", "Operação realizada com sucesso!", 3);
       this.ngOnInit();
     }, error =>{
       console.log(error);
-      alert("Não postado por algum erro de conexão!");
+      //alert("Não postado por algum erro de conexão!");
+      this.appComponent.msgStandard("Resultado Não Postado", "Operação Não Realizada!", 4);
       this.ngOnInit();
     });
 

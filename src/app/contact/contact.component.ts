@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ConfigService } from '../config.service';
 import { FormBuilder, Validators } from '@angular/forms';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-contact',
@@ -19,7 +20,7 @@ export class ContactComponent implements OnInit {
     message: ['', [Validators.required, Validators.minLength(20)]]
   });
 
-  constructor(private configService: ConfigService, private fb: FormBuilder) { }
+  constructor(private configService: ConfigService, private fb: FormBuilder, private appComponent: AppComponent) { }
 
   ngOnInit() {
    
@@ -50,9 +51,11 @@ export class ContactComponent implements OnInit {
 
     this.configService.sendContactMessage(contact)
     .subscribe(data => {
-      alert("Mensagem enviada com sucesso! Agradecemos o contato e retornaremos em breve.");
+      //alert("Mensagem enviada com sucesso! Agradecemos o contato e retornaremos em breve.");
+      this.appComponent.msgStandard("Mensagem Enviada", "Agradecemos o contato e retornaremos em breve.", 3);
       this.contactForm.reset();
     }, error => {
+      this.appComponent.msgStandard("Mensagem Não Enviada", "Houve algum erro no envio.", 4);
       console.log(error);
     });
   }

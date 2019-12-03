@@ -135,30 +135,4 @@
 </div>
 <!--Modal confirm ticket-->
 
-<!--Modal test print -->
-<div mdbModal #frame4="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog"
-    aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
-    <div class="modal-dialog-scrollable modal-print" role="document">
-        <div class="modal-content">
-            <div class="modal-header text-center">
-                <h4 class="modal-title w-100 font-weight-bold" style="text-align: left;">Bilhete</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closePrintModal()">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-
-            <div class="modal-body mx-3">
-                <div>
-                    <p id="final-msg" [innerHtml]="htmlToAdd"></p>
-                </div>
-            </div>
-            <div class="modal-footer d-flex justify-content-start">
-                <button mdbBtn color="default" class="waves-light" (click)="print()" mdbWavesEffect>Imprimir</button>
-                <button mdbBtn color="default" class="waves-light" (click)="closePrintModal()" mdbWavesEffect>Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal test print-->
-
 <app-messenger></app-messenger>

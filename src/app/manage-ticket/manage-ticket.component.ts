@@ -119,7 +119,8 @@ export class ManageTicketComponent implements OnInit {
     }
 
     if (!this.searchReturn){
-      alert ("Pule de código " + ticketCode + " não encontrada na rodada atual!");
+      //alert ("Pule de código " + ticketCode + " não encontrada na rodada atual!");
+      this.appComponent.msgStandard("Bilhete Não Encontrado", "Pule de código " + ticketCode + " não encontrada na rodada atual!", 4);
     }
     else {
       document.getElementById('result-text').classList.remove("content-hidden");
@@ -157,9 +158,12 @@ export class ManageTicketComponent implements OnInit {
     this.bets[this.indexActivated].status = 0;
     this.configService.updateBet(this.bets[this.indexActivated])
       .subscribe(data => {
-        alert("Ticket cancelado com sucesso!");
+        //alert("Ticket cancelado com sucesso!");
+        this.appComponent.msgStandard("Bilhete Cancelado", "Pule cancelada com sucesso!", 3);
+        
       }, error => {
-        alert("Não foi possível cancelar este bilhete!");
+        //alert("Não foi possível cancelar este bilhete!");
+        this.appComponent.msgStandard("Bilhete Não Cancelado", "Não foi possível cancelar este bilhete.", 4);
       })
     /*
     this.bets[this.indexActivated].status = 0;

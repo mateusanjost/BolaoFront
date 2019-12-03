@@ -133,21 +133,25 @@ export class JurisdictionComponent implements OnInit {
 
     this.configService.addNewUser(newUser)
     .subscribe(() => {
-      alert("Usuário " + this.jurisdictionForm.get('login').value + " criado com sucesso.");
+      //alert("Usuário " + this.jurisdictionForm.get('login').value + " criado com sucesso.");
+      this.appComponent.msgStandard("Operação Realizada", "Usuário " + this.jurisdictionForm.get('login').value + " criado com sucesso.", 3);
       this.ngOnInit();
       frame.hide();
     }, error => {
       console.log(error);
+      this.appComponent.msgStandard("Operação Não Realizada", "Houve algum erro no processamento da requisição.", 4);
     });
   }
 
   removeUserAdmin(frame) {    
     this.configService.removeUser(this.jurisdictionToDelete)
     .subscribe((data: User) => {
-      alert("Usuário " +  data.name + " removido com sucesso.");
+      //alert("Usuário " +  data.name + " removido com sucesso.");
+      this.appComponent.msgStandard("Operação Realizada", "Usuário " +  data.name + " removido com sucesso.", 3);
       this.ngOnInit();
       frame.hide();
     }, error => {
+      this.appComponent.msgStandard("Operação Não Realizada", "Houve algum erro no processamento da requisição.", 4);
       console.log(error);
     });
   }  
@@ -186,16 +190,19 @@ export class JurisdictionComponent implements OnInit {
       this.userEditable.city = form.value.city;
       this.configService.updateUser(this.userEditable.id, this.userEditable)
       .subscribe(data => {
-        alert("Dados alterados com sucesso!");
+        //alert("Dados alterados com sucesso!");
+        this.appComponent.msgStandard("Edição Realizada", "Dados alterados com sucesso!", 3);
         this.ngOnInit();
       }, error => {
-        alert("Houve algum erro de conexão!");
+        //alert("Houve algum erro de conexão!");
+        this.appComponent.msgStandard("Edição Não Realizada", "Houve algum erro no processamento.", 4);
         console.log(error);
         this.ngOnInit();
       });
     }
     else {
-      alert("O campo e-mail é obrigatório!");
+      //alert("O campo e-mail é obrigatório!");
+      this.appComponent.msgStandard("E-mail Vazio", "O campo de e-mail é obrigatório.", 4);
     }
   }
 

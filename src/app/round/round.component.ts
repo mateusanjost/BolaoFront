@@ -9,6 +9,7 @@ import { Game } from '../game.interface';
 import { ResponseGame } from '../response-game.class';
 import { Router } from '@angular/router';
 import { Prize } from '../prize.interface';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-round',
@@ -40,7 +41,7 @@ export class RoundComponent implements OnInit {
   isLoaded: boolean = false;
   errorCreation: boolean = false;
 
-  constructor(private configService: ConfigService, private router: Router) { }
+  constructor(private configService: ConfigService, private appComponent: AppComponent, private router: Router) { }
 
   ngOnInit() {
     this.getLastRound();
@@ -194,11 +195,13 @@ export class RoundComponent implements OnInit {
 
 
       if (this.errorCreation){
-        alert("Não foi possível criar a rodada! Erro interno.");
+        //alert("Não foi possível criar a rodada! Erro interno.");
+        this.appComponent.msgStandard("Erro na Criação", "Houve algum erro ao tentar criar a rodada!", 4);
         this.errorCreation = false;
       }
       else {
-        alert("Rodada Criada com Sucesso!");
+        //alert("Rodada Criada com Sucesso!");
+        this.appComponent.msgStandard("Rodada Criada", "A rodada foi criada com sucesso!", 3);
         this.ngOnInit();
       }
 

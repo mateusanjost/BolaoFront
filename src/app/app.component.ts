@@ -16,6 +16,11 @@ export class AppComponent {
   @ViewChild('frame', { static: true }) modalLogin: ModalDirective;
   @ViewChild('frame2', { static: true }) modalForgot: ModalDirective;
   @ViewChild('frame3', { static: true }) modalRegister: ModalDirective;
+  @ViewChild('frameMessage', { static: true }) modalMessages: ModalDirective;
+  msgToAdd: string = "";
+  titleToAdd: string = "";
+  msgType: string[] = [ "", "modal-primary", "modal-warning", "modal-success", "modal-danger" ];
+  
   title = 'mdb-angular-free';
   validatingForm: FormGroup;
   userValidatingForm: FormGroup;
@@ -95,7 +100,8 @@ export class AppComponent {
       //console.log(this.userAdmin.name);
     }, error =>{
       //console.log(error);
-      alert("Usuário ou senha errado!");
+      //alert("Usuário ou senha errado!");
+      this.msgStandard("Erro de login", "Usuário ou senha errado!", 4);
     });
     
     (<HTMLInputElement>document.getElementById("defaultForm-name")).value = "";
@@ -107,7 +113,8 @@ export class AppComponent {
 
   checkCredit() {
     if(this.userAdmin.credit < 10){
-      alert("Você não tem crédito suficiente para realizar apostas. Favor entrar em contato com a assistência para solicitação de créditos!");
+      //alert("Você não tem crédito suficiente para realizar apostas. Favor entrar em contato com a assistência para solicitação de créditos!");
+      this.msgStandard("Crédito Baixo", "Você não tem crédito suficiente para realizar apostas. Favor entrar em contato com a assistência para solicitação de créditos!", 4);
     }
   }
 
@@ -125,17 +132,21 @@ export class AppComponent {
 
   sendLogin(){
     if (!this.forgotValidatingForm.get("forgotFormEmail").valid){
-      alert("Campo de e-mail inválido");
+      //alert("Campo de e-mail inválido");
+      this.msgStandard("E-mail Inválido", "Endereço de e-mail não cadastrado.", 4);
+      
     }
     else {
       this.modalForgot.hide();
       this.isLogged = false;
       this.configService.sendRecoveryPassword(this.forgotValidatingForm.get("forgotFormEmail").value)
       .subscribe(data => {
-        alert("Credenciais enviadas! Cheque se e-mail.");
+        //alert("Credenciais enviadas! Cheque se e-mail.");
+        this.msgStandard("Cadastrado com Sucesso", "Credenciais enviadas! Cheque se e-mail.", 3);
         this.ngOnInit();
       }, error => {
-        alert("Não enviado ("+ error.error +").");
+        //alert("Não enviado ("+ error.error +").");
+        this.msgStandard("Não Enviado", "Erro no envio de suas credenciais. (" + error.error + ")", 4);
         this.ngOnInit();
       })
     }
@@ -203,10 +214,12 @@ export class AppComponent {
     let newPassword = this.generateRandomPassword();
 
     if (newLogin == "" || /*newName == "" ||*/ newEmail == "" || newConfirmEmail == ""){
-      alert("É necessário o preencimento de todos os campos obrigatórios.");
+      //alert("É necessário o preencimento de todos os campos obrigatórios.");
+      this.msgStandard("Campo Obrigatório Vazio", "É necessário o preencimento de todos os campos obrigatórios.", 4);
     }
     else if (newEmail != newConfirmEmail){
-      alert("Os campos de e-mail e confirmação não coicidem.");
+      //alert("Os campos de e-mail e confirmação não coicidem.");
+      this.msgStandard("E-mails Incompatíveis", "Os campos de e-mail e confirmação não coicidem.", 4);
     }
     else {
       this.registerLoading = true;
@@ -234,20 +247,23 @@ export class AppComponent {
         this.configService.sendPasswordToEmail(newUser.name, newUser.login, newUser.email, newUser.password)
         .subscribe(data => {
           if (data){
-            alert("Cadastro realizado com sucesso! Favor acessar seu e-mail para receber sua senha.");
+            //alert("Cadastro realizado com sucesso! Favor acessar seu e-mail para receber sua senha.");
+            this.msgStandard("Cadastro Realizado", "Favor acessar seu e-mail para receber sua senha.", 3);
             this.modalRegister.hide();
             this.registerLoading = false;
             //this.getLogin(newUser.login, newUser.password);
             //this.ngOnInit();
           }
         }, error => {
-          alert("Cadastro não realizado! (" + error.error +")");
+          //alert("Cadastro não realizado! (" + error.error +")");
+          this.msgStandard("Erro no Registro", "Cadastro não realizado.", 4);
           this.modalRegister.hide();
           this.registerLoading = false;
           console.log(error);
         })
       }, error =>{
-        alert("Cadastro não realizado! (" + error.error +")");
+        //alert("Cadastro não realizado! (" + error.error +")");
+        this.msgStandard("Erro no Registro", "Cadastro não realizado.", 4);
         this.modalRegister.hide();
         this.registerLoading = false;
       });
@@ -255,5 +271,21 @@ export class AppComponent {
   }
 
   // --- REGISTER COMPONENTS --//
+
+  // --- MSG COMMON MODAL ---//
+
+  msgStandard(title: string, msg: string, type?: number){
+    this.titleToAdd = title;
+    this.msgToAdd = msg;
+
+    for (let i = 1; i < this.msgType.length; i++){
+      document.getElementById('msgModalStandard').classList.remove(this.msgType[i]);
+    }
+    if (type != 0){
+      document.getElementById('msgModalStandard').classList.add(this.msgType[type]);
+    }
+
+    this.modalMessages.show();
+  }
 
 }

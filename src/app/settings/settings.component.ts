@@ -57,16 +57,19 @@ export class SettingsComponent implements OnInit {
       this.user.password = form.value.newPassword;
       this.configService.updateUser(this.user.id, this.user)
       .subscribe(data => {
-        alert("Senha alterada com sucesso!");
+        //alert("Senha alterada com sucesso!");
+        this.appComponent.msgStandard("Alteração Realizada", "Senha alterada com sucesso!", 3);
         this.ngOnInit();
       }, error => {
-        alert("Houve algum erro de conexão!");
+        //alert("Houve algum erro de conexão!");
+        this.appComponent.msgStandard("Erro na Alteração", "Houve algum erro na edição!", 4);
         console.log(error);
         this.ngOnInit();
       });
     }
     else {
-      alert("As senhas não coicidem!");
+      //alert("As senhas não coicidem!");
+      this.appComponent.msgStandard("Senhas Imcompatíveis", "As senhas não coicidem!", 4);
     }
   }
 
@@ -81,16 +84,19 @@ export class SettingsComponent implements OnInit {
       this.user.city = form.value.city;
       this.configService.updateUser(this.user.id, this.user)
       .subscribe(data => {
-        alert("Dados alterados com sucesso!");
+        //alert("Dados alterados com sucesso!");
+        this.appComponent.msgStandard("Alteração Realizada", "Dados alterados com sucesso!", 3);
         this.ngOnInit();
       }, error => {
-        alert("Houve algum erro de conexão!");
+        //alert("Houve algum erro de conexão!");
+        this.appComponent.msgStandard("Erro na Alteração", "Houve algum erro durante o processamento da requisição.", 4);
         console.log(error);
         this.ngOnInit();
       });
     }
     else {
-      alert("Existem campos obrigatórios vazios!");
+      //alert("Existem campos obrigatórios vazios!");
+      this.appComponent.msgStandard("Campos Obrigatório Vazio", "Existe campo obrigatório não preenchido!", 4);
     }
   }
 

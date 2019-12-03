@@ -2,7 +2,18 @@
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-image: url("~/assets/image/background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #999;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 
 .cdk-global-overlay-wrapper, .cdk-overlay-container {
     z-index: 99999 !important;

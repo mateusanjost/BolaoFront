@@ -48,7 +48,8 @@ export class PrintComponent implements OnInit {
       //this.openModal();
       this.getGames();
     }, error => {
-      alert("Houve algum erro ao tentar imprimir.");
+      //alert("Houve algum erro ao tentar imprimir.");
+      this.appComponent.msgStandard("Erro na Impressão", "Houve algum erro ao tentar imprimir!", 4);
       console.log(error);
       window.close();
     });
@@ -60,7 +61,8 @@ export class PrintComponent implements OnInit {
       this.games = data;
       this.getRound();
     }, error => {
-      alert("Houve algum erro ao tentar imprimir.");
+      //alert("Houve algum erro ao tentar imprimir.");
+      this.appComponent.msgStandard("Erro na Impressão", "Houve algum erro ao tentar imprimir!", 4);
       console.log(error);
       window.close();
     });
@@ -72,7 +74,8 @@ export class PrintComponent implements OnInit {
       this.round = data;
       this.openModal();
     }, error => {
-      alert("Houve algum erro ao tentar imprimir.");
+      //alert("Houve algum erro ao tentar imprimir.");
+      this.appComponent.msgStandard("Erro na Impressão", "Houve algum erro ao tentar imprimir!", 4);
       console.log(error);
       window.close();
     });

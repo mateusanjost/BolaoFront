@@ -3,6 +3,7 @@ import { ConfigService } from '../config.service';
 import { Round } from '../round.interface';
 import { Bet } from '../bet.interface';
 import { User } from '../user.interface';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-ticket',
@@ -19,7 +20,7 @@ export class TicketComponent implements OnInit {
   searchReturn: boolean = false;
   resultSearch: string;
 
-  constructor(private configService: ConfigService) { }
+  constructor(private configService: ConfigService, private appComponent: AppComponent) { }
 
   ngOnInit() {
     this.getLastRound();
@@ -47,7 +48,8 @@ export class TicketComponent implements OnInit {
     }
 
     if (!this.searchReturn){
-      alert ("Pule de código " + ticketCode + " não encontrada na rodada atual!");
+      //alert ("Pule de código " + ticketCode + " não encontrada na rodada atual!");
+      this.appComponent.msgStandard("Bilhete Não Encontrado", "Pule de código " + ticketCode + " não ativada na rodada atual!", 4);
     }
     else {
       document.getElementById('result-text').classList.remove("content-hidden");

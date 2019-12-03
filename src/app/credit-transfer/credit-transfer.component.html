@@ -57,7 +57,7 @@
                             </mat-form-field>
                         </p>
                         <p>
-                            <button mat-raised-button color="success" [disabled]="f.invalid">Transferir</button>
+                            <button mat-raised-button color="success" [disabled]="f.invalid" (click)="onSubmit(f)">Transferir</button>
                         </p>
                     </form>
                 </div>
