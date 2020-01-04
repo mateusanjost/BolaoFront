@@ -20,17 +20,17 @@
                 </div>
                 <div class="col-12" style="text-align: center;">
                 
-                    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+                    <form [formGroup]="formTransfer" (ngSubmit)="onSubmit()">
                         <p>
                             <mat-form-field>
-                                <mat-label>Transação</mat-label>
-                                <select matNativeControl name="operation" ngModel required>
+                                <mat-label>Transação *</mat-label>
+                                <select matNativeControl [formControl]="type">
                                     <option value="1">Retirar</option>
                                     <option value="2">Creditar</option>
                                 </select>
                             </mat-form-field>
                         </p>
-                        <p>
+                        <!--<p>
                             <mat-form-field>
                                 <mat-label>Usuário</mat-label>
                                 <mat-select name="jurisdiction" required ngModel>
@@ -39,25 +39,27 @@
                                     </mat-option>
                                 </mat-select>
                             </mat-form-field>
-                        </p>
-                        <!--<p>
+                        </p> -->
+                        <p>
                             <mat-form-field>
                                 <mat-label>Usuário *</mat-label>
                                 <input type="text" matInput [matAutocomplete]="auto" [formControl]="myControl"/>
                                 <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
                                     <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                                        {{option}}
+                                        {{option.login}} {{option.credit | currency:'BRL':'symbol':'1.2-2'}}
                                     </mat-option>
                                 </mat-autocomplete>
                             </mat-form-field>
-                        </p>-->
+                        </p>
                         <p>
                             <mat-form-field>
-                                <input matInput placeholder="Valor" name="credit" required ngModel>
+                                <input matInput placeholder="Valor *" [formControl]="credit">
                             </mat-form-field>
                         </p>
                         <p>
-                            <button mat-raised-button color="success" [disabled]="f.invalid" (click)="onSubmit(f)">Transferir</button>
+                            <!--<button mat-raised-button color="success" [disabled]="f.invalid" (click)="onSubmit()">Transferir</button>
+                            <button mdbBtn color="default" class="waves-light" (click)="onSubmit()" mdbWavesEffect>Transferir</button>-->
+                            <button mdbBtn color="default" class="waves-light" mdbWavesEffect type="submit" [disabled]="!formTransfer.valid">Transferir</button>
                         </p>
                     </form>
                 </div>

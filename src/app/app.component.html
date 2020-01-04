@@ -22,37 +22,37 @@
             <!-- Links -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a routerLink="/home" class="nav-link waves-light" mdbWavesEffect>home</a>
+                    <a routerLink="/home" class="nav-link waves-light" mdbWavesEffect>APOSTA</a>
                 </li>
                 <li class="nav-item">
-                    <a routerLink="/result" class="nav-link waves-light" mdbWavesEffect>resultado</a>
+                    <a routerLink="/result" class="nav-link waves-light" mdbWavesEffect>RESULTADO</a>
                 </li>
                 <li class="nav-item">
-                    <a routerLink="/ticket" class="nav-link waves-light" mdbWavesEffect>bilhetes</a>
+                    <a routerLink="/ticket" class="nav-link waves-light" mdbWavesEffect>BILHETES</a>
                 </li>
                 <li class="nav-item">
-                    <a routerLink="/rule" class="nav-link waves-light" mdbWavesEffect>regras</a>
+                    <a routerLink="/rule" class="nav-link waves-light" mdbWavesEffect>REGRAS</a>
                 </li>
                 <li class="nav-item">
-                    <a routerLink="/contact" class="nav-link waves-light" mdbWavesEffect>assistência</a>
+                    <a routerLink="/contact" class="nav-link waves-light" mdbWavesEffect>ASSISTÊNCIA</a>
                 </li>
                 <li class="nav-item">
                     
                 </li>
                 <li class="nav-item dropdown btn-group"  *ngIf="isLogged" dropdown>
                     <a dropdownToggle type="button" class="nav-link dropdown-toggle waves-light admin-style" mdbWavesEffect>
-                        gerenciamento<span class="caret"></span></a>
+                        GERENCIAMENTO<span class="caret"></span></a>
                     <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-                        <a class="dropdown-item waves-light" routerLink="/settings" href="#" mdbWavesEffect>configurações</a>
-                        <a class="dropdown-item waves-light" routerLink="/manage-ticket" href="#" mdbWavesEffect>gerenciar bilhete</a>
-                        <a class="dropdown-item waves-light" routerLink="/report" href="#" mdbWavesEffect>relatório</a>
+                        <a class="dropdown-item waves-light" routerLink="/settings" href="#" mdbWavesEffect>CONFIGURAÇÕES</a>
+                        <a class="dropdown-item waves-light" routerLink="/manage-ticket" href="#" mdbWavesEffect>GERENCIAR BILHETES</a>
+                        <a class="dropdown-item waves-light" routerLink="/report" href="#" mdbWavesEffect>RELATÓRIO</a>
                         <div *ngIf="(userAdmin.jurisdictionId <= 2)" class="divider dropdown-divider"></div>
-                        <a *ngIf="(userAdmin.jurisdictionId <= 2)" class="dropdown-item waves-light" routerLink="/jurisdiction" href="#" mdbWavesEffect>jurisdição</a>
-                        <a *ngIf="(userAdmin.jurisdictionId <= 2)" class="dropdown-item waves-light" routerLink="/credit-transfer" href="#" mdbWavesEffect>transferência de crédito</a>
+                        <a *ngIf="(userAdmin.jurisdictionId <= 2)" class="dropdown-item waves-light" routerLink="/jurisdiction" href="#" mdbWavesEffect>JURISDIÇÃO</a>
+                        <a *ngIf="(userAdmin.jurisdictionId <= 2)" class="dropdown-item waves-light" routerLink="/credit-transfer" href="#" mdbWavesEffect>TRANSFERÊNCIA DE CRÉDITO</a>
                         <div *ngIf="(userAdmin.jurisdictionId == 1)" class="divider dropdown-divider"></div>
-                        <a *ngIf="(userAdmin.jurisdictionId == 1)" class="dropdown-item waves-light" routerLink="/round" href="#" mdbWavesEffect>criar rodada</a>
-                        <a *ngIf="(userAdmin.jurisdictionId == 1)" class="dropdown-item waves-light" routerLink="/post-result" href="#" mdbWavesEffect>postar resultado</a>
-                        <a *ngIf="(userAdmin.jurisdictionId == 1)" class="dropdown-item waves-light" routerLink="/jackpot" href="#" mdbWavesEffect>editar acumulado</a>
+                        <a *ngIf="(userAdmin.jurisdictionId == 1)" class="dropdown-item waves-light" routerLink="/round" href="#" mdbWavesEffect>CRIAR RODADA</a>
+                        <a *ngIf="(userAdmin.jurisdictionId == 1)" class="dropdown-item waves-light" routerLink="/post-result" href="#" mdbWavesEffect>POSTAR RESULTADO</a>
+                        <a *ngIf="(userAdmin.jurisdictionId == 1)" class="dropdown-item waves-light" routerLink="/jackpot" href="#" mdbWavesEffect>EDITAR ACUMULADO</a>
                     </div>
                 </li>
             </ul>
@@ -60,15 +60,24 @@
 
             <!-- Login button -->
             <div class="md-form my-0">
-                <a class="nav-link waves-light admin-style" mdbWaverEffect (click)="frame3.show()" *ngIf="!isLogged">registre-se</a>
-                <a class="nav-link waves-light admin-style" mdbWaverEffect (click)="frame.show()" *ngIf="!isLogged">login</a>
-                <a class="nav-link waves-light admin-style" mdbWaverEffect (click)="logout()" *ngIf="isLogged" routerLink="/home">sair {{ userAdmin.login }}</a>
+                <a class="nav-link waves-light admin-style" mdbWaverEffect (click)="frame3.show()" *ngIf="!isLogged">
+                    <i class="fas fa-address-card"></i> REGISTRE-SE
+                </a>
+                <a class="nav-link waves-light admin-style" mdbWaverEffect (click)="frame.show()" *ngIf="!isLogged">
+                        <i class="fas fa-sign-in-alt"></i> ENTRAR
+                </a>
+                <a class="nav-link waves-light admin-style" mdbWaverEffect *ngIf="isLogged" data-toggle="tooltip" data-placement="bottom" title="Crédito {{userAdmin.credit  | currency:'BRL':true}}">
+                    <i class="fas fa-user"></i> {{userAdmin.login}}
+                </a>
+                <a class="nav-link waves-light admin-style" mdbWaverEffect (click)="logout()" *ngIf="isLogged" routerLink="/home">
+                    <i class="fas fa-sign-out-alt"></i> SAIR
+                </a>
             </div>
         </links>
         <!-- Collapsible content -->
 
         <!-- Hidden Navbar brand -->
-        <mdb-navbar-brand><a class="navbar-brand" style="color: #000">B</a></mdb-navbar-brand>
+        <mdb-navbar-brand><a class="navbar-brand" style="color: rgb(0, 0, 0, 0)">|</a></mdb-navbar-brand>
 
     </mdb-navbar>
     <!--/.Navbar-->

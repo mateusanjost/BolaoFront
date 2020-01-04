@@ -6,6 +6,7 @@ import { Login } from './login.interface';
 import { CookieService } from 'ngx-cookie-service';
 import { User, UserLoginForm } from './user.interface';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import * as $ from "jquery";
 
 @Component({
   selector: 'app-root',
@@ -73,7 +74,7 @@ export class AppComponent {
       else{
         this.isLogged = false;
       }
-    }      
+    }
   }
 
   // --- LOGIN COMPONENTS --- //
@@ -289,3 +290,8 @@ export class AppComponent {
   }
 
 }
+
+$(document).ready(function(){
+  
+  $('#btnPopoover').popover();
+})

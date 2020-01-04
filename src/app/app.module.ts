@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MAT_DATE_LOCALE } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -37,6 +37,12 @@ import { PrintComponent } from './print/print.component';
 import { MessengerComponent } from './components/shared/messenger/messenger.component';
 import { MessengerService } from 'src/services/messenger.service';
 import { DataSource } from '@oasisdigital/angular-material-search-select';
+
+import localePtBr from '@angular/common/locales/pt';
+
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData(localePtBr);
 
 @NgModule({
   declarations: [
@@ -89,6 +95,10 @@ import { DataSource } from '@oasisdigital/angular-material-search-select';
   ],
   providers: [
     ConfigService,
+    {
+      provide: LOCALE_ID,
+      useValue: "pt-BR"
+    },
     {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
     LoaderService,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },

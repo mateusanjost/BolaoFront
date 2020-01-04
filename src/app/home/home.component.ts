@@ -106,7 +106,6 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  // will be used to get data from DB
   initRound(){
 
     this.idRound = this.round.number;
@@ -219,7 +218,7 @@ export class HomeComponent implements OnInit {
         }
       }
       else {
-        this.htmlToAdd = 'Obrigatório escolher <b>todos os resultados</b> e preencher o <b>nome do jogador</b>.';
+        this.htmlToAdd = 'Obrigatório escolher <b>todos os resultados</b>.';
       }
     }
   }
@@ -235,7 +234,8 @@ export class HomeComponent implements OnInit {
     }
 
     // check if is there the player name; if so, fullfill the ticket object to go ahead
-    if (test && playerName != undefined) {
+    //if (test && playerName != undefined) {
+    if (test) {
       this.ticket.id = 10;
       this.ticket.roundId = this.round.id;
       this.ticket.roundNum = this.round.number;
@@ -286,25 +286,6 @@ export class HomeComponent implements OnInit {
       this.appComponent.msgStandard("Operação Não Realizada", "Erro na realização da aposta.", 4);
       console.log(error);
     });
-
-    /*let newUserCredit = this.user.credit - 10;
-    if (newUserCredit >= 0){
-      this.configService.postBet(this.ticket)
-      .subscribe(data => {
-        this.appComponent.betIdPrint = data.id;
-        this.appComponent.userAdmin.credit = newUserCredit;
-        this.updateUserCredit(userId, newUserCredit);
-      }, error => {
-        alert("Erro de conexão! Cód: 99");
-        console.log(error);
-        this.ngOnInit();
-      });
-    }
-    else {
-      alert("Você não possui crédito suficiente para criar aposta.");
-      this.ngOnInit();
-    }*/
-
   }
 
   updateUserCredit(userId: number, newUserCredit: number){
