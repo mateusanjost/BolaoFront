@@ -1,0 +1,21 @@
+.side-menu {
+    font-weight: bold;
+    font-size: 13px;
+    width: 100%;
+    background-image: linear-gradient(#f8cb24, #e39711);
+    border-style: outset;
+    border-width: thin;
+    margin: 0px;
+    padding: 2px 5px;
+    text-align: left;
+}
+
+a.side-menu {
+    color: black !important;
+}
+
+a.side-menu:hover {
+    color: white !important;
+    background-color: black !important;
+    background-image: none;
+}
