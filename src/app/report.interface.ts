@@ -1,4 +1,4 @@
-export interface Relatorio {
+export interface Report {
     operator: string;
     amountSold: string;
     prizeValue: string;

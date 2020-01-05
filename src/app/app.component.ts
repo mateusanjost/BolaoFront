@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { ModalDirective } from 'angular-bootstrap-md';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import { FormControl, FormGroup, Validators} from "@angular/forms";
 import { ConfigService } from './config.service';
 import { Login } from './login.interface';
 import { CookieService } from 'ngx-cookie-service';
@@ -21,7 +21,7 @@ export class AppComponent {
   msgToAdd: string = "";
   titleToAdd: string = "";
   msgType: string[] = [ "", "modal-primary", "modal-warning", "modal-success", "modal-danger" ];
-  
+
   title = 'mdb-angular-free';
   validatingForm: FormGroup;
   userValidatingForm: FormGroup;
@@ -66,7 +66,7 @@ export class AppComponent {
       console.log(error);
     });
 
-    if(this.cookieService.get('user') != null){
+    if(this.cookieService.get('user') != null && this.cookieService.get('user') != ""){
       this.userAdmin = JSON.parse(this.cookieService.get('user'));
       if(this.userAdmin != null){
         this.isLogged = true;
@@ -104,7 +104,7 @@ export class AppComponent {
       //alert("Usuário ou senha errado!");
       this.msgStandard("Erro de login", "Usuário ou senha errado!", 4);
     });
-    
+
     (<HTMLInputElement>document.getElementById("defaultForm-name")).value = "";
     (<HTMLInputElement>document.getElementById("defaultForm-pass")).value = "";
 
@@ -135,7 +135,7 @@ export class AppComponent {
     if (!this.forgotValidatingForm.get("forgotFormEmail").valid){
       //alert("Campo de e-mail inválido");
       this.msgStandard("E-mail Inválido", "Endereço de e-mail não cadastrado.", 4);
-      
+
     }
     else {
       this.modalForgot.hide();
@@ -156,7 +156,7 @@ export class AppComponent {
 
   // --- REGISTER COMPONENTS --//
   get userFormLogin() {
-    return this.userValidatingForm.get('loginFormModalName');
+    return this.userValidatingForm.get('userFormLogin');
   }
 
   get userFormName() {
@@ -178,15 +178,15 @@ export class AppComponent {
   /*get userFormPassword() {
     return this.validatingForm.get('userFormPassword');
   }*/
-  
+
   get userFormCountry() {
     return this.userValidatingForm.get('userFormCountry');
   }
-  
+
   get userFormCity() {
     return this.userValidatingForm.get('userFormCity');
   }
-  
+
   get forgotFormEmail() {
     return this.forgotValidatingForm.get('forgotFormEmail');
   }
@@ -242,7 +242,7 @@ export class AppComponent {
         id: 0,
         children: null
       }
-      
+
       this.configService.createUser(newUser)
       .subscribe(data => {
         this.configService.sendPasswordToEmail(newUser.name, newUser.login, newUser.email, newUser.password)
@@ -292,6 +292,6 @@ export class AppComponent {
 }
 
 $(document).ready(function(){
-  
+
   $('#btnPopoover').popover();
 })
