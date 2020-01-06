@@ -11,7 +11,7 @@ import { Bet } from './bet.interface';
 import { Jurisdiction } from './jurisdiction.interface';
 import { Contact } from './contact.interface';
 import { Report } from './report.interface';
-import { ReportFilter } from './reportFilter.interface';
+import { ReportFilter } from './report-filter.interface';
 
 @Injectable({
   providedIn: 'root'

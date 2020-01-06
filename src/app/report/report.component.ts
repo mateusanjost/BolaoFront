@@ -7,7 +7,7 @@ import { ConfigService } from '../config.service';
 
 import { Round } from '../round.interface';
 import { Report } from '../report.interface';
-import { ReportFilter } from '../reportFilter.interface';
+import { ReportFilter } from '../report-filter.interface';
 import { Jurisdiction } from '../jurisdiction.interface';
 
 @Component({
