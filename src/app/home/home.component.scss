@@ -1,3 +1,7 @@
+.container {
+    background-color: rgba(3, 3, 3, 0.8);
+}
+
 .jackpot {
     color: red;
     font-weight: bolder;
@@ -23,27 +27,60 @@
     border: solid 1px black;
 }
 
-.btn-light {
-    height: 40px;
-    width: 40px;
+.side-column {
+    background-color: #3d3d3d;
+    //margin: 5px 0px;
+    //padding: 7px 0px;
 }
 
-.row-game {
-    margin-bottom: 15px;
+.side-menu {
+    font-weight: bold;
+    font-size: 13px;
+    width: 100%;
+    //width: 290px;
+    //max-width: 100%;
+    background-image: linear-gradient(#f8cb24, #e39711);
+    border-style: outset;
+    border-width: thin;
+    margin: 0px;
+    padding: 2px 5px;
+    text-align: left;
+}
+
+a.side-menu {
+    color: black !important;
+}
+
+a.side-menu:hover {
+    color: white !important;
+    background-color: black !important;
+    background-image: none;
+}
+
+.btn-light {
+    height: 25px;
+    width: 60px;
+    background-color: #333 !important;
+    border: 1px solid white;
+    color: white;
+}
+
+.btn.btn-light:hover {
+    background-color: yellow !important;
+}
+
+a.btn.btn-light.side-menu:link {
+    color: black !important;
 }
 
 .my-body{
     text-align: center;
     color: white;
-    padding-bottom: 40px;
+    font-size: 12px;
+    margin-top: 5px;
 }
 
-.bg-yellow {
-    background-color: orange !important;
+.bg-yellow{
+    background-color: #e39711 !important;
 }
 
-.modal-print{
-    height: 100%;
-    text-align: left;
-    font-size: 50px;
-}

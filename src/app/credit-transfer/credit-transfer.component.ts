@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ConfigService } from '../config.service';
 import { AppComponent } from '../app.component';
 import { User } from '../user.interface';
-import { NgForm, FormControl } from '@angular/forms';
+import { NgForm, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ModalDirective } from 'angular-bootstrap-md';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
@@ -31,30 +31,43 @@ export class CreditTransferComponent implements OnInit {
   options: string[] = [];
   juris: number[] = [];
 
-  myControl = new FormControl();
-  filteredOptions: Observable<string[]>;
+  //myControl = new FormControl();
+  formTransfer: FormGroup;
+  filteredOptions: Observable<User[]>;
 
   constructor(private configService: ConfigService, private appComponent: AppComponent) { }
   
   ngOnInit() {
     this.getUser();
     
-    /*this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value))
-    );*/
-  }   
-  
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-    return this.options.filter(option => 
-      option.toLowerCase().includes(filterValue)
-    );
+    this.formTransfer = new FormGroup({
+      myControl: new FormControl('', Validators.required),
+      type: new FormControl('', Validators.required),
+      credit: new FormControl('', Validators.required)
+    });
   }
-    
-    
-  displayFn(subject){
-    return subject ? subject : undefined;
+  
+  get myControl() {
+    return this.formTransfer.get('myControl');
+  }
+
+  get type() {
+    return this.formTransfer.get('type');
+  }
+
+  get credit() {
+    return this.formTransfer.get('credit');
+  }
+
+  private _filter(name: string): User[] {
+    const filterValue = name.toLowerCase();
+
+    return this.myUsers.filter(option => option.login.toLowerCase().indexOf(filterValue) === 0);
+  }
+
+  displayFn(user?: User): string | undefined {
+    //return user ? user.login : undefined;
+    return user ? (user.login + " " + user.credit.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })) : undefined;
   }
   
   getUser(){
@@ -87,10 +100,12 @@ export class CreditTransferComponent implements OnInit {
   }
 
   setFilteredOptions(){
-    this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value))
-    );
+    this.filteredOptions = this.myControl.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => typeof value === 'string' ? value : value.login),
+        map(login => login ? this._filter(login) : this.myUsers.slice())
+      );
     this.setOwnCredit();
   }
 
@@ -100,17 +115,17 @@ export class CreditTransferComponent implements OnInit {
     document.getElementById("spinner-loading").classList.add("hidden");
   }
 
-  onSubmit(form: NgForm){
+  onSubmit(){
+    //console.log("juris " + this.formTransfer.value.myControl.id);
     this.adminNewCredit = this.appComponent.userAdmin.credit;
-    this.childNewCredit = this.myUsers.find(x => x.id == form.value.jurisdiction).credit;
-    this.valueToTransfer = (+form.value.credit).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-    console.log(this.valueToTransfer);
+    this.childNewCredit = this.myUsers.find(x => x.id == this.formTransfer.value.myControl.id).credit;
+    this.valueToTransfer = (+this.formTransfer.value.credit).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
-    if (form.value.operation == 2){
-      if (this.adminNewCredit >= form.value.credit){
-        this.adminNewCredit -= +form.value.credit;
-        this.childNewCredit +=  +form.value.credit;
-        this.childId = +form.value.jurisdiction;
+    if (this.formTransfer.value.type == 2){
+      if (this.adminNewCredit >= this.formTransfer.value.credit){
+        this.adminNewCredit -= +this.formTransfer.value.credit;
+        this.childNewCredit +=  +this.formTransfer.value.credit;
+        this.childId = +this.formTransfer.value.myControl.id;
         this.childLogin = this.myUsers.find(x => x.id == this.childId).login;
         this.transferType = "Creditar";
         //this.updateUserCredit(this.appComponent.userAdmin.id, adminNewCredit, form.value.jurisdiction, childNewCredit);
@@ -123,10 +138,10 @@ export class CreditTransferComponent implements OnInit {
       }
     }
     else {
-      if (this.childNewCredit >= form.value.credit){
-        this.adminNewCredit += +form.value.credit;
-        this.childNewCredit -= +form.value.credit;
-        this.childId = +form.value.jurisdiction;
+      if (this.childNewCredit >= this.formTransfer.value.credit){
+        this.adminNewCredit += +this.formTransfer.value.credit;
+        this.childNewCredit -= +this.formTransfer.value.credit;
+        this.childId = +this.formTransfer.value.myControl.id;
         this.childLogin = this.myUsers.find(x => x.id == this.childId).login;
         this.transferType = "Retirar";
         //this.updateUserCredit(this.appComponent.userAdmin.id, adminNewCredit, form.value.jurisdiction, childNewCredit);

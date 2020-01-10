@@ -1,137 +1,194 @@
 <!--Body-->
 <!-- Loading (desapears when is loaded) -->
 <div *ngIf="!isLoaded" id="spinner-loading" class="container my-body justify-content-center">Carregando...
-    <div class="spinner-border"role="status">
+    <div class="spinner-border" role="status">
         <span class="sr-only">Loading...</span>
     </div>
 </div>
-<div class="container my-body" *ngIf="isLoaded">
-    <!-- Jackpot and prize-->
+<div class="container" *ngIf="isLoaded">
     <div class="row">
-        <div class="col clean-spaces">
-            <p class="jackpot-title">acumulado</p>
-            <h3 style="color: yellow">{{jackpot}}</h3>
-        </div>
-        <div class="col clean-spaces">
-            <p class="jackpot-title">rateio</p>
-            <h3 style="color: yellow">{{prizeAmount}}</h3>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col clean-spaces">
-            <p class="jackpot-title">prêmio total</p>
-            <!--<p class="jackpot">R$ {{prizes[0].gathered + prizes[1].gathered}},00</p>-->
-            <p class="jackpot">{{fullPrize}}</p>
-        </div>
-    </div>
-    <!-- Jackpot and prize-->
-    <!--Round period-->
-    <div class="row">
-        <div class="col-12 justify-content-center pb-3">
-            <h5>Rodada nº {{ round.number }} - {{ dateBegin | date: 'dd/MM'}} a {{ dateEnd | date: 'dd/MM' }}</h5>
-        </div>
-    </div>
-    <!--Round period-->
-
-    <!-- New Games-->
-    <div class="row row-game" *ngFor="let game of responseGames; let i = index">
-        <div class="col-6" style="text-align: right;">
-            {{game.teamHome}} - {{game.teamVisit}}
-        </div>
-        <div class="col-6" style="text-align: left">
-                <button id="{{i}}a" (click)="chooseGameResult(i, '1')" class="small-spaces" type="button" mdbBtn
-                color="light" mdbWavesEffect>
-                1
-            </button>
-            <button id="{{i}}b" (click)="chooseGameResult(i, 'X')" class="small-spaces" type="button" mdbBtn color="light"
-                mdbWavesEffect>X
-            </button>
-            <button id="{{i}}c" (click)="chooseGameResult(i, '2')" class="small-spaces" type="button" mdbBtn
-                color="light" mdbWavesEffect>
-                2
-            </button>
-        </div>
-        <div class="col-12 justify-content-center pt-1">
-            {{ game.dateBegin | date: 'dd/MM'}} - {{ game.hourBegin | date: 'HH:mm' }}
-        </div>
-        </div>
-    <!--Games-->
-
-    <!--Button to create bet-->
-    <div class="row justify-content-center">
-            <div class="card mb-3">
-
-                    <div class="card-body">
-    
-        <!-- Default form row -->
-        <form #f="ngForm" (ngSubmit)="onOpen(f)">
-            <!-- Grd row -->
-            <div class="form-row">
-                <!-- Grid column -->
-                <div class="col-7">
-                    <!-- Default input -->
-                        <!--<input mdbInput type="text" name="player-name" id="player-name" class="form-control" placeholder="Nome do Jogador" required ngModel>-->
-                    <mat-form-field>
-                        <input matInput placeholder="Nome do Jogador" id="player_name" player_name name="player_name" required ngModel style="color: black">
-                        <mat-error>Preencha o nome do jogador.</mat-error>
-                    </mat-form-field>
+        <div class="col-md-2">
+            <div class="row">
+                <div class="col-6 d-none d-lg-block side-column mb-0">
+                    <a href="#"><img class="img-fluid" src="../../assets/image/mobile-device.png"></a>
                 </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                <div class="col-5">
-                    <!--<button (click)="frame2.show()" type="button" mdbBtn size="sm" color="success" mdbWavesEffect>Apostar</button>-->
-                    <button mat-raised-button color="primary" [disabled]="f.invalid" style="background-color: #00AC43;">Apostar</button>
+                <div class="col-6 d-none d-lg-block side-column mb-0">
+                    <a href="#">layout MOBILE</a>
+                </div>
+                <div class="col-12 side-column mt-0 mb-0">
+                    <hr/>
+                    <!-- Search form -->
+                    <form class="form-inline md-form form-sm mt-0 pl-3">
+                        <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Procurar" aria-label="Search" style="margin: 0px !important;">
+                        <button class="btn btn-primary " style="box-shadow: none; padding: 0px; background-color:rgba(0, 0, 0, 0.0) !important"><i class="fas fa-search" aria-hidden="true"></i></button>
+                    </form>
+                </div>
+                <div class="col-12 p-0">
+                    <a href="#" class="row side-menu">BRASIL</a>
                 </div>
             </div>
-            <!-- Grd row -->
-        </form>
-        <!-- Default form row -->
+        </div>
+        <div class="col-md-8 my-body">
+            <div class="row" style="text-align: center;">
+
+                <!-- Slide Carousel -->
+                <div class="col-12">
+                    <mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'">
+                        <mdb-carousel-item>
+                          <div class="view w-100">
+                            <img class="d-block w-100" src="../../assets/image/banner1.jpg" alt="Bônus">
+                            <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
+                          </div>
+                          <div class="carousel-caption">
+                            <h3 class="h3-responsive">BÔNUS DE +10%</h3>
+                            <p>Registre-se e ganhe mais 10% de bônus.</p>
+                          </div>
+                        </mdb-carousel-item>
+                        <mdb-carousel-item>
+                          <div class="view w-100">
+                            <img class="d-block w-100" src="../../assets/image/banner2.jpg" alt="Sorte">
+                            <div class="mask rgba-black-strong waves-light" mdbWavesEffect></div>
+                          </div>
+                          <div class="carousel-caption">
+                            <h3 class="h3-responsive">FÉ NO PÉ</h3>
+                            <p>Use sua pontaria e chute certo. Boa Sorte!</p>
+                          </div>
+                        </mdb-carousel-item>
+                      </mdb-carousel>
+                </div>
+            </div>
+
+            <!-- New Games-->
+            <div class="row justify-content-center mt-1">
+                <div class="col-12">
+                    <table style="background-color: black; border: 2px solid black; width: 100%;">
+                        <tr style="background-color: #505050; color: yellow; border: 2px solid black;">
+                            <td colspan="2" style="font-size: 16px; font-weight: bold">PRÊMIO TOTAL: {{fullPrize}}</td>
+                            <td colspan="2" >ACUMULADO: {{jackpot}}</td>
+                            <td>RATEIO: {{prizeAmount}}</td>
+                        </tr>
+                        <tr style="background-color: #505050; text-align: center; padding: 1px;">
+                            <td>data/hora</td>
+                            <td colspan="4">Rodada nº {{ round.number }} - {{ dateBegin | date: 'dd/MM'}} a
+                                {{ dateEnd | date: 'dd/MM' }}</td>
+                        </tr>
+                        <tr *ngFor="let game of responseGames; let i = index">
+                            <td style="background-color: #1f1f1f; border: 1px solid black; text-align: left; padding: 5px;">
+                                {{game.dateBegin | date: 'dd/MM hh:mm'}}</td>
+                            <td style="background-color: #1f1f1f; border: 1px solid black; text-align: left; padding: 5px;">
+                                {{game.teamHome}} - {{game.teamVisit}}</td>
+                            <td style="background-color: #1f1f1f; border: 1px solid black;">
+                                <button id="{{i}}a" (click)="chooseGameResult(i, '1')" class="small-spaces" type="button"
+                                    mdbBtn color="light" mdbWavesEffect>
+                                    1
+                                </button>
+                            </td>
+                            <td style="background-color: #1f1f1f; border: 1px solid black;">
+                                <button id="{{i}}b" (click)="chooseGameResult(i, 'X')" class="small-spaces" type="button"
+                                    mdbBtn color="light" mdbWavesEffect>X
+                                </button>
+                            </td>
+                            <td style="background-color: #1f1f1f; border: 1px solid black;">
+                                <button id="{{i}}c" (click)="chooseGameResult(i, '2')" class="small-spaces" type="button"
+                                    mdbBtn color="light" mdbWavesEffect>
+                                    2
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!--Games-->
+
+            <!--Button to create bet-->
+            <div class="row justify-content-center mt-3">
+                <div class="card mb-3" style="min-width: 330px;">
+
+                    <div class="card-body">
+
+                        <!-- Default form row -->
+                        <form #f="ngForm" (ngSubmit)="onOpen(f)">
+                            <!-- Grd row -->
+                            <div class="form-row">
+                                <!-- Grid column -->
+                                <div class="col-12">
+                                    <!-- Default input -->
+                                    <mat-form-field *ngIf="isLogged">
+                                        <input matInput placeholder="Nome do Jogador" id="player_name" player_name
+                                            name="player_name" required ngModel style="color: black">
+                                        <mat-error>Preencha o nome do jogador.</mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <!-- Grid column -->
+
+                                <!-- Grid column -->
+                                <div class="col-12">
+                                    <!--<button (click)="frame2.show()" type="button" mdbBtn size="sm" color="success" mdbWavesEffect>Apostar</button>-->
+                                    <button mat-raised-button color="primary"
+                                        style="background-color: #00AC43;">Apostar</button>
+                                </div>
+                            </div>
+                            <!-- Grd row -->
+                        </form>
+                        <!-- Default form row -->
+                    </div>
+                </div>
+            </div>
+            <!--Button to create bet-->
+        </div>
+        <div class="col-md-2 p-0 mb-5">
+            <div class="row" style="background-color: #3d3d3d; margin: 5px 0px; padding: 0px 0px;">
+                <div class="col-12 p-0">
+                    <div class="side-menu">SUAS APOSTAS</div>
+                    <div style="color: white; padding: 10px;">Não há apostas disponíveis</div>
+                </div>
+            </div>
         </div>
     </div>
-    </div>
-    <!--Button to create bet-->
 </div>
+
+
 <!--Body-->
 
 <!--Modal confirm ticket-->
 <div mdbModal #frame2="mdbModal" class="modal fade" id="frameModalTop" tabindex="-1" role="dialog"
-  aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}" >
-  <div class="modal-dialog modal-notify modal-warning" role="document">
-    <!--Content-->
-    <div class="modal-content">
-      <!--Header-->
-      <div class="modal-header">
-        <p class="heading lead">Confirmar bilhete</p>
+    aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+    <div class="modal-dialog modal-notify modal-warning" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+                <p class="heading lead">Confirmar bilhete</p>
 
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame2.hide()">
-          <span aria-hidden="true" class="white-text">&times;</span>
-        </button>
-      </div>
-
-      <!--Body-->
-      <div class="modal-body" *ngIf="!isLogged">
-        <div class="text-center">
-          <p>Precisa estar logado.</p>
-        </div>
-      </div>
-
-      <div class="modal-body" *ngIf="isLogged">
-            <div>
-              <p id="final-msg" [innerHtml]="htmlToAdd"></p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame2.hide()">
+                    <span aria-hidden="true" class="white-text">&times;</span>
+                </button>
             </div>
-          </div>
 
-      <!--Footer-->
-      <div class="modal-footer justify-content-center">
-        <a type="button" mdbBtn color="success" class="waves-light" (click)="postTicket()" mdbWavesEffect ngModel *ngIf="isLogged && isChecked">Confirmar
-        </a>
-        <a type="button" mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect (click)="frame2.hide()"
-          data-dismiss="modal">Voltar</a>
-      </div>
+            <!--Body-->
+            <div class="modal-body" *ngIf="!isLogged">
+                <div class="text-center">
+                    <p>Precisa estar logado.</p>
+                </div>
+            </div>
+
+            <div class="modal-body" *ngIf="isLogged">
+                <div>
+                    <p id="final-msg" [innerHtml]="htmlToAdd"></p>
+                </div>
+            </div>
+
+            <!--Footer-->
+            <div class="modal-footer justify-content-center">
+                <a type="button" mdbBtn color="success" class="waves-light" (click)="postTicket()" mdbWavesEffect
+                    ngModel *ngIf="isLogged && isChecked">Confirmar
+                </a>
+                <a type="button" mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect
+                    (click)="frame2.hide()" data-dismiss="modal">Voltar</a>
+            </div>
+        </div>
+        <!--/.Content-->
     </div>
-    <!--/.Content-->
-  </div>
 </div>
 <!--Modal confirm ticket-->
 
