@@ -10,8 +10,8 @@ import { Prize } from './prize.interface';
 import { Bet } from './bet.interface';
 import { Jurisdiction } from './jurisdiction.interface';
 import { Contact } from './contact.interface';
-import { Relatorio } from './report.interface';
-import { ReportFilter } from './reportFilter.interface';
+import { Report } from './report.interface';
+import { ReportFilter } from './report-filter.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +22,7 @@ export class ConfigService {
   apiUrl = 'https://localhost:44341';
 
   constructor(private http: HttpClient) { }
-  
+
   getLogin(log: string, pass: string): Observable<any>{
     const header = new HttpHeaders({
       'Content-type': 'application/json'
@@ -58,7 +58,7 @@ export class ConfigService {
     const header = new HttpHeaders({
       'Content-type': 'application/json'
     });
-    
+
     //return this.http.put<any>(`${this.apiUrl}/common/UpdateCreditTransfer/?userId=`+userId, credit, { headers: header });
     return this.http.put<any>(`${this.apiUrl}/common/UpdateCreditTransfer/?userId=`+userId+'&credit='+credit, { headers: header });
   }
@@ -85,7 +85,7 @@ export class ConfigService {
     }
 
     console.log("senha: " + jsonToPass.Password);
-    
+
     return this.http.put<User>(this.apiUrl + '/users/'+ userId, jsonToPass, { headers: header });
   }
 
@@ -101,7 +101,7 @@ export class ConfigService {
     const header = new HttpHeaders({
       'Content-type': 'application/json'
     });
-    
+
     // ATTENTION: for now, passing always param 2 because it's jackpot on current prizes table at db
     return this.http.put<Prize>(this.apiUrl + '/prizes/2', newJackpot, { headers: header });
   }
@@ -110,7 +110,7 @@ export class ConfigService {
     const header = new HttpHeaders({
       'Content-type': 'application/json'
     });
-    
+
     // ATTENTION: for now, passing always param 2 because it's jackpot on current prizes table at db
     return this.http.put<Prize>(this.apiUrl + '/prizes/3', newApportionment, { headers: header });
   }
@@ -118,7 +118,7 @@ export class ConfigService {
   getRound(){
     return this.http.get<Round[]>(`${this.apiUrl}/rounds/`);
   }
-  
+
   getLastRound(){
     return this.http.get<Round>(`${this.apiUrl}/common/getlastround`);
   }
@@ -133,7 +133,7 @@ export class ConfigService {
     });
 
     let jsonToPass = { "number" : newRound.number, "startDateTime" : newRound.startDateTime, "endDateTime" : newRound.endDateTime }
-    
+
     return this.http.post<Round>(this.apiUrl + '/rounds/', jsonToPass, { headers: header });
   }
 
@@ -149,7 +149,7 @@ export class ConfigService {
 
     return this.http.get<Bet[]>(`${this.apiUrl}/common/GetBetsByUserTree/?userAdminId=` + userAdminId + "&roundId=" + roundId);
   }
-  
+
   getAllBets(roundId: number){
     return this.http.get<Bet[]>(`${this.apiUrl}/common/GetBetsByRound/?roundId=` + roundId);
   }
@@ -195,7 +195,7 @@ export class ConfigService {
 
     return this.http.put<Bet>(`${this.apiUrl}/bets/` + bet.id, bet, { headers: header });
   }
-  
+
   getGames(roundId: number){
     return this.http.get<Game[]>(`${this.apiUrl}/common/GetMatchesByRound/?roundId=` + roundId);
   }
@@ -205,17 +205,17 @@ export class ConfigService {
       'Content-type': 'application/json'
     });
 
-    let jsonToPass = { 
+    let jsonToPass = {
       "HomeTeamId" : newGame.homeTeamId,
       "HomeName" : newGame.homeName,
-      "AwayTeamId" : newGame.awayTeamId, 
+      "AwayTeamId" : newGame.awayTeamId,
       "AwayName" : newGame.awayName,
-      "RoundId" : newGame.roundId, 
+      "RoundId" : newGame.roundId,
       "HomeTeamScore" : 0,
       "AwayTeamScore" : 0,
       "DateTime" : newGame.dateTime
     };
-    
+
     return this.http.post<Game>(this.apiUrl + '/matches/', jsonToPass, { headers: header });
   }
 
@@ -258,7 +258,7 @@ export class ConfigService {
   sendPasswordToEmail(name: string, login: string, email: string, password: string){
     return this.http.get(`${this.apiUrl}/common/SendPasswordMail/?name=` + name + "&login=" + login + "&email=" + email + "&password=" + password);
   }
-  
+
   sendRecoveryPassword(email: string){
     return this.http.get(`${this.apiUrl}/common/RecoveryPasswordMail/?email=` + email);
   }
@@ -284,20 +284,20 @@ export class ConfigService {
 
     //onsole.log("nome: " + contact.name + " - email: " + contact.email + " - assunto: " + contact.subject + " - msg: " + contact.message);
 
-    return this.http.get(`${this.apiUrl}/common/SendContactMessage/?name=`+contact.name + 
+    return this.http.get(`${this.apiUrl}/common/SendContactMessage/?name=`+contact.name +
       "&email="+contact.email+"&subject="+contact.subject+"&message="+contact.message, { headers: header });
   }
-  
-  getUnreadMessages(){    
+
+  getUnreadMessages(){
     return this.http.get<Contact[]>(`${this.apiUrl}/contacts/`);
   }
 
   getReport(filter: ReportFilter){
     const header = new HttpHeaders({
       'Content-type': 'application/json'
-    });      
+    });
 
-    return this.http.post<Relatorio[]>(`${this.apiUrl}/common/GetReport/`, filter, { headers: header });
+    return this.http.post<Report[]>(`${this.apiUrl}/common/GetReport/`, filter, { headers: header });
   }
 
   getAllRounds(){
