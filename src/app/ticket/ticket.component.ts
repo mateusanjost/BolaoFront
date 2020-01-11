@@ -40,10 +40,14 @@ export class TicketComponent implements OnInit {
     let ticketCode: number = +(<HTMLInputElement>document.getElementById("ticket-id")).value;
     let indexTicket: number;
 
+    let betFound: any;
+
     for (let i = 0; i < this.bets.length; i++){
       if (ticketCode == this.bets[i].id){
         indexTicket = i;
         this.searchReturn = true;
+
+        betFound = this.bets[i];
       }
     }
 
@@ -52,9 +56,18 @@ export class TicketComponent implements OnInit {
       this.appComponent.msgStandard("Bilhete Não Encontrado", "Pule de código " + ticketCode + " não ativada na rodada atual!", 4);
     }
     else {
+      let stringTable = "<table class='table table-striped' border='1' width='100%'><tr><td>ID</td><td>OPERADOR</td><td>JOGADOR</td><td>RESULTADOS</td></tr>"+
+      "<tr><td>"+ ticketCode + "</td><td>" + this.userNameToShow[indexTicket] + "</td><td>" + this.bets[indexTicket].playerName + "</td>"+
+      "<td>" + this.bets[indexTicket].results + "</td></tr>" +
+      "</table>";
+      this.appComponent.msgStandard("Resumo Pule " + ticketCode, stringTable, 1);
+
+      /*
+      OLD CODE REPLACED ON 10/01/2020 BY BRUNO
       document.getElementById('result-text').classList.remove("content-hidden");
       this.resultSearch = "código: " + this.bets[indexTicket].id + " | operador: " + this.userNameToShow[indexTicket] +
       " | jogador: " + this.bets[indexTicket].playerName + " | resultados: " + this.bets[indexTicket].results;
+      */
     }
   }
 
