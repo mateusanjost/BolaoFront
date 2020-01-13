@@ -41,7 +41,7 @@ import { DataSource } from '@oasisdigital/angular-material-search-select';
 import localePtBr from '@angular/common/locales/pt';
 
 import { registerLocaleData } from '@angular/common';
-import { RoundgroupsComponent } from './roundgroups/roundgroups.component';
+import { RoundgroupsComponent } from './components/roundgroups/roundgroups.component';
 
 registerLocaleData(localePtBr);
 
@@ -110,4 +110,3 @@ registerLocaleData(localePtBr);
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-    
