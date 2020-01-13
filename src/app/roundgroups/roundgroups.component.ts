@@ -33,7 +33,7 @@ export class RoundgroupsComponent implements OnInit {
     this.prepareDataSource();
   }
 
-  private isGroup = (_: number, node: DataNode) => !!node.childrens;
+  public isGroup = (_: number, node: DataNode) => !!node.childrens;
 
   // TODO fake, to move to configService
   private listRoundGroups() {
