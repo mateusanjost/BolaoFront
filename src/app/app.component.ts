@@ -36,6 +36,8 @@ export class AppComponent {
   public cookie: string;
   public betIdPrint: number;
 
+  public selectedItem: any;
+
   constructor(private configService: ConfigService, private cookieService: CookieService){ }
 
   ngOnInit() {
@@ -287,6 +289,13 @@ export class AppComponent {
     }
 
     this.modalMessages.show();
+  }
+
+  listClick(event){
+    console.log(event.currentTarget.id);
+    if(document.getElementsByClassName('selected').length > 0)
+      document.getElementsByClassName('selected')[0].classList.remove('selected');
+    document.getElementById(event.currentTarget.id).classList.add('selected');
   }
 
 }

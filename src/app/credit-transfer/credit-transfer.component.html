@@ -16,7 +16,12 @@
             <div class="row">
                 <div class="col-12 pt-3">
                     <h3>Transferência de Crédito</h3>
-                    <p>Seu crédito é de: {{ownCredit}}</p>
+                    <span *ngIf="creditVisibility">Seu crédito é de: {{ownCredit}} </span>
+                    <span *ngIf="!creditVisibility">Seu crédito é de: </span>
+                    <span (click)="toggleVisibility()">
+                            <i *ngIf="creditVisibility" class="fas fa-eye"></i>
+                            <i *ngIf="!creditVisibility" class="fas fa-eye-slash"></i>
+                        </span>
                 </div>
                 <div class="col-12" style="text-align: center;">
                 

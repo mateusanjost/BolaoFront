@@ -17,6 +17,7 @@ export class SettingsComponent implements OnInit {
   user: User;
   ownCredit: any;
   isLoaded: boolean = false;
+  creditVisibility: boolean = false;
 
   constructor(private configService: ConfigService, private appComponent: AppComponent) { 
     
@@ -98,6 +99,10 @@ export class SettingsComponent implements OnInit {
       //alert("Existem campos obrigatórios vazios!");
       this.appComponent.msgStandard("Campos Obrigatório Vazio", "Existe campo obrigatório não preenchido!", 4);
     }
+  }
+
+  toggleVisibility(){
+    this.creditVisibility = !this.creditVisibility;
   }
 
 }

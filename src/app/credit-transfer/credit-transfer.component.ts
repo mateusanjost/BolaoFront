@@ -35,6 +35,8 @@ export class CreditTransferComponent implements OnInit {
   formTransfer: FormGroup;
   filteredOptions: Observable<User[]>;
 
+  creditVisibility: boolean = false;
+
   constructor(private configService: ConfigService, private appComponent: AppComponent) { }
   
   ngOnInit() {
@@ -186,6 +188,10 @@ export class CreditTransferComponent implements OnInit {
       console.log(error);
       this.ngOnInit();
     });
+  }
+
+  toggleVisibility(){
+    this.creditVisibility = !this.creditVisibility;
   }
 
 }
