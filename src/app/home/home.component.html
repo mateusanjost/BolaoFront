@@ -190,4 +190,40 @@
 </div>
 <!--Modal confirm ticket-->
 
+<!--Modal finish ticket-->
+<div mdbModal #frame3="mdbModal" class="modal fade" id="frameModalTop" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+    <div class="modal-dialog modal-notify modal-success" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+                <p class="heading lead">Aposta Realizada</p>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeBetModal()">
+                    <span aria-hidden="true" class="white-text">&times;</span>
+                </button>
+            </div>
+
+            <!--Body-->
+            <div class="modal-body">
+                <div class="text-center">
+                    <p>Aposta criada com sucesso.</p>
+                </div>
+            </div>
+
+            <!--Footer-->
+            <div class="modal-footer justify-content-center">
+                <a type="button" mdbBtn color="success" class="waves-light" (click)="printTicket()" mdbWavesEffect
+                    ngModel>Imprimir
+                </a>
+                <a type="button" mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect
+                    (click)="closeBetModal()" data-dismiss="modal">Fechar</a>
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
+<!--Modal finish ticket-->
+
 <app-messenger></app-messenger>

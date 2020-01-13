@@ -21,6 +21,7 @@ import { MessengerService } from 'src/services/messenger.service';
 })
 export class HomeComponent implements OnInit {
   @ViewChild('frame2', { static: true }) modalCreate: ModalDirective;
+  @ViewChild('frame3', { static: true }) modalFinishBet: ModalDirective;
   @ViewChild('frame4', { static: true }) modalPrint: ModalDirective;
   betForm: FormGroup;
 
@@ -326,7 +327,8 @@ export class HomeComponent implements OnInit {
 
     this.configService.updateApportionment(newPrizes)
     .subscribe(data => {
-      this.clearTicket();
+      //this.clearTicket();
+      this.modalFinishBet.show();
     }, error => {
       //alert("Houve algum erro de conexão! Cód: 101");
       this.appComponent.msgStandard("Operação Não Realizada", "Erro na finalização da aposta.", 4);
@@ -335,19 +337,34 @@ export class HomeComponent implements OnInit {
   }
   // --- TICKET CREATION --- //
 
+  /*
+  NOT USED ANYMORE
   clearTicket(){
     //alert("Aposta Realizada!");
     //this.msgService.messengerBox();
-    this.appComponent.msgStandard("Aposta Realizada", "Bilhete criado com sucesso!", 3);
+    this.modalFinishBet.show();
+    //this.appComponent.msgStandard("Aposta Realizada", "Bilhete criado com sucesso!", 3);
     
     //window.print();
     //window.open('http://localhost:4200/print', "", "width=360,height=700");
-    window.open('http://www.jogobrasil.com.br/print', "", "width=360,height=700");
+    // modal to print
+    //window.open('http://www.jogobrasil.com.br/print', "", "width=360,height=700");
 
     //this.printTicket();
 
+    //this.router.navigate(['/ticket']);
+    
+  }
+  */
+
+  closeBetModal(){
+    //this.modalFinishBet.hide();
     this.router.navigate(['/ticket']);
-    //location.reload();
+  }
+
+  printTicket(){
+    window.open('http://www.jogobrasil.com.br/print', "", "width=360,height=700");
+    this.router.navigate(['/ticket']);
   }
 
 }
