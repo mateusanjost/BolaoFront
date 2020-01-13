@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {NestedTreeControl} from '@angular/cdk/tree';
 import {MatTreeNestedDataSource} from '@angular/material/tree';
 
-import { AppComponent } from '../app.component';
-import { ConfigService } from '../config.service';
+import { AppComponent } from '../../app.component';
+import { ConfigService } from '../../config.service';
 
-import { Round } from '../round.interface';
-import { RoundGroup } from '../round-group.interface';
+import { Round } from '../../round.interface';
+import { RoundGroup } from '../../round-group.interface';
 
 export class DataNode {
   name: string;
