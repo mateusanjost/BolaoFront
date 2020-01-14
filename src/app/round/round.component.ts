@@ -41,10 +41,13 @@ export class RoundComponent implements OnInit {
   isLoaded: boolean = false;
   errorCreation: boolean = false;
 
+  betRadarTest: any;
+
   constructor(private configService: ConfigService, private appComponent: AppComponent, private router: Router) { }
 
   ngOnInit() {
     this.getLastRound();
+    this.listBetradarCompetitions();
   }
 
   getLastRound(){
@@ -226,6 +229,27 @@ export class RoundComponent implements OnInit {
       this.responseGames[i].dateEnd = this.games[i].dateTime;
       this.responseGames[i].hourEnd = this.games[i].dateTime;
     }
+  }
+
+  // --- BETRADAR IMPLEMANTATION --- //
+  
+  testBetRadar(){
+    this.configService.GetBetRadarTest()
+    .subscribe(data => {
+      this.betRadarTest = data;
+      console.log(this.betRadarTest);
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  listBetradarCompetitions(){
+    this.configService.getBetRadarCompetitions()
+    .subscribe(data => {
+      console.log(data);
+    }, error => {
+      console.log(error);
+    });
   }
 
 }

@@ -21,6 +21,7 @@ export interface UserLoginForm{
     name: string;
     lastName: string;
     login: string;
+    commission: number;
     password: string;
     parentId: number;
     jurisdictionId: number;

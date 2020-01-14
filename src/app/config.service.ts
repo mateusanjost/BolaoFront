@@ -18,8 +18,8 @@ import { ReportFilter } from './report-filter.interface';
 })
 export class ConfigService {
 
-  apiUrl = 'http://api.socialawp.com';
-  //apiUrl = 'https://localhost:44341';
+  //apiUrl = 'http://api.socialawp.com';
+  apiUrl = 'https://localhost:44341';
 
   constructor(private http: HttpClient) { }
 
@@ -48,6 +48,10 @@ export class ConfigService {
 
   getUsersTreeList(userId: number){
     return this.http.get<User[]>(`${this.apiUrl}/common/GetUsersTreeList?userId=`+userId);
+  }
+
+  GetJurisdictionLevelByUser(userId: number, jurisditicionLevel: number){
+    return this.http.get<User[]>(`${this.apiUrl}/common/GetJurisdictionLevelByUser?userId=`+userId+'&jurisdictionLevel='+jurisditicionLevel);
   }
 
   getJurisdictionsById(jurisdictionId: number){
@@ -88,10 +92,6 @@ export class ConfigService {
 
     return this.http.put<User>(this.apiUrl + '/users/'+ userId, jsonToPass, { headers: header });
   }
-
-  /*listTeams(){
-    return this.http.get<Team[]>(`${this.apiUrl}/teams/`);
-  }*/
 
   getPrize(){
     return this.http.get<Prize>(`${this.apiUrl}/prizes/`);
@@ -243,7 +243,7 @@ export class ConfigService {
     const header = new HttpHeaders({
       'Content-type': 'application/json'
     });
-
+    
     return this.http.post<Jurisdiction>(`${this.apiUrl}/users/`, user, { headers: header });
   }
 
@@ -302,6 +302,14 @@ export class ConfigService {
 
   getAllRounds(){
     return this.http.get<Round[]>(`${this.apiUrl}/rounds/`);
+  }
+
+  GetBetRadarTest(){
+    return this.http.get<any>("https://www.betflix.one/res/Client/wbe/OfferDetails.aspx?b=b&Startdate=2019-08-29%2015:13&EndDate=2020-10-29%2015:13&list=133&xver=2&lt=M&cl=3&uei=uniqueEventId&om=0");
+  }
+
+  getBetRadarCompetitions(){
+    return this.http.get('../../assets/data/betradar-list.json');
   }
 
 }

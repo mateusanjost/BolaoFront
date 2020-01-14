@@ -15,9 +15,9 @@
                 <!-- dynamic tree-->
                 <div class="col-12">
                     <button class="p-2" type="button" mdbBtn color="success" mdbWavesEffect (click)="frame.show()">Criar
-                        Juridição</button>
-                    <button class="p-2" type="button" mdbBtn color="danger" mdbWavesEffect
-                        (click)="frame2.show()">Excluir Juridição</button>
+                        Usuário</button>
+                    <button *ngIf="(appComponent.userAdmin.jurisdictionId == 1)" class="p-2" type="button" mdbBtn color="danger" mdbWavesEffect
+                        (click)="frame2.show()">Excluir Usuário</button>
                 </div>
                 <div class="col-12">
                     <div *ngIf="!isLoaded" id="spinner-loading" class="justify-content-center">Carregando...
@@ -87,7 +87,8 @@
 
                         <label>Tipo *</label>
                         <div *ngFor="let jurisdiction of jurisdictions" style="margin-left: 15px">
-                            <input type="radio" [value]="jurisdiction.id" formControlName="jurisdictionId" required>
+                            <input type="radio" [value]="jurisdiction.id" formControlName="jurisdictionId"
+                            required (click)="updateListUsers(jurisdiction.id)">
                             <label for="jurType">{{jurisdiction.name}}</label>
                         </div>
 
@@ -100,6 +101,18 @@
                             <mat-label>Login</mat-label>
                             <input matInput formControlName="login" required>
                         </mat-form-field>
+
+                        <mat-form-field *ngIf="(appComponent.userAdmin.jurisdictionId < 6)" class="w-100">
+                            <mat-label>Comissão (%)</mat-label>
+                            <input matInput formControlName="commission" value="90" required>
+                        </mat-form-field>
+
+                        <!--
+                        <mat-form-field *ngIf="(appComponent.userAdmin.jurisdictionId == 6)" class="w-100">
+                            <mat-label>Comissão (%)</mat-label>
+                            <input matInput formControlName="commission" [value]="0">
+                        </mat-form-field>
+                        -->
 
                         <mat-form-field class="w-100">
                             <mat-label>Senha</mat-label>
@@ -118,15 +131,26 @@
                             <mat-error *ngIf="!emailOk">E-mail inválido</mat-error>
                         </mat-form-field>
 
+                        <!--
                         <mat-form-field class="w-100">
                             <mat-label>Jurisdição Pai</mat-label>
-                            <mat-select formControlName="parentId" required>
+                            <mat-select formControlName="parentId" [(value)]="userSelected" required disabled>
                                 <mat-option *ngFor="let user of treeList" [value]="user.id">
-                                    {{user.jurisdictionId}}-{{user.name}}
+                                    {{user.login}}
                                 </mat-option>
                             </mat-select>
                         </mat-form-field>
+                        -->
 
+                        <mat-form-field class="w-100">
+                            <mat-label>Jurisdição Pai</mat-label>
+                            <select matNativeControl formControlName="parentId" [(value)]="userSelected" required disabled>
+                                <option *ngFor="let user of treeList" [value]="user.id">
+                                    {{user.login}}
+                                </option>
+                            </select>
+                        </mat-form-field>
+                        
                         <mat-form-field class="w-100">
                             <mat-label>Observação</mat-label>
                             <textarea matInput rows="3" formControlName="obs"></textarea>
@@ -141,7 +165,7 @@
             <!--Footer-->
             <div class="modal-footer justify-content-center">
                 <button type="submit" mdbBtn color="success" class="waves-light" mdbWavesEffect (click)="addNewUserAdmin(frame)"
-                    [disabled]="!jurisdictionForm.valid && !senhaOk">Confirmar</button>
+                    [disabled]="!jurisdictionForm.valid && !senhaOk">Criar</button>
                 <button type="submit" mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect
                     (click)="frame.hide()" data-dismiss="modal">Cancelar</button>
             </div>

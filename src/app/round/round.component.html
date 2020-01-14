@@ -14,6 +14,25 @@
                         mdbWavesEffect>Nova
                         rodada</button>
                 </div>
+                <div class="col-12">
+                    <p>Test no BetRadar</p>
+                    <!--
+                    <form class="example-form">
+                        <mat-form-field class="example-full-width">
+                            <input type="text" placeholder="Assignee" aria-label="Assignee" matInput [formControl]="myControl"
+                                [matAutocomplete]="auto">
+                            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                    {{option.name}}
+                                </mat-option>
+                            </mat-autocomplete>
+                        </mat-form-field>
+                    </form>
+                    -->
+                    <button type="button" mdbBtn color="success" (click)="listBetradarCompetitions()" mdbWavesEffect>
+                        BetRadar
+                    </button>
+                </div>
                 <div class="col-12" *ngIf="isLoaded">
                     <p>Rodada Nº {{ idRound }} de {{ dateBegin | date: 'dd/MM/yyyy' }} até {{ dateEnd | date: 'dd/MM/yyyy' }}</p>
                 </div>

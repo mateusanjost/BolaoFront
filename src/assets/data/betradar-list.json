@@ -1,0 +1,5208 @@
+{
+    "Grid Results": [
+        {
+            "IdMani": "57",
+            "Mani": " Argentina Primera"
+        },
+        {
+            "IdMani": "89",
+            "Mani": " Germania Coppa"
+        },
+        {
+            "IdMani": "162",
+            "Mani": " Svezia  Allsvenskan"
+        },
+        {
+            "IdMani": "2",
+            "Mani": " Svezia  Superettan"
+        },
+        {
+            "IdMani": "17199",
+            "Mani": "Abu Dhabi Tour Stage 4"
+        },
+        {
+            "IdMani": "24229",
+            "Mani": "AFC Asian Cup Women"
+        },
+        {
+            "IdMani": "17904",
+            "Mani": "AFC Asian Cup Women Qualif."
+        },
+        {
+            "IdMani": "17905",
+            "Mani": "AFC Asian Cup Women Qualif."
+        },
+        {
+            "IdMani": "4309",
+            "Mani": "AFC Challenge Cup"
+        },
+        {
+            "IdMani": "210",
+            "Mani": "AFC Champions League"
+        },
+        {
+            "IdMani": "7371",
+            "Mani": "AFC Champions League Qual."
+        },
+        {
+            "IdMani": "209",
+            "Mani": "AFC Coppa d' Asia"
+        },
+        {
+            "IdMani": "1108",
+            "Mani": "AFC Cup"
+        },
+        {
+            "IdMani": "3180",
+            "Mani": "AFC Cup"
+        },
+        {
+            "IdMani": "8509",
+            "Mani": "AFC Olympic Qualification (F)"
+        },
+        {
+            "IdMani": "743",
+            "Mani": "AFC WC Qualification"
+        },
+        {
+            "IdMani": "211",
+            "Mani": "AFF Suzuki Cup"
+        },
+        {
+            "IdMani": "2650",
+            "Mani": "AFF Suzuki Cupp Qual."
+        },
+        {
+            "IdMani": "16135",
+            "Mani": "Africa Cup of Nations"
+        },
+        {
+            "IdMani": "27757",
+            "Mani": "Africa Cup of Nations Women"
+        },
+        {
+            "IdMani": "4452",
+            "Mani": "Africa Nations Cup"
+        },
+        {
+            "IdMani": "9410",
+            "Mani": "Africa Pro League"
+        },
+        {
+            "IdMani": "35289",
+            "Mani": "African Cup Qualification"
+        },
+        {
+            "IdMani": "3086",
+            "Mani": "African Nations Championship"
+        },
+        {
+            "IdMani": "91",
+            "Mani": "Albania Cup"
+        },
+        {
+            "IdMani": "33606",
+            "Mani": "Albania Kategoria e Pare Gr. A"
+        },
+        {
+            "IdMani": "33607",
+            "Mani": "Albania Kategoria e Pare Gr. B"
+        },
+        {
+            "IdMani": "33605",
+            "Mani": "Albania Kategoria Superiore"
+        },
+        {
+            "IdMani": "33813",
+            "Mani": "Albania Kupa e Shqiperise"
+        },
+        {
+            "IdMani": "2851",
+            "Mani": "Albania Superliga"
+        },
+        {
+            "IdMani": "8540",
+            "Mani": "Algarve Cup Women"
+        },
+        {
+            "IdMani": "3244",
+            "Mani": "Algeria Cup"
+        },
+        {
+            "IdMani": "68",
+            "Mani": "Algeria Ligue 1"
+        },
+        {
+            "IdMani": "5092",
+            "Mani": "Algeria Ligue 2"
+        },
+        {
+            "IdMani": "14960",
+            "Mani": "Algeria Super Cup"
+        },
+        {
+            "IdMani": "34841",
+            "Mani": "Algeria Supercoppa"
+        },
+        {
+            "IdMani": "302",
+            "Mani": "Amichevoli di Clubs"
+        },
+        {
+            "IdMani": "2000",
+            "Mani": "Amichevoli Femminili"
+        },
+        {
+            "IdMani": "1112",
+            "Mani": "Amichevoli Inter. U16 (80 min.)"
+        },
+        {
+            "IdMani": "202",
+            "Mani": "Amichevoli Inter. U17"
+        },
+        {
+            "IdMani": "205",
+            "Mani": "Amichevoli Inter. U19 (F)"
+        },
+        {
+            "IdMani": "204",
+            "Mani": "Amichevoli Inter. U20"
+        },
+        {
+            "IdMani": "203",
+            "Mani": "Amichevoli Inter. U21"
+        },
+        {
+            "IdMani": "206",
+            "Mani": "Amichevoli Inter. U23"
+        },
+        {
+            "IdMani": "208",
+            "Mani": "Amichevoli Internazionali"
+        },
+        {
+            "IdMani": "647",
+            "Mani": "Amichevoli Internazionali"
+        },
+        {
+            "IdMani": "1",
+            "Mani": "Amichevoli Internazionali"
+        },
+        {
+            "IdMani": "11200",
+            "Mani": "Amichevoli Internazionali (F)"
+        },
+        {
+            "IdMani": "662",
+            "Mani": "Amichevoli Internazionali U21"
+        },
+        {
+            "IdMani": "305",
+            "Mani": "Amsterdam Torrnament "
+        },
+        {
+            "IdMani": "33608",
+            "Mani": "Andorra Primera Divisio"
+        },
+        {
+            "IdMani": "33609",
+            "Mani": "Andorra Segunda Divisio"
+        },
+        {
+            "IdMani": "33610",
+            "Mani": "Angola Girabola"
+        },
+        {
+            "IdMani": "19775",
+            "Mani": "Arab Club Championship"
+        },
+        {
+            "IdMani": "1800",
+            "Mani": "Arabia Saudita Coppa"
+        },
+        {
+            "IdMani": "789",
+            "Mani": "Arabia Saudita Premier"
+        },
+        {
+            "IdMani": "33611",
+            "Mani": "Arabia Saudita Professional League"
+        },
+        {
+            "IdMani": "33751",
+            "Mani": "Arabian Gulf League"
+        },
+        {
+            "IdMani": "2009",
+            "Mani": "Arbitro della finale"
+        },
+        {
+            "IdMani": "26873",
+            "Mani": "Argentina Bicentenario Cup"
+        },
+        {
+            "IdMani": "213",
+            "Mani": "Argentina Copa Ciudad de Tandil"
+        },
+        {
+            "IdMani": "214",
+            "Mani": "Argentina Coppa"
+        },
+        {
+            "IdMani": "10979",
+            "Mani": "Argentina Playoffs Copa Libertadores"
+        },
+        {
+            "IdMani": "652",
+            "Mani": "Argentina Primera"
+        },
+        {
+            "IdMani": "58",
+            "Mani": "Argentina Primera B"
+        },
+        {
+            "IdMani": "75219",
+            "Mani": "Argentina Primera C"
+        },
+        {
+            "IdMani": "14283",
+            "Mani": "Argentina Primera D"
+        },
+        {
+            "IdMani": "33612",
+            "Mani": "Argentina Primera D Metropolitana"
+        },
+        {
+            "IdMani": "33729",
+            "Mani": "Argentina Primera Nacional Gr A"
+        },
+        {
+            "IdMani": "5687",
+            "Mani": "Argentina Primera Nacional Gr B"
+        },
+        {
+            "IdMani": "4002",
+            "Mani": "Argentina Super Cup"
+        },
+        {
+            "IdMani": "22247",
+            "Mani": "Argentina Torneo Federal A"
+        },
+        {
+            "IdMani": "22330",
+            "Mani": "Argentina Torneo Federal A"
+        },
+        {
+            "IdMani": "215",
+            "Mani": "Argentina Torneos de Verano"
+        },
+        {
+            "IdMani": "3224",
+            "Mani": "Armenia Cup"
+        },
+        {
+            "IdMani": "4867",
+            "Mani": "Armenia First League"
+        },
+        {
+            "IdMani": "1109",
+            "Mani": "Armenia Premier League"
+        },
+        {
+            "IdMani": "34110",
+            "Mani": "Armenia Supercoppa"
+        },
+        {
+            "IdMani": "25962",
+            "Mani": "Asian Games Women"
+        },
+        {
+            "IdMani": "960",
+            "Mani": "Audi Cup (Germania)"
+        },
+        {
+            "IdMani": "971",
+            "Mani": "Audi Cup Germania"
+        },
+        {
+            "IdMani": "216",
+            "Mani": "Australia A League"
+        },
+        {
+            "IdMani": "4726",
+            "Mani": "Australia ACT Premier L"
+        },
+        {
+            "IdMani": "791",
+            "Mani": "Australia Brisbane Premier"
+        },
+        {
+            "IdMani": "4733",
+            "Mani": "Australia FFA Cup"
+        },
+        {
+            "IdMani": "33613",
+            "Mani": "Australia National Premier League"
+        },
+        {
+            "IdMani": "793",
+            "Mani": "Australia New South P"
+        },
+        {
+            "IdMani": "4727",
+            "Mani": "Australia Northern NSW P"
+        },
+        {
+            "IdMani": "9650",
+            "Mani": "Australia NPL Capital Football"
+        },
+        {
+            "IdMani": "4847",
+            "Mani": "Australia NPL Victoria"
+        },
+        {
+            "IdMani": "9209",
+            "Mani": "Australia NPL Western"
+        },
+        {
+            "IdMani": "794",
+            "Mani": "Australia NSW Premier L."
+        },
+        {
+            "IdMani": "3444",
+            "Mani": "Australia Queensland"
+        },
+        {
+            "IdMani": "795",
+            "Mani": "Australia South Super L"
+        },
+        {
+            "IdMani": "4629",
+            "Mani": "Australia Tasmania Premier"
+        },
+        {
+            "IdMani": "792",
+            "Mani": "Australia Victoria Premier L"
+        },
+        {
+            "IdMani": "16732",
+            "Mani": "Australia W League (Women)"
+        },
+        {
+            "IdMani": "1003",
+            "Mani": "Australia W-League"
+        },
+        {
+            "IdMani": "35112",
+            "Mani": "Australia Y-League"
+        },
+        {
+            "IdMani": "650",
+            "Mani": "Austria Bundesliga"
+        },
+        {
+            "IdMani": "60",
+            "Mani": "Austria Bundesliga"
+        },
+        {
+            "IdMani": "33049",
+            "Mani": "Austria Bundesliga (F)"
+        },
+        {
+            "IdMani": "62",
+            "Mani": "Austria Coppa"
+        },
+        {
+            "IdMani": "33323",
+            "Mani": "Austria Eliteliga Vorarlberg"
+        },
+        {
+            "IdMani": "61",
+            "Mani": "Austria Erste Liga"
+        },
+        {
+            "IdMani": "3209",
+            "Mani": "Austria Reg. Centre"
+        },
+        {
+            "IdMani": "3210",
+            "Mani": "Austria Reg. East"
+        },
+        {
+            "IdMani": "3229",
+            "Mani": "Austria Reg. West"
+        },
+        {
+            "IdMani": "4457",
+            "Mani": "Austria Regionalliga Prom."
+        },
+        {
+            "IdMani": "33021",
+            "Mani": "Austria Regionalliga Salzburg"
+        },
+        {
+            "IdMani": "33036",
+            "Mani": "Austria Regionalliga Tirol"
+        },
+        {
+            "IdMani": "1605",
+            "Mani": "Austria Stiegl Cup"
+        },
+        {
+            "IdMani": "92",
+            "Mani": "Austria Supercoppa"
+        },
+        {
+            "IdMani": "13412",
+            "Mani": "Azeirbaijan First Division"
+        },
+        {
+            "IdMani": "1524",
+            "Mani": "Azerbaijan Cup"
+        },
+        {
+            "IdMani": "1110",
+            "Mani": "Azerbaijan Premier League"
+        },
+        {
+            "IdMani": "33614",
+            "Mani": "Bahrain 2nd Division"
+        },
+        {
+            "IdMani": "3166",
+            "Mani": "Bahrain Cup"
+        },
+        {
+            "IdMani": "8042",
+            "Mani": "Bahrain King Cup"
+        },
+        {
+            "IdMani": "1833",
+            "Mani": "Bahrain Premier"
+        },
+        {
+            "IdMani": "5371",
+            "Mani": "Bahrain Super Cup"
+        },
+        {
+            "IdMani": "4411",
+            "Mani": "Baltic Cup"
+        },
+        {
+            "IdMani": "2032",
+            "Mani": "Baltic Cup"
+        },
+        {
+            "IdMani": "13440",
+            "Mani": "Bangladesh Premier League"
+        },
+        {
+            "IdMani": "63",
+            "Mani": "Belgio  Pro League"
+        },
+        {
+            "IdMani": "65",
+            "Mani": "Belgio 2e Klasse"
+        },
+        {
+            "IdMani": "5688",
+            "Mani": "Belgio Beloften Pro League"
+        },
+        {
+            "IdMani": "64",
+            "Mani": "Belgio Coppa"
+        },
+        {
+            "IdMani": "93",
+            "Mani": "Belgio Coppa"
+        },
+        {
+            "IdMani": "1596",
+            "Mani": "Belgio Jupiler L. Europa L. Playooff"
+        },
+        {
+            "IdMani": "651",
+            "Mani": "Belgio Jupiler League"
+        },
+        {
+            "IdMani": "1606",
+            "Mani": "Belgio Jupiler League Champ. Round"
+        },
+        {
+            "IdMani": "1834",
+            "Mani": "Belgio Jupiler Rel./Prom."
+        },
+        {
+            "IdMani": "1700",
+            "Mani": "Belgio Jupiler relegation"
+        },
+        {
+            "IdMani": "13760",
+            "Mani": "Belgio Reserve League"
+        },
+        {
+            "IdMani": "5749",
+            "Mani": "Belgio Super League (F)"
+        },
+        {
+            "IdMani": "94",
+            "Mani": "Belgio Supercoppa"
+        },
+        {
+            "IdMani": "3838",
+            "Mani": "Belgium Pro League (Youth)"
+        },
+        {
+            "IdMani": "15227",
+            "Mani": "Belgium U21 Cup"
+        },
+        {
+            "IdMani": "4943",
+            "Mani": "Berlusconi Trophy"
+        },
+        {
+            "IdMani": "1200",
+            "Mani": "Bielorussia Coppa"
+        },
+        {
+            "IdMani": "75372",
+            "Mani": "Bielorussia Pervaya Liga"
+        },
+        {
+            "IdMani": "756",
+            "Mani": "Bielorussia Premier League"
+        },
+        {
+            "IdMani": "1199",
+            "Mani": "Bielorussia Supercoppa"
+        },
+        {
+            "IdMani": "9425",
+            "Mani": "Bielorussia Vysshaya League"
+        },
+        {
+            "IdMani": "232",
+            "Mani": "Bolivia Liga Profesional"
+        },
+        {
+            "IdMani": "1741",
+            "Mani": "Bosnia Coppa"
+        },
+        {
+            "IdMani": "757",
+            "Mani": "Bosnia Premier Liga"
+        },
+        {
+            "IdMani": "33615",
+            "Mani": "Bosnia Prva Liga"
+        },
+        {
+            "IdMani": "33616",
+            "Mani": "Botswana Premier League"
+        },
+        {
+            "IdMani": "66",
+            "Mani": "Brasile A"
+        },
+        {
+            "IdMani": "67",
+            "Mani": "Brasile B"
+        },
+        {
+            "IdMani": "217",
+            "Mani": "Brasile Carioca"
+        },
+        {
+            "IdMani": "218",
+            "Mani": "Brasile Coppa"
+        },
+        {
+            "IdMani": "709",
+            "Mani": "Brasile Gaucho"
+        },
+        {
+            "IdMani": "3151",
+            "Mani": "Brasile Mineiro"
+        },
+        {
+            "IdMani": "654",
+            "Mani": "Brasile Paulista"
+        },
+        {
+            "IdMani": "219",
+            "Mani": "Brasile Paulista"
+        },
+        {
+            "IdMani": "653",
+            "Mani": "Brasile Serie A"
+        },
+        {
+            "IdMani": "17962",
+            "Mani": "Brazil - Trofeu do Interior"
+        },
+        {
+            "IdMani": "3963",
+            "Mani": "Brazil Baiano"
+        },
+        {
+            "IdMani": "16993",
+            "Mani": "Brazil Brasiliense"
+        },
+        {
+            "IdMani": "19205",
+            "Mani": "Brazil Campeonato (Women)"
+        },
+        {
+            "IdMani": "17655",
+            "Mani": "Brazil Campeonato Brasileiro (F)"
+        },
+        {
+            "IdMani": "5011",
+            "Mani": "Brazil Campeonato U20"
+        },
+        {
+            "IdMani": "75187",
+            "Mani": "Brazil Carioca B"
+        },
+        {
+            "IdMani": "4009",
+            "Mani": "Brazil Catarinense"
+        },
+        {
+            "IdMani": "3956",
+            "Mani": "Brazil Cearense"
+        },
+        {
+            "IdMani": "3981",
+            "Mani": "Brazil Copa do Nordeste"
+        },
+        {
+            "IdMani": "4820",
+            "Mani": "Brazil Copa Paulista"
+        },
+        {
+            "IdMani": "17335",
+            "Mani": "Brazil Copa Verde"
+        },
+        {
+            "IdMani": "4007",
+            "Mani": "Brazil Goiano"
+        },
+        {
+            "IdMani": "16546",
+            "Mani": "Brazil Maranhense"
+        },
+        {
+            "IdMani": "16698",
+            "Mani": "Brazil Paraense"
+        },
+        {
+            "IdMani": "16699",
+            "Mani": "Brazil Paraibano"
+        },
+        {
+            "IdMani": "3989",
+            "Mani": "Brazil Paranaense"
+        },
+        {
+            "IdMani": "4068",
+            "Mani": "Brazil Paulista A2"
+        },
+        {
+            "IdMani": "74162",
+            "Mani": "Brazil Paulista A3"
+        },
+        {
+            "IdMani": "19055",
+            "Mani": "Brazil Paulista Women"
+        },
+        {
+            "IdMani": "4008",
+            "Mani": "Brazil Pernambucano"
+        },
+        {
+            "IdMani": "16700",
+            "Mani": "Brazil Piauiense"
+        },
+        {
+            "IdMani": "16547",
+            "Mani": "Brazil Potiguar"
+        },
+        {
+            "IdMani": "16130",
+            "Mani": "Brazil Sao Paulo Youth Cup"
+        },
+        {
+            "IdMani": "23718",
+            "Mani": "Brazil Sergipano"
+        },
+        {
+            "IdMani": "3376",
+            "Mani": "Brazil Serie C "
+        },
+        {
+            "IdMani": "3377",
+            "Mani": "Brazil Serie C Gr. B"
+        },
+        {
+            "IdMani": "20428",
+            "Mani": "Brazil Serie D"
+        },
+        {
+            "IdMani": "5157",
+            "Mani": "Brazil U19 Copa Sao Paulo"
+        },
+        {
+            "IdMani": "19079",
+            "Mani": "Brazil U20 Paulista"
+        },
+        {
+            "IdMani": "13439",
+            "Mani": "Bulgaria - First League"
+        },
+        {
+            "IdMani": "758",
+            "Mani": "Bulgaria Coppa"
+        },
+        {
+            "IdMani": "168",
+            "Mani": "Bulgaria Premier League"
+        },
+        {
+            "IdMani": "15828",
+            "Mani": "Bulgaria Second League"
+        },
+        {
+            "IdMani": "759",
+            "Mani": "Bulgaria Supercoppa"
+        },
+        {
+            "IdMani": "16680",
+            "Mani": "Burundi Premier League"
+        },
+        {
+            "IdMani": "884",
+            "Mani": "CAF Champions League"
+        },
+        {
+            "IdMani": "885",
+            "Mani": "CAF Confederation Cup"
+        },
+        {
+            "IdMani": "8143",
+            "Mani": "CAF Super Cup"
+        },
+        {
+            "IdMani": "74190",
+            "Mani": "CAF Supercup"
+        },
+        {
+            "IdMani": "2033",
+            "Mani": "CAF WC Qual."
+        },
+        {
+            "IdMani": "742",
+            "Mani": "CAF WC Qualification"
+        },
+        {
+            "IdMani": "13153",
+            "Mani": "Cameroon Elite One"
+        },
+        {
+            "IdMani": "4",
+            "Mani": "Campionato Del Mondo"
+        },
+        {
+            "IdMani": "615",
+            "Mani": "Campionato Del Mondo"
+        },
+        {
+            "IdMani": "740",
+            "Mani": "Campionato Del Mondo (F)"
+        },
+        {
+            "IdMani": "810",
+            "Mani": "Campionato Del Mondo Femminile"
+        },
+        {
+            "IdMani": "245",
+            "Mani": "Campionato del Mondo Qual. (F) "
+        },
+        {
+            "IdMani": "737",
+            "Mani": "Campionato Del Mondo Qualif."
+        },
+        {
+            "IdMani": "739",
+            "Mani": "Campionato Del Mondo U17"
+        },
+        {
+            "IdMani": "812",
+            "Mani": "Campionato Del Mondo U17"
+        },
+        {
+            "IdMani": "923",
+            "Mani": "Campionato Del Mondo U18"
+        },
+        {
+            "IdMani": "1018",
+            "Mani": "Campionato Del Mondo U20"
+        },
+        {
+            "IdMani": "741",
+            "Mani": "Campionato Del Mondo U20"
+        },
+        {
+            "IdMani": "811",
+            "Mani": "Campionato Del Mondo U21"
+        },
+        {
+            "IdMani": "252",
+            "Mani": "Campionato Del Mondo U21"
+        },
+        {
+            "IdMani": "738",
+            "Mani": "Campionato Del Mondo U21 Qualif."
+        },
+        {
+            "IdMani": "806",
+            "Mani": "Campionato Nazioni Africane"
+        },
+        {
+            "IdMani": "565",
+            "Mani": "Campionato Primavera"
+        },
+        {
+            "IdMani": "22174",
+            "Mani": "Campionato Primavera 2"
+        },
+        {
+            "IdMani": "21628",
+            "Mani": "Campionato San Marino"
+        },
+        {
+            "IdMani": "33803",
+            "Mani": "Campionato Sanmarinese"
+        },
+        {
+            "IdMani": "710",
+            "Mani": "Canada Championship"
+        },
+        {
+            "IdMani": "33617",
+            "Mani": "Canada Premier League"
+        },
+        {
+            "IdMani": "220",
+            "Mani": "Canada Soccer Liga"
+        },
+        {
+            "IdMani": "4961",
+            "Mani": "Caribbean Cup (in Jamaica)"
+        },
+        {
+            "IdMani": "525",
+            "Mani": "Cecafa Cup"
+        },
+        {
+            "IdMani": "1948",
+            "Mani": "Champions L. - Vincente"
+        },
+        {
+            "IdMani": "3330",
+            "Mani": "Champions League (F)"
+        },
+        {
+            "IdMani": "33940",
+            "Mani": "Champions League Araba"
+        },
+        {
+            "IdMani": "3631",
+            "Mani": "China League "
+        },
+        {
+            "IdMani": "33742",
+            "Mani": "China League 1"
+        },
+        {
+            "IdMani": "33743",
+            "Mani": "China League 2"
+        },
+        {
+            "IdMani": "221",
+            "Mani": "Cile Coppa"
+        },
+        {
+            "IdMani": "222",
+            "Mani": "Cile Primera"
+        },
+        {
+            "IdMani": "3204",
+            "Mani": "Cile Primera B"
+        },
+        {
+            "IdMani": "3491",
+            "Mani": "Cile Super Cup"
+        },
+        {
+            "IdMani": "2873",
+            "Mani": "Cina Cup"
+        },
+        {
+            "IdMani": "8351",
+            "Mani": "Cina FA Super Cup"
+        },
+        {
+            "IdMani": "33744",
+            "Mani": "Cina League 1"
+        },
+        {
+            "IdMani": "33745",
+            "Mani": "Cina League 2"
+        },
+        {
+            "IdMani": "33746",
+            "Mani": "Cina League 2 Nord"
+        },
+        {
+            "IdMani": "33747",
+            "Mani": "Cina League 2 Sud"
+        },
+        {
+            "IdMani": "33748",
+            "Mani": "Cina Super League (F)"
+        },
+        {
+            "IdMani": "2307",
+            "Mani": "Cina Superleague"
+        },
+        {
+            "IdMani": "74182",
+            "Mani": "Cipro 1st Division"
+        },
+        {
+            "IdMani": "33749",
+            "Mani": "Cipro 2nd Division Gr A"
+        },
+        {
+            "IdMani": "33750",
+            "Mani": "Cipro 2nd Division Gr B"
+        },
+        {
+            "IdMani": "782",
+            "Mani": "Cipro Coppa"
+        },
+        {
+            "IdMani": "781",
+            "Mani": "Cipro Premier League"
+        },
+        {
+            "IdMani": "783",
+            "Mani": "Cipro Supercoppa"
+        },
+        {
+            "IdMani": "711",
+            "Mani": "Colombia Coppa"
+        },
+        {
+            "IdMani": "3458",
+            "Mani": "Colombia Primera A"
+        },
+        {
+            "IdMani": "712",
+            "Mani": "Colombia Primera B"
+        },
+        {
+            "IdMani": "718",
+            "Mani": "Concacaf Campionato U20"
+        },
+        {
+            "IdMani": "223",
+            "Mani": "Concacaf Champions L."
+        },
+        {
+            "IdMani": "977",
+            "Mani": "Concacaf Champions League Qualif."
+        },
+        {
+            "IdMani": "5267",
+            "Mani": "CONCACAF Cup"
+        },
+        {
+            "IdMani": "3476",
+            "Mani": "CONCACAF Gold Cup "
+        },
+        {
+            "IdMani": "224",
+            "Mani": "Concacaf Gold Cup"
+        },
+        {
+            "IdMani": "646",
+            "Mani": "Concacaf Gold Cup"
+        },
+        {
+            "IdMani": "20017",
+            "Mani": "Concacaf League"
+        },
+        {
+            "IdMani": "33941",
+            "Mani": "CONCACAF League"
+        },
+        {
+            "IdMani": "33336",
+            "Mani": "CONCACAF Nations League A"
+        },
+        {
+            "IdMani": "34493",
+            "Mani": "CONCACAF Nations League B"
+        },
+        {
+            "IdMani": "34494",
+            "Mani": "CONCACAF Nations League C"
+        },
+        {
+            "IdMani": "34495",
+            "Mani": "CONCACAF Nations League D"
+        },
+        {
+            "IdMani": "7904",
+            "Mani": "CONCACAF Olympic Qual."
+        },
+        {
+            "IdMani": "2049",
+            "Mani": "CONCACAF WC Qualification"
+        },
+        {
+            "IdMani": "34087",
+            "Mani": "Congo Premier League"
+        },
+        {
+            "IdMani": "1999",
+            "Mani": "CONMEBOL WC Qual."
+        },
+        {
+            "IdMani": "29517",
+            "Mani": "Copa America (in Brazil)"
+        },
+        {
+            "IdMani": "74974",
+            "Mani": "Copa America (in Chile)"
+        },
+        {
+            "IdMani": "11133",
+            "Mani": "Copa America 2016 Centenario"
+        },
+        {
+            "IdMani": "24228",
+            "Mani": "Copa America Women"
+        },
+        {
+            "IdMani": "3337",
+            "Mani": "Copa Catalunya"
+        },
+        {
+            "IdMani": "713",
+            "Mani": "Copa Centro America"
+        },
+        {
+            "IdMani": "4917",
+            "Mani": "Copa do Brazil U20 "
+        },
+        {
+            "IdMani": "4725",
+            "Mani": "Copa Euro Americana"
+        },
+        {
+            "IdMani": "3095",
+            "Mani": "Copa Libertadores"
+        },
+        {
+            "IdMani": "34459",
+            "Mani": "Copa Libertadores (F)"
+        },
+        {
+            "IdMani": "21375",
+            "Mani": "Copa Libertadores Women"
+        },
+        {
+            "IdMani": "635",
+            "Mani": "Coppa America"
+        },
+        {
+            "IdMani": "734",
+            "Mani": "Coppa America"
+        },
+        {
+            "IdMani": "803",
+            "Mani": "Coppa Baltica U19"
+        },
+        {
+            "IdMani": "246",
+            "Mani": "Coppa del Mondo U17 (F)"
+        },
+        {
+            "IdMani": "797",
+            "Mani": "Coppa Del Sol "
+        },
+        {
+            "IdMani": "630",
+            "Mani": "Coppa Italia"
+        },
+        {
+            "IdMani": "27",
+            "Mani": "Coppa Italia"
+        },
+        {
+            "IdMani": "1945",
+            "Mani": "Coppa Italia Finale - Vincente"
+        },
+        {
+            "IdMani": "14",
+            "Mani": "Coppa Italia Serie C"
+        },
+        {
+            "IdMani": "14083",
+            "Mani": "Coppa Italia Serie D"
+        },
+        {
+            "IdMani": "30301",
+            "Mani": "Coppa Italia Women"
+        },
+        {
+            "IdMani": "636",
+            "Mani": "Coppa Libertadores"
+        },
+        {
+            "IdMani": "225",
+            "Mani": "Coppa Libertadores"
+        },
+        {
+            "IdMani": "226",
+            "Mani": "Coppa Sudamericana"
+        },
+        {
+            "IdMani": "592",
+            "Mani": "COSAFA CUP"
+        },
+        {
+            "IdMani": "75040",
+            "Mani": "COSAFA Cup"
+        },
+        {
+            "IdMani": "3526",
+            "Mani": "Costa Rica Cup"
+        },
+        {
+            "IdMani": "21885",
+            "Mani": "Costa Rica Liga de Ascenso"
+        },
+        {
+            "IdMani": "714",
+            "Mani": "Costa Rica Primera "
+        },
+        {
+            "IdMani": "17640",
+            "Mani": "Croatia 1.HNL Juniori"
+        },
+        {
+            "IdMani": "169",
+            "Mani": "Croazia 1 HNL"
+        },
+        {
+            "IdMani": "2624",
+            "Mani": "Croazia 2 HNL"
+        },
+        {
+            "IdMani": "170",
+            "Mani": "Croazia Coppa"
+        },
+        {
+            "IdMani": "171",
+            "Mani": "Croazia Supercoppa"
+        },
+        {
+            "IdMani": "8541",
+            "Mani": "Cyprus Women Cup"
+        },
+        {
+            "IdMani": "4974",
+            "Mani": "Czech U19 League"
+        },
+        {
+            "IdMani": "3995",
+            "Mani": "Czech Winter League"
+        },
+        {
+            "IdMani": "142",
+            "Mani": "Danimarca   Superliga"
+        },
+        {
+            "IdMani": "143",
+            "Mani": "Danimarca 1st Division "
+        },
+        {
+            "IdMani": "752",
+            "Mani": "Danimarca 2 Divisione"
+        },
+        {
+            "IdMani": "1598",
+            "Mani": "Danimarca 2nd Div East"
+        },
+        {
+            "IdMani": "75312",
+            "Mani": "Danimarca 2nd Div Gr 1"
+        },
+        {
+            "IdMani": "75313",
+            "Mani": "Danimarca 2nd Div Gr 2"
+        },
+        {
+            "IdMani": "75314",
+            "Mani": "Danimarca 2nd Div Gr 3"
+        },
+        {
+            "IdMani": "1599",
+            "Mani": "Danimarca 2nd Div West"
+        },
+        {
+            "IdMani": "144",
+            "Mani": "Danimarca Coppa"
+        },
+        {
+            "IdMani": "2288",
+            "Mani": "Danimarca DBU Pokal"
+        },
+        {
+            "IdMani": "13230",
+            "Mani": "Danimarca Elite Divisionen (F)"
+        },
+        {
+            "IdMani": "9422",
+            "Mani": "Danimarca Pulje 1"
+        },
+        {
+            "IdMani": "9423",
+            "Mani": "Danimarca Pulje 2"
+        },
+        {
+            "IdMani": "9424",
+            "Mani": "Danimarca Pulje 3"
+        },
+        {
+            "IdMani": "14284",
+            "Mani": "Danimarca Series Group 1"
+        },
+        {
+            "IdMani": "14285",
+            "Mani": "Danimarca Series Group 2"
+        },
+        {
+            "IdMani": "17846",
+            "Mani": "Danimarca Series Group 3"
+        },
+        {
+            "IdMani": "17986",
+            "Mani": "Danimarca Series Group 4"
+        },
+        {
+            "IdMani": "145",
+            "Mani": "Danimarca Supercoppa"
+        },
+        {
+            "IdMani": "655",
+            "Mani": "Danimarca Superliga"
+        },
+        {
+            "IdMani": "2082",
+            "Mani": "Den - Por Min. Primo Goal"
+        },
+        {
+            "IdMani": "2080",
+            "Mani": "Den - Por Piu Cart. Gialli"
+        },
+        {
+            "IdMani": "2081",
+            "Mani": "Den - Por Piu Corner"
+        },
+        {
+            "IdMani": "2083",
+            "Mani": "Den - Por Rigore"
+        },
+        {
+            "IdMani": "19190",
+            "Mani": "Denmark U21 League"
+        },
+        {
+            "IdMani": "8000",
+            "Mani": "Desert Diamond Cup"
+        },
+        {
+            "IdMani": "798",
+            "Mani": "Dublino Supercoppa"
+        },
+        {
+            "IdMani": "3514",
+            "Mani": "EAFF East Asian Cup  (M)"
+        },
+        {
+            "IdMani": "3515",
+            "Mani": "EAFF East Asian Cup (F)"
+        },
+        {
+            "IdMani": "31968",
+            "Mani": "Ecuador Cup"
+        },
+        {
+            "IdMani": "236",
+            "Mani": "Ecuador Serie A "
+        },
+        {
+            "IdMani": "12460",
+            "Mani": "Ecuador Serie B"
+        },
+        {
+            "IdMani": "1208",
+            "Mani": "Egitto Coppa"
+        },
+        {
+            "IdMani": "5",
+            "Mani": "Egitto Premier League"
+        },
+        {
+            "IdMani": "5290",
+            "Mani": "Egitto Super Cup"
+        },
+        {
+            "IdMani": "3129",
+            "Mani": "El Salvador Primera"
+        },
+        {
+            "IdMani": "1000",
+            "Mani": "Emirates Cup"
+        },
+        {
+            "IdMani": "304",
+            "Mani": "Emirates Cup (in London)"
+        },
+        {
+            "IdMani": "33752",
+            "Mani": "Emirati Arabi League Cup Gr A"
+        },
+        {
+            "IdMani": "33753",
+            "Mani": "Emirati Arabi League Cup Gr B"
+        },
+        {
+            "IdMani": "976",
+            "Mani": "Estonia Coppa"
+        },
+        {
+            "IdMani": "4668",
+            "Mani": "Estonia Esiliiga"
+        },
+        {
+            "IdMani": "760",
+            "Mani": "Estonia Meistriliiga"
+        },
+        {
+            "IdMani": "18923",
+            "Mani": "Estonia Meistriliiga Women"
+        },
+        {
+            "IdMani": "8542",
+            "Mani": "Estonia Premium Liiga"
+        },
+        {
+            "IdMani": "8422",
+            "Mani": "Estonia Super Cup"
+        },
+        {
+            "IdMani": "33775",
+            "Mani": "Faroe Islands 1 Deild"
+        },
+        {
+            "IdMani": "3338",
+            "Mani": "Faroe Islands Cup"
+        },
+        {
+            "IdMani": "1111",
+            "Mani": "Faroe Islands Premier League"
+        },
+        {
+            "IdMani": "6008",
+            "Mani": "FAW Welsh Cup"
+        },
+        {
+            "IdMani": "6065",
+            "Mani": "FIFA Club World Cup"
+        },
+        {
+            "IdMani": "2957",
+            "Mani": "FIFA Club World Cup"
+        },
+        {
+            "IdMani": "3346",
+            "Mani": "FIFA Confederations Cup"
+        },
+        {
+            "IdMani": "75045",
+            "Mani": "FIFA World Cup (F)"
+        },
+        {
+            "IdMani": "4716",
+            "Mani": "Finland Naisten Liiga"
+        },
+        {
+            "IdMani": "31325",
+            "Mani": "Finland Suomen Kakkonen Cup"
+        },
+        {
+            "IdMani": "18921",
+            "Mani": "Finland U20 League"
+        },
+        {
+            "IdMani": "146",
+            "Mani": "Finlandia  Veikkausliiga"
+        },
+        {
+            "IdMani": "149",
+            "Mani": "Finlandia Coppa Di Lega"
+        },
+        {
+            "IdMani": "147",
+            "Mani": "Finlandia Kakkonen "
+        },
+        {
+            "IdMani": "148",
+            "Mani": "Finlandia Suomen Cup"
+        },
+        {
+            "IdMani": "150",
+            "Mani": "Finlandia Supercoppa"
+        },
+        {
+            "IdMani": "664",
+            "Mani": "Finlandia Veikkausliiga"
+        },
+        {
+            "IdMani": "151",
+            "Mani": "Finlandia Ykkonen"
+        },
+        {
+            "IdMani": "1942",
+            "Mani": "Finnlandia Kakkonen Lantinen"
+        },
+        {
+            "IdMani": "1943",
+            "Mani": "Finnlandia Kakkonen Pohjoinen"
+        },
+        {
+            "IdMani": "33755",
+            "Mani": "Francia Campionato U19"
+        },
+        {
+            "IdMani": "33756",
+            "Mani": "Francia Championnat National U19"
+        },
+        {
+            "IdMani": "86",
+            "Mani": "Francia Coppa"
+        },
+        {
+            "IdMani": "641",
+            "Mani": "Francia Coppa"
+        },
+        {
+            "IdMani": "642",
+            "Mani": "Francia Coppa Di Lega"
+        },
+        {
+            "IdMani": "87",
+            "Mani": "Francia Coppa Di Lega"
+        },
+        {
+            "IdMani": "6009",
+            "Mani": "Francia Division 1 (F)"
+        },
+        {
+            "IdMani": "85",
+            "Mani": "Francia Ligue 1"
+        },
+        {
+            "IdMani": "634",
+            "Mani": "Francia Ligue 1"
+        },
+        {
+            "IdMani": "95",
+            "Mani": "Francia Ligue 2"
+        },
+        {
+            "IdMani": "970",
+            "Mani": "Francia Ligue 2"
+        },
+        {
+            "IdMani": "96",
+            "Mani": "Francia Nazionale"
+        },
+        {
+            "IdMani": "23818",
+            "Mani": "Francia Nazionale 2"
+        },
+        {
+            "IdMani": "97",
+            "Mani": "Francia Supercoppa"
+        },
+        {
+            "IdMani": "643",
+            "Mani": "Francia Supercoppa"
+        },
+        {
+            "IdMani": "15690",
+            "Mani": "Francia U19 Championnat National"
+        },
+        {
+            "IdMani": "771",
+            "Mani": "Galles Coppa"
+        },
+        {
+            "IdMani": "29117",
+            "Mani": "Galles Cymru Alliance League"
+        },
+        {
+            "IdMani": "29118",
+            "Mani": "Galles Cymru Alliance League"
+        },
+        {
+            "IdMani": "33137",
+            "Mani": "Galles Cymru North"
+        },
+        {
+            "IdMani": "33138",
+            "Mani": "Galles Cymru South"
+        },
+        {
+            "IdMani": "5108",
+            "Mani": "Galles Division 1"
+        },
+        {
+            "IdMani": "770",
+            "Mani": "Galles Premier League"
+        },
+        {
+            "IdMani": "1866",
+            "Mani": "Galles Premier Playoff"
+        },
+        {
+            "IdMani": "772",
+            "Mani": "Galles Supercoppa"
+        },
+        {
+            "IdMani": "33800",
+            "Mani": "Gaza Strip Premier League"
+        },
+        {
+            "IdMani": "75109",
+            "Mani": "Georgia Coppa"
+        },
+        {
+            "IdMani": "20643",
+            "Mani": "Georgia Eronvuli Liga 2"
+        },
+        {
+            "IdMani": "3681",
+            "Mani": "Georgia Umaglesi Liga"
+        },
+        {
+            "IdMani": "2145",
+            "Mani": "Ger - Ita / Cart. Rosso"
+        },
+        {
+            "IdMani": "2141",
+            "Mani": "Ger - Ita / Come Vince"
+        },
+        {
+            "IdMani": "2146",
+            "Mani": "Ger - Ita / Min Del Primo Goal"
+        },
+        {
+            "IdMani": "2143",
+            "Mani": "Ger - Ita / Piu Cart. Gialli"
+        },
+        {
+            "IdMani": "2142",
+            "Mani": "Ger - Ita / Piu Corner"
+        },
+        {
+            "IdMani": "2144",
+            "Mani": "Ger - Ita / Rigore"
+        },
+        {
+            "IdMani": "88",
+            "Mani": "Germania  Bundesliga"
+        },
+        {
+            "IdMani": "1878",
+            "Mani": "Germania 2. Rel/prom"
+        },
+        {
+            "IdMani": "7657",
+            "Mani": "Germania A Junioren Bund. North/Northwest"
+        },
+        {
+            "IdMani": "5733",
+            "Mani": "Germania A Junioren Bund. South/Southwest"
+        },
+        {
+            "IdMani": "5743",
+            "Mani": "Germania A Junioren Bund. West"
+        },
+        {
+            "IdMani": "10567",
+            "Mani": "Germania A Junioren Bundesliga Playoffs"
+        },
+        {
+            "IdMani": "633",
+            "Mani": "Germania Bundesliga"
+        },
+        {
+            "IdMani": "9981",
+            "Mani": "Germania Bundesliga (F)"
+        },
+        {
+            "IdMani": "5792",
+            "Mani": "Germania Bundesliga (F)"
+        },
+        {
+            "IdMani": "666",
+            "Mani": "Germania Bundesliga 2"
+        },
+        {
+            "IdMani": "98",
+            "Mani": "Germania Bundesliga 2"
+        },
+        {
+            "IdMani": "33810",
+            "Mani": "Germania Bundesliga 2 (F)"
+        },
+        {
+            "IdMani": "99",
+            "Mani": "Germania Bundesliga 3"
+        },
+        {
+            "IdMani": "1879",
+            "Mani": "Germania Bundesliga Rel/prom"
+        },
+        {
+            "IdMani": "5912",
+            "Mani": "Germania Bundesliga U19"
+        },
+        {
+            "IdMani": "645",
+            "Mani": "Germania Coppa"
+        },
+        {
+            "IdMani": "6068",
+            "Mani": "Germania Cup (F)"
+        },
+        {
+            "IdMani": "34854",
+            "Mani": "Germania DFB Pokal (F)"
+        },
+        {
+            "IdMani": "2286",
+            "Mani": "Germania Reg. Bavaria"
+        },
+        {
+            "IdMani": "774",
+            "Mani": "Germania Reg. Northeast"
+        },
+        {
+            "IdMani": "2287",
+            "Mani": "Germania Reg. SouthW."
+        },
+        {
+            "IdMani": "776",
+            "Mani": "Germania Regionalliga N."
+        },
+        {
+            "IdMani": "775",
+            "Mani": "Germania Regionalliga W."
+        },
+        {
+            "IdMani": "644",
+            "Mani": "Germania Supercoppa"
+        },
+        {
+            "IdMani": "103",
+            "Mani": "Germania Supercoppa"
+        },
+        {
+            "IdMani": "4875",
+            "Mani": "Germany Bayernliga North"
+        },
+        {
+            "IdMani": "3378",
+            "Mani": "Germany Bayernliga Playoff"
+        },
+        {
+            "IdMani": "4889",
+            "Mani": "Germany Bayernliga South"
+        },
+        {
+            "IdMani": "15689",
+            "Mani": "Germany Bremen Liga"
+        },
+        {
+            "IdMani": "3379",
+            "Mani": "Germany Hessenliga"
+        },
+        {
+            "IdMani": "4876",
+            "Mani": "Germany Oberliga Baden"
+        },
+        {
+            "IdMani": "4877",
+            "Mani": "Germany Oberliga Hamburg"
+        },
+        {
+            "IdMani": "4890",
+            "Mani": "Germany Oberliga Mittelrhein"
+        },
+        {
+            "IdMani": "4892",
+            "Mani": "Germany Oberliga Niederrhein"
+        },
+        {
+            "IdMani": "4931",
+            "Mani": "Germany Oberliga Niedersachsen"
+        },
+        {
+            "IdMani": "4893",
+            "Mani": "Germany Oberliga NOFV North"
+        },
+        {
+            "IdMani": "4894",
+            "Mani": "Germany Oberliga NOFV South"
+        },
+        {
+            "IdMani": "18972",
+            "Mani": "Germany Oberliga Promotion"
+        },
+        {
+            "IdMani": "4878",
+            "Mani": "Germany Oberliga Reihnland"
+        },
+        {
+            "IdMani": "4896",
+            "Mani": "Germany Oberliga Schleswig Holstein"
+        },
+        {
+            "IdMani": "4895",
+            "Mani": "Germany Oberliga Westfalen"
+        },
+        {
+            "IdMani": "17791",
+            "Mani": "Germany Reg Cup Baden"
+        },
+        {
+            "IdMani": "74641",
+            "Mani": "Germany Reg Cup Brandeburg"
+        },
+        {
+            "IdMani": "24922",
+            "Mani": "Germany Reg Cup Bremen"
+        },
+        {
+            "IdMani": "18389",
+            "Mani": "Germany Reg Cup Hamburg"
+        },
+        {
+            "IdMani": "74969",
+            "Mani": "Germany Reg Cup Mecklenburg"
+        },
+        {
+            "IdMani": "74443",
+            "Mani": "Germany Reg Cup Mittelrehin"
+        },
+        {
+            "IdMani": "4891",
+            "Mani": "Germany Reg Cup Niederrhein"
+        },
+        {
+            "IdMani": "74502",
+            "Mani": "Germany Reg Cup Niedersachsen"
+        },
+        {
+            "IdMani": "17418",
+            "Mani": "Germany Reg Cup Rheinland"
+        },
+        {
+            "IdMani": "74968",
+            "Mani": "Germany Reg Cup Saarland"
+        },
+        {
+            "IdMani": "74964",
+            "Mani": "Germany Reg Cup Sachsen"
+        },
+        {
+            "IdMani": "74642",
+            "Mani": "Germany Reg Cup Sachsen Anhalt"
+        },
+        {
+            "IdMani": "74444",
+            "Mani": "Germany Reg Cup Schleswig"
+        },
+        {
+            "IdMani": "74967",
+            "Mani": "Germany Reg Cup Southwest"
+        },
+        {
+            "IdMani": "74965",
+            "Mani": "Germany Reg Cup Thuringen"
+        },
+        {
+            "IdMani": "74825",
+            "Mani": "Germany Reg Cup Westfalen"
+        },
+        {
+            "IdMani": "4705",
+            "Mani": "Germany Reg.Cup Hessen"
+        },
+        {
+            "IdMani": "4200",
+            "Mani": "Germany Regional Cup Bavaria"
+        },
+        {
+            "IdMani": "74442",
+            "Mani": "Germany Regional Cup Berlin"
+        },
+        {
+            "IdMani": "4201",
+            "Mani": "Germany Regional Cup Sachsen"
+        },
+        {
+            "IdMani": "4202",
+            "Mani": "Germany Regional Cup Wurttemberg"
+        },
+        {
+            "IdMani": "3336",
+            "Mani": "Germany Regional Playoff"
+        },
+        {
+            "IdMani": "4930",
+            "Mani": "Germany U19 Bundesliga"
+        },
+        {
+            "IdMani": "20475",
+            "Mani": "Germany U19 Cup"
+        },
+        {
+            "IdMani": "4496",
+            "Mani": "Germany U19 Playoff"
+        },
+        {
+            "IdMani": "74031",
+            "Mani": "Ghana Premier League"
+        },
+        {
+            "IdMani": "4830",
+            "Mani": "Giamaica Premier"
+        },
+        {
+            "IdMani": "230",
+            "Mani": "Giappone   Nabisco Cup"
+        },
+        {
+            "IdMani": "231",
+            "Mani": "Giappone  Emperor Cup"
+        },
+        {
+            "IdMani": "247",
+            "Mani": "Giappone Coppa Di Lega"
+        },
+        {
+            "IdMani": "16015",
+            "Mani": "Giappone Cup (F)"
+        },
+        {
+            "IdMani": "229",
+            "Mani": "Giappone J League"
+        },
+        {
+            "IdMani": "234",
+            "Mani": "Giappone J League 2"
+        },
+        {
+            "IdMani": "74622",
+            "Mani": "Giappone J League 3"
+        },
+        {
+            "IdMani": "33764",
+            "Mani": "Giappone L1 League"
+        },
+        {
+            "IdMani": "10999",
+            "Mani": "Giappone Nadeshiko League 1 Div"
+        },
+        {
+            "IdMani": "233",
+            "Mani": "Giappone Supercoppa"
+        },
+        {
+            "IdMani": "13833",
+            "Mani": "Gibilterra Premier Division"
+        },
+        {
+            "IdMani": "2004",
+            "Mani": "Gioca la Finale"
+        },
+        {
+            "IdMani": "104",
+            "Mani": "Grecia  Super League"
+        },
+        {
+            "IdMani": "773",
+            "Mani": "Grecia Beta Ethniki"
+        },
+        {
+            "IdMani": "107",
+            "Mani": "Grecia Coppa"
+        },
+        {
+            "IdMani": "1525",
+            "Mani": "Grecia Football League"
+        },
+        {
+            "IdMani": "33913",
+            "Mani": "Grecia Super League (F)"
+        },
+        {
+            "IdMani": "33766",
+            "Mani": "Grecia Super League 2"
+        },
+        {
+            "IdMani": "108",
+            "Mani": "Grecia Supercoppa"
+        },
+        {
+            "IdMani": "33765",
+            "Mani": "Greece U19 Super League"
+        },
+        {
+            "IdMani": "75757",
+            "Mani": "Greece U20 Super League"
+        },
+        {
+            "IdMani": "4772",
+            "Mani": "Group A Matches"
+        },
+        {
+            "IdMani": "4773",
+            "Mani": "Group B Matches"
+        },
+        {
+            "IdMani": "4774",
+            "Mani": "Group C Matches"
+        },
+        {
+            "IdMani": "4775",
+            "Mani": "Group D Matches"
+        },
+        {
+            "IdMani": "4776",
+            "Mani": "Group E Matches"
+        },
+        {
+            "IdMani": "4777",
+            "Mani": "Group F Matches"
+        },
+        {
+            "IdMani": "4778",
+            "Mani": "Group G Matches"
+        },
+        {
+            "IdMani": "4779",
+            "Mani": "Group H Matches"
+        },
+        {
+            "IdMani": "4780",
+            "Mani": "Group I Matches"
+        },
+        {
+            "IdMani": "2006",
+            "Mani": "Gruppo con piu Goals"
+        },
+        {
+            "IdMani": "2005",
+            "Mani": "Gruppo della Vincente"
+        },
+        {
+            "IdMani": "715",
+            "Mani": "Guatemala Liga Nacional"
+        },
+        {
+            "IdMani": "801",
+            "Mani": "Gulf Club Champions Cup"
+        },
+        {
+            "IdMani": "802",
+            "Mani": "Gulf Cup Of Nations"
+        },
+        {
+            "IdMani": "2076",
+            "Mani": "Hol - Ger Min. Primo Goal"
+        },
+        {
+            "IdMani": "2079",
+            "Mani": "Hol - Ger Piu Cart. Gialli"
+        },
+        {
+            "IdMani": "2078",
+            "Mani": "Hol - Ger Piu Corner"
+        },
+        {
+            "IdMani": "2077",
+            "Mani": "Hol - Ger Rigore"
+        },
+        {
+            "IdMani": "18961",
+            "Mani": "Holland KNVB Beker Women"
+        },
+        {
+            "IdMani": "3109",
+            "Mani": "Honduras Liga Nacional"
+        },
+        {
+            "IdMani": "74715",
+            "Mani": "Hong Kong Cup"
+        },
+        {
+            "IdMani": "3230",
+            "Mani": "Hong Kong First Division"
+        },
+        {
+            "IdMani": "33768",
+            "Mani": "Hong Kong Reserve Division"
+        },
+        {
+            "IdMani": "33767",
+            "Mani": "Hong Kong Second Division"
+        },
+        {
+            "IdMani": "21275",
+            "Mani": "Hungary U19"
+        },
+        {
+            "IdMani": "74970",
+            "Mani": "Hungary U21 League"
+        },
+        {
+            "IdMani": "19211",
+            "Mani": "Iceland 1.deild (Women)"
+        },
+        {
+            "IdMani": "1987",
+            "Mani": "Incontri Gruppo A"
+        },
+        {
+            "IdMani": "1988",
+            "Mani": "Incontri Gruppo B"
+        },
+        {
+            "IdMani": "1989",
+            "Mani": "Incontri Gruppo C"
+        },
+        {
+            "IdMani": "1990",
+            "Mani": "Incontri Gruppo D"
+        },
+        {
+            "IdMani": "3974",
+            "Mani": "India Federation Cup"
+        },
+        {
+            "IdMani": "13537",
+            "Mani": "India Goa Professional League"
+        },
+        {
+            "IdMani": "23953",
+            "Mani": "India Super Cup Qualifying"
+        },
+        {
+            "IdMani": "1620",
+            "Mani": "India Super League"
+        },
+        {
+            "IdMani": "16913",
+            "Mani": "Indonesia Cup"
+        },
+        {
+            "IdMani": "14281",
+            "Mani": "Indonesia Soccer Championship B"
+        },
+        {
+            "IdMani": "807",
+            "Mani": "Indonesia Super Liga"
+        },
+        {
+            "IdMani": "1804",
+            "Mani": "Inghilterra BlueSq Premier Playoff"
+        },
+        {
+            "IdMani": "665",
+            "Mani": "Inghilterra Championship"
+        },
+        {
+            "IdMani": "16",
+            "Mani": "Inghilterra Championship"
+        },
+        {
+            "IdMani": "2251",
+            "Mani": "Inghilterra Community Shield"
+        },
+        {
+            "IdMani": "20",
+            "Mani": "Inghilterra Conference"
+        },
+        {
+            "IdMani": "15",
+            "Mani": "Inghilterra Conference N."
+        },
+        {
+            "IdMani": "767",
+            "Mani": "Inghilterra Conference S."
+        },
+        {
+            "IdMani": "19",
+            "Mani": "Inghilterra Coppa Carling"
+        },
+        {
+            "IdMani": "640",
+            "Mani": "Inghilterra Coppa Carling"
+        },
+        {
+            "IdMani": "75110",
+            "Mani": "Inghilterra County Cup"
+        },
+        {
+            "IdMani": "16798",
+            "Mani": "Inghilterra Derbyshire Senior Cup"
+        },
+        {
+            "IdMani": "12358",
+            "Mani": "Inghilterra EFL Cup"
+        },
+        {
+            "IdMani": "639",
+            "Mani": "Inghilterra FA Cup"
+        },
+        {
+            "IdMani": "18",
+            "Mani": "Inghilterra FA Cup"
+        },
+        {
+            "IdMani": "2566",
+            "Mani": "Inghilterra Fa Cup Qual"
+        },
+        {
+            "IdMani": "9979",
+            "Mani": "Inghilterra FA Super League (F)"
+        },
+        {
+            "IdMani": "9173",
+            "Mani": "Inghilterra FA Womens Super League"
+        },
+        {
+            "IdMani": "17013",
+            "Mani": "Inghilterra Isthmian Division 1 North"
+        },
+        {
+            "IdMani": "16818",
+            "Mani": "Inghilterra Isthmian Division 1 South"
+        },
+        {
+            "IdMani": "3825",
+            "Mani": "Inghilterra Isthmian Premier"
+        },
+        {
+            "IdMani": "22",
+            "Mani": "Inghilterra Johnst P.Trophy"
+        },
+        {
+            "IdMani": "2289",
+            "Mani": "Inghilterra League Cup"
+        },
+        {
+            "IdMani": "117",
+            "Mani": "Inghilterra League Trophy"
+        },
+        {
+            "IdMani": "17",
+            "Mani": "Inghilterra Lega 1"
+        },
+        {
+            "IdMani": "1886",
+            "Mani": "Inghilterra Lega 1 Playoff"
+        },
+        {
+            "IdMani": "21",
+            "Mani": "Inghilterra Lega 2"
+        },
+        {
+            "IdMani": "1887",
+            "Mani": "Inghilterra Lega 2 Playoff"
+        },
+        {
+            "IdMani": "18386",
+            "Mani": "Inghilterra National League North Playoff"
+        },
+        {
+            "IdMani": "18388",
+            "Mani": "Inghilterra National League Playoff"
+        },
+        {
+            "IdMani": "18387",
+            "Mani": "Inghilterra National League South Playoff"
+        },
+        {
+            "IdMani": "3827",
+            "Mani": "Inghilterra Northern"
+        },
+        {
+            "IdMani": "16681",
+            "Mani": "Inghilterra Northern Division 1 N."
+        },
+        {
+            "IdMani": "16682",
+            "Mani": "Inghilterra Northern Division 1 S."
+        },
+        {
+            "IdMani": "5241",
+            "Mani": "Inghilterra Northern League Cup"
+        },
+        {
+            "IdMani": "11",
+            "Mani": "Inghilterra Premier League"
+        },
+        {
+            "IdMani": "631",
+            "Mani": "Inghilterra Premier League"
+        },
+        {
+            "IdMani": "1067",
+            "Mani": "Inghilterra Reserve League"
+        },
+        {
+            "IdMani": "3826",
+            "Mani": "Inghilterra Southern"
+        },
+        {
+            "IdMani": "17789",
+            "Mani": "Inghilterra Southern Fotball League Div1 Cen"
+        },
+        {
+            "IdMani": "16799",
+            "Mani": "Inghilterra Southern Fotball League Div1 S"
+        },
+        {
+            "IdMani": "5240",
+            "Mani": "Inghilterra Southern League Cup"
+        },
+        {
+            "IdMani": "1010",
+            "Mani": "Inghilterra Supercoppa"
+        },
+        {
+            "IdMani": "768",
+            "Mani": "Inghilterra Supercoppa"
+        },
+        {
+            "IdMani": "5050",
+            "Mani": "Inghilterra Sussex Senior Cup"
+        },
+        {
+            "IdMani": "2567",
+            "Mani": "Inghilterra U21 Premier League"
+        },
+        {
+            "IdMani": "17381",
+            "Mani": "Inghilterra U23 Development League 2"
+        },
+        {
+            "IdMani": "22157",
+            "Mani": "Inghilterra Women s Cup"
+        },
+        {
+            "IdMani": "22156",
+            "Mani": "Inghilterra Women's Cup"
+        },
+        {
+            "IdMani": "27638",
+            "Mani": "Intercontinental WC Qualifying"
+        },
+        {
+            "IdMani": "21425",
+            "Mani": "Intercontinental World Cup Playoffs"
+        },
+        {
+            "IdMani": "237",
+            "Mani": "Interliga (in USA)"
+        },
+        {
+            "IdMani": "3524",
+            "Mani": "International Champions Cup"
+        },
+        {
+            "IdMani": "1051",
+            "Mani": "Internazional Tour U17 (80 min)"
+        },
+        {
+            "IdMani": "561",
+            "Mani": "Interregionale"
+        },
+        {
+            "IdMani": "16548",
+            "Mani": "Iran Azadegan League"
+        },
+        {
+            "IdMani": "3007",
+            "Mani": "Iran Cup"
+        },
+        {
+            "IdMani": "251",
+            "Mani": "Iran Pro League"
+        },
+        {
+            "IdMani": "2173",
+            "Mani": "Iraq - Iraqi League"
+        },
+        {
+            "IdMani": "118",
+            "Mani": "Irlanda  Premier League"
+        },
+        {
+            "IdMani": "119",
+            "Mani": "Irlanda 1 Divisione"
+        },
+        {
+            "IdMani": "121",
+            "Mani": "Irlanda Coppa Di Lega"
+        },
+        {
+            "IdMani": "1502",
+            "Mani": "Irlanda Ea Sport Cup"
+        },
+        {
+            "IdMani": "120",
+            "Mani": "Irlanda FAI Cup"
+        },
+        {
+            "IdMani": "3419",
+            "Mani": "Irlanda Munster Senior Cup"
+        },
+        {
+            "IdMani": "663",
+            "Mani": "Irlanda Premier League"
+        },
+        {
+            "IdMani": "122",
+            "Mani": "Irlanda Setanta Cup"
+        },
+        {
+            "IdMani": "123",
+            "Mani": "Irlanda Supercoppa"
+        },
+        {
+            "IdMani": "152",
+            "Mani": "Islanda  Premier League"
+        },
+        {
+            "IdMani": "33774",
+            "Mani": "Islanda 1 Deild (F)"
+        },
+        {
+            "IdMani": "153",
+            "Mani": "Islanda 1. Deild"
+        },
+        {
+            "IdMani": "3492",
+            "Mani": "Islanda 2. Deild"
+        },
+        {
+            "IdMani": "19054",
+            "Mani": "Islanda 3. Deild"
+        },
+        {
+            "IdMani": "19053",
+            "Mani": "Islanda 4. Deild"
+        },
+        {
+            "IdMani": "10465",
+            "Mani": "Islanda Bikarinn"
+        },
+        {
+            "IdMani": "154",
+            "Mani": "Islanda Coppa"
+        },
+        {
+            "IdMani": "155",
+            "Mani": "Islanda Coppa Di Lega"
+        },
+        {
+            "IdMani": "16431",
+            "Mani": "Islanda Cup (F)"
+        },
+        {
+            "IdMani": "33773",
+            "Mani": "Islanda Landsbankadeild Kvenna"
+        },
+        {
+            "IdMani": "33772",
+            "Mani": "Islanda Lega 2"
+        },
+        {
+            "IdMani": "156",
+            "Mani": "Islanda Supercoppa"
+        },
+        {
+            "IdMani": "1802",
+            "Mani": "Islanda Supercup"
+        },
+        {
+            "IdMani": "12409",
+            "Mani": "Islanda Urvalsdeild (F)"
+        },
+        {
+            "IdMani": "10278",
+            "Mani": "Islanda Urvalsdelid"
+        },
+        {
+            "IdMani": "1835",
+            "Mani": "Isole Faroe Vodafonedeildin"
+        },
+        {
+            "IdMani": "13894",
+            "Mani": "Israel Liga Alef"
+        },
+        {
+            "IdMani": "33776",
+            "Mani": "Israele League Cup National"
+        },
+        {
+            "IdMani": "33777",
+            "Mani": "Israele League Cup Premier"
+        },
+        {
+            "IdMani": "778",
+            "Mani": "Israele National League"
+        },
+        {
+            "IdMani": "777",
+            "Mani": "Israele Premier League"
+        },
+        {
+            "IdMani": "1691",
+            "Mani": "Israele Premier Relegation"
+        },
+        {
+            "IdMani": "1621",
+            "Mani": "Israele State Cup"
+        },
+        {
+            "IdMani": "780",
+            "Mani": "Israele Supercoppa"
+        },
+        {
+            "IdMani": "779",
+            "Mani": "Israele Toto Cup"
+        },
+        {
+            "IdMani": "1501",
+            "Mani": "Israele Toto League Playoff"
+        },
+        {
+            "IdMani": "2090",
+            "Mani": "Ita - Cro Cart. Rosso"
+        },
+        {
+            "IdMani": "2086",
+            "Mani": "Ita - Cro Min primo Goal"
+        },
+        {
+            "IdMani": "2088",
+            "Mani": "Ita - Cro Piu Corner"
+        },
+        {
+            "IdMani": "2089",
+            "Mani": "Ita - Cro Piu Gialli"
+        },
+        {
+            "IdMani": "2087",
+            "Mani": "Ita - Cro Rigore"
+        },
+        {
+            "IdMani": "719",
+            "Mani": "Italia Primavera Cup"
+        },
+        {
+            "IdMani": "6",
+            "Mani": "Italia Serie A"
+        },
+        {
+            "IdMani": "625",
+            "Mani": "Italia Serie A"
+        },
+        {
+            "IdMani": "537",
+            "Mani": "Italia Serie A 2010\\2011"
+        },
+        {
+            "IdMani": "626",
+            "Mani": "Italia Serie B"
+        },
+        {
+            "IdMani": "8",
+            "Mani": "Italia Serie B"
+        },
+        {
+            "IdMani": "21221",
+            "Mani": "Italia Serie B (Inizio dal 20esimo 0-0)"
+        },
+        {
+            "IdMani": "75107",
+            "Mani": "Italia Serie B Playout"
+        },
+        {
+            "IdMani": "614",
+            "Mani": "Italia Torneo Giovanile (80M)"
+        },
+        {
+            "IdMani": "75123",
+            "Mani": "Italia U19 Campionato Nazionale"
+        },
+        {
+            "IdMani": "23120",
+            "Mani": "Italy Serie A Women"
+        },
+        {
+            "IdMani": "4111",
+            "Mani": "Italy Serie B dal 27' min 0-0"
+        },
+        {
+            "IdMani": "5208",
+            "Mani": "Ivory Coast Ligue 1"
+        },
+        {
+            "IdMani": "16697",
+            "Mani": "Japan New Year Cup"
+        },
+        {
+            "IdMani": "75309",
+            "Mani": "Joan Gamper Trophy"
+        },
+        {
+            "IdMani": "822",
+            "Mani": "Jordania Coppa"
+        },
+        {
+            "IdMani": "786",
+            "Mani": "Jordania Pro Liga"
+        },
+        {
+            "IdMani": "19290",
+            "Mani": "Kazakhstan 1st Division"
+        },
+        {
+            "IdMani": "5804",
+            "Mani": "Kazakhstan Cup"
+        },
+        {
+            "IdMani": "2308",
+            "Mani": "Kazakhstan Cup"
+        },
+        {
+            "IdMani": "8774",
+            "Mani": "Kazakhstan Premier"
+        },
+        {
+            "IdMani": "761",
+            "Mani": "Kazakhstan Premier League"
+        },
+        {
+            "IdMani": "4846",
+            "Mani": "Kenya Premier League"
+        },
+        {
+            "IdMani": "19647",
+            "Mani": "Kings Cup (in Thailand)"
+        },
+        {
+            "IdMani": "800",
+            "Mani": "Komia Tournament "
+        },
+        {
+            "IdMani": "33785",
+            "Mani": "Kosovo First League"
+        },
+        {
+            "IdMani": "33784",
+            "Mani": "Kosovo Superliga"
+        },
+        {
+            "IdMani": "1391",
+            "Mani": "Kuwait Coppa"
+        },
+        {
+            "IdMani": "1400",
+            "Mani": "Kuwait League"
+        },
+        {
+            "IdMani": "2149",
+            "Mani": "La Finale"
+        },
+        {
+            "IdMani": "799",
+            "Mani": "La Magna Cup "
+        },
+        {
+            "IdMani": "32979",
+            "Mani": "Leagues Cup (in USA)"
+        },
+        {
+            "IdMani": "11132",
+            "Mani": "Lebanon Cup"
+        },
+        {
+            "IdMani": "13441",
+            "Mani": "Lebanon Premier League"
+        },
+        {
+            "IdMani": "10065",
+            "Mani": "Lebanon Premier League"
+        },
+        {
+            "IdMani": "5913",
+            "Mani": "Lebanon Premier League"
+        },
+        {
+            "IdMani": "70",
+            "Mani": "Lega Pro 1 A PlayOut"
+        },
+        {
+            "IdMani": "71",
+            "Mani": "Lega Pro 1 B Playoff"
+        },
+        {
+            "IdMani": "72",
+            "Mani": "Lega Pro 1 B PlayOut"
+        },
+        {
+            "IdMani": "24",
+            "Mani": "Lega Pro 2 A"
+        },
+        {
+            "IdMani": "77",
+            "Mani": "Lega Pro 2 A Playoff"
+        },
+        {
+            "IdMani": "73",
+            "Mani": "Lega Pro 2 A PlayOut"
+        },
+        {
+            "IdMani": "25",
+            "Mani": "Lega Pro 2 B"
+        },
+        {
+            "IdMani": "78",
+            "Mani": "Lega Pro 2 B Playoff"
+        },
+        {
+            "IdMani": "79",
+            "Mani": "Lega Pro 2 B PlayOut"
+        },
+        {
+            "IdMani": "720",
+            "Mani": "Lega Pro 2 C  Playoff"
+        },
+        {
+            "IdMani": "1640",
+            "Mani": "Lettonia Cup"
+        },
+        {
+            "IdMani": "75102",
+            "Mani": "Lettonia First League"
+        },
+        {
+            "IdMani": "785",
+            "Mani": "Lettonia Virsliga"
+        },
+        {
+            "IdMani": "74168",
+            "Mani": "Lettonia Winter Cup"
+        },
+        {
+            "IdMani": "2043",
+            "Mani": "Liga Adelante Promotion"
+        },
+        {
+            "IdMani": "4669",
+            "Mani": "Lithuania 1 Lyga"
+        },
+        {
+            "IdMani": "1303",
+            "Mani": "Lituania Coppa"
+        },
+        {
+            "IdMani": "784",
+            "Mani": "Lituania Liga A"
+        },
+        {
+            "IdMani": "2903",
+            "Mani": "Luxembourg National Div."
+        },
+        {
+            "IdMani": "33786",
+            "Mani": "Luxembourg Promotion d Honneur"
+        },
+        {
+            "IdMani": "762",
+            "Mani": "Macedonia 1. MFL"
+        },
+        {
+            "IdMani": "33787",
+            "Mani": "Macedonia 2. MFL East"
+        },
+        {
+            "IdMani": "33788",
+            "Mani": "Macedonia 2. MFL West"
+        },
+        {
+            "IdMani": "1113",
+            "Mani": "Macedonia Coppa"
+        },
+        {
+            "IdMani": "3466",
+            "Mani": "Malaysia Cup"
+        },
+        {
+            "IdMani": "249",
+            "Mani": "Malesia Super League"
+        },
+        {
+            "IdMani": "1959",
+            "Mani": "Malta FA Trophy"
+        },
+        {
+            "IdMani": "109",
+            "Mani": "Malta Premier League"
+        },
+        {
+            "IdMani": "1692",
+            "Mani": "Malta Premier Relegation"
+        },
+        {
+            "IdMani": "16000",
+            "Mani": "Malta Super Cup"
+        },
+        {
+            "IdMani": "33789",
+            "Mani": "Marocco Botola"
+        },
+        {
+            "IdMani": "33790",
+            "Mani": "Marocco Botola 2"
+        },
+        {
+            "IdMani": "1020",
+            "Mani": "Marocco Coppa"
+        },
+        {
+            "IdMani": "212",
+            "Mani": "Marocco GNEF 1"
+        },
+        {
+            "IdMani": "2208",
+            "Mani": "Men Gruppo A"
+        },
+        {
+            "IdMani": "2209",
+            "Mani": "Men Gruppo B"
+        },
+        {
+            "IdMani": "2210",
+            "Mani": "Men Gruppo C"
+        },
+        {
+            "IdMani": "2211",
+            "Mani": "Men Gruppo D"
+        },
+        {
+            "IdMani": "2320",
+            "Mani": "Messico Coppa"
+        },
+        {
+            "IdMani": "1005",
+            "Mani": "Messico Liga De Ascenso"
+        },
+        {
+            "IdMani": "238",
+            "Mani": "Messico Primera "
+        },
+        {
+            "IdMani": "1830",
+            "Mani": "Messico Primera Playoff"
+        },
+        {
+            "IdMani": "12060",
+            "Mani": "Messico Supercopa"
+        },
+        {
+            "IdMani": "25436",
+            "Mani": "Mexico Champion of Champions"
+        },
+        {
+            "IdMani": "22931",
+            "Mani": "Mexico Liga MX Women"
+        },
+        {
+            "IdMani": "20039",
+            "Mani": "Mexico U20 League"
+        },
+        {
+            "IdMani": "2014",
+            "Mani": "Miglior Marcatore"
+        },
+        {
+            "IdMani": "2016",
+            "Mani": "Miglior Marcatore Croazia"
+        },
+        {
+            "IdMani": "2018",
+            "Mani": "Miglior Marcatore Danimarca"
+        },
+        {
+            "IdMani": "2020",
+            "Mani": "Miglior Marcatore Francia"
+        },
+        {
+            "IdMani": "2021",
+            "Mani": "Miglior Marcatore Germania"
+        },
+        {
+            "IdMani": "2022",
+            "Mani": "Miglior Marcatore Grecia"
+        },
+        {
+            "IdMani": "2027",
+            "Mani": "Miglior Marcatore Irlanda"
+        },
+        {
+            "IdMani": "2024",
+            "Mani": "Miglior Marcatore Italia"
+        },
+        {
+            "IdMani": "2023",
+            "Mani": "Miglior Marcatore Olanda"
+        },
+        {
+            "IdMani": "2025",
+            "Mani": "Miglior Marcatore Polonia"
+        },
+        {
+            "IdMani": "2026",
+            "Mani": "Miglior Marcatore Portogallo"
+        },
+        {
+            "IdMani": "2017",
+            "Mani": "Miglior Marcatore Rep. Ceca"
+        },
+        {
+            "IdMani": "2028",
+            "Mani": "Miglior Marcatore Russia"
+        },
+        {
+            "IdMani": "2029",
+            "Mani": "Miglior Marcatore Spagna"
+        },
+        {
+            "IdMani": "2030",
+            "Mani": "Miglior Marcatore Svezia"
+        },
+        {
+            "IdMani": "2031",
+            "Mani": "Miglior Marcatore Ucraina"
+        },
+        {
+            "IdMani": "2010",
+            "Mani": "Migliore attacco"
+        },
+        {
+            "IdMani": "821",
+            "Mani": "Moldova Cup"
+        },
+        {
+            "IdMani": "33791",
+            "Mani": "Moldova Divizia A"
+        },
+        {
+            "IdMani": "3248",
+            "Mani": "Moldova Divizia Nationala"
+        },
+        {
+            "IdMani": "733",
+            "Mani": "Mondiale Per Club"
+        },
+        {
+            "IdMani": "629",
+            "Mani": "Mondiale Per Club"
+        },
+        {
+            "IdMani": "33792",
+            "Mani": "Montenegro 1. CFL"
+        },
+        {
+            "IdMani": "1304",
+            "Mani": "Montenegro Coppa"
+        },
+        {
+            "IdMani": "33793",
+            "Mani": "Montenegro Druga Liga Crne Gore"
+        },
+        {
+            "IdMani": "763",
+            "Mani": "Montenegro Prva Liga"
+        },
+        {
+            "IdMani": "22993",
+            "Mani": "Myanmar National League"
+        },
+        {
+            "IdMani": "1214",
+            "Mani": "N. Irlanda Coppa Di Lega"
+        },
+        {
+            "IdMani": "2015",
+            "Mani": "Nazione del Miglior Marcatore"
+        },
+        {
+            "IdMani": "14286",
+            "Mani": "Nicaragua Primera Division"
+        },
+        {
+            "IdMani": "75273",
+            "Mani": "Nigeria Premier League"
+        },
+        {
+            "IdMani": "3266",
+            "Mani": "Nord America NASL"
+        },
+        {
+            "IdMani": "239",
+            "Mani": "Nord America Superliga"
+        },
+        {
+            "IdMani": "769",
+            "Mani": "Nord Irlanda Coppa"
+        },
+        {
+            "IdMani": "16150",
+            "Mani": "Nord Irlanda Development League"
+        },
+        {
+            "IdMani": "124",
+            "Mani": "Nord Irlanda Premier"
+        },
+        {
+            "IdMani": "1836",
+            "Mani": "Nord Irlanda Premier Prom./Rel."
+        },
+        {
+            "IdMani": "74015",
+            "Mani": "Northern Ireland Championship"
+        },
+        {
+            "IdMani": "19204",
+            "Mani": "Northern Ireland Premier (Women)"
+        },
+        {
+            "IdMani": "157",
+            "Mani": "Norvegia  Tippenligaen"
+        },
+        {
+            "IdMani": "753",
+            "Mani": "Norvegia 1 Divisione"
+        },
+        {
+            "IdMani": "9858",
+            "Mani": "Norvegia 2nd Division"
+        },
+        {
+            "IdMani": "158",
+            "Mani": "Norvegia Adeccoligaen"
+        },
+        {
+            "IdMani": "159",
+            "Mani": "Norvegia Coppa"
+        },
+        {
+            "IdMani": "1653",
+            "Mani": "Norvegia Div 2 Gruppo 1"
+        },
+        {
+            "IdMani": "1654",
+            "Mani": "Norvegia Div 2 Gruppo 2"
+        },
+        {
+            "IdMani": "1655",
+            "Mani": "Norvegia Div 2 Gruppo 3"
+        },
+        {
+            "IdMani": "1656",
+            "Mani": "Norvegia Div 2 Gruppo 4"
+        },
+        {
+            "IdMani": "18130",
+            "Mani": "Norvegia Div 3 Gruppo 1"
+        },
+        {
+            "IdMani": "18131",
+            "Mani": "Norvegia Div 3 Gruppo 2"
+        },
+        {
+            "IdMani": "18132",
+            "Mani": "Norvegia Div 3 Gruppo 3"
+        },
+        {
+            "IdMani": "18133",
+            "Mani": "Norvegia Div 3 Gruppo 4"
+        },
+        {
+            "IdMani": "18134",
+            "Mani": "Norvegia Div 3 Gruppo 5"
+        },
+        {
+            "IdMani": "18135",
+            "Mani": "Norvegia Div 3 Gruppo 6"
+        },
+        {
+            "IdMani": "33794",
+            "Mani": "Norvegia Division Avd 1"
+        },
+        {
+            "IdMani": "33795",
+            "Mani": "Norvegia Division Avd 2"
+        },
+        {
+            "IdMani": "33796",
+            "Mani": "Norvegia Division Avd 3"
+        },
+        {
+            "IdMani": "33797",
+            "Mani": "Norvegia Division Avd 4"
+        },
+        {
+            "IdMani": "33798",
+            "Mani": "Norvegia Division Avd 5"
+        },
+        {
+            "IdMani": "33799",
+            "Mani": "Norvegia Division Avd 6"
+        },
+        {
+            "IdMani": "17790",
+            "Mani": "Norvegia Mesterfinalen"
+        },
+        {
+            "IdMani": "1803",
+            "Mani": "Norvegia NM Coppa"
+        },
+        {
+            "IdMani": "10941",
+            "Mani": "Norvegia NM Cup (F)"
+        },
+        {
+            "IdMani": "9298",
+            "Mani": "Norvegia OBOS Ligaen"
+        },
+        {
+            "IdMani": "160",
+            "Mani": "Norvegia Play-offs"
+        },
+        {
+            "IdMani": "161",
+            "Mani": "Norvegia Supercoppa"
+        },
+        {
+            "IdMani": "657",
+            "Mani": "Norvegia Tippeligaen"
+        },
+        {
+            "IdMani": "9459",
+            "Mani": "Norvegia Toppserien (F)"
+        },
+        {
+            "IdMani": "3874",
+            "Mani": "Norway NM Cup (F)"
+        },
+        {
+            "IdMani": "788",
+            "Mani": "Nuova Zelanda Premiership"
+        },
+        {
+            "IdMani": "1309",
+            "Mani": "nuovo"
+        },
+        {
+            "IdMani": "303",
+            "Mani": "nuovo"
+        },
+        {
+            "IdMani": "254",
+            "Mani": "nuovo"
+        },
+        {
+            "IdMani": "74",
+            "Mani": "nuovo"
+        },
+        {
+            "IdMani": "75",
+            "Mani": "nuovo"
+        },
+        {
+            "IdMani": "3322",
+            "Mani": "OFC Champions League"
+        },
+        {
+            "IdMani": "9845",
+            "Mani": "OFC Champions League"
+        },
+        {
+            "IdMani": "2034",
+            "Mani": "OFC WC Qual."
+        },
+        {
+            "IdMani": "744",
+            "Mani": "OFC WC Qualification"
+        },
+        {
+            "IdMani": "90",
+            "Mani": "Olanda  Eredivisie"
+        },
+        {
+            "IdMani": "10319",
+            "Mani": "Olanda Beloftencompetitie"
+        },
+        {
+            "IdMani": "111",
+            "Mani": "Olanda Coppa"
+        },
+        {
+            "IdMani": "667",
+            "Mani": "Olanda Coppa"
+        },
+        {
+            "IdMani": "24594",
+            "Mani": "Olanda Eerste Divisie Playoff"
+        },
+        {
+            "IdMani": "649",
+            "Mani": "Olanda Eredivisie"
+        },
+        {
+            "IdMani": "5750",
+            "Mani": "Olanda Eredivisie (F)"
+        },
+        {
+            "IdMani": "3103",
+            "Mani": "Olanda Eredivisie (U21)"
+        },
+        {
+            "IdMani": "1884",
+            "Mani": "Olanda Eredivisie Europa L. Playoff"
+        },
+        {
+            "IdMani": "1885",
+            "Mani": "Olanda Eredivisie Rel./Prom."
+        },
+        {
+            "IdMani": "1011",
+            "Mani": "Olanda Jupiler League"
+        },
+        {
+            "IdMani": "110",
+            "Mani": "Olanda Jupiler League"
+        },
+        {
+            "IdMani": "1801",
+            "Mani": "Olanda Jupiler League Playoff"
+        },
+        {
+            "IdMani": "10320",
+            "Mani": "Olanda Reservecompetitie"
+        },
+        {
+            "IdMani": "112",
+            "Mani": "Olanda Supercoppa"
+        },
+        {
+            "IdMani": "668",
+            "Mani": "Olanda Supercoppa"
+        },
+        {
+            "IdMani": "14375",
+            "Mani": "Olanda Tweede Divisie"
+        },
+        {
+            "IdMani": "2262",
+            "Mani": "Olympics Men quarti"
+        },
+        {
+            "IdMani": "2902",
+            "Mani": "Oman League"
+        },
+        {
+            "IdMani": "6568",
+            "Mani": "Oman Sultan Cup "
+        },
+        {
+            "IdMani": "3664",
+            "Mani": "Pakistan Premier League"
+        },
+        {
+            "IdMani": "14449",
+            "Mani": "Palestine West Bank League"
+        },
+        {
+            "IdMani": "32387",
+            "Mani": "Pan American Games 2019"
+        },
+        {
+            "IdMani": "32527",
+            "Mani": "Pan American Games 2019 (F)"
+        },
+        {
+            "IdMani": "4929",
+            "Mani": "Panama LPF"
+        },
+        {
+            "IdMani": "27347",
+            "Mani": "Paraguay Cup"
+        },
+        {
+            "IdMani": "235",
+            "Mani": "Paraguay Primera"
+        },
+        {
+            "IdMani": "18996",
+            "Mani": "Paraguay Primera Reserve"
+        },
+        {
+            "IdMani": "74894",
+            "Mani": "Paraguay Segunda Division"
+        },
+        {
+            "IdMani": "2131",
+            "Mani": "Passaggio in Finale"
+        },
+        {
+            "IdMani": "2129",
+            "Mani": "Passaggio in semifinale"
+        },
+        {
+            "IdMani": "31540",
+            "Mani": "Peru Copa Bicentenario"
+        },
+        {
+            "IdMani": "4041",
+            "Mani": "Peru Copa Inca"
+        },
+        {
+            "IdMani": "716",
+            "Mani": "Peru Primera"
+        },
+        {
+            "IdMani": "14315",
+            "Mani": "Peru Segunda Division"
+        },
+        {
+            "IdMani": "4848",
+            "Mani": "Philippines Cup"
+        },
+        {
+            "IdMani": "33754",
+            "Mani": "Philippines Football League"
+        },
+        {
+            "IdMani": "22454",
+            "Mani": "Philippines PFL Playoffs"
+        },
+        {
+            "IdMani": "4132",
+            "Mani": "Philippines UFL"
+        },
+        {
+            "IdMani": "2011",
+            "Mani": "Piu cart. Gialli"
+        },
+        {
+            "IdMani": "2013",
+            "Mani": "Piu cart. Gialli e Rossi"
+        },
+        {
+            "IdMani": "2012",
+            "Mani": "Piu cart. Rossi"
+        },
+        {
+            "IdMani": "24105",
+            "Mani": "Poland Ekstraliga Women"
+        },
+        {
+            "IdMani": "24104",
+            "Mani": "Poland Extraliga Women"
+        },
+        {
+            "IdMani": "19212",
+            "Mani": "Polonia Central Junior League"
+        },
+        {
+            "IdMani": "5573",
+            "Mani": "Polonia CLJ East"
+        },
+        {
+            "IdMani": "5803",
+            "Mani": "Polonia CLJ West"
+        },
+        {
+            "IdMani": "175",
+            "Mani": "Polonia Coppa"
+        },
+        {
+            "IdMani": "176",
+            "Mani": "Polonia Coppa Di Lega"
+        },
+        {
+            "IdMani": "174",
+            "Mani": "Polonia Ekstraklasa"
+        },
+        {
+            "IdMani": "167",
+            "Mani": "Polonia I Liga"
+        },
+        {
+            "IdMani": "4832",
+            "Mani": "Polonia II Liga"
+        },
+        {
+            "IdMani": "19090",
+            "Mani": "Polonia III Liga"
+        },
+        {
+            "IdMani": "1607",
+            "Mani": "Polonia Puchar Polski"
+        },
+        {
+            "IdMani": "177",
+            "Mani": "Polonia Supercoppa"
+        },
+        {
+            "IdMani": "1283",
+            "Mani": "Porogallo Coppa di Lega"
+        },
+        {
+            "IdMani": "137",
+            "Mani": "Portogallo  Superliga"
+        },
+        {
+            "IdMani": "33801",
+            "Mani": "Portogallo Allianz League (F)"
+        },
+        {
+            "IdMani": "138",
+            "Mani": "Portogallo Coppa"
+        },
+        {
+            "IdMani": "139",
+            "Mani": "Portogallo Coppa Di Lega"
+        },
+        {
+            "IdMani": "140",
+            "Mani": "Portogallo Lega Vitalis"
+        },
+        {
+            "IdMani": "141",
+            "Mani": "Portogallo Supercoppa"
+        },
+        {
+            "IdMani": "648",
+            "Mani": "Portogallo Superliga"
+        },
+        {
+            "IdMani": "5081",
+            "Mani": "Portogallo U19"
+        },
+        {
+            "IdMani": "75188",
+            "Mani": "Portugal Campeonato Nacional"
+        },
+        {
+            "IdMani": "27678",
+            "Mani": "Portugal U23 Liga Revelacao"
+        },
+        {
+            "IdMani": "1202",
+            "Mani": "Potogallo Supercoppa"
+        },
+        {
+            "IdMani": "19307",
+            "Mani": "prova mani"
+        },
+        {
+            "IdMani": "1015",
+            "Mani": "Qatar Coppa"
+        },
+        {
+            "IdMani": "787",
+            "Mani": "Qatar Stars League"
+        },
+        {
+            "IdMani": "1198",
+            "Mani": "Qualif. Coppa D' Africa"
+        },
+        {
+            "IdMani": "661",
+            "Mani": "Qualif. Mondiali U21"
+        },
+        {
+            "IdMani": "746",
+            "Mani": "Qualif. Nord Centro America"
+        },
+        {
+            "IdMani": "745",
+            "Mani": "Qualif. Sud America"
+        },
+        {
+            "IdMani": "617",
+            "Mani": "Qualificazioni Mondiali"
+        },
+        {
+            "IdMani": "2104",
+            "Mani": "Quarti di Finale"
+        },
+        {
+            "IdMani": "4159",
+            "Mani": "quintupla(no rf)"
+        },
+        {
+            "IdMani": "2651",
+            "Mani": "Ran jahrhundertspiel"
+        },
+        {
+            "IdMani": "2319",
+            "Mani": "Recopa Sudamericana"
+        },
+        {
+            "IdMani": "240",
+            "Mani": "Recopa Sudamericana"
+        },
+        {
+            "IdMani": "172",
+            "Mani": "Rep. Ceca Supercoppa"
+        },
+        {
+            "IdMani": "3865",
+            "Mani": "Rep.Ceca U21 League"
+        },
+        {
+            "IdMani": "7005",
+            "Mani": "Rep.Ceca Winter League"
+        },
+        {
+            "IdMani": "178",
+            "Mani": "Repubblica Ceca 1 Liga"
+        },
+        {
+            "IdMani": "33914",
+            "Mani": "Repubblica Ceca 1.Liga (F)"
+        },
+        {
+            "IdMani": "13391",
+            "Mani": "Repubblica Ceca Central FL"
+        },
+        {
+            "IdMani": "179",
+            "Mani": "Repubblica Ceca Coppa"
+        },
+        {
+            "IdMani": "764",
+            "Mani": "Repubblica Ceca FNL"
+        },
+        {
+            "IdMani": "8502",
+            "Mani": "Repubblica Ceca FNL"
+        },
+        {
+            "IdMani": "1001",
+            "Mani": "Repubblica Ceca Gambrinus"
+        },
+        {
+            "IdMani": "13392",
+            "Mani": "Repubblica Ceca MSFL"
+        },
+        {
+            "IdMani": "35110",
+            "Mani": "Repubblica Dominicana LDF"
+        },
+        {
+            "IdMani": "181",
+            "Mani": "Romania Coppa"
+        },
+        {
+            "IdMani": "75543",
+            "Mani": "Romania League Cup"
+        },
+        {
+            "IdMani": "8484",
+            "Mani": "Romania Liga 1 Championship"
+        },
+        {
+            "IdMani": "8485",
+            "Mani": "Romania Liga 1 Relegation"
+        },
+        {
+            "IdMani": "180",
+            "Mani": "Romania Liga I"
+        },
+        {
+            "IdMani": "2899",
+            "Mani": "Romania Liga II Serie 1"
+        },
+        {
+            "IdMani": "2900",
+            "Mani": "Romania Liga II Serie 2"
+        },
+        {
+            "IdMani": "20644",
+            "Mani": "Romania Liga III"
+        },
+        {
+            "IdMani": "182",
+            "Mani": "Romania Supercoppa"
+        },
+        {
+            "IdMani": "184",
+            "Mani": "Russia 1 Divisione"
+        },
+        {
+            "IdMani": "3286",
+            "Mani": "Russia 2nd Div. Center"
+        },
+        {
+            "IdMani": "3386",
+            "Mani": "Russia 2nd Div. East"
+        },
+        {
+            "IdMani": "3287",
+            "Mani": "Russia 2nd Div. South"
+        },
+        {
+            "IdMani": "3320",
+            "Mani": "Russia 2nd Div. Ural "
+        },
+        {
+            "IdMani": "3291",
+            "Mani": "Russia 2nd Div. West"
+        },
+        {
+            "IdMani": "185",
+            "Mani": "Russia Coppa"
+        },
+        {
+            "IdMani": "4631",
+            "Mani": "Russia Cup Women"
+        },
+        {
+            "IdMani": "1937",
+            "Mani": "Russia Football Nat. Rel."
+        },
+        {
+            "IdMani": "1701",
+            "Mani": "Russia Football National L."
+        },
+        {
+            "IdMani": "9982",
+            "Mani": "Russia PFL"
+        },
+        {
+            "IdMani": "9751",
+            "Mani": "Russia PFL Center"
+        },
+        {
+            "IdMani": "9494",
+            "Mani": "Russia PFL South"
+        },
+        {
+            "IdMani": "9859",
+            "Mani": "Russia PFL West"
+        },
+        {
+            "IdMani": "183",
+            "Mani": "Russia Premier League"
+        },
+        {
+            "IdMani": "659",
+            "Mani": "Russia Premier League"
+        },
+        {
+            "IdMani": "11626",
+            "Mani": "Russia Premier League (F)"
+        },
+        {
+            "IdMani": "1499",
+            "Mani": "Russia Premier Relegation/Promotion"
+        },
+        {
+            "IdMani": "186",
+            "Mani": "Russia Supercoppa"
+        },
+        {
+            "IdMani": "3528",
+            "Mani": "Russia U21 Premier League"
+        },
+        {
+            "IdMani": "8543",
+            "Mani": "Russia Youth League"
+        },
+        {
+            "IdMani": "75271",
+            "Mani": "Rwanda Cup"
+        },
+        {
+            "IdMani": "5066",
+            "Mani": "Rwanda National League"
+        },
+        {
+            "IdMani": "3643",
+            "Mani": "SAFF Championship (in Nepal)"
+        },
+        {
+            "IdMani": "33812",
+            "Mani": "San Marino Campionato"
+        },
+        {
+            "IdMani": "35147",
+            "Mani": "San Marino Coppa Titano"
+        },
+        {
+            "IdMani": "8674",
+            "Mani": "Saudi Arabia Champions Cup"
+        },
+        {
+            "IdMani": "6597",
+            "Mani": "Saudi Arabia Crown Prince Cup"
+        },
+        {
+            "IdMani": "5093",
+            "Mani": "Saudi Arabia Division 1"
+        },
+        {
+            "IdMani": "10980",
+            "Mani": "Saudi Arabia Professional League"
+        },
+        {
+            "IdMani": "125",
+            "Mani": "Scozia  Premier League"
+        },
+        {
+            "IdMani": "126",
+            "Mani": "Scozia Challenge Cup"
+        },
+        {
+            "IdMani": "129",
+            "Mani": "Scozia Championship"
+        },
+        {
+            "IdMani": "10317",
+            "Mani": "Scozia Championship Relegation/Promotion"
+        },
+        {
+            "IdMani": "127",
+            "Mani": "Scozia CIS Insurance Cup"
+        },
+        {
+            "IdMani": "128",
+            "Mani": "Scozia FA Cup"
+        },
+        {
+            "IdMani": "1880",
+            "Mani": "Scozia First Div. Playoff"
+        },
+        {
+            "IdMani": "1894",
+            "Mani": "Scozia First Div. Rel/Prom"
+        },
+        {
+            "IdMani": "2321",
+            "Mani": "Scozia League Cup"
+        },
+        {
+            "IdMani": "130",
+            "Mani": "Scozia League One"
+        },
+        {
+            "IdMani": "10318",
+            "Mani": "Scozia League One Relegation/Promotion"
+        },
+        {
+            "IdMani": "131",
+            "Mani": "Scozia League Two"
+        },
+        {
+            "IdMani": "10534",
+            "Mani": "Scozia League Two Relegation/Promotion"
+        },
+        {
+            "IdMani": "660",
+            "Mani": "Scozia Premier League"
+        },
+        {
+            "IdMani": "9978",
+            "Mani": "Scozia Premier League (F)"
+        },
+        {
+            "IdMani": "10399",
+            "Mani": "Scozia Premier League Rel/Prom"
+        },
+        {
+            "IdMani": "1881",
+            "Mani": "Scozia Second Div. Playoff"
+        },
+        {
+            "IdMani": "1895",
+            "Mani": "Scozia Second Div. Rel/Prom"
+        },
+        {
+            "IdMani": "132",
+            "Mani": "Scozia Supercoppa"
+        },
+        {
+            "IdMani": "4086",
+            "Mani": "Scozia U20 Premier League"
+        },
+        {
+            "IdMani": "20265",
+            "Mani": "SEA Games Youth (in Malaysia)"
+        },
+        {
+            "IdMani": "75147",
+            "Mani": "SEA Games Youth (in Singapore)"
+        },
+        {
+            "IdMani": "2132",
+            "Mani": "Semifinale"
+        },
+        {
+            "IdMani": "15729",
+            "Mani": "Senegal Premier League"
+        },
+        {
+            "IdMani": "1641",
+            "Mani": "Serbia Cup"
+        },
+        {
+            "IdMani": "74971",
+            "Mani": "Serbia Prva Liga"
+        },
+        {
+            "IdMani": "187",
+            "Mani": "Serbia Superliga"
+        },
+        {
+            "IdMani": "76",
+            "Mani": "Serie B Playoff"
+        },
+        {
+            "IdMani": "10",
+            "Mani": "Serie B PlayOut"
+        },
+        {
+            "IdMani": "26",
+            "Mani": "Serie C"
+        },
+        {
+            "IdMani": "9",
+            "Mani": "Serie C - Girone A"
+        },
+        {
+            "IdMani": "23",
+            "Mani": "Serie C - Girone B"
+        },
+        {
+            "IdMani": "4758",
+            "Mani": "Serie C - Girone C"
+        },
+        {
+            "IdMani": "69",
+            "Mani": "Serie C Playoff"
+        },
+        {
+            "IdMani": "80",
+            "Mani": "Serie C Playout"
+        },
+        {
+            "IdMani": "4797",
+            "Mani": "Serie D"
+        },
+        {
+            "IdMani": "531",
+            "Mani": "Serie D - Girone D"
+        },
+        {
+            "IdMani": "533",
+            "Mani": "Serie D - Girone F"
+        },
+        {
+            "IdMani": "534",
+            "Mani": "Serie D - Girone G"
+        },
+        {
+            "IdMani": "535",
+            "Mani": "Serie D - Girone H"
+        },
+        {
+            "IdMani": "536",
+            "Mani": "Serie D - Girone I"
+        },
+        {
+            "IdMani": "532",
+            "Mani": "Serie D Final"
+        },
+        {
+            "IdMani": "528",
+            "Mani": "Serie D Group Stage"
+        },
+        {
+            "IdMani": "529",
+            "Mani": "Serie D Playoff"
+        },
+        {
+            "IdMani": "530",
+            "Mani": "Serie D Playout"
+        },
+        {
+            "IdMani": "8510",
+            "Mani": "She Believes Cup (F)"
+        },
+        {
+            "IdMani": "1930",
+            "Mani": "Singapore Coppa"
+        },
+        {
+            "IdMani": "13966",
+            "Mani": "Singapore Prime League"
+        },
+        {
+            "IdMani": "250",
+            "Mani": "Singapore S-League"
+        },
+        {
+            "IdMani": "4157",
+            "Mani": "singola"
+        },
+        {
+            "IdMani": "891",
+            "Mani": "Siria Coppa"
+        },
+        {
+            "IdMani": "790",
+            "Mani": "Siria League"
+        },
+        {
+            "IdMani": "33804",
+            "Mani": "Slovacchia 1. League (F)"
+        },
+        {
+            "IdMani": "2622",
+            "Mani": "Slovacchia 2. Liga"
+        },
+        {
+            "IdMani": "189",
+            "Mani": "Slovacchia Coppa"
+        },
+        {
+            "IdMani": "190",
+            "Mani": "Slovacchia Supercoppa"
+        },
+        {
+            "IdMani": "188",
+            "Mani": "Slovacchia Superliga"
+        },
+        {
+            "IdMani": "4944",
+            "Mani": "Slovakia U19 League"
+        },
+        {
+            "IdMani": "14287",
+            "Mani": "Slovenia 2. SNL"
+        },
+        {
+            "IdMani": "192",
+            "Mani": "Slovenia Coppa"
+        },
+        {
+            "IdMani": "191",
+            "Mani": "Slovenia Prva Liga"
+        },
+        {
+            "IdMani": "765",
+            "Mani": "Slovenia Supercoppa"
+        },
+        {
+            "IdMani": "74895",
+            "Mani": "South Korea WK League"
+        },
+        {
+            "IdMani": "2091",
+            "Mani": "Spa - Ire Cart. Rosso"
+        },
+        {
+            "IdMani": "2095",
+            "Mani": "Spa - Ire Min. primo Goal"
+        },
+        {
+            "IdMani": "2093",
+            "Mani": "Spa - Ire Piu Corner"
+        },
+        {
+            "IdMani": "2092",
+            "Mani": "Spa - Ire Piu Gialli"
+        },
+        {
+            "IdMani": "2094",
+            "Mani": "Spa - Ire Rigore"
+        },
+        {
+            "IdMani": "2150",
+            "Mani": "Spa-Ita / Come Vince"
+        },
+        {
+            "IdMani": "2154",
+            "Mani": "Spa-Ita / Min Primo Goal"
+        },
+        {
+            "IdMani": "2152",
+            "Mani": "Spa-Ita / Piu Cart. Gialli"
+        },
+        {
+            "IdMani": "2151",
+            "Mani": "Spa-Ita / Piu Corner"
+        },
+        {
+            "IdMani": "2153",
+            "Mani": "Spa-Ita / Rigore "
+        },
+        {
+            "IdMani": "133",
+            "Mani": "Spagna  Primera"
+        },
+        {
+            "IdMani": "134",
+            "Mani": "Spagna  Segunda"
+        },
+        {
+            "IdMani": "750",
+            "Mani": "Spagna B Champions"
+        },
+        {
+            "IdMani": "751",
+            "Mani": "Spagna B Promotion"
+        },
+        {
+            "IdMani": "14231",
+            "Mani": "Spagna Copa Catalunya"
+        },
+        {
+            "IdMani": "28738",
+            "Mani": "Spagna Copa de la Reina"
+        },
+        {
+            "IdMani": "5207",
+            "Mani": "Spagna Copa Federacion"
+        },
+        {
+            "IdMani": "1069",
+            "Mani": "Spagna Coppa"
+        },
+        {
+            "IdMani": "135",
+            "Mani": "Spagna Coppa del Re"
+        },
+        {
+            "IdMani": "638",
+            "Mani": "Spagna Coppa Del Re"
+        },
+        {
+            "IdMani": "632",
+            "Mani": "Spagna Primera"
+        },
+        {
+            "IdMani": "5801",
+            "Mani": "Spagna Primera (F)"
+        },
+        {
+            "IdMani": "1082",
+            "Mani": "Spagna Segunda B G. I"
+        },
+        {
+            "IdMani": "1083",
+            "Mani": "Spagna Segunda B G. II"
+        },
+        {
+            "IdMani": "1084",
+            "Mani": "Spagna Segunda B G. III"
+        },
+        {
+            "IdMani": "1085",
+            "Mani": "Spagna Segunda B G. IV"
+        },
+        {
+            "IdMani": "2036",
+            "Mani": "Spagna Segunda B Relegation"
+        },
+        {
+            "IdMani": "75171",
+            "Mani": "Spagna Segunda Playoff"
+        },
+        {
+            "IdMani": "14803",
+            "Mani": "Spagna Supercopa Catalunya"
+        },
+        {
+            "IdMani": "637",
+            "Mani": "Spagna Supercoppa"
+        },
+        {
+            "IdMani": "136",
+            "Mani": "Spagna Supercoppa"
+        },
+        {
+            "IdMani": "13393",
+            "Mani": "Spagna Tercera Division"
+        },
+        {
+            "IdMani": "669",
+            "Mani": "Spagnia Segunda"
+        },
+        {
+            "IdMani": "2007",
+            "Mani": "Squadra con piu Goals Fatti"
+        },
+        {
+            "IdMani": "17030",
+            "Mani": "Sri Lanka - Premier League"
+        },
+        {
+            "IdMani": "805",
+            "Mani": "Sud Africa Coppa"
+        },
+        {
+            "IdMani": "5824",
+            "Mani": "Sud Africa First Division"
+        },
+        {
+            "IdMani": "33806",
+            "Mani": "Sud Africa MTN 8"
+        },
+        {
+            "IdMani": "804",
+            "Mani": "Sud Africa Premier League"
+        },
+        {
+            "IdMani": "248",
+            "Mani": "Sud Corea Coppa"
+        },
+        {
+            "IdMani": "796",
+            "Mani": "Sud Corea Coppa Di Lega"
+        },
+        {
+            "IdMani": "227",
+            "Mani": "Sud Corea FA Cup"
+        },
+        {
+            "IdMani": "34631",
+            "Mani": "Sud Corea K-League Classic"
+        },
+        {
+            "IdMani": "34632",
+            "Mani": "Sud Corea K-League Classic Playout"
+        },
+        {
+            "IdMani": "3541",
+            "Mani": "Sud Corea National League"
+        },
+        {
+            "IdMani": "1004",
+            "Mani": "Sud Corea National Playoffs"
+        },
+        {
+            "IdMani": "228",
+            "Mani": "Sud Corea Sud Corea K League"
+        },
+        {
+            "IdMani": "27843",
+            "Mani": "Sud Corea Sud Corea K League 2"
+        },
+        {
+            "IdMani": "33802",
+            "Mani": "Sud Corea WK-League"
+        },
+        {
+            "IdMani": "34785",
+            "Mani": "Supercoppa d Africa"
+        },
+        {
+            "IdMani": "627",
+            "Mani": "Supercoppa Europea"
+        },
+        {
+            "IdMani": "628",
+            "Mani": "Supercoppa Italiana"
+        },
+        {
+            "IdMani": "81",
+            "Mani": "Supercoppa Italiana"
+        },
+        {
+            "IdMani": "1941",
+            "Mani": "Supercoppa Lega Pro 2"
+        },
+        {
+            "IdMani": "14856",
+            "Mani": "Supercoppa Primavera"
+        },
+        {
+            "IdMani": "1940",
+            "Mani": "Supercoppa Serie C"
+        },
+        {
+            "IdMani": "4137",
+            "Mani": "Svenska Cupen Women"
+        },
+        {
+            "IdMani": "165",
+            "Mani": "Svezia 1 Div Norra"
+        },
+        {
+            "IdMani": "166",
+            "Mani": "Svezia 1 Div Sodra"
+        },
+        {
+            "IdMani": "754",
+            "Mani": "Svezia 2 Divisione"
+        },
+        {
+            "IdMani": "3263",
+            "Mani": "Svezia 2 Norra Gotaland"
+        },
+        {
+            "IdMani": "2055",
+            "Mani": "Svezia 2 Norra Svealand"
+        },
+        {
+            "IdMani": "2050",
+            "Mani": "Svezia 2 Norrland"
+        },
+        {
+            "IdMani": "2051",
+            "Mani": "Svezia 2 Ostra Gotaland"
+        },
+        {
+            "IdMani": "2052",
+            "Mani": "Svezia 2 Sodra Gotaland"
+        },
+        {
+            "IdMani": "2053",
+            "Mani": "Svezia 2 Sodra Svealand"
+        },
+        {
+            "IdMani": "3264",
+            "Mani": "Svezia 2 Sodra Svealand"
+        },
+        {
+            "IdMani": "3265",
+            "Mani": "Svezia 2 Vastra Gotaland"
+        },
+        {
+            "IdMani": "656",
+            "Mani": "Svezia Allsvenskan"
+        },
+        {
+            "IdMani": "164",
+            "Mani": "Svezia Coppa"
+        },
+        {
+            "IdMani": "896",
+            "Mani": "Svezia Coppa"
+        },
+        {
+            "IdMani": "8041",
+            "Mani": "Svezia Cup (F)"
+        },
+        {
+            "IdMani": "4571",
+            "Mani": "Svezia Damallsvenskan"
+        },
+        {
+            "IdMani": "9980",
+            "Mani": "Svezia Femminile"
+        },
+        {
+            "IdMani": "163",
+            "Mani": "Svezia Supercoppa"
+        },
+        {
+            "IdMani": "823",
+            "Mani": "Svezia Superettan"
+        },
+        {
+            "IdMani": "33807",
+            "Mani": "Svezia U21 Allsvenskan"
+        },
+        {
+            "IdMani": "755",
+            "Mani": "Svezia U21 League"
+        },
+        {
+            "IdMani": "11715",
+            "Mani": "Svezia U21 Superettan Norra"
+        },
+        {
+            "IdMani": "10940",
+            "Mani": "Svezia U21 Superettan Sodra"
+        },
+        {
+            "IdMani": "113",
+            "Mani": "Svizzera   Super League"
+        },
+        {
+            "IdMani": "114",
+            "Mani": "Svizzera  Coppa"
+        },
+        {
+            "IdMani": "115",
+            "Mani": "Svizzera Challenge League"
+        },
+        {
+            "IdMani": "33808",
+            "Mani": "Svizzera Erste Liga (F)"
+        },
+        {
+            "IdMani": "3843",
+            "Mani": "Svizzera Erste Liga Promotion"
+        },
+        {
+            "IdMani": "1996",
+            "Mani": "Svizzera Super L. Rel/prom"
+        },
+        {
+            "IdMani": "658",
+            "Mani": "Svizzera Super League"
+        },
+        {
+            "IdMani": "116",
+            "Mani": "Svizzera Supercoppa"
+        },
+        {
+            "IdMani": "19206",
+            "Mani": "Sweden Allsvenskan U19"
+        },
+        {
+            "IdMani": "1066",
+            "Mani": "Syrenca Cup U17 (Polonia)"
+        },
+        {
+            "IdMani": "16393",
+            "Mani": "Tanzania Premier League"
+        },
+        {
+            "IdMani": "75294",
+            "Mani": "Telekom Cup (Triangolare 45 Min)"
+        },
+        {
+            "IdMani": "4158",
+            "Mani": "terno(no rf)"
+        },
+        {
+            "IdMani": "3228",
+            "Mani": "test"
+        },
+        {
+            "IdMani": "15944",
+            "Mani": "test2temopi"
+        },
+        {
+            "IdMani": "10773",
+            "Mani": "test2tempi"
+        },
+        {
+            "IdMani": "3385",
+            "Mani": "Thailand Cup"
+        },
+        {
+            "IdMani": "3214",
+            "Mani": "Thailand Premier League"
+        },
+        {
+            "IdMani": "17639",
+            "Mani": "Thailand Thai League 2"
+        },
+        {
+            "IdMani": "1446",
+            "Mani": "Torneo di Viareggio"
+        },
+        {
+            "IdMani": "612",
+            "Mani": "Torneo di Viareggio"
+        },
+        {
+            "IdMani": "2008",
+            "Mani": "Totale Goals Fatti"
+        },
+        {
+            "IdMani": "1070",
+            "Mani": "Toto Cup U17 (80 minuti)"
+        },
+        {
+            "IdMani": "207",
+            "Mani": "Toulon Tournament U21 (80 min.)"
+        },
+        {
+            "IdMani": "2035",
+            "Mani": "Toulon Tournament Youth"
+        },
+        {
+            "IdMani": "19842",
+            "Mani": "Tournaments of Nations Women"
+        },
+        {
+            "IdMani": "14394",
+            "Mani": "Trinidad & Tobago  Pro League"
+        },
+        {
+            "IdMani": "82",
+            "Mani": "Trofeo Berlusconi"
+        },
+        {
+            "IdMani": "83",
+            "Mani": "Trofeo Birra Moretti (45')"
+        },
+        {
+            "IdMani": "84",
+            "Mani": "Trofeo Tim (45')"
+        },
+        {
+            "IdMani": "3390",
+            "Mani": "Tunisia Cup"
+        },
+        {
+            "IdMani": "3239",
+            "Mani": "Tunisia Ligue 1"
+        },
+        {
+            "IdMani": "33874",
+            "Mani": "Tunisia Ligue 2"
+        },
+        {
+            "IdMani": "193",
+            "Mani": "Turchia  Superliga"
+        },
+        {
+            "IdMani": "194",
+            "Mani": "Turchia 1. Lig"
+        },
+        {
+            "IdMani": "766",
+            "Mani": "Turchia 2.Lig Beyaz"
+        },
+        {
+            "IdMani": "1966",
+            "Mani": "Turchia 2.Lig Kirmizi Gr."
+        },
+        {
+            "IdMani": "10742",
+            "Mani": "Turchia 2.Lig Promotion Playoffs"
+        },
+        {
+            "IdMani": "195",
+            "Mani": "Turchia Coppa"
+        },
+        {
+            "IdMani": "1693",
+            "Mani": "Turchia Spor Toto Cup"
+        },
+        {
+            "IdMani": "196",
+            "Mani": "Turchia Supercoppa"
+        },
+        {
+            "IdMani": "1651",
+            "Mani": "Turchia Superlig Championship G."
+        },
+        {
+            "IdMani": "1652",
+            "Mani": "Turchia Superlig Europa L. G."
+        },
+        {
+            "IdMani": "1282",
+            "Mani": "Turchia Superliga"
+        },
+        {
+            "IdMani": "4951",
+            "Mani": "Turchia U21 Ligi"
+        },
+        {
+            "IdMani": "5802",
+            "Mani": "Turchia U21 Ligi Gr. 1"
+        },
+        {
+            "IdMani": "74246",
+            "Mani": "Turkey 3. Lig "
+        },
+        {
+            "IdMani": "74245",
+            "Mani": "Turkey 3. Lig Group 2"
+        },
+        {
+            "IdMani": "74247",
+            "Mani": "Turkey 3. Lig Group 3"
+        },
+        {
+            "IdMani": "75039",
+            "Mani": "Turkey 3.Lig Playoff"
+        },
+        {
+            "IdMani": "1608",
+            "Mani": "Turkey A2 Ligi Youth"
+        },
+        {
+            "IdMani": "16156",
+            "Mani": "Turkey U19 Ligi"
+        },
+        {
+            "IdMani": "1702",
+            "Mani": "U16 Amichevoli Int."
+        },
+        {
+            "IdMani": "75270",
+            "Mani": "U17 Baltic Cup"
+        },
+        {
+            "IdMani": "74229",
+            "Mani": "U17 CONCACAF Champ."
+        },
+        {
+            "IdMani": "74233",
+            "Mani": "U17 CONMEBOL Champ."
+        },
+        {
+            "IdMani": "3905",
+            "Mani": "U17 Euro Champ. (F)"
+        },
+        {
+            "IdMani": "1500",
+            "Mani": "U17 Euro Championship"
+        },
+        {
+            "IdMani": "1865",
+            "Mani": "U17 Euro Championship"
+        },
+        {
+            "IdMani": "34219",
+            "Mani": "U17 Euro Qualifying Men"
+        },
+        {
+            "IdMani": "21222",
+            "Mani": "U17 Euro Qualifying Women (80 Min.)"
+        },
+        {
+            "IdMani": "2039",
+            "Mani": "U17 International Friendly"
+        },
+        {
+            "IdMani": "34190",
+            "Mani": "U17 Mondiale"
+        },
+        {
+            "IdMani": "808",
+            "Mani": "U17 Tournament"
+        },
+        {
+            "IdMani": "4189",
+            "Mani": "U17 Womens World Cup"
+        },
+        {
+            "IdMani": "3778",
+            "Mani": "U17 World Cup"
+        },
+        {
+            "IdMani": "5368",
+            "Mani": "U17 World Cup (in Chile)"
+        },
+        {
+            "IdMani": "1703",
+            "Mani": "U18 Amichevilo Int."
+        },
+        {
+            "IdMani": "3949",
+            "Mani": "U18 Granatkin Cup"
+        },
+        {
+            "IdMani": "34596",
+            "Mani": "U18 International Friendly"
+        },
+        {
+            "IdMani": "1050",
+            "Mani": "U18 Tournament"
+        },
+        {
+            "IdMani": "4879",
+            "Mani": "U19 AFC Championship"
+        },
+        {
+            "IdMani": "75479",
+            "Mani": "U19 AFC Championship (F)"
+        },
+        {
+            "IdMani": "35146",
+            "Mani": "U19 AFC Championship Women"
+        },
+        {
+            "IdMani": "75480",
+            "Mani": "U19 AFF Championship "
+        },
+        {
+            "IdMani": "3683",
+            "Mani": "U19 AFF Championship"
+        },
+        {
+            "IdMani": "1696",
+            "Mani": "U19 Amichevoli Int."
+        },
+        {
+            "IdMani": "4592",
+            "Mani": "U19 Baltic Cup "
+        },
+        {
+            "IdMani": "19108",
+            "Mani": "U19 Campeonato de Portugal"
+        },
+        {
+            "IdMani": "12294",
+            "Mani": "U19 CEE Cup"
+        },
+        {
+            "IdMani": "3329",
+            "Mani": "U19 Euro Championship"
+        },
+        {
+            "IdMani": "2160",
+            "Mani": "U19 Euro Championship"
+        },
+        {
+            "IdMani": "75279",
+            "Mani": "U19 Euro Championship"
+        },
+        {
+            "IdMani": "3617",
+            "Mani": "U19 Euro Championship (F)"
+        },
+        {
+            "IdMani": "4703",
+            "Mani": "U19 Euro Championship (F)"
+        },
+        {
+            "IdMani": "20237",
+            "Mani": "U19 Euro Championship Women"
+        },
+        {
+            "IdMani": "3707",
+            "Mani": "U19 Euro Qualif. (F)"
+        },
+        {
+            "IdMani": "1971",
+            "Mani": "U19 Euro Qualification"
+        },
+        {
+            "IdMani": "34153",
+            "Mani": "U19 Euro Qualifying Women"
+        },
+        {
+            "IdMani": "557",
+            "Mani": "U19 International Friendly"
+        },
+        {
+            "IdMani": "3438",
+            "Mani": "U19 Mediterranean Games"
+        },
+        {
+            "IdMani": "17198",
+            "Mani": "U20 Africa Cup of Nations"
+        },
+        {
+            "IdMani": "74249",
+            "Mani": "U20 CAF Championship"
+        },
+        {
+            "IdMani": "35309",
+            "Mani": "U20 Campeonato Brasileiro"
+        },
+        {
+            "IdMani": "35310",
+            "Mani": "U20 Campeonato Brasileiro"
+        },
+        {
+            "IdMani": "3156",
+            "Mani": "U20 CONCACAF Champ."
+        },
+        {
+            "IdMani": "22991",
+            "Mani": "U20 CONCACAF Champ. Women"
+        },
+        {
+            "IdMani": "3966",
+            "Mani": "U20 CONMEBOL Champ (F)"
+        },
+        {
+            "IdMani": "3079",
+            "Mani": "U20 CONMEBOL Champ."
+        },
+        {
+            "IdMani": "35311",
+            "Mani": "U20 Copa Internacional Ipiranga"
+        },
+        {
+            "IdMani": "7540",
+            "Mani": "U20 Copa Libertadores"
+        },
+        {
+            "IdMani": "15810",
+            "Mani": "U20 COSAFA Championship"
+        },
+        {
+            "IdMani": "75215",
+            "Mani": "U20 Franz Josef Cup"
+        },
+        {
+            "IdMani": "1697",
+            "Mani": "U20 International Friendly"
+        },
+        {
+            "IdMani": "15285",
+            "Mani": "U20 Women World Cup"
+        },
+        {
+            "IdMani": "3429",
+            "Mani": "U20 World Cup "
+        },
+        {
+            "IdMani": "9735",
+            "Mani": "U21 Allsvenskan Norra"
+        },
+        {
+            "IdMani": "11131",
+            "Mani": "U21 Allsvenskan Sodra"
+        },
+        {
+            "IdMani": "3994",
+            "Mani": "U21 Commonwealth Cup"
+        },
+        {
+            "IdMani": "75108",
+            "Mani": "U21 Euro 2015 (in Czech Rep)"
+        },
+        {
+            "IdMani": "19025",
+            "Mani": "U21 Euro Championship"
+        },
+        {
+            "IdMani": "2040",
+            "Mani": "U21 Euro Qual. "
+        },
+        {
+            "IdMani": "2038",
+            "Mani": "U21 Euro Qualifying "
+        },
+        {
+            "IdMani": "8350",
+            "Mani": "U21 Repubblica Ceca"
+        },
+        {
+            "IdMani": "11841",
+            "Mani": "U21 Svezia Allsvenskan Norra"
+        },
+        {
+            "IdMani": "3967",
+            "Mani": "U22 AFC Championship"
+        },
+        {
+            "IdMani": "74436",
+            "Mani": "U23 AFC Championship"
+        },
+        {
+            "IdMani": "34890",
+            "Mani": "U23 Africa Cup of Nations"
+        },
+        {
+            "IdMani": "17315",
+            "Mani": "U23 Amichevoli Internazionali (F)"
+        },
+        {
+            "IdMani": "4821",
+            "Mani": "U23 Asian Games"
+        },
+        {
+            "IdMani": "5952",
+            "Mani": "U23 CAF African Championship"
+        },
+        {
+            "IdMani": "3595",
+            "Mani": "U23 Gulf Olympic Cup"
+        },
+        {
+            "IdMani": "10793",
+            "Mani": "U23 Touloun Tournament"
+        },
+        {
+            "IdMani": "15182",
+            "Mani": "UAE Division 1"
+        },
+        {
+            "IdMani": "1133",
+            "Mani": "UAE Emirates Cup"
+        },
+        {
+            "IdMani": "6036",
+            "Mani": "UAE League Cup"
+        },
+        {
+            "IdMani": "8359",
+            "Mani": "UAE Presidents Cup"
+        },
+        {
+            "IdMani": "1274",
+            "Mani": "UAE Pro League"
+        },
+        {
+            "IdMani": "22992",
+            "Mani": "UAE Super Cup"
+        },
+        {
+            "IdMani": "3150",
+            "Mani": "UAFA Cup"
+        },
+        {
+            "IdMani": "198",
+            "Mani": "Ucraina Coppa"
+        },
+        {
+            "IdMani": "2623",
+            "Mani": "Ucraina First Liga"
+        },
+        {
+            "IdMani": "5748",
+            "Mani": "Ucraina Persha Liga"
+        },
+        {
+            "IdMani": "197",
+            "Mani": "Ucraina Premier League"
+        },
+        {
+            "IdMani": "199",
+            "Mani": "Ucraina Supercoppa"
+        },
+        {
+            "IdMani": "31123",
+            "Mani": "Uefa 2020 Qual"
+        },
+        {
+            "IdMani": "523",
+            "Mani": "UEFA Champions League"
+        },
+        {
+            "IdMani": "621",
+            "Mani": "UEFA Champions League"
+        },
+        {
+            "IdMani": "75399",
+            "Mani": "UEFA Champions League (F) "
+        },
+        {
+            "IdMani": "735",
+            "Mani": "UEFA Champions League Q."
+        },
+        {
+            "IdMani": "622",
+            "Mani": "UEFA Champions League Qual."
+        },
+        {
+            "IdMani": "616",
+            "Mani": "UEFA EURO"
+        },
+        {
+            "IdMani": "253",
+            "Mani": "UEFA EURO"
+        },
+        {
+            "IdMani": "1407",
+            "Mani": "Uefa Euro 2012"
+        },
+        {
+            "IdMani": "11181",
+            "Mani": "UEFA Euro 2016 (F)"
+        },
+        {
+            "IdMani": "5370",
+            "Mani": "UEFA Euro 2016 Playoffs"
+        },
+        {
+            "IdMani": "29518",
+            "Mani": "UEFA Euro 2020 Qual."
+        },
+        {
+            "IdMani": "5880",
+            "Mani": "UEFA Euro Qual. (F)"
+        },
+        {
+            "IdMani": "748",
+            "Mani": "UEFA EURO Qualif."
+        },
+        {
+            "IdMani": "618",
+            "Mani": "UEFA EURO Qualif."
+        },
+        {
+            "IdMani": "1210",
+            "Mani": "UEFA EURO U17 Qualif."
+        },
+        {
+            "IdMani": "972",
+            "Mani": "UEFA EURO U19"
+        },
+        {
+            "IdMani": "900",
+            "Mani": "UEFA EURO U19 Qualif."
+        },
+        {
+            "IdMani": "747",
+            "Mani": "UEFA EURO U21"
+        },
+        {
+            "IdMani": "619",
+            "Mani": "UEFA EURO U21"
+        },
+        {
+            "IdMani": "620",
+            "Mani": "UEFA EURO U21 Qualif."
+        },
+        {
+            "IdMani": "749",
+            "Mani": "UEFA EURO U21 Qualif."
+        },
+        {
+            "IdMani": "736",
+            "Mani": "UEFA Europa  League Q."
+        },
+        {
+            "IdMani": "623",
+            "Mani": "UEFA Europa League"
+        },
+        {
+            "IdMani": "524",
+            "Mani": "UEFA Europa League"
+        },
+        {
+            "IdMani": "624",
+            "Mani": "UEFA Europa League Qualif."
+        },
+        {
+            "IdMani": "29519",
+            "Mani": "UEFA Nations League (Finals in Portugal)"
+        },
+        {
+            "IdMani": "24704",
+            "Mani": "UEFA Nations League A"
+        },
+        {
+            "IdMani": "24705",
+            "Mani": "UEFA Nations League B"
+        },
+        {
+            "IdMani": "25537",
+            "Mani": "UEFA Nations League C"
+        },
+        {
+            "IdMani": "25914",
+            "Mani": "UEFA Nations League D"
+        },
+        {
+            "IdMani": "8696",
+            "Mani": "UEFA Olympic Qualification (F)"
+        },
+        {
+            "IdMani": "526",
+            "Mani": "UEFA Supercoppa Europea"
+        },
+        {
+            "IdMani": "2401",
+            "Mani": "UEFA WC Qualification"
+        },
+        {
+            "IdMani": "3718",
+            "Mani": "UEFA WC Qualifying (F)"
+        },
+        {
+            "IdMani": "3679",
+            "Mani": "UEFA Youth League"
+        },
+        {
+            "IdMani": "18922",
+            "Mani": "Uganda Cup"
+        },
+        {
+            "IdMani": "4897",
+            "Mani": "Uganda Premier League"
+        },
+        {
+            "IdMani": "3483",
+            "Mani": "Uhren Cup (in Switzerland)"
+        },
+        {
+            "IdMani": "4945",
+            "Mani": "Ukraine U19 League"
+        },
+        {
+            "IdMani": "4817",
+            "Mani": "Ukraine U21 League"
+        },
+        {
+            "IdMani": "201",
+            "Mani": "Ungheria Coppa"
+        },
+        {
+            "IdMani": "1322",
+            "Mani": "Ungheria Coppa Di Lega"
+        },
+        {
+            "IdMani": "200",
+            "Mani": "Ungheria NB I"
+        },
+        {
+            "IdMani": "33809",
+            "Mani": "Ungheria NB I (F)"
+        },
+        {
+            "IdMani": "4859",
+            "Mani": "Ungheria NB II"
+        },
+        {
+            "IdMani": "173",
+            "Mani": "Ungheria Supercoppa"
+        },
+        {
+            "IdMani": "3482",
+            "Mani": "Universiade Men (in Kazan)"
+        },
+        {
+            "IdMani": "3488",
+            "Mani": "Universiade Women (in Kazan)"
+        },
+        {
+            "IdMani": "241",
+            "Mani": "Uruguay Primera"
+        },
+        {
+            "IdMani": "5002",
+            "Mani": "Uruguay Segunda Division"
+        },
+        {
+            "IdMani": "18896",
+            "Mani": "Uruguay Torneo Intermedio"
+        },
+        {
+            "IdMani": "242",
+            "Mani": "USA  MLS"
+        },
+        {
+            "IdMani": "74205",
+            "Mani": "USA Carolina Challenge Cup"
+        },
+        {
+            "IdMani": "243",
+            "Mani": "USA D2"
+        },
+        {
+            "IdMani": "17014",
+            "Mani": "USA Desert Diamond Cup"
+        },
+        {
+            "IdMani": "883",
+            "Mani": "USA MLS"
+        },
+        {
+            "IdMani": "33805",
+            "Mani": "USA National Womens Soccer League"
+        },
+        {
+            "IdMani": "19562",
+            "Mani": "USA NPSL"
+        },
+        {
+            "IdMani": "4630",
+            "Mani": "USA NWSL"
+        },
+        {
+            "IdMani": "244",
+            "Mani": "USA Open Cup"
+        },
+        {
+            "IdMani": "18806",
+            "Mani": "USA Premier Development League"
+        },
+        {
+            "IdMani": "10845",
+            "Mani": "USA United Soccer League"
+        },
+        {
+            "IdMani": "35006",
+            "Mani": "USA USL Championship"
+        },
+        {
+            "IdMani": "31140",
+            "Mani": "USA USL League One"
+        },
+        {
+            "IdMani": "31141",
+            "Mani": "USA USL League One"
+        },
+        {
+            "IdMani": "31142",
+            "Mani": "USA USL League Two"
+        },
+        {
+            "IdMani": "12461",
+            "Mani": "USA USL Pro"
+        },
+        {
+            "IdMani": "1597",
+            "Mani": "Uzbekistan  PFL"
+        },
+        {
+            "IdMani": "19524",
+            "Mani": "Uzbekistan Cup"
+        },
+        {
+            "IdMani": "1327",
+            "Mani": "Venezuela Coppa"
+        },
+        {
+            "IdMani": "717",
+            "Mani": "Venezuela Primera"
+        },
+        {
+            "IdMani": "13209",
+            "Mani": "Venezuela Segunda Division"
+        },
+        {
+            "IdMani": "1228",
+            "Mani": "Victory Shield U16"
+        },
+        {
+            "IdMani": "11383",
+            "Mani": "Vietnam Cup"
+        },
+        {
+            "IdMani": "10400",
+            "Mani": "Vietnam League 2"
+        },
+        {
+            "IdMani": "16058",
+            "Mani": "Vietnam Super Cup"
+        },
+        {
+            "IdMani": "3443",
+            "Mani": "Vietnam V League"
+        },
+        {
+            "IdMani": "17855",
+            "Mani": "Vietnam V League 2"
+        },
+        {
+            "IdMani": "809",
+            "Mani": "Viktor Bannikov Tour U16 (80 Minuti)"
+        },
+        {
+            "IdMani": "1992",
+            "Mani": "vinc Gruppo A"
+        },
+        {
+            "IdMani": "1993",
+            "Mani": "vinc Gruppo B"
+        },
+        {
+            "IdMani": "1994",
+            "Mani": "vinc Gruppo C"
+        },
+        {
+            "IdMani": "1995",
+            "Mani": "vinc Gruppo D"
+        },
+        {
+            "IdMani": "1991",
+            "Mani": "Vincente Euro"
+        },
+        {
+            "IdMani": "2275",
+            "Mani": "Vincente Supercoppa"
+        },
+        {
+            "IdMani": "613",
+            "Mani": "Vincente Torneo di Viareggio"
+        },
+        {
+            "IdMani": "3021",
+            "Mani": "WAFF Championship"
+        },
+        {
+            "IdMani": "20896",
+            "Mani": "WAFU Cup of Nations (in Ghana)"
+        },
+        {
+            "IdMani": "29116",
+            "Mani": "Walles Cymru Alliance League"
+        },
+        {
+            "IdMani": "3468",
+            "Mani": "Womens Euro 2013 "
+        },
+        {
+            "IdMani": "5369",
+            "Mani": "Womens Euro Qualifying"
+        },
+        {
+            "IdMani": "4393",
+            "Mani": "Yemen Cup"
+        },
+        {
+            "IdMani": "3223",
+            "Mani": "Yemen League"
+        },
+        {
+            "IdMani": "24613",
+            "Mani": "Zambia Premier League"
+        },
+        {
+            "IdMani": "24126",
+            "Mani": "Zimbabwe Premier League"
+        }
+    ]
+}

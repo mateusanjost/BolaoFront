@@ -299,7 +299,3 @@ export class AppComponent {
   }
 
 }
-
-$(document).ready(function(){
-  $('#btnPopoover').popover();
-})

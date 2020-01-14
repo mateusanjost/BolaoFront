@@ -48,6 +48,8 @@ export class JurisdictionComponent implements OnInit {
   jurisdictionForm = this.fb.group({
     jurisdictionId: ['', Validators.required],
     login: ['', Validators.required],
+    //commission: ['', Validators.required],
+    commission: [0],
     password: ['', Validators.required],
     confirmPassword: ['', Validators.required],
     email: ['', [Validators.required,Validators.email] ] ,
@@ -59,6 +61,8 @@ export class JurisdictionComponent implements OnInit {
   TREE_USERS: JurisdictionNode[] = [];
   treeControl = new NestedTreeControl<JurisdictionNode>(node => node.children);
   dataSource = new MatTreeNestedDataSource<JurisdictionNode>();
+
+  userSelected: any;
 
   constructor(private configService: ConfigService, private appComponent: AppComponent, private fb: FormBuilder, private router: Router) { }
 
@@ -80,7 +84,8 @@ export class JurisdictionComponent implements OnInit {
   listUsers(){
     this.configService.getUsersTreeList(this.appComponent.userAdmin.id)
     .subscribe(data => {
-      this.treeList = data.filter(x => x.jurisdictionId != 6); // remove club
+      //this.treeList = data.filter(x => x.jurisdictionId != 6); // remove club
+      this.treeList = data;
       this.treeListRemove = data;
     }, error => {
       console.log(error);
@@ -119,11 +124,25 @@ export class JurisdictionComponent implements OnInit {
     });
   }
 
+  updateListUsers(jurisdictionLevel: number){
+    this.configService.GetJurisdictionLevelByUser(this.appComponent.userAdmin.id, jurisdictionLevel)
+    .subscribe(data => {
+      //this.treeList = data.filter(x => x.jurisdictionId != 6); // remove club
+      this.treeList = data;
+      this.treeListRemove = data;
+      this.jurisdictionForm.get("parentId").enable();
+      this.selectSingleParent();
+    }, error => {
+      console.log(error);
+    });
+  }
+
   addNewUserAdmin(frame) { 
     let newUser: UserLoginForm = {
       email: this.jurisdictionForm.get('email').value,
       jurisdictionId: this.jurisdictionForm.get('jurisdictionId').value,
       login: this.jurisdictionForm.get('login').value,
+      commission: this.jurisdictionForm.get('commission').value,
       //obs: this.jurisdictionForm.get('obs').value,
       parentId: this.jurisdictionForm.get('parentId').value,
       password: this.jurisdictionForm.get('password').value,      
@@ -139,7 +158,7 @@ export class JurisdictionComponent implements OnInit {
       frame.hide();
     }, error => {
       console.log(error);
-      this.appComponent.msgStandard("Operação Não Realizada", "Houve algum erro no processamento da requisição.", 4);
+      this.appComponent.msgStandard("Operação Não Realizada", "Houve algum erro no processamento da requisição. Tente mais tarde ou fale com a Assistência.", 4);
     });
   }
 
@@ -212,6 +231,12 @@ export class JurisdictionComponent implements OnInit {
 
   emailErrado() {
     this.emailOk = !this.jurisdictionForm.get('email').hasError('email');
+  }
+
+  selectSingleParent(){
+    if(this.treeList.length == 1){
+      this.userSelected = this.treeList[0].id;
+    }
   }
   
 }
