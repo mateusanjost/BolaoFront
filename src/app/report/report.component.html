@@ -2,7 +2,7 @@
     <!-- Card -->
     <div class="card mb-5">
         <!-- Card content -->
-        <div class="card-body">
+        <div class="card-body bg-theme">
                 <div class="col-12 pt-3">
                     <h3>Relatórios</h3>
                 </div>
@@ -48,7 +48,7 @@
                         </mat-form-field>
                     </div>
                     <div class="col-12 pl-0 text-right">
-                        <button type="submit" mdbBtn color="primary" class="waves-light" mdbWavesEffect
+                        <button type="submit" mdbBtn class="waves-light button-bg-theme button-font" mdbWavesEffect
                             (click)="getReport()">Gerar Relatório</button>
                     </div>
                 </form>
@@ -141,7 +141,7 @@
 
                 
             </table>
-            <mat-paginator [pageSize]="25" [pageSizeOptions]="[10, 25, 50]" showFirstLastButtons></mat-paginator>
+            <mat-paginator class="bg-theme" [pageSize]="25" [pageSizeOptions]="[10, 25, 50]" showFirstLastButtons></mat-paginator>
         </div>
     </div>
     <!-- Card -->

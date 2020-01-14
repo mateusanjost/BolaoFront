@@ -18,3 +18,64 @@ body {
 .cdk-global-overlay-wrapper, .cdk-overlay-container {
     z-index: 99999 !important;
  }
+
+ .bg-theme{
+    background-color: #1f1f1f !important;
+    color: white ;    
+ }
+
+ .button-bg-theme{
+    background-image: linear-gradient(#f8cb24, #e39711);    
+    &.button-font{
+        color:white ;
+        font-weight: 600;
+    }    
+ }
+
+ .list-group-item{
+    border: 1px solid rgba(255,255,255, 0.125);
+ }
+
+ .dropdown-menu{
+    a {
+        color: white !important;
+    }
+    a:hover{
+        background-color: #7f7f7f;
+    }
+ }
+
+ mat-label{
+    color: white;
+ }
+
+ .mat-form-field-label {
+    color: white !important; 
+ }
+
+
+ button {
+    span {
+        color: white;   
+    }     
+
+ }
+
+ .table{
+     color:white;
+ }
+
+ .mat-table{
+    background-color: #1f1f1f !important;
+    .mat-header-cell {
+        color: white !important ;
+    }
+ }
+
+ hr{
+     background-color: white;
+ }
+
+ .button-header{
+    border-bottom: 7px rgb(243, 192, 32) solid;
+}

@@ -3,7 +3,7 @@
     <!-- Card -->
     <div class="card mb-5">
         <!-- Card content -->
-        <div class="card-body">
+        <div class="card-body bg-theme">
             <div class="row">
                 <div class="col-12 pt-3">
                     <h3>Postar resultado</h3>
@@ -20,16 +20,16 @@
                 </div>
                 <div class="col-12 pb-3" *ngIf="isLoaded">
                     <ul class="list-group">
-                        <li class="list-group-item" *ngFor="let game of responseGames; let i = index" style="text-align: center">
+                        <li class="list-group-item bg-theme" *ngFor="let game of responseGames; let i = index" style="text-align: center">
                             {{ game.teamHome }} X {{ game.teamVisit }}
                             <!-- Default input -->
-                            <input type="text" id="home-score{{i}}" class="form-control" value="{{ game.homeTeamScore }}">
-                            <input type="text" id="visit-score{{i}}" class="form-control" value="{{ game.awayTeamScore }}">
+                            <input type="text" id="home-score{{i}}" class="form-control bg-theme" value="{{ game.homeTeamScore }}">
+                            <input type="text" id="visit-score{{i}}" class="form-control bg-theme" value="{{ game.awayTeamScore }}">
                         </li>
                     </ul>
                 </div>
                 <div class="col-12 pb-3" style="text-align: center" *ngIf="isLoaded">
-                    <button class="m-0 p-2" type="button" mdbBtn color="primary" (click)="frame.show()"
+                    <button class="m-0 p-2 button-bg-theme button-font" type="button" mdbBtn (click)="frame.show()"
                         mdbWavesEffect>Postar Resultado</button>
                 </div>
             </div>
@@ -45,7 +45,7 @@
     [config]="{backdrop: false, ignoreBackdropClick: true}">
     <div class="modal-dialog modal-notify modal-warning" role="document">
         <!--Content-->
-        <div class="modal-content">
+        <div class="modal-content bg-theme">
             <!--Header-->
             <div class="modal-header">
                 <p class="heading lead">Confirmar Resultados</p>
@@ -72,9 +72,9 @@
 
             <!--Footer-->
             <div class="modal-footer justify-content-center">
-                <a type="button" mdbBtn color="primary" class="waves-light" mdbWavesEffect *ngIf="postingOk"
+                <a type="button" mdbBtn  class="waves-light button-bg-theme button-font" mdbWavesEffect *ngIf="postingOk"
                     (click)="confirmResults()">Confirmar</a>
-                <a type="button" mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect
+                <a type="button" mdbBtn outline="true" color="warning" class="waves-effect" mdbWavesEffect
                     (click)="frame.hide()" data-dismiss="modal">Voltar</a>
             </div>
         </div>
