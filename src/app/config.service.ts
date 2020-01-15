@@ -304,8 +304,8 @@ export class ConfigService {
     return this.http.get<Round[]>(`${this.apiUrl}/rounds/`);
   }
 
-  GetBetRadarTest(){
-    return this.http.get<any>("https://www.betflix.one/res/Client/wbe/OfferDetails.aspx?b=b&Startdate=2019-08-29%2015:13&EndDate=2020-10-29%2015:13&list=133&xver=2&lt=M&cl=3&uei=uniqueEventId&om=0");
+  GetBetradarMatches(idCompetition: number){
+    return this.http.get(`${this.apiUrl}/common/GetBetradarMatches/?idCompetition=`+idCompetition);
   }
 
   getBetRadarCompetitions(){

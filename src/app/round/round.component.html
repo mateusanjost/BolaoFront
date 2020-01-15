@@ -13,6 +13,7 @@
                     <button class="m-0 p-2 button-bg-theme button-theme" type="button" mdbBtn color="primary" (click)="creatingRound()"
                         mdbWavesEffect>Nova rodada</button>
                 </div>
+                <!--
                 <div class="col-12">
                     <p>Test no BetRadar</p>
 
@@ -28,36 +29,30 @@
                         </mat-form-field>
 
                         <mat-form-field class="competition-full-width">
-                            <input matInput placeholder="Partida" value="Matche">
+                            <input matInput placeholder="Partida" value="Match">
                         </mat-form-field>
 
-                        <!--Table-->
                         <table class="table table-striped" mdbTable mdbTableScroll scrollX="true" maxWidth="50%" bordered="true">
                 
-                            <!--Table head-->
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Data</th>
-                                    <th>Hora</th>
+                                    <th>Data/Hora</th>
                                     <th>Jogo</th>
+                                    <th>Ativar</th> 
                                 </tr>
                             </thead>
-                            <!--Table head-->
                 
-                            <!--Table body-->
                             <tbody>
-                                <tr>
-                                    <td>10</td>
-                                    <td>18/01/20</td>
-                                    <td>15:00</td>
-                                    <td>Tima A - Time B</td>
+                                <tr *ngFor="let match of betradarMatches; let i = index">
+                                    <td>{{ match.Events_Data2.EventsID }}</td>
+                                    <td>{{ match.Events_Data2.EventsDisplayDate }}</td>
+                                    <td>{{ match.Events_Data2.EventsName }}</td>
+                                    <td>Selecionar</td>
                                 </tr>
                             </tbody>
-                            <!--Table body-->
                 
                         </table>
-                        <!--Table-->
 
                       </form>
 
@@ -65,6 +60,7 @@
                         BetRadar
                     </button>
                 </div>
+                -->
                 <div class="col-12" *ngIf="isLoaded">
                     <p>Rodada Nº {{ idRound }} de {{ dateBegin | date: 'dd/MM/yyyy' }} até {{ dateEnd | date: 'dd/MM/yyyy' }}</p>
                 </div>

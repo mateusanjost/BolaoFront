@@ -52,6 +52,7 @@ export class RoundComponent implements OnInit {
   formBetradar: FormGroup;
   betRadarTest: any;
   betradarCompetitions: any;
+  betradarMatches: any;
 
   constructor(private configService: ConfigService, private appComponent: AppComponent, private router: Router) { }
 
@@ -262,22 +263,11 @@ export class RoundComponent implements OnInit {
 
   // --- BETRADAR IMPLEMANTATION --- //
   
-  testBetRadar(){
-    this.configService.GetBetRadarTest()
-    .subscribe(data => {
-      this.betRadarTest = data;
-      console.log(this.betRadarTest);
-    }, error => {
-      console.log(error);
-    });
-  }
-
   listBetradarCompetitions(){
     console.log("entrou");
     this.configService.getBetRadarCompetitions()
     .subscribe(data => {
       this.betradarCompetitions = data;
-      console.log(data);
 
       this.filteredOptions = this.myControl.valueChanges
       .pipe(
@@ -285,14 +275,20 @@ export class RoundComponent implements OnInit {
         map(value => typeof value === 'string' ? value : value.Mani),
         map(Mani => Mani ? this._filter(Mani) : this.betradarCompetitions.slice())
       );
-
     }, error => {
       console.log(error);
     });
   }
 
   seeGames(){
-    console.log("mostrar jogos" + this.formBetradar.value.myControl.IdMani);
+    let idCompetition = this.formBetradar.value.myControl.IdMani;
+    this.configService.GetBetradarMatches(idCompetition)
+    .subscribe(data => {
+      this.betradarMatches = data;
+    }, error => {
+      console.log(error);
+    });
+    //console.log("mostrar jogos" + this.formBetradar.value.myControl.IdMani);
   }
 
 }
