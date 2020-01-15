@@ -64,7 +64,7 @@ export class JurisdictionComponent implements OnInit {
 
   userSelected: any;
 
-  constructor(private configService: ConfigService, private appComponent: AppComponent, private fb: FormBuilder, private router: Router) { }
+  constructor(private configService: ConfigService, public appComponent: AppComponent, private fb: FormBuilder, private router: Router) { }
 
   hasChild = (_: number, node: JurisdictionNode) => !!node.children && node.children.length > 0;
 
