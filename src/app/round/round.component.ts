@@ -42,6 +42,7 @@ export class RoundComponent implements OnInit {
   errorCreation: boolean = false;
 
   betRadarTest: any;
+  betradarCompetitions: any;
 
   constructor(private configService: ConfigService, private appComponent: AppComponent, private router: Router) { }
 
@@ -244,8 +245,10 @@ export class RoundComponent implements OnInit {
   }
 
   listBetradarCompetitions(){
+    console.log("entrou");
     this.configService.getBetRadarCompetitions()
     .subscribe(data => {
+      this.betradarCompetitions = data;
       console.log(data);
     }, error => {
       console.log(error);
