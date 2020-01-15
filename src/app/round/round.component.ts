@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { ModalDirective } from 'angular-bootstrap-md';
 
 import { ConfigService } from '../config.service';
@@ -11,6 +11,10 @@ import { Router } from '@angular/router';
 import { Prize } from '../prize.interface';
 import { AppComponent } from '../app.component';
 
+import { BetradarComps } from '../betradar-comps';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
+
 @Component({
   selector: 'app-round',
   templateUrl: './round.component.html',
@@ -18,6 +22,10 @@ import { AppComponent } from '../app.component';
 })
 export class RoundComponent implements OnInit {
   @ViewChild('frame', { static: true }) modalCreate: ModalDirective;
+
+  //myControl = new FormControl();
+
+  filteredOptions: Observable<BetradarComps[]>;
 
   date = new FormControl(new Date());
   serializedDate = new FormControl((new Date()).toISOString());
@@ -41,6 +49,7 @@ export class RoundComponent implements OnInit {
   isLoaded: boolean = false;
   errorCreation: boolean = false;
 
+  formBetradar: FormGroup;
   betRadarTest: any;
   betradarCompetitions: any;
 
@@ -49,6 +58,25 @@ export class RoundComponent implements OnInit {
   ngOnInit() {
     this.getLastRound();
     this.listBetradarCompetitions();
+    
+    this.formBetradar = new FormGroup({
+      myControl: new FormControl('', Validators.required)
+    });
+
+  }
+
+  get myControl() {
+    return this.formBetradar.get('myControl');
+  }
+
+  displayFn(competition?: BetradarComps): string | undefined {
+    return competition ? competition.Mani : undefined;
+  }
+
+  private _filter(Mani: string): BetradarComps[] {
+    const filterValue = Mani.toLowerCase();
+
+    return this.betradarCompetitions.filter(comp => comp.Mani.toLowerCase().indexOf(filterValue) === 0);
   }
 
   getLastRound(){
@@ -250,9 +278,21 @@ export class RoundComponent implements OnInit {
     .subscribe(data => {
       this.betradarCompetitions = data;
       console.log(data);
+
+      this.filteredOptions = this.myControl.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => typeof value === 'string' ? value : value.Mani),
+        map(Mani => Mani ? this._filter(Mani) : this.betradarCompetitions.slice())
+      );
+
     }, error => {
       console.log(error);
     });
+  }
+
+  seeGames(){
+    console.log("mostrar jogos" + this.formBetradar.value.myControl.IdMani);
   }
 
 }

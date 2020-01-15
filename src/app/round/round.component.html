@@ -15,19 +15,52 @@
                 </div>
                 <div class="col-12">
                     <p>Test no BetRadar</p>
-                    <!--
-                    <form class="example-form">
-                        <mat-form-field class="example-full-width">
-                            <input type="text" placeholder="Assignee" aria-label="Assignee" matInput [formControl]="myControl"
-                                [matAutocomplete]="auto">
-                            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-                                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                                    {{option.name}}
-                                </mat-option>
-                            </mat-autocomplete>
+
+                    <form class="competition-form">
+
+                        <mat-form-field class="competition-full-width">
+                          <input type="text" placeholder="Competição" aria-label="Competição" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                            <mat-option *ngFor="let competition of filteredOptions | async" [value]="competition" (click)="seeGames()">
+                              {{competition.Mani}}
+                            </mat-option>
+                          </mat-autocomplete>
                         </mat-form-field>
-                    </form>
-                    -->
+
+                        <mat-form-field class="competition-full-width">
+                            <input matInput placeholder="Partida" value="Matche">
+                        </mat-form-field>
+
+                        <!--Table-->
+                        <table class="table table-striped" mdbTable mdbTableScroll scrollX="true" maxWidth="50%" bordered="true">
+                
+                            <!--Table head-->
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Data</th>
+                                    <th>Hora</th>
+                                    <th>Jogo</th>
+                                </tr>
+                            </thead>
+                            <!--Table head-->
+                
+                            <!--Table body-->
+                            <tbody>
+                                <tr>
+                                    <td>10</td>
+                                    <td>18/01/20</td>
+                                    <td>15:00</td>
+                                    <td>Tima A - Time B</td>
+                                </tr>
+                            </tbody>
+                            <!--Table body-->
+                
+                        </table>
+                        <!--Table-->
+
+                      </form>
+
                     <button type="button" mdbBtn class="button-bg-theme button-theme" (click)="listBetradarCompetitions()" mdbWavesEffect>
                         BetRadar
                     </button>
