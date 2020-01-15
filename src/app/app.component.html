@@ -47,6 +47,7 @@
                         <a class="dropdown-item waves-light" routerLink="/settings" href="#" mdbWavesEffect>CONFIGURAÇÕES</a>
                         <a class="dropdown-item waves-light" routerLink="/manage-ticket" href="#" mdbWavesEffect>GERENCIAR BILHETES</a>
                         <a class="dropdown-item waves-light" routerLink="/report" href="#" mdbWavesEffect>RELATÓRIO</a>
+                        <a class="dropdown-item waves-light" routerLink="/transactions" href="#" mdbWavesEffect>TRANSAÇÕES</a>
                         <div *ngIf="(userAdmin.jurisdictionId < 7)" class="divider dropdown-divider"></div>
                         <a *ngIf="(userAdmin.jurisdictionId < 7)" class="dropdown-item waves-light" routerLink="/jurisdiction" href="#" mdbWavesEffect>USUÁRIOS</a>
                         <a *ngIf="(userAdmin.jurisdictionId <= 2)" class="dropdown-item waves-light" routerLink="/credit-transfer" href="#" mdbWavesEffect>TRANSFERÊNCIA DE CRÉDITO</a>

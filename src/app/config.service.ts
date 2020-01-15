@@ -12,6 +12,7 @@ import { Jurisdiction } from './jurisdiction.interface';
 import { Contact } from './contact.interface';
 import { Report } from './report.interface';
 import { ReportFilter } from './report-filter.interface';
+import { Transaction } from './transaction.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -58,13 +59,13 @@ export class ConfigService {
     return this.http.get<Jurisdiction[]>(`${this.apiUrl}/common/GetJurisdictionsById?jurisdictionId=`+jurisdictionId);
   }
 
-  updateUserCredit(userId: number, credit: number){
+  updateUserCredit(fromUserId: number, credit: number, transactionType: number, toUserId: number = 0){
     const header = new HttpHeaders({
       'Content-type': 'application/json'
     });
 
     //return this.http.put<any>(`${this.apiUrl}/common/UpdateCreditTransfer/?userId=`+userId, credit, { headers: header });
-    return this.http.put<any>(`${this.apiUrl}/common/UpdateCreditTransfer/?userId=`+userId+'&credit='+credit, { headers: header });
+    return this.http.put<any>(`${this.apiUrl}/common/UpdateCreditTransfer/?fromUserId=`+fromUserId+'&toUserId='+toUserId+'&credit='+credit+'&transactionType='+transactionType, { headers: header });
   }
 
   updateUser(userId: number, user: User){
@@ -310,6 +311,10 @@ export class ConfigService {
 
   getBetRadarCompetitions(){
     return this.http.get('../../assets/data/betradar-list.json');
+  }
+
+  getTransactionsByUserId(userId){
+    return this.http.get<Transaction[]>(`${this.apiUrl}/transactions/` + userId);
   }
 
 }
