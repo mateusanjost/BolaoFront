@@ -53,7 +53,6 @@ body {
     color: white !important; 
  }
 
-
  button {
     span {
         color: white;   
@@ -74,8 +73,16 @@ body {
 
  hr{
      background-color: white;
+     margin-top: 0.5rem;
  }
 
  .button-header{
     border-bottom: 7px rgb(243, 192, 32) solid;
+}
+
+mat-nested-tree-node{
+    .mat-tree-node{
+        background-color: #1f1f1f !important;
+        color: white ;
+    }
 }

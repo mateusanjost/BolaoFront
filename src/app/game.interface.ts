@@ -8,4 +8,5 @@ export interface Game {
     awayTeamScore: number;
     dateTime: Date;
     id: number;
+    matchResult: string;
 }

@@ -21,10 +21,20 @@
                 <div class="col-12 pb-3" *ngIf="isLoaded">
                     <ul class="list-group">
                         <li class="list-group-item bg-theme" *ngFor="let game of responseGames; let i = index" style="text-align: center">
-                            {{ game.teamHome }} X {{ game.teamVisit }}
                             <!-- Default input -->
-                            <input type="text" id="home-score{{i}}" class="form-control bg-theme" value="{{ game.homeTeamScore }}">
-                            <input type="text" id="visit-score{{i}}" class="form-control bg-theme" value="{{ game.awayTeamScore }}">
+                            <div class="row m-0">
+                                <div class="col-md-9 text-center">
+                                    {{ game.teamHome }} X {{ game.teamVisit }}
+                                    <input type="text" id="home-score{{i}}" class="form-control bg-theme" value="{{ game.homeTeamScore }}" (keyup)="changeResult(i)">
+                                    <input type="text" id="visit-score{{i}}" class="form-control bg-theme" value="{{ game.awayTeamScore }}" (keyup)="changeResult(i)">
+                                </div>
+                                <div class="col-md-3">
+                                    Resultado:
+                                    <div id="match-result{{i}}" >
+                                        {{game.matchResult}}
+                                    </div>
+                                </div>
+                            </div>
                         </li>
                     </ul>
                 </div>

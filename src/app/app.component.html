@@ -86,13 +86,49 @@
 <!--Menu-->
 
 <!--Content Pages-->
-<router-outlet></router-outlet>
+<div class="container">
+    <div class="row p-2">
+        <div class="col-2">
+            <div class="row">
+                <!-- <div class="col-6 d-none d-lg-block side-column">
+                    <a href="#"><img class="img-fluid" src="../../assets/image/mobile-device.png"></a>
+                </div>
+                <div class="col-6 d-none d-lg-block side-column mb-0">
+                    <a href="#">layout MOBILE</a>
+                </div> -->
+                <div class="col-12 side-column mt-0 mb-0">
+                    <hr/>
+                    <!-- Search form -->
+                    <form class="form-inline md-form form-sm mt-0 pl-3">
+                        <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Procurar" aria-label="Search" style="margin: 0px !important;">
+                        <button class="btn btn-primary " style="box-shadow: none; padding: 0px; background-color:rgba(0, 0, 0, 0.0) !important"><i class="fas fa-search" aria-hidden="true"></i></button>
+                    </form>
+                </div>
+                <app-roundgroups class="col-12"></app-roundgroups>
+            </div>
+        </div>
+
+        <div class="col-md-8 mt-2"> 
+            
+            <router-outlet></router-outlet>
+        </div>
+        
+        <div class="col-md-2">
+            <div class="row mt-2" style="background-color: #3d3d3d;">
+                <div class="col-12 p-0">
+                    <div class="side-menu">SUAS APOSTAS</div>
+                    <div style="color: white; padding: 10px;">Não há apostas disponíveis</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!--Content Pages-->
 
 <app-loader></app-loader>
 
 <!-- Footer -->
-<div class="col-md-12 my-footer">
+<div class="col-12 my-footer">
     <!-- Copyright -->
     <div class="footer-copyright text-center py-1 align-text-top">&copy; 2019 Copyright: jogobrasil.com.br
     </div>
