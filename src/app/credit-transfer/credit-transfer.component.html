@@ -3,7 +3,7 @@
     <div class="card mb-5">
         <!-- Card content -->
 
-        <div class="card-body" *ngIf="!isLoaded" id="spinner-loading">
+        <div class="card-body bg-theme" *ngIf="!isLoaded" id="spinner-loading">
             <!-- Loading (desapears when is loaded) -->
             <div  class="justify-content-center">Carregando...
                 <div class="spinner-border"role="status">
@@ -12,7 +12,7 @@
             </div>
         </div>
 
-        <div class="card-body" *ngIf="isLoaded">
+        <div class="card-body bg-theme" *ngIf="isLoaded">
             <div class="row">
                 <div class="col-12 pt-3">
                     <h3>Transferência de Crédito</h3>
@@ -58,13 +58,13 @@
                         </p>
                         <p>
                             <mat-form-field>
-                                <input matInput placeholder="Valor *" [formControl]="credit">
+                                <input style="color: white;" matInput placeholder="Valor *" [formControl]="credit">
                             </mat-form-field>
                         </p>
                         <p>
                             <!--<button mat-raised-button color="success" [disabled]="f.invalid" (click)="onSubmit()">Transferir</button>
                             <button mdbBtn color="default" class="waves-light" (click)="onSubmit()" mdbWavesEffect>Transferir</button>-->
-                            <button mdbBtn color="default" class="waves-light" mdbWavesEffect type="submit" [disabled]="!formTransfer.valid">Transferir</button>
+                            <button mdbBtn class="waves-light button-bg-theme button-font" mdbWavesEffect type="submit" [disabled]="!formTransfer.valid">Transferir</button>
                         </p>
                     </form>
                 </div>
@@ -78,7 +78,7 @@
 <div mdbModal #frame="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog"
     aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content bg-theme">
             <div class="modal-header text-center">
                 <h4 class="modal-title font-weight-bold" style="text-align: left;">Confirmar Transferência</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
@@ -96,8 +96,8 @@
                 </div>
             </div>
             <div class="modal-footer d-flex justify-content-start">
-                <button mdbBtn color="default" class="waves-light" (click)="confirmTransfer()" mdbWavesEffect>Confirmar</button>
-                <button mdbBtn color="default" class="waves-light" (click)="frame.hide()" mdbWavesEffect>Fechar</button>
+                <button mdbBtn class="waves-light button-bg-theme button-font" (click)="confirmTransfer()" mdbWavesEffect>Confirmar</button>
+                <button mdbBtn color="warning" outline="true" class="waves-light" (click)="frame.hide()" mdbWavesEffect>Fechar</button>
             </div>
         </div>
     </div>

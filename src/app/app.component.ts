@@ -293,9 +293,9 @@ export class AppComponent {
 
   listClick(event){
     console.log(event.currentTarget.id);
-    if(document.getElementsByClassName('selected').length > 0)
-      document.getElementsByClassName('selected')[0].classList.remove('selected');
-    document.getElementById(event.currentTarget.id).classList.add('selected');
+    if(document.getElementsByClassName('button-header').length > 0)
+      document.getElementsByClassName('button-header')[0].classList.remove('button-header');
+    document.getElementById(event.currentTarget.id).classList.add('button-header');
   }
 
 }

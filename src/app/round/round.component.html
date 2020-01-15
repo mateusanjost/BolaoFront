@@ -3,30 +3,32 @@
     <!-- Card -->
     <div class="card mb-5">
         <!-- Card content -->
-        <div class="card-body">
+        <div class="card-body bg-theme">
             <!--Showing current round-->
             <div class="row" *ngIf="!creatingNew">
                 <div class="col-6 pt-3">
                     <h3>Rodadas</h3>
                 </div>
                 <div class="col-6 pt-3">
-                    <button class="m-0 p-2" type="button" mdbBtn color="primary" (click)="creatingRound()"
-                        mdbWavesEffect>Nova
-                        rodada</button>
+                    <button class="m-0 p-2 button-bg-theme button-theme" type="button" mdbBtn color="primary" (click)="creatingRound()"
+                        mdbWavesEffect>Nova rodada</button>
                 </div>
                 <div class="col-12">
                     <p>Test no BetRadar</p>
-                
-                    <mat-form-field>
-                        <mat-label>Betradar Competições</mat-label>
-                        <mat-select>
-                            <mat-option *ngFor="let competitions of betradarCompetitions" [value]="competitions.IdMani">
-                                {{competitions.Mani}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                
-                    <button type="button" mdbBtn color="success" (click)="listBetradarCompetitions()" mdbWavesEffect>
+                    <!--
+                    <form class="example-form">
+                        <mat-form-field class="example-full-width">
+                            <input type="text" placeholder="Assignee" aria-label="Assignee" matInput [formControl]="myControl"
+                                [matAutocomplete]="auto">
+                            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                    {{option.name}}
+                                </mat-option>
+                            </mat-autocomplete>
+                        </mat-form-field>
+                    </form>
+                    -->
+                    <button type="button" mdbBtn class="button-bg-theme button-theme" (click)="listBetradarCompetitions()" mdbWavesEffect>
                         BetRadar
                     </button>
                 </div>
@@ -41,7 +43,7 @@
                 </div>
                 <div class="col-12 pb-3">
                     <ul class="list-group">
-                        <li class="list-group-item" *ngFor="let game of responseGames; let i = index">
+                        <li class="list-group-item bg-theme" *ngFor="let game of responseGames; let i = index">
                                 <div class="row">
                                 <div class="col" style="text-align: right;">{{ game.teamHome }}</div>
                                 <div class="col"style="text-align: center"> X </div>
@@ -76,14 +78,14 @@
 
                         <!-- Grid column -->
                         <div class="col" style="text-align: right">
-                            <button class="m-0 p-2" type="button" mdbBtn color="danger" (click)="cancelingCreation()"
+                            <button class="m-0 p-2" type="button" outline="true" mdbBtn color="warning" (click)="cancelingCreation()"
                                 mdbWavesEffect>Cancelar</button>
                         </div>
                         <!-- Grid column -->
                     </div>
                     <div class="col-12 pb-3">
                         <ul class="list-group">
-                            <li class="list-group-item" *ngFor="let game of responseGames; let i = index"
+                            <li class="list-group-item bg-theme" *ngFor="let game of responseGames; let i = index"
                                 style="text-align: center">
                                 <h5 style="text-align: center">Jogo {{ i + 1 }}</h5>
                                 <div class="form-row">
@@ -102,19 +104,19 @@
                                     <!-- Grid column -->
                                     <div class="col">
                                         Horário: 
-                                        <input type="text" id="hour{{ i }}" value="16:00"/>
+                                        <input type="text" class="bg-theme" id="hour{{ i }}" value="16:00"/>
                                     </div>
                                     <!-- Grid column -->
                                 </div>
                                 <div class="col">
-                                    Mandante: <input type="text" id="teamA{{ i }}"/>
-                                    Visitante: <input type="text" id="teamB{{ i }}"/>
+                                    Mandante: <input type="text" class="bg-theme" id="teamA{{ i }}"/>
+                                    Visitante: <input type="text" class="bg-theme" id="teamB{{ i }}"/>
                                 </div>
                             </li>
                         </ul>
                     </div>
                     <div class="col-12 pb-3" style="text-align: center">
-                        <button class="m-0 p-2" type="button" mdbBtn color="primary" (click)="frame.show()"
+                        <button class="m-0 p-2 button-bg-theme button-font" type="button" mdbBtn (click)="frame.show()"
                             mdbWavesEffect>Ativar nova rodada</button>
                     </div>
                 </div>
@@ -133,7 +135,7 @@
     [config]="{backdrop: false, ignoreBackdropClick: true}">
     <div class="modal-dialog modal-notify modal-warning" role="document">
         <!--Content-->
-        <div class="modal-content">
+        <div class="modal-content bg-theme">
             <!--Header-->
             <div class="modal-header">
                 <p class="heading lead">Confirmar Rodada</p>
@@ -171,9 +173,9 @@
 
             <!--Footer-->
             <div class="modal-footer justify-content-center">
-                <a type="button" mdbBtn color="primary" class="waves-light" mdbWavesEffect *ngIf="testForm"
+                <a type="button" mdbBtn  class="waves-light button-bg-theme button-font" mdbWavesEffect *ngIf="testForm"
                     (click)="confirmRound()">Confirmar</a>
-                <a type="button" mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect
+                <a type="button" mdbBtn color="warning" outline="true" class="waves-effect" mdbWavesEffect
                     (click)="frame.hide()" data-dismiss="modal">Voltar</a>
             </div>
         </div>

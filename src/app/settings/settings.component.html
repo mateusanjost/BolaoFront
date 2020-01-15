@@ -3,7 +3,7 @@
     <div class="card mb-5">
         <!-- Card content -->
 
-        <div class="card-body" *ngIf="!isLoaded" id="spinner-loading">
+        <div class="card-body bg-theme" *ngIf="!isLoaded" id="spinner-loading">
             <!-- Loading (desapears when is loaded) -->
             <div class="justify-content-center">Carregando...
                 <div class="spinner-border" role="status">
@@ -12,12 +12,12 @@
             </div>
         </div>
 
-        <div class="card-body" *ngIf="isLoaded">
+        <div class="card-body bg-theme" *ngIf="isLoaded">
             <div class="row">
                 <div class="col-12 pt-3">
                     <h3>Configurações</h3>
                     <div class="row">
-                        <div class="col-md-4">Login: {{user.login}} <a style="color: blue; text-decoration: underline" (click)="frame2.show()">(alterar senha)</a></div>
+                        <div class="col-md-4">Login: {{user.login}} <a style="color: white; text-decoration: underline" (click)="frame2.show()">(alterar senha)</a></div>
                         <div class="col-md-4">
                             <span *ngIf="creditVisibility">Crédito: {{ownCredit}} </span>
                             <span *ngIf="!creditVisibility">Crédito: </span>
@@ -33,7 +33,7 @@
                         <div class="col-md-4">Cidade: {{ user.city }}</div>
                     </div>
                     <div class="col-12" style="text-align: center;">
-                        <button class="mt-1 p-2" type="button" mdbBtn color="primary" (click)="frame.show()" mdbWavesEffect>Alterar Dados</button>
+                        <button class="mt-1 p-2 button-bg-theme button-font" type="button" mdbBtn (click)="frame.show()" mdbWavesEffect>Alterar Dados</button>
                     </div>
                 </div>
             </div>

@@ -43,7 +43,7 @@
                 <li class="nav-item dropdown btn-group" id="headerManager" (click)="listClick($event)" *ngIf="isLogged" dropdown>
                     <a dropdownToggle type="button" class="nav-link dropdown-toggle waves-light admin-style" mdbWavesEffect>
                         GERENCIAMENTO<span class="caret"></span></a>
-                    <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                    <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary bg-theme" role="menu">
                         <a class="dropdown-item waves-light" routerLink="/settings" href="#" mdbWavesEffect>CONFIGURAÇÕES</a>
                         <a class="dropdown-item waves-light" routerLink="/manage-ticket" href="#" mdbWavesEffect>GERENCIAR BILHETES</a>
                         <a class="dropdown-item waves-light" routerLink="/report" href="#" mdbWavesEffect>RELATÓRIO</a>
@@ -104,7 +104,7 @@
 <div mdbModal #frame="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog"
     aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content bg-theme">
             <div class="modal-header text-center">
                 <h4 class="modal-title w-100 font-weight-bold">Entrar</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
@@ -125,12 +125,12 @@
                     <input type="password" id="defaultForm-pass" [formControl]="loginFormModalPassword"
                         class="form-control" mdbInput mdbValidate>
                     <label for="defaultForm-pass">Senha</label>
-                    <p><a (click)="forgetPassword()" style="color: blue">Esqueceu usuário ou senha</a></p>
+                    <p><a (click)="forgetPassword()" style="color: white">Esqueceu usuário ou senha</a></p>
                 </div>
 
             </div>
             <div class="modal-footer d-flex justify-content-center">
-                <button mdbBtn color="default" class="waves-light" (click)="getLogin()" mdbWavesEffect>Login</button><br/>
+                <button mdbBtn color="default" class="waves-light button-bg-theme button-font" (click)="getLogin()" mdbWavesEffect>Login</button><br/>
             </div>
             
         </div>
@@ -142,7 +142,7 @@
 <div mdbModal #frame3="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog"
     aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
     <div class="modal-dialog-scrollable" role="document">
-        <div class="modal-content">
+        <div class="modal-content bg-theme">
             <div class="modal-header text-center">
                 <h4 class="modal-title w-100 font-weight-bold">Cadastro</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame3.hide()">
@@ -195,7 +195,7 @@
               </div>
             </div>
             <div class="modal-footer d-flex justify-content-center">
-                <button mdbBtn color="default" class="waves-light" mdbWavesEffect (click)="register()">Registrar-se</button>
+                <button mdbBtn class="waves-light button-bg-theme button-font" mdbWavesEffect (click)="register()">Registrar-se</button>
                 <!--<button mdbBtn color="default" class="waves-light" (click)="frame3.hide()" mdbWavesEffect>Cancelar</button>-->
             </div>
         </div>
@@ -207,7 +207,7 @@
 <div mdbModal #frame2="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog"
     aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content bg-theme">
             <div class="modal-header text-center">
                 <h4 class="modal-title w-100 font-weight-bold">Esqueceu Credenciais</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame2.hide()">
@@ -225,7 +225,7 @@
 
             </div>
             <div class="modal-footer d-flex justify-content-center">
-                <button mdbBtn color="default" class="waves-light" (click)="sendLogin()" mdbWavesEffect>Enviar Credenciais</button><br/>
+                <button mdbBtn color="default" class="waves-light button-bg-theme" (click)="sendLogin()" mdbWavesEffect>Enviar Credenciais</button><br/>
             </div>
             
         </div>
@@ -237,7 +237,7 @@
 <div mdbModal #frameMessage="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog"
     aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
     <div class="modal-dialog modal-notify modal-success" role="document" id="msgModalStandard">
-        <div class="modal-content">
+        <div class="modal-content bg-theme">
             <div class="modal-header text-center">
                 <h4 class="modal-title w-100 font-weight-bold" [innerHtml]="titleToAdd"></h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frameMessage.hide()">
@@ -252,7 +252,7 @@
                 </div>
             </div>
             <div class="modal-footer d-flex justify-content-center">
-                <button mdbBtn class="waves-light" (click)="frameMessage.hide()" mdbWavesEffect>OK</button><br/>
+                <button mdbBtn class="waves-light button-bg-theme button-font" (click)="frameMessage.hide()" mdbWavesEffect>OK</button><br/>
             </div>
             
         </div>

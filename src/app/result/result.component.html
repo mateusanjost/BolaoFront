@@ -1,9 +1,9 @@
 <div class="container">
     <div class="row">
         <!-- Card -->
-        <div class="card mb-5">
+        <div class="card mb-5 ">
 
-            <div class="card-body" *ngIf="!isLoaded" id="spinner-loading">
+            <div class="card-body bg-theme" *ngIf="!isLoaded" id="spinner-loading">
                 <!-- Loading (desapears when is loaded) -->
                 <div  class="justify-content-center">Carregando...
                     <div class="spinner-border"role="status">
@@ -13,7 +13,7 @@
             </div>
             
             <!-- Card content -->
-            <div class="card-body" *ngIf="isLoaded" >
+            <div class="card-body bg-theme" *ngIf="isLoaded" >
         
                 <!-- Title -->
                 <div class="col-12 pt-3">

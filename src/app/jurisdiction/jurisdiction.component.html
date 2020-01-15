@@ -4,7 +4,7 @@
     <div class="card">
 
         <!-- Card content -->
-        <div class="card-body">
+        <div class="card-body bg-theme">
             <div class="row">
                 <div class="col-12 pt-3">
                     <h3>Usuários</h3>
@@ -25,7 +25,7 @@
                             <span class="sr-only">Loading...</span>
                         </div>
                     </div>
-                    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+                    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="bg-theme">
                         <!-- This is the tree node template for leaf nodes -->
                         <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
                             <li class="mat-tree-node">
@@ -69,7 +69,7 @@
     [config]="{backdrop: false, ignoreBackdropClick: true}">
     <div class="modal-dialog modal-notify modal-success" role="document">
         <!--Content-->
-        <div class="modal-content">
+        <div class="modal-content bg-theme">
             <!--Header-->
             <div class="modal-header">
                 <p class="heading lead">Criar Jurisdição</p>
@@ -164,9 +164,9 @@
 
             <!--Footer-->
             <div class="modal-footer justify-content-center">
-                <button type="submit" mdbBtn color="success" class="waves-light" mdbWavesEffect (click)="addNewUserAdmin(frame)"
+                <button type="submit" mdbBtn class="waves-light button-bg-theme button-font" mdbWavesEffect (click)="addNewUserAdmin(frame)"
                     [disabled]="!jurisdictionForm.valid && !senhaOk">Criar</button>
-                <button type="submit" mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect
+                <button type="submit" mdbBtn color="warning" outline="true" class="waves-effect" mdbWavesEffect
                     (click)="frame.hide()" data-dismiss="modal">Cancelar</button>
             </div>
         </div>
@@ -181,7 +181,7 @@
     [config]="{backdrop: false, ignoreBackdropClick: true}">
     <div class="modal-dialog modal-notify modal-danger" role="document">
         <!--Content-->
-        <div class="modal-content">
+        <div class="modal-content bg-theme">
             <!--Header-->
             <div class="modal-header">
                 <p class="heading lead">Criar Jurisdição</p>
@@ -216,9 +216,9 @@
 
             <!--Footer-->
             <div class="modal-footer justify-content-center">
-                <button type="submit" mdbBtn color="danger" class="waves-light" [disabled]="!jurisdictionToDelete" 
+                <button type="submit" mdbBtn class="waves-light button-bg-theme button-font" [disabled]="!jurisdictionToDelete" 
                         mdbWavesEffect (click)="removeUserAdmin(frame2)" >Excluir</button>
-                <button mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect 
+                <button mdbBtn color="warning" outline="true" class="waves-effect" mdbWavesEffect 
                 (click)="frame2.hide()" data-dismiss="modal">Cancelar</button>
             </div>
         </div>
@@ -233,7 +233,7 @@
     [config]="{backdrop: false, ignoreBackdropClick: true}">
     <div class="modal-dialog modal-notify modal-primary" role="document">
         <!--Content-->
-        <div class="modal-content">
+        <div class="modal-content bg-theme">
             <!--Header-->
             <div class="modal-header">
                 <p class="heading lead">Editar Jurisdição</p>
@@ -292,10 +292,10 @@
             <div class="modal-footer justify-content-center">
                 <div class="row">
                         <div class="col-6">
-                            <button mat-raised-button color="primary" (click)="editUser(f)">Salvar Alterações</button>
+                            <button mat-raised-button class="button-bg-theme button-font" (click)="editUser(f)">Salvar Alterações</button>
                         </div>
                         <div class="col-6">
-                            <button mat-raised-button color="primary" (click)="frame3.hide()">Não Alterar</button>
+                            <button mat-raised-button color="warning" outline="true" (click)="frame3.hide()">Não Alterar</button>
                         </div>
                     </div>
                 <!--<button type="submit" mdbBtn color="danger" class="waves-light" [disabled]="!jurisdictionToDelete" 

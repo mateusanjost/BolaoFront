@@ -4,14 +4,14 @@
         <div class="card mb-5">
 
             <!-- Loading (desapears when is loaded) -->
-            <div *ngIf="!isLoaded" id="spinner-loading" class="card-body justify-content-center">Carregando...
+            <div *ngIf="!isLoaded" id="spinner-loading" class="card-body justify-content-center bg-theme">Carregando...
                 <div class="spinner-border" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
             </div>
 
             <!-- Card content -->
-            <div class="card-body" *ngIf="isLoaded">
+            <div class="card-body bg-theme" *ngIf="isLoaded">
 
                 <!-- Title -->
                 <div class="col-12">
@@ -25,7 +25,7 @@
                         <div class="md-form mt-0">
                             <input id="ticket-id" class="form-control mr-sm-2" type="text"
                                 placeholder="código do bilhete" required>
-                            <button type="button" mdbBtn color="warning" mdbWavesEffect
+                            <button type="button" mdbBtn class="button-bg-theme button-font" mdbWavesEffect
                                 (click)="searchTicket()">Procurar</button>
                         </div>
                     </form>
