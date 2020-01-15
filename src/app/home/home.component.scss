@@ -1,6 +1,6 @@
-.container {
-    background-color: rgba(3, 3, 3, 0.8);
-}
+// .container {
+//     background-color: rgba(3, 3, 3, 0.8);
+// }
 
 .jackpot {
     color: red;
@@ -33,29 +33,29 @@
     //padding: 7px 0px;
 }
 
-.side-menu {
-    font-weight: bold;
-    font-size: 13px;
-    width: 100%;
-    //width: 290px;
-    //max-width: 100%;
-    background-image: linear-gradient(#f8cb24, #e39711);
-    border-style: outset;
-    border-width: thin;
-    margin: 0px;
-    padding: 2px 5px;
-    text-align: left;
-}
+// .side-menu {
+//     font-weight: bold;
+//     font-size: 13px;
+//     width: 100%;
+//     //width: 290px;
+//     //max-width: 100%;
+//     background-image: linear-gradient(#f8cb24, #e39711);
+//     border-style: outset;
+//     border-width: thin;
+//     margin: 0px;
+//     padding: 2px 5px;
+//     text-align: left;
+// }
 
-a.side-menu {
-    color: black !important;
-}
+// a.side-menu {
+//     color: black !important;
+// }
 
-a.side-menu:hover {
-    color: white !important;
-    background-color: black !important;
-    background-image: none;
-}
+// a.side-menu:hover {
+//     color: white !important;
+//     background-color: black !important;
+//     background-image: none;
+// }
 
 .btn-light {
     height: 25px;
@@ -77,7 +77,7 @@ a.btn.btn-light.side-menu:link {
     text-align: center;
     color: white;
     font-size: 12px;
-    margin-top: 5px;
+    //margin-top: 5px;
 }
 
 .bg-yellow{

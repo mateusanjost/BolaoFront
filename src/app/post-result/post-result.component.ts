@@ -68,6 +68,10 @@ export class PostResultComponent implements OnInit {
     this.configService.getGames(this.round.id)
     .subscribe(data => {
       this.games = data;
+      this.games.forEach(x => {    
+        console.log(x);
+        //x.matchResult = 'X';
+      })
       this.initRound();
       document.getElementById("spinner-loading").classList.add("hidden");
       this.isLoaded = true;
@@ -167,4 +171,15 @@ export class PostResultComponent implements OnInit {
 
   }
 
+  changeResult(i){
+    let homeTeam = (<HTMLInputElement>document.getElementById("home-score"+i)).value;
+    let awayTeam = (<HTMLInputElement>document.getElementById("visit-score"+i)).value;
+    let matchResult = (<HTMLInputElement>document.getElementById("match-result"+i)).value;
+    if(homeTeam > awayTeam)
+      matchResult = '1';
+    else if (homeTeam  < awayTeam)  
+      matchResult = '2';
+    else
+      matchResult = 'X';
+  }
 }
