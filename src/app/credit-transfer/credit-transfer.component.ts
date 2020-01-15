@@ -129,7 +129,7 @@ export class CreditTransferComponent implements OnInit {
         this.childNewCredit +=  +this.formTransfer.value.credit;
         this.childId = +this.formTransfer.value.myControl.id;
         this.childLogin = this.myUsers.find(x => x.id == this.childId).login;
-        this.transferType = "Creditar";
+        this.transferType = "Retirar";
         //this.updateUserCredit(this.appComponent.userAdmin.id, adminNewCredit, form.value.jurisdiction, childNewCredit);
         this.showConfirmModal();
         //this.isLoaded = false; // this brings back the loading; when finish operation, will reload this page component
@@ -145,7 +145,7 @@ export class CreditTransferComponent implements OnInit {
         this.childNewCredit -= +this.formTransfer.value.credit;
         this.childId = +this.formTransfer.value.myControl.id;
         this.childLogin = this.myUsers.find(x => x.id == this.childId).login;
-        this.transferType = "Retirar";
+        this.transferType = "Creditar";
         //this.updateUserCredit(this.appComponent.userAdmin.id, adminNewCredit, form.value.jurisdiction, childNewCredit);
         this.showConfirmModal();
         //this.isLoaded = false; // this brings back the loading; when finish operation, will reload this page component
@@ -164,15 +164,13 @@ export class CreditTransferComponent implements OnInit {
   confirmTransfer(){
     this.isLoaded = false;
     this.modalConfirm.hide();
-    this.updateUserCredit(this.appComponent.userAdmin.id, this.adminNewCredit, this.childId, this.childNewCredit);
+    this.updateUserCredit(this.appComponent.userAdmin.id, this.childId, this.formTransfer.value.credit, this.formTransfer.value.type);
   }
 
-  updateUserCredit(adminId: number, creditAdmin: number, childId: number, creditChild: number){    
-    this.configService.updateUserCredit(childId, creditChild)
-    .subscribe(data => {
-      this.configService.updateUserCredit(adminId, creditAdmin)
+  updateUserCredit(fromUserId: number, toUser: number, creditToTransfer: number, transactionType: number){    
+      this.configService.updateUserCredit(fromUserId, creditToTransfer, transactionType, toUser)
       .subscribe(data => {
-        this.appComponent.userAdmin.credit = creditAdmin;
+        this.appComponent.userAdmin.credit = creditToTransfer;
         //alert('Transferência realizada!');
         this.appComponent.msgStandard("Transferência Realizada", "Valor transferido com sucesso.", 3);
         this.ngOnInit();
@@ -182,12 +180,6 @@ export class CreditTransferComponent implements OnInit {
         console.log(error);
         this.ngOnInit();
       });
-    }, error => {
-      //alert('Erro de conexão na transferência 102');
-      this.appComponent.msgStandard("Transferência Não Realizada", "Erro na realização da transferência.", 4);
-      console.log(error);
-      this.ngOnInit();
-    });
   }
 
   toggleVisibility(){

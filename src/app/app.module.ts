@@ -42,6 +42,7 @@ import localePtBr from '@angular/common/locales/pt';
 
 import { registerLocaleData } from '@angular/common';
 import { RoundgroupsComponent } from './components/roundgroups/roundgroups.component';
+import { TransactionsComponent } from './transactions/transactions.component';
 
 registerLocaleData(localePtBr);
 
@@ -65,7 +66,8 @@ registerLocaleData(localePtBr);
     LoaderComponent,
     PrintComponent,
     MessengerComponent,
-    RoundgroupsComponent
+    RoundgroupsComponent,
+    TransactionsComponent
   ],
   imports: [
     BrowserModule,
@@ -92,6 +94,7 @@ registerLocaleData(localePtBr);
       {path: 'settings', component: SettingsComponent},
       {path: 'print', component: PrintComponent},
       {path: 'messenger', component: MessengerComponent},
+      {path: 'transactions', component: TransactionsComponent},
       { path: '', redirectTo: '/home', pathMatch: 'full' }
     ])
   ],
