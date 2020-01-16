@@ -28,7 +28,7 @@ export class TransactionsComponent implements OnInit {
   }
 
   listTransactions(userId: number){
-    this.configService.getTransactionsByUserId(this.appComponent.userAdmin.jurisdictionId).subscribe(data => {
+    this.configService.getTransactionsByUserId(userId).subscribe(data => {
       console.log(data);
       this.dataSource = new MatTableDataSource<Transaction>(data);
       this.dataSource.paginator = this.paginator;
