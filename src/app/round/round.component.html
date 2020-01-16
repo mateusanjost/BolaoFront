@@ -63,8 +63,8 @@
                                 <tr *ngFor="let match of betradarMatches; let i = index">
                                     <td>
                                         {{ match.Events_Data2.EventsName }} <br/>
-                                        {{ match.Events_Data2.EventsDisplayDate }} <br/>
-                                        {{ match.Events_Data2.EventsDisplayDate }}
+                                        {{ match.Events_Data2.EventsDate }} <br/>
+                                        {{ match.Events_Data2.EventsTime }}
                                     </td>
                                     <td>
                                         <button class="m-0 p-2 button-bg-theme button-theme" type="button" mdbBtn color="primary"
@@ -83,7 +83,7 @@
                     <hr />
                 
                 
-                    <form class="competition-form">
+                    <form class="col-12 competition-form">
                     
                         <mat-form-field class="competition-full-width">
                             <mat-label>Nome da Rodada</mat-label>
@@ -99,7 +99,7 @@
                     
                     </form>
 
-                    <div class="row" id="creation-area">
+                    <div class="col-12" id="creation-area">
                         
                     </div>
                 

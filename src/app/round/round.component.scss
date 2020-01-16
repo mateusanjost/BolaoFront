@@ -46,7 +46,6 @@
     text-align: center;
   }
 
-<<<<<<< HEAD
   .length-adjust {
     max-width: 100px;
   }
@@ -54,9 +53,26 @@
   .space-padding {
     padding: 1px !important;
   }
-  
-=======
+
   .table{
     color: white;
-}
->>>>>>> f10970343ae7cb6083402da14d0fe72f19e58bb6
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+  
+  .box-style {
+    float: left !important;
+    width: 25%;
+    padding: 50px;
+  }
+
+  .trash-style {
+    float: right !important;
+    size: 20px;
+    width: 25%;
+    padding: 50px;
+    text-align: right;
+  }
+

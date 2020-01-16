@@ -23,7 +23,7 @@ export class RoundComponent implements OnInit {
   formBetradar: FormGroup;
   betradarCompetitions: any;
   betradarMatches: any;
-  tempGameId: number;
+  tempGameId: number = 0;
 
   date = new FormControl(new Date());
   serializedDate = new FormControl((new Date()).toISOString());
@@ -82,37 +82,38 @@ export class RoundComponent implements OnInit {
     this.configService.GetBetradarMatches(idCompetition)
     .subscribe(data => {
       this.betradarMatches = data;
-      console.log(this.betradarMatches);
+      //console.log(this.betradarMatches);
     }, error => {
       console.log(error);
     });
   }
 
-  addGame(param1: string, param2: string, param3: string){
+  addGame(match: string, date: string, hour: string){
     this.tempGameId += 1;
 
-    let msg1 = param1;
+    let msg1 = match;
     var msgContainer = document.createElement('div');
     msgContainer.id = 'game' + this.tempGameId; // No setAttribute required
-    msgContainer.className = 'col-5 space-padding' // No setAttribute required, note it's "className" to avoid conflict with JavaScript reserved word
+    msgContainer.className = 'box-style' // No setAttribute required, note it's "className" to avoid conflict with JavaScript reserved word
 
-    let msg2 = param2;
+    let msg2 = date;
     var msgContainer2 = document.createElement('div');
     msgContainer2.id = 'date' + this.tempGameId;
-    msgContainer2.className = 'col-3 space-padding';
+    msgContainer2.className = 'box-style';
     
-    let msg3 = param3;
+    let msg3 = hour;
     var msgContainer3 = document.createElement('div');
     msgContainer3.id = 'hour' + this.tempGameId;
-    msgContainer3.className = 'col-2 space-padding';
+    msgContainer3.className = 'box-style';
 
-    let msg4 = "X";
-    var msgContainer4 = document.createElement('a');
+    let msg4 = "remover";
+    var msgContainer4 = document.createElement('button');
     msgContainer4.id = 'trash' + this.tempGameId;
-    msgContainer4.className = 'col-1 space-padding';
-    msgContainer4.href = '#';
+    msgContainer4.className = 'trash-style';
+    msgContainer4.addEventListener("click", (e:Event) => this.removeGame(this.tempGameId));
 
     var msgContainer5 = document.createElement('hr');
+    msgContainer5.id = 'line' + this.tempGameId;
 
     msgContainer.appendChild(document.createTextNode(msg1));
     msgContainer2.appendChild(document.createTextNode(msg2));
@@ -123,6 +124,23 @@ export class RoundComponent implements OnInit {
     document.getElementById("creation-area").appendChild(msgContainer3);
     document.getElementById("creation-area").appendChild(msgContainer4);
     document.getElementById("creation-area").appendChild(msgContainer5);
+  }
+
+  removeGame(idElement: number){
+
+    console.log("id element: " + idElement);
+
+    var el1 = document.getElementById('game' + idElement);
+    el1.parentNode.removeChild(el1);
+    var el2 = document.getElementById('date' + idElement);
+    el2.parentNode.removeChild(el2);
+    var el3 = document.getElementById('hour' + idElement);
+    el3.parentNode.removeChild(el3);
+    var el4 = document.getElementById('line' + idElement);
+    el4.parentNode.removeChild(el4);
+    var el5 = document.getElementById('trash' + idElement);
+    el5.parentNode.removeChild(el5);
+    
   }
 
 }
