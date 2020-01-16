@@ -23,6 +23,7 @@ export class RoundComponent implements OnInit {
   formBetradar: FormGroup;
   betradarCompetitions: any;
   betradarMatches: any;
+  tempGameId: number;
 
   date = new FormControl(new Date());
   serializedDate = new FormControl((new Date()).toISOString());
@@ -81,9 +82,47 @@ export class RoundComponent implements OnInit {
     this.configService.GetBetradarMatches(idCompetition)
     .subscribe(data => {
       this.betradarMatches = data;
+      console.log(this.betradarMatches);
     }, error => {
       console.log(error);
     });
+  }
+
+  addGame(param1: string, param2: string, param3: string){
+    this.tempGameId += 1;
+
+    let msg1 = param1;
+    var msgContainer = document.createElement('div');
+    msgContainer.id = 'game' + this.tempGameId; // No setAttribute required
+    msgContainer.className = 'col-5 space-padding' // No setAttribute required, note it's "className" to avoid conflict with JavaScript reserved word
+
+    let msg2 = param2;
+    var msgContainer2 = document.createElement('div');
+    msgContainer2.id = 'date' + this.tempGameId;
+    msgContainer2.className = 'col-3 space-padding';
+    
+    let msg3 = param3;
+    var msgContainer3 = document.createElement('div');
+    msgContainer3.id = 'hour' + this.tempGameId;
+    msgContainer3.className = 'col-2 space-padding';
+
+    let msg4 = "X";
+    var msgContainer4 = document.createElement('a');
+    msgContainer4.id = 'trash' + this.tempGameId;
+    msgContainer4.className = 'col-1 space-padding';
+    msgContainer4.href = '#';
+
+    var msgContainer5 = document.createElement('hr');
+
+    msgContainer.appendChild(document.createTextNode(msg1));
+    msgContainer2.appendChild(document.createTextNode(msg2));
+    msgContainer3.appendChild(document.createTextNode(msg3));
+    msgContainer4.appendChild(document.createTextNode(msg4));
+    document.getElementById("creation-area").appendChild(msgContainer);
+    document.getElementById("creation-area").appendChild(msgContainer2);
+    document.getElementById("creation-area").appendChild(msgContainer3);
+    document.getElementById("creation-area").appendChild(msgContainer4);
+    document.getElementById("creation-area").appendChild(msgContainer5);
   }
 
 }

@@ -25,7 +25,7 @@
 
   .competition-form {
     min-width: 150px;
-    max-width: 500px;
+    max-width: 100%;
     width: 100%;
     color: #999999;
   }
@@ -33,7 +33,7 @@
   .competition-full-width {
     width: 100%;
   }
-
+  
   .new-round-panel{
     padding: 2px;
     background-color: #3d3d3d;
@@ -45,3 +45,12 @@
     color: yellow;
     text-align: center;
   }
+
+  .length-adjust {
+    max-width: 100px;
+  }
+
+  .space-padding {
+    padding: 1px !important;
+  }
+  

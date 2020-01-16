@@ -13,7 +13,7 @@
 
             <!--Showing current round-->
             <div class="row" *ngIf="isLoaded">
-                <div class="col-6 pt-3">
+                <div class="col-sm-12 col-md-6 pt-3">
                     <h3>Rodadas</h3>
             
                     <form class="competition-form">
@@ -29,25 +29,46 @@
                             </mat-autocomplete>
                         </mat-form-field>
             
-                        <table class="table table-striped" mdbTable mdbTableScroll scrollX="true" maxWidth="50%" bordered="true">
+                        <table class="table table-striped" mdbTable mdbTableScroll scrollX="true" maxWidth="100%" bordered="true">
             
                             <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Data/Hora</th>
-                                    <th>Jogo</th>
+                                    <th>Jogo/Data/Hora</th>
                                     <th>Ativar</th>
                                 </tr>
                             </thead>
             
                             <tbody>
-                                <tr *ngFor="let match of betradarMatches; let i = index">
-                                    <td>{{ match.Events_Data2.EventsID }}</td>
-                                    <td>{{ match.Events_Data2.EventsDisplayDate }}</td>
-                                    <td>{{ match.Events_Data2.EventsName }}</td>
+                                <tr>
+                                    <td>
+                                        <mat-form-field>
+                                            <input #custommatch matInput placeholder="Time A - Time B">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="length-adjust">
+                                            <input matInput [matDatepicker]="picker" #customdate>
+                                            <mat-datepicker-toggle matSuffix [for]="picker" placeholder="00/00/00"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker></mat-datepicker>
+                                        </mat-form-field>
+
+                                        <mat-form-field class="length-adjust">
+                                            <input matInput #customtime maxwidth="50px" placeholder="00:00">
+                                        </mat-form-field>
+                                    </td>
                                     <td>
                                         <button class="m-0 p-2 button-bg-theme button-theme" type="button" mdbBtn color="primary"
-                                            mdbWavesEffect>Ativar</button>
+                                            mdbWavesEffect (click)="addGame(custommatch.value, customdate.value, customtime.value)">Ativar</button>
+                                    </td>
+                                </tr>
+                                <tr *ngFor="let match of betradarMatches; let i = index">
+                                    <td>
+                                        {{ match.Events_Data2.EventsName }} <br/>
+                                        {{ match.Events_Data2.EventsDisplayDate }} <br/>
+                                        {{ match.Events_Data2.EventsDisplayDate }}
+                                    </td>
+                                    <td>
+                                        <button class="m-0 p-2 button-bg-theme button-theme" type="button" mdbBtn color="primary"
+                                            mdbWavesEffect (click)="addGame(match.Events_Data2.EventsName, match.Events_Data2.EventsDate, match.Events_Data2.EventsTime)">Ativar</button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -57,7 +78,7 @@
                     </form>
                 </div>
             
-                <div class="col-6 pt-3 new-round-panel">
+                <div class="col-sm-12 col-md-6 pt-3 new-round-panel">
                     <p class="new-round-panel-title">Escopo da Nova Rodada</p>
                     <hr />
                 
@@ -77,6 +98,10 @@
                         </mat-form-field>
                     
                     </form>
+
+                    <div class="row" id="creation-area">
+                        
+                    </div>
                 
                 </div>
             
