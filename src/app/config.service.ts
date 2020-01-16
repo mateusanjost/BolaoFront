@@ -314,7 +314,7 @@ export class ConfigService {
   }
 
   getTransactionsByUserId(userId){
-    return this.http.get<Transaction[]>(`${this.apiUrl}/transactions/` + userId);
+    return this.http.get<Transaction[]>(`${this.apiUrl}/common/GetTransactions/?userId=` + userId);
   }
 
 }

@@ -73,3 +73,14 @@ a.side-menu:hover {
     background-color: black !important;
     background-image: none;
 }
+
+table {
+    width: 100%;
+}
+
+::ng-deep .mat-select-value {
+    color: white;
+}
+::ng-deep .mat-select-arrow {
+    color: white;
+}

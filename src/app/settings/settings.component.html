@@ -5,7 +5,7 @@
 
         <div class="card-body bg-theme" *ngIf="!isLoaded" id="spinner-loading">
             <!-- Loading (desapears when is loaded) -->
-            <div class="justify-content-center">Carregando...
+            <div class="justify-content-center">Bolão...
                 <div class="spinner-border" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
@@ -47,7 +47,7 @@
   aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}" >
   <div class="modal-dialog modal-notify modal-primary" role="document">
     <!--Content-->
-    <div class="modal-content">
+    <div class="modal-content bg-theme">
       <!--Header-->
       <div class="modal-header">
         <p class="heading lead">Editar Usuário</p>
@@ -87,10 +87,10 @@
             </form>
             <div class="row">
                 <div class="col-6">
-                    <button mat-raised-button color="primary" (click)="editUser(f)">Salvar Alterações</button>
+                    <button mdbBtn class="button-bg-theme button-font" (click)="editUser(f)">Salvar Alterações</button>
                 </div>
                 <div class="col-6">
-                    <button mat-raised-button color="primary" (click)="closeModalUser()">Voltar</button>
+                    <button mdbBtn color="warning" outline="true" (click)="closeModalUser()">Voltar</button>
                 </div>
             </div>
         </div>
@@ -106,7 +106,7 @@
   aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}" >
   <div class="modal-dialog modal-notify modal-primary" role="document">
     <!--Content-->
-    <div class="modal-content">
+    <div class="modal-content bg-theme">
       <!--Header-->
       <div class="modal-header">
         <p class="heading lead">Alterar Senha</p>
@@ -137,10 +137,10 @@
             </form>
             <div class="row">
                 <div class="col">
-                    <button mat-raised-button color="primary" [disabled]="f2.invalid" (click)="changePassword(f2)">Alterar Senha</button>
+                    <button mdbBtn class="button-bg-theme button-font" [disabled]="f2.invalid" (click)="changePassword(f2)">Alterar Senha</button>
                 </div>
                 <div class="col-6">
-                    <button mat-raised-button color="primary" (click)="closeModalPassword()">Voltar</button>
+                    <button mdbBtn color="warning" outline="true" (click)="closeModalPassword()">Voltar</button>
                 </div>
             </div>
         </div>
