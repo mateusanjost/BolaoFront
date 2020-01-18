@@ -6,6 +6,7 @@ import { ConfigService } from '../config.service';
 import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
 
+import { Match } from '../match.model';
 import { BetradarComps } from '../betradar-comps';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
@@ -17,6 +18,9 @@ import {map, startWith} from 'rxjs/operators';
 })
 export class RoundComponent implements OnInit {
   @ViewChild('frame', { static: true }) modalCreate: ModalDirective;
+
+  match = new Match();
+  dataArray = [];
 
   filteredOptions: Observable<BetradarComps[]>;
 
@@ -88,59 +92,78 @@ export class RoundComponent implements OnInit {
     });
   }
 
-  addGame(match: string, date: string, hour: string){
-    this.tempGameId += 1;
+  checkExistingId(idMatch: number){
+    let test: boolean = true;
+    this.dataArray.forEach(element => {
+      if (element.id == idMatch){
+        test = false;
+      }
+    });
 
-    let msg1 = match;
-    var msgContainer = document.createElement('div');
-    msgContainer.id = 'game' + this.tempGameId; // No setAttribute required
-    msgContainer.className = 'box-style' // No setAttribute required, note it's "className" to avoid conflict with JavaScript reserved word
-
-    let msg2 = date;
-    var msgContainer2 = document.createElement('div');
-    msgContainer2.id = 'date' + this.tempGameId;
-    msgContainer2.className = 'box-style';
-    
-    let msg3 = hour;
-    var msgContainer3 = document.createElement('div');
-    msgContainer3.id = 'hour' + this.tempGameId;
-    msgContainer3.className = 'box-style';
-
-    let msg4 = "remover";
-    var msgContainer4 = document.createElement('button');
-    msgContainer4.id = 'trash' + this.tempGameId;
-    msgContainer4.className = 'trash-style';
-    msgContainer4.addEventListener("click", (e:Event) => this.removeGame(this.tempGameId));
-
-    var msgContainer5 = document.createElement('hr');
-    msgContainer5.id = 'line' + this.tempGameId;
-
-    msgContainer.appendChild(document.createTextNode(msg1));
-    msgContainer2.appendChild(document.createTextNode(msg2));
-    msgContainer3.appendChild(document.createTextNode(msg3));
-    msgContainer4.appendChild(document.createTextNode(msg4));
-    document.getElementById("creation-area").appendChild(msgContainer);
-    document.getElementById("creation-area").appendChild(msgContainer2);
-    document.getElementById("creation-area").appendChild(msgContainer3);
-    document.getElementById("creation-area").appendChild(msgContainer4);
-    document.getElementById("creation-area").appendChild(msgContainer5);
+    return test;
   }
 
-  removeGame(idElement: number){
+  checkCustomMatch(){
+    let msg = "";
+    let testCustomMatch: boolean = true;
 
-    console.log("id element: " + idElement);
+    let dt = (<HTMLInputElement>document.getElementById("date-picker")).value;
+    let hr = (<HTMLInputElement>document.getElementById("hour-input")).value;
+    let gm = (<HTMLInputElement>document.getElementById("match-name")).value;
 
-    var el1 = document.getElementById('game' + idElement);
-    el1.parentNode.removeChild(el1);
-    var el2 = document.getElementById('date' + idElement);
-    el2.parentNode.removeChild(el2);
-    var el3 = document.getElementById('hour' + idElement);
-    el3.parentNode.removeChild(el3);
-    var el4 = document.getElementById('line' + idElement);
-    el4.parentNode.removeChild(el4);
-    var el5 = document.getElementById('trash' + idElement);
-    el5.parentNode.removeChild(el5);
+    if (dt == ""){
+      testCustomMatch = false;
+      msg = "O campo de data não pode ser vazio.";
+    } else if (hr == "") {
+      testCustomMatch = false;
+      msg = "O campo de hora não pode ser vazio.";
+    } else if (gm == "") {
+      testCustomMatch = false;
+      msg = "O nome do jogo precisa ser preenchido.";
+    }
+
+    if (!testCustomMatch){
+      this.appComponent.msgStandard("Campo Obrigatório Vazio", msg, 4);
+    }
+
+    return testCustomMatch;
+
+  }
+
+  addGame(id: number, match: string, date: Date, hour: Date){
+    let test: boolean = this.checkExistingId(id);
+    /*this.dataArray.forEach(element => {
+      if (element.id == id){
+        test = false;
+      }
+    });*/
     
+    if ((id != 0 && test) || (id == 0 && this.checkCustomMatch())){
+      this.match = new Match();
+      this.match.id = id;
+      this.match.game = match;
+      this.match.date = date;
+      this.match.hour = hour;
+      
+      this.dataArray.push(this.match);
+      
+      if (this.dataArray.length == 10){
+        this.appComponent.msgStandard("Limite Recomendado", "Chegou a 10 jogos.", 2);
+      }
+
+      // clear custom match
+      if(id == 0){
+        (<HTMLInputElement>document.getElementById("hour-input")).value = "";
+        (<HTMLInputElement>document.getElementById("match-name")).value = "";
+      }
+    }  
+
+  }
+
+  removeGame(indexData: number){
+    if (indexData > -1) {
+      this.dataArray.splice(indexData, 1);
+    }
   }
 
 }

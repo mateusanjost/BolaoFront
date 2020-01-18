@@ -13,7 +13,7 @@
 
             <!--Showing current round-->
             <div class="row" *ngIf="isLoaded">
-                <div class="col-sm-12 col-md-6 pt-3">
+                <div class="col-sm-12 col-md-7 pt-3">
                     <h3>Rodadas</h3>
             
                     <form class="competition-form">
@@ -33,42 +33,47 @@
             
                             <thead>
                                 <tr>
-                                    <th>Jogo/Data/Hora</th>
-                                    <th>Ativar</th>
+                                    <th>Data/Hora</th>
+                                    <th>Jogo</th>
+                                    <th>Adicionar</th>
                                 </tr>
                             </thead>
             
                             <tbody>
                                 <tr>
                                     <td>
-                                        <mat-form-field>
-                                            <input #custommatch matInput placeholder="Time A - Time B">
-                                        </mat-form-field>
-
                                         <mat-form-field class="length-adjust">
-                                            <input matInput [matDatepicker]="picker" #customdate>
+                                            <input matInput [matDatepicker]="picker" id="date-picker" #customdate>
                                             <mat-datepicker-toggle matSuffix [for]="picker" placeholder="00/00/00"></mat-datepicker-toggle>
                                             <mat-datepicker #picker></mat-datepicker>
                                         </mat-form-field>
 
                                         <mat-form-field class="length-adjust">
-                                            <input matInput #customtime maxwidth="50px" placeholder="00:00">
+                                            <input matInput #customtime id="hour-input" maxwidth="50px" placeholder="00:00" [(ngModel)]="hour-input">
                                         </mat-form-field>
                                     </td>
                                     <td>
+                                        <mat-form-field style="max-width: 100px;">
+                                            <input #custommatch id="match-name" matInput placeholder="ex: Time A - Time B">
+                                        </mat-form-field>
+                                    </td>
+                                    <td class="center-content">
                                         <button class="m-0 p-2 button-bg-theme button-theme" type="button" mdbBtn color="primary"
-                                            mdbWavesEffect (click)="addGame(custommatch.value, customdate.value, customtime.value)">Ativar</button>
+                                            mdbWavesEffect (click)="addGame(0, custommatch.value, customdate.value, customtime.value)">+</button>
                                     </td>
                                 </tr>
                                 <tr *ngFor="let match of betradarMatches; let i = index">
                                     <td>
-                                        {{ match.Events_Data2.EventsName }} <br/>
-                                        {{ match.Events_Data2.EventsDate }} <br/>
-                                        {{ match.Events_Data2.EventsTime }}
+                                        {{ match.Events_Data2.EventsDisplayDate}}
                                     </td>
                                     <td>
-                                        <button class="m-0 p-2 button-bg-theme button-theme" type="button" mdbBtn color="primary"
-                                            mdbWavesEffect (click)="addGame(match.Events_Data2.EventsName, match.Events_Data2.EventsDate, match.Events_Data2.EventsTime)">Ativar</button>
+                                        {{ match.Events_Data2.EventsName }}
+                                    </td>
+                                    <td class="center-content">
+                                        <button *ngIf="checkExistingId(match.Events_Data2.EventsID)" class="m-0 p-2 button-bg-theme button-theme" type="button" mdbBtn color="primary"
+                                            mdbWavesEffect (click)="addGame(match.Events_Data2.EventsID, match.Events_Data2.EventsName, match.Events_Data2.EventsDate, match.Events_Data2.EventsTime)">+</button>
+                                        
+                                        <i *ngIf="!checkExistingId(match.Events_Data2.EventsID)" style="color: green" class="fas fa-check"></i>
                                     </td>
                                 </tr>
                             </tbody>
@@ -78,17 +83,18 @@
                     </form>
                 </div>
             
-                <div class="col-sm-12 col-md-6 pt-3 new-round-panel">
+                <div class="col-sm-12 col-md-5 pt-3 new-round-panel">
                     <p class="new-round-panel-title">Escopo da Nova Rodada</p>
                     <hr />
                 
                 
                     <form class="col-12 competition-form">
-                    
+                        <!--
                         <mat-form-field class="competition-full-width">
                             <mat-label>Nome da Rodada</mat-label>
                             <input matInput value="Ex: Brasileirão Rodada X">
                         </mat-form-field>
+                        -->
                     
                         <mat-form-field class="competition-full-width">
                             <mat-label>Valor da rodada</mat-label>
@@ -99,8 +105,23 @@
                     
                     </form>
 
-                    <div class="col-12" id="creation-area">
-                        
+                    <!-- new creation area -->
+                    <div class="col-12">
+                        <table>
+                            <tr *ngFor="let match of dataArray; let i = index">
+                                <td>{{ match.date }} {{match.hour}}</td>
+                                <td>{{match.game}}</td>
+                                <td>
+                                    <a (click)="removeGame(i)"><i class="far fa-trash-alt"></i></a>
+                                </td>
+                            </tr>
+                            <tr *ngIf="(dataArray.length > 0)">
+                                <td>Jogos: {{dataArray.length}}</td>
+                                <td colspan='2'>
+                                    <button class="side-align" mat-flat-button color="primary">Criar</button>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 
                 </div>
@@ -111,53 +132,3 @@
         <!-- Card -->
     </div>
 </div>
-
-<!--Modal confirmation--
-<div mdbModal #frame="mdbModal" class="modal fade" scrollY="true" maxHeight="200" id="frameModalTop" tabindex="-1"
-    role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" (open)="checkRound()"
-    [config]="{backdrop: false, ignoreBackdropClick: true}">
-    <div class="modal-dialog modal-notify modal-warning" role="document">
-        
-        <div class="modal-content bg-theme">
-
-            <div class="modal-header">
-                <p class="heading lead">Confirmar Rodada</p>
-
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
-                    <span aria-hidden="true" class="white-text">&times;</span>
-                </button>
-            </div>
-
-            <div class="modal-body" *ngIf="!testForm">
-                <div class="text-center">
-                    <p>Existe campo vazio.</p>
-                    <p>É obrigatório o preenchimento de todos os campos.</p>
-                </div>
-            </div>
-            
-            <div class="modal-body" *ngIf="testForm">
-                <table mdbTable mdbTableScroll scrollY="true" maxHeight="200" bordered="true">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nº</th>
-                            <th scope="col">Casa</th>
-                            <th scope="col">Data/Hora</th>
-                            <th scope="col">Visitante</th>
-                        </tr>
-                    </thead>
-                    <tbody [innerHtml]="previewGames">
-                    </tbody>
-                </table>
-            </div>
-                        
-            <div class="modal-footer justify-content-center">
-                <a type="button" mdbBtn  class="waves-light button-bg-theme button-font" mdbWavesEffect *ngIf="testForm"
-                    (click)="confirmRound()">Confirmar</a>
-                <a type="button" mdbBtn color="warning" outline="true" class="waves-effect" mdbWavesEffect
-                    (click)="frame.hide()" data-dismiss="modal">Voltar</a>
-            </div>
-        </div>
-        
-    </div>
-</div>
-!--Modal confirmation-->
