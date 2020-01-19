@@ -193,11 +193,13 @@ export class RoundComponent implements OnInit {
     });
     
     // preparing new object Round
-    let newRound: Round;
+    let vl = +(<HTMLInputElement>document.getElementById("round-value")).value;
+    /*let newRound: Round;
     newRound = this.lastRound;
     newRound.number++;
+    newRound.value = vl;*/
 
-    this.configService.createRound(newGames)
+    this.configService.createRound(vl, newGames)
     .subscribe(data => {
       this.appComponent.msgStandard("Rodada Criada", "Nova rodada criada com sucesso.", 3);
       this.router.navigate(['/home']);

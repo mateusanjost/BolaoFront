@@ -97,35 +97,40 @@ export class RoundgroupsComponent implements OnInit {
         startDateTime: new Date(),
         endDateTime: new Date(),
         matches: null,
-        id: 1
+        id: 1,
+        value: 10
       },
       {
         number: 2,
         startDateTime: new Date(),
         endDateTime: new Date(),
         matches: null,
-        id: 2
+        id: 2,
+        value: 10
       },
       {
         number: 3,
         startDateTime: new Date(),
         endDateTime: new Date(),
         matches: null,
-        id: 3
+        id: 3,
+        value: 10
       },
       {
         number: 4,
         startDateTime: new Date(),
         endDateTime: new Date(),
         matches: null,
-        id: 4
+        id: 4,
+        value: 10
       },
       {
         number: 5,
         startDateTime: new Date(),
         endDateTime: new Date(),
         matches: null,
-        id: 5
+        id: 5,
+        value: 10
       },
     ];
   }

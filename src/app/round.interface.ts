@@ -4,4 +4,5 @@ export interface Round {
     endDateTime: Date;
     matches: any;
     id: number;
+    value: number;
 }

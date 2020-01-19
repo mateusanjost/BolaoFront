@@ -289,7 +289,7 @@ export class HomeComponent implements OnInit {
 
   updateUserCredit(userId: number, newUserCredit: number){
     let transactionType = 3;
-    this.configService.updateUserCredit(userId, newUserCredit, transactionType)
+    this.configService.updateUserCredit(userId, this.round.value, transactionType)
     .subscribe(data => {
       this.updateJackpot();
     }, error => {
