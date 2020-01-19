@@ -10,6 +10,8 @@ import { Match } from '../match.model';
 import { BetradarComps } from '../betradar-comps';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import { Round } from '../round.interface';
+import { Game } from '../game.interface';
 
 @Component({
   selector: 'app-round',
@@ -28,6 +30,7 @@ export class RoundComponent implements OnInit {
   betradarCompetitions: any;
   betradarMatches: any;
   tempGameId: number = 0;
+  lastRound: Round;
 
   date = new FormControl(new Date());
   serializedDate = new FormControl((new Date()).toISOString());
@@ -37,12 +40,22 @@ export class RoundComponent implements OnInit {
   constructor(private configService: ConfigService, private appComponent: AppComponent, private router: Router) { }
 
   ngOnInit() {
+    this.getLastRound();
     this.listBetradarCompetitions();
     
     this.formBetradar = new FormGroup({
       myControl: new FormControl('', Validators.required)
     });
 
+  }
+
+  getLastRound() {
+    this.configService.getLastRound()
+    .subscribe(data => {
+      this.lastRound = data;
+    }, error => {
+      console.log(error);
+    });
   }
 
   get myControl() {
@@ -86,7 +99,6 @@ export class RoundComponent implements OnInit {
     this.configService.GetBetradarMatches(idCompetition)
     .subscribe(data => {
       this.betradarMatches = data;
-      //console.log(this.betradarMatches);
     }, error => {
       console.log(error);
     });
@@ -132,11 +144,6 @@ export class RoundComponent implements OnInit {
 
   addGame(id: number, match: string, date: Date, hour: Date){
     let test: boolean = this.checkExistingId(id);
-    /*this.dataArray.forEach(element => {
-      if (element.id == id){
-        test = false;
-      }
-    });*/
     
     if ((id != 0 && test) || (id == 0 && this.checkCustomMatch())){
       this.match = new Match();
@@ -164,6 +171,39 @@ export class RoundComponent implements OnInit {
     if (indexData > -1) {
       this.dataArray.splice(indexData, 1);
     }
+  }
+
+  onSubmit(){
+    // extracting teams names and preparing object Games
+    let newGames: Game[] = [];
+    this.dataArray.forEach((element, index) => {
+      let obj: any = { homeName: element.game, awayName: element.game }
+      newGames.push(obj);
+      let pos = element.game.indexOf("-");
+      newGames[index].homeName = element.game.substring(0, pos - 1);
+      newGames[index].awayName = element.game.substring(pos + 2);
+      newGames[index].homeTeamId = 100;
+      newGames[index].awayTeamId = 100;
+      let day = element.date.substring(0, 2);
+      let month = element.date.substring(3, 5);
+      let year = element.date.substring(11, 6) + "20";
+      newGames[index].dateTime = new Date(year + "-" + month + "-" + day + " " + element.hour);
+      newGames[index].homeTeamScore = 0;
+      newGames[index].awayTeamScore = 0;
+    });
+    
+    // preparing new object Round
+    let newRound: Round;
+    newRound = this.lastRound;
+    newRound.number++;
+
+    this.configService.createRound(newGames)
+    .subscribe(data => {
+      this.appComponent.msgStandard("Rodada Criada", "Nova rodada criada com sucesso.", 3);
+      this.router.navigate(['/home']);
+    }, error => {
+      this.appComponent.msgStandard("Falha", "Erro ao criar a rodada.", 4);
+    });
   }
 
 }

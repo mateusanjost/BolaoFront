@@ -153,7 +153,7 @@ export class HomeComponent implements OnInit {
 
   makeFormatting() {
     // when any result is selected, runs for all result options updanting their colors
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < this.games.length; i++) {
       switch (this.ticket.results[i]) {
         case '1':
           document.getElementById(i + 'a').classList.add("bg-yellow");
@@ -191,7 +191,7 @@ export class HomeComponent implements OnInit {
       if (this.checkTicket(form.value.player_name)) {
         let msgResult = "";
         this.ticket.resultToPass = "";
-        for (let i = 0; i < 10; i++){
+        for (let i = 0; i < this.games.length; i++){
           let result = "";
           if (this.ticket.results[i] == '1'){
             result = this.responseGames[i].teamHome + ' [1]';
@@ -228,7 +228,7 @@ export class HomeComponent implements OnInit {
     let test: boolean = true;
 
     // check whether all results was choosen
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < this.games.length; i++) {
       if (this.ticket.results[i] == "") {
         test = false;
       }
@@ -258,8 +258,6 @@ export class HomeComponent implements OnInit {
     this.isLoaded = false;
 
     let userId = this.appComponent.userAdmin.id;
-    //let newUserCredit = this.appComponent.userAdmin.credit - 10;
-    //this.getUser();
 
     this.configService.getUser(this.appComponent.userAdmin.id)
     .subscribe(data => {
@@ -328,35 +326,12 @@ export class HomeComponent implements OnInit {
 
     this.configService.updateApportionment(newPrizes)
     .subscribe(data => {
-      //this.clearTicket();
       this.modalFinishBet.show();
     }, error => {
-      //alert("Houve algum erro de conexão! Cód: 101");
       this.appComponent.msgStandard("Operação Não Realizada", "Erro na finalização da aposta.", 4);
       this.ngOnInit();
     });
   }
-  // --- TICKET CREATION --- //
-
-  /*
-  NOT USED ANYMORE
-  clearTicket(){
-    //alert("Aposta Realizada!");
-    //this.msgService.messengerBox();
-    this.modalFinishBet.show();
-    //this.appComponent.msgStandard("Aposta Realizada", "Bilhete criado com sucesso!", 3);
-    
-    //window.print();
-    //window.open('http://localhost:4200/print', "", "width=360,height=700");
-    // modal to print
-    //window.open('http://www.jogobrasil.com.br/print', "", "width=360,height=700");
-
-    //this.printTicket();
-
-    //this.router.navigate(['/ticket']);
-    
-  }
-  */
 
   closeBetModal(){
     //this.modalFinishBet.hide();

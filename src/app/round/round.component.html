@@ -118,7 +118,7 @@
                             <tr *ngIf="(dataArray.length > 0)">
                                 <td>Jogos: {{dataArray.length}}</td>
                                 <td colspan='2'>
-                                    <button class="side-align" mat-flat-button color="primary">Criar</button>
+                                    <button class="side-align" mat-flat-button color="primary" (click)="onSubmit()">Criar</button>
                                 </td>
                             </tr>
                         </table>

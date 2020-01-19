@@ -128,6 +128,17 @@ export class ConfigService {
     return this.http.get<Round>(`${this.apiUrl}/rounds/` + roundId);
   }
 
+  createRound(/*newRound: Round, */newGames: Game[]){
+    const header = new HttpHeaders({
+      'Content-type': 'application/json'
+    });
+
+    //let jsonToPass = { "number" : newRound.number, "startDateTime" : newRound.startDateTime, "endDateTime" : newRound.endDateTime }
+
+    return this.http.post<any>(`${this.apiUrl}/common/PostNewRound/`, newGames, { headers: header }); 
+  }
+  /*
+  old round creation
   createRound(newRound: Round){
     const header = new HttpHeaders({
       'Content-type': 'application/json'
@@ -137,6 +148,7 @@ export class ConfigService {
 
     return this.http.post<Round>(this.apiUrl + '/rounds/', jsonToPass, { headers: header });
   }
+  */
 
   getBet(betId: number){
     return this.http.get<Bet>(`${this.apiUrl}/bets/` + betId);
