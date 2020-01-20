@@ -11,10 +11,10 @@ npm install -g @angular/cli
 cd BolaoFront
 npm install
 
-### remove reported vulnerabilities
+### remove reported vulnerabilities (if necessary)
 npm audit fix
 
-### revert unwanted angular devkit version and install again
+### revert unwanted angular devkit version and install again (if necessary)
 sed -i 's|"@angular-devkit/build-angular": "^0.803.21"|"@angular-devkit/build-angular": "0.802.2"|' package.json
 npm install
 
