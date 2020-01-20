@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { User, UserLoginForm } from './user.interface';
 //import { Team } from './team.interface';
 import { Round } from './round.interface';
+import { RoundGroup } from './round-group.interface';
 import { Game } from './game.interface';
 import { Prize } from './prize.interface';
 import { Bet } from './bet.interface';
@@ -133,9 +134,9 @@ export class ConfigService {
       'Content-type': 'application/json'
     });
 
-    return this.http.post<any>(`${this.apiUrl}/common/PostNewRound/?roundValue=` + roundValue, newGames, { headers: header }); 
+    return this.http.post<any>(`${this.apiUrl}/common/PostNewRound/?roundValue=` + roundValue, newGames, { headers: header });
   }
-  
+
   getBet(betId: number){
     return this.http.get<Bet>(`${this.apiUrl}/bets/` + betId);
   }
@@ -242,7 +243,7 @@ export class ConfigService {
     const header = new HttpHeaders({
       'Content-type': 'application/json'
     });
-    
+
     return this.http.post<Jurisdiction>(`${this.apiUrl}/users/`, user, { headers: header });
   }
 
@@ -301,6 +302,10 @@ export class ConfigService {
 
   getAllRounds(){
     return this.http.get<Round[]>(`${this.apiUrl}/rounds/`);
+  }
+
+  getAllRoundGroups(){
+    return this.http.get<RoundGroup[]>(`${this.apiUrl}/roundgroups/`);
   }
 
   GetBetradarMatches(idCompetition: number){
