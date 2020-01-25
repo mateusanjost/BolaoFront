@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import {NestedTreeControl} from '@angular/cdk/tree';
-import {MatTreeNestedDataSource} from '@angular/material/tree';
+import { Component, OnInit }       from '@angular/core';
+import { NestedTreeControl }       from '@angular/cdk/tree';
+import { MatTreeNestedDataSource } from '@angular/material/tree';
 
-import { AppComponent } from '../../app.component';
-import { ConfigService } from '../../config.service';
-
-import { Round } from '../../round.interface';
-import { RoundGroup } from '../../round-group.interface';
+import { AppComponent }       from '../../app.component';
+import { ConfigService }      from '../../config.service';
+import { InteractionService } from '../../interaction.service';
+import { Round }              from '../../round.interface';
+import { RoundGroup }         from '../../round-group.interface';
 
 export class DataNode {
     name: string;
+    roundId: number;
     childrens?: DataNode[];
 }
 
@@ -24,7 +25,9 @@ export class RoundgroupsComponent implements OnInit {
     roundGroups: RoundGroup[];
     rounds: Round[];
 
-    constructor(private configService: ConfigService) {
+    constructor(
+        private interactionService: InteractionService,
+        private configService: ConfigService) {
     }
 
     ngOnInit() {
@@ -33,6 +36,15 @@ export class RoundgroupsComponent implements OnInit {
     }
 
     public isGroup = (_: number, node: DataNode) => !!node.childrens;
+
+    public loadRound(roundId: number){
+        this.configService.getRound(roundId)
+            .subscribe(data => {
+                this.interactionService.setHomeVisibleRound(data);
+            }, error => {
+                console.log(error);
+            });
+    }
 
     private listRoundGroups() {
         this.configService.getAllRoundGroups().subscribe(data => {
@@ -72,6 +84,7 @@ export class RoundgroupsComponent implements OnInit {
                 if (!!r) {
                     var dnr = new DataNode();
                     dnr.name = "Rodada nº " + r.number.toString();
+                    dnr.roundId = r.id;
                     dnr.childrens = null;
                     dn.childrens.push(dnr);
                 }

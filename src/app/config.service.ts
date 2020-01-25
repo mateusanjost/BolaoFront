@@ -117,7 +117,7 @@ export class ConfigService {
     return this.http.put<Prize>(this.apiUrl + '/prizes/3', newApportionment, { headers: header });
   }
 
-  getRound(){
+  getRounds(){
     return this.http.get<Round[]>(`${this.apiUrl}/rounds/`);
   }
 
@@ -125,7 +125,7 @@ export class ConfigService {
     return this.http.get<Round>(`${this.apiUrl}/common/getlastround`);
   }
 
-  getSpecificRound(roundId: number){
+  getRound(roundId: number){
     return this.http.get<Round>(`${this.apiUrl}/rounds/` + roundId);
   }
 

@@ -12,6 +12,7 @@ import { NgForm } from '@angular/forms';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { User } from '../user.interface';
 import { MessengerService } from 'src/services/messenger.service';
+import { InteractionService } from '../interaction.service';
 
 
 @Component({
@@ -27,7 +28,6 @@ export class HomeComponent implements OnInit {
 
   isLogged: boolean = false;
   htmlToAdd: any;
-  currentRound = new Array<any>();
   //teams: Team[];
   round: Round;
   games: Game[];
@@ -50,11 +50,13 @@ export class HomeComponent implements OnInit {
 
   message = "Obrigatório escolher resultado para todos os jogos.";
 
-  constructor(private configService: ConfigService, private appComponent: AppComponent, private router: Router, private msgService: MessengerService) {
+    constructor(private interactionService: InteractionService, private configService: ConfigService, private appComponent: AppComponent, private router: Router, private msgService: MessengerService) {
     this.isLogged = appComponent.isLogged;
   }
 
   ngOnInit() {
+      this.interactionService.homeVisibleRound.subscribe(round => {
+          if(round != null) { this.setRound(round); } });
     this.isLogged = this.appComponent.isLogged;
     this.getLastRound();
     this.getPrize();
@@ -78,12 +80,16 @@ export class HomeComponent implements OnInit {
 
   getLastRound(){
     this.configService.getLastRound()
-    .subscribe(data => {
-      this.round = data;
-      this.getGames();
+      .subscribe(data => {
+        this.setRound(data);
     }, error => {
       console.log(error);
     });
+  }
+
+  setRound(round: Round){
+    this.round = round;
+    this.getGames();
   }
 
   getGames(){
@@ -91,7 +97,8 @@ export class HomeComponent implements OnInit {
     .subscribe(data => {
       this.games = data;
       this.initRound();
-      document.getElementById("spinner-loading").classList.add("hidden");
+      let spinner = document.getElementById("spinner-loading");
+      if(spinner != null) { spinner.classList.add("hidden"); }
       this.isLoaded = true;
     }, error => {
       console.log(error);
@@ -133,7 +140,7 @@ export class HomeComponent implements OnInit {
       this.responseGames[i].hourEnd = this.games[i].dateTime;
     }
   }
- 
+
   // --- TICKET CREATION --- //
   chooseGameResult(resultIndex: number, resultChoosen: string) {
 
@@ -210,7 +217,7 @@ export class HomeComponent implements OnInit {
           }
           msgResult += this.responseGames[i].teamHome + ' X ' + this.responseGames[i].teamVisit + ' : ' + result + '<br/>';
         let showDateHour = new Date(this.ticket.date);
-        this.htmlToAdd = 
+        this.htmlToAdd =
         /*'id bilhete: '+ this.ticket.id + ' - */'rodada: ' + this.ticket.roundNum + '<p/>' +
         //' data: ' + this.ticket.date + ' - hora: ' + this.ticket.hour + '<br/>'+
         ' criação: ' + showDateHour.getDate()+'/'+ (showDateHour.getMonth()+1) + ' - ' + showDateHour.getHours()+':'+ showDateHour.getMinutes() + '<br/>'+

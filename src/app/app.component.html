@@ -1,4 +1,4 @@
-<!-- The background video 
+<!-- The background video
 <video autoplay muted loop id="myVideo">
     <source src="../assets/image/bg-video.mp4" type="video/mp4">
         new change
@@ -38,7 +38,7 @@
                     <a routerLink="/contact" class="nav-link waves-light" mdbWavesEffect>ASSISTÊNCIA</a>
                 </li>
                 <li class="nav-item">
-                    
+
                 </li>
                 <li class="nav-item dropdown btn-group" id="headerManager" (click)="listClick($event)" *ngIf="isLogged" dropdown>
                     <a dropdownToggle type="button" class="nav-link dropdown-toggle waves-light admin-style" mdbWavesEffect>
@@ -90,6 +90,11 @@
 <div class="container">
     <div class="row p-2">
         <div class="col-md-2">
+            <div class="row mt-2" style="background-color: #3d3d3d;">
+                <div class="col-12">
+                    <app-roundgroups></app-roundgroups>
+                </div>
+            </div>
             <div class="row">
                 <!-- <div class="col-6 d-none d-lg-block side-column">
                     <a href="#"><img class="img-fluid" src="../../assets/image/mobile-device.png"></a>
@@ -105,15 +110,13 @@
                         <button class="btn btn-primary " style="box-shadow: none; padding: 0px; background-color:rgba(0, 0, 0, 0.0) !important"><i class="fas fa-search" aria-hidden="true"></i></button>
                     </form>
                 </div>
-                <app-roundgroups class="col-12"></app-roundgroups>
             </div>
         </div>
 
-        <div class="col-md-8 mt-2 pl-1 pr-1"> 
-            
+        <div class="col-md-8 mt-2 pl-1 pr-1">
             <router-outlet></router-outlet>
         </div>
-        
+
         <div class="col-md-2">
             <div class="row mt-2" style="background-color: #3d3d3d;">
                 <div class="col-12 p-0">
@@ -147,7 +150,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
                     <span aria-hidden="true">&times;</span>
                 </button>
-            </div>        
+            </div>
 
             <div class="modal-body mx-3">
                 <div class="md-form mb-5">
@@ -169,7 +172,7 @@
             <div class="modal-footer d-flex justify-content-center">
                 <button mdbBtn color="default" class="waves-light button-bg-theme button-font" (click)="getLogin()" mdbWavesEffect>Login</button><br/>
             </div>
-            
+
         </div>
     </div>
 </div>
@@ -257,14 +260,14 @@
                     <input type="text" id="defaultForm-email3" [formControl]="forgotFormEmail" class="form-control validate"
                         mdbInput mdbValidate>
                     <!--<label for="defaultForm-email3">E-mail</label>-->
-                    <label data-error="Campo de e-mail obrigatório" for="defaultForm-email3">E-mail</label> 
+                    <label data-error="Campo de e-mail obrigatório" for="defaultForm-email3">E-mail</label>
                 </div>
 
             </div>
             <div class="modal-footer d-flex justify-content-center">
                 <button mdbBtn color="default" class="waves-light button-bg-theme" (click)="sendLogin()" mdbWavesEffect>Enviar Credenciais</button><br/>
             </div>
-            
+
         </div>
     </div>
 </div>
@@ -291,7 +294,7 @@
             <div class="modal-footer d-flex justify-content-center">
                 <button mdbBtn class="waves-light button-bg-theme button-font" (click)="frameMessage.hide()" mdbWavesEffect>OK</button><br/>
             </div>
-            
+
         </div>
     </div>
 </div>

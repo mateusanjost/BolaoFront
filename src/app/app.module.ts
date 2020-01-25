@@ -26,6 +26,7 @@ import { JurisdictionComponent } from './jurisdiction/jurisdiction.component';
 import { CreditTransferComponent } from './credit-transfer/credit-transfer.component';
 import { SettingsComponent } from './settings/settings.component';
 import { LoaderComponent } from './components/shared/loader/loader.component';
+import { InteractionService } from './interaction.service';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderService } from '../services/loader.service';
@@ -108,7 +109,8 @@ registerLocaleData(localePtBr);
     LoaderService,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
     CookieService,
-    MessengerService
+    MessengerService,
+    InteractionService
   ],
   bootstrap: [AppComponent]
 })

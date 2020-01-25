@@ -41,7 +41,7 @@ export class ResultComponent implements OnInit {
   prizeSharing: string;
 
   constructor(private configService: ConfigService) {
-    
+
   }
 
  ngOnInit() {
@@ -52,7 +52,7 @@ export class ResultComponent implements OnInit {
  }
 
  getRounds(){
-   this.configService.getRound()
+   this.configService.getRounds()
    .subscribe(data => {
      this.getPreviusRound(data[data.length - 2].id);
    }, error => {
@@ -61,7 +61,7 @@ export class ResultComponent implements OnInit {
  }
 
  getPreviusRound(roundId: number){
-   this.configService.getSpecificRound(roundId)
+   this.configService.getRound(roundId)
    .subscribe(data => {
     this.round = data;
     this.getWinners();
@@ -174,7 +174,7 @@ export class ResultComponent implements OnInit {
   removeJurisdiction(jurisdictionId){
     // this.configService.removeJurisdiction(jurisdictionId).subscribe(response => {
     //   console.log(response);
-    // }, error => { 
+    // }, error => {
     //   console.log(error);
     // });
   }
