@@ -1,0 +1,44 @@
+<!--Post result-->
+<div class="container">
+    <!-- Card -->
+    <div class="card mb-5">
+        <!-- Card content -->
+        <div class="card-body bg-theme">
+            <div class="row">
+                <!---------------------->
+                <div class="col-12">
+                    <button mdbBtn color="default" class="waves-light" (click)="frame4.show()" mdbWavesEffect>{{ 'pg-print.ticket' | translate }}</button>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+    <!-- Card -->
+</div>
+
+<!--Modal test print -->
+<div mdbModal #frame4="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+    <div class="modal-dialog-scrollable modal-print" role="document">
+        <div class="modal-content bg-theme">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold" style="text-align: left;">{{ 'pg-print.ticket' | translate }}</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closePrintModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body mx-3">
+                <div>
+                    <p style="text-align: center; font-weight: bold; font-size: 100px;">JogoBrasil</p>
+                    <p id="final-msg" [innerHtml]="htmlToAdd"></p>
+                </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-start">
+                <button mdbBtn class="waves-light button-bg-theme button-font" (click)="print()" mdbWavesEffect>{{ 'pg-print.print' | translate }}</button>
+                <button mdbBtn outline="true" color="warning" class="waves-light" (click)="closePrintModal()" mdbWavesEffect>{{ 'pg-print.close' | translate }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal test print-->

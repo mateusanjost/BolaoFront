@@ -1,0 +1,111 @@
+<div class="container">
+    <div class="row">
+        <!-- Card -->
+        <div class="card mb-5">
+
+            <!-- Card content -->
+            <div class="card-body bg-theme">
+
+                <div class="row">
+                    <!-- Title -->
+                    <div class="col-12 pt-3">
+                        <h3>{{ 'pg-contact.assistence' | translate }}</h3>
+                    </div>
+    
+                    <!-- Text -->
+                    <div class="col-12">
+                        <p>
+                            {{ 'pg-contact.paragraph1' | translate }}
+                        </p>
+                        <p>
+                            <i class="fab fa-whatsapp"></i> Whatsapp: <a href="https://wa.me/393512690381" target="_blank">+39 351 269 0381</a><br/>
+                            <i class="far fa-envelope"></i> E-mail: <a href="mailto:stefano@jogobrasil.net">stefano@jogobrasil.net</a><br/>
+                        </p>
+                        <p>
+                            {{ 'pg-contact.paragraph2' | translate }}
+                        </p>
+                    </div>
+                    <div class="col-12 contact-space">
+                        <!-- Material form contact -->
+                        <mdb-card class="bg-theme">
+
+                            <mdb-card-header class="success-color white-text text-center py-4 button-bg-theme">
+                                <h5>
+                                    <strong>{{ 'pg-contact.form-title' | translate }}</strong>
+                                </h5>
+                            </mdb-card-header>
+
+                            <!--Card content-->
+                            <mdb-card-body class="px-lg-5 pt-0">
+
+                                <!-- Form -->
+                                <form class="text-center" style="color: #757575;" [formGroup]="contactForm">
+
+                                    <!-- Name -->
+                                    <div class="md-form mt-3">
+                                        <input type="text" id="materialContactFormName" class="form-control" mdbInput
+                                            formControlName="name" required>
+                                        <label for="materialContactFormName">{{ 'pg-contact.name' | translate }} <small
+                                                class="red-text">*</small></label>
+                                        <mdb-error *ngIf="name.invalid && (name.dirty || name.touched)">
+                                            {{ 'pg-contact.name-required' | translate }}
+                                        </mdb-error>
+                                    </div>
+
+                                    <!-- E-mail -->
+                                    <div class="md-form">
+                                        <input type="email" id="materialContactFormEmail" class="form-control" mdbInput
+                                            formControlName="email" required>
+                                        <label for="materialContactFormEmail">E-mail <small
+                                                class="red-text">*</small></label>
+                                        <mdb-error *ngIf="email.invalid && (email.dirty || email.touched)">
+                                            {{ 'pg-contact.email-required' | translate }}
+                                        </mdb-error>
+                                    </div>
+
+                                    <!-- Subject -->
+                                    <div class="md-form">
+                                        <input type="email" id="materialContactFormSubject" class="form-control"
+                                            mdbInput formControlName="subject" required>
+                                        <label for="materialContactFormSubject">{{ 'pg-contact.subject' | translate }} <small
+                                                class="red-text">*</small></label>
+                                        <mdb-error *ngIf="subject.invalid && (subject.dirty || subject.touched)">
+                                            {{ 'pg-contact.subject-required' | translate }}
+                                        </mdb-error>
+                                    </div>
+
+                                    <!--Message-->
+                                    <div class="md-form">
+                                        <textarea type="text" id="materialContactFormMessage"
+                                            class="form-control md-textarea" mdbInput formControlName="message"
+                                            required></textarea>
+                                        <label for="materialContactFormMessage">{{ 'pg-contact.message' | translate }} <small
+                                                class="red-text">*</small></label>
+                                        <mdb-error *ngIf="message.invalid && (message.dirty || message.touched)">
+                                            {{ 'pg-contact.message-required' | translate }}
+                                        </mdb-error>
+                                    </div>
+
+                                    <!-- Send button -->
+                                    <!--  color="success" outline="true" rounded="true" block="true" -->
+                                    <button mdbBtn [disabled]="!contactForm.valid" 
+                                        class="z-depth-0 my-4 waves-effect button-bg-theme button-font"
+                                        mdbWavesEffect type="submit" (click)="sendMessage()">{{ 'pg-contact.send' | translate }}</button>
+
+                                </form>
+                                <!-- Form -->
+
+                            </mdb-card-body>
+
+                        </mdb-card>
+                        <!-- Material form contact -->
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- Card -->
+    </div>
+
+</div>

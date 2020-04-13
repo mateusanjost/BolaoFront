@@ -1,0 +1,127 @@
+<div class="container">
+    <div class="row">
+        <!-- Card -->
+        <div class="card w-100">
+
+            <!-- Loading (desapears when is loaded) -->
+            <div *ngIf="!isLoaded" id="spinner-loading" class="card-body justify-content-center bg-theme">Bolão...
+                <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+
+            <!-- Card content -->
+            <div class="card-body bg-theme">
+
+                <!-- Title -->
+                <div class="col-12">
+                    <h3>{{ 'pg-tickets.tickets' | translate }}</h3>
+                </div>
+
+                <div class="col-12">
+                    <mat-form-field>
+                        <mat-label>{{ 'pg-tickets.choose-round' | translate }}</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let round of allRounds" [value]="round.id" (click)="changeRoundBets(round.id)">
+                                {{ 'pg-tickets.round' | translate }}: ID {{round.id}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <!-- Text -->
+                <div class="col-12 mb-3">
+                    <!-- Search form -->
+                    <form class="form-inline waves-light" mdbWavesEffect>
+                        <div class="md-form mt-0" style="color: white">
+                            <mat-label>{{ 'pg-tickets.ticket-code' | translate }}: </mat-label>
+                            <input id="ticket-id" class="form-control mr-sm-2" type="text"
+                                required style="background-color: white; padding: 5px;width: 50px; margin: 2px">
+                            <button type="button" mdbBtn class="button-bg-theme button-font" mdbWavesEffect
+                                (click)="searchTicket()">{{ 'pg-tickets.search-for' | translate }}</button>
+                        </div>
+                    </form>
+                    <div class="row content-hidden" id="result-text" [innerHtml]="resultSearch"></div>
+                </div>
+
+                <!-- NEW DATATABLE-->
+                <div class="row">
+                    <div class="col-12">
+                        <mat-form-field>
+                            <mat-label>{{ 'pg-tickets.filter' | translate}}</mat-label>
+                            <input matInput (keyup)="applyFilter($event)">
+                          </mat-form-field>
+
+                        <div class="mat-elevation-z8">
+                            <table mat-table [dataSource]="dataSource">
+                          
+                              <!-- Position Column -->
+                              <ng-container matColumnDef="id">
+                                <th mat-header-cell *matHeaderCellDef> {{ 'pg-tickets.code' | translate}} </th>
+                                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                              </ng-container>
+                          
+                              <!-- Name Column -->
+                              <ng-container matColumnDef="operator">
+                                <th mat-header-cell *matHeaderCellDef> {{ 'pg-tickets.operator' | translate}} </th>
+                                <td mat-cell *matCellDef="let element; let i = index"> {{ userNameToShow[i] }} </td>
+                              </ng-container>
+                          
+                              <!-- Weight Column -->
+                              <ng-container matColumnDef="login">
+                                <th mat-header-cell *matHeaderCellDef> {{ 'pg-tickets.player' | translate}} </th>
+                                <td mat-cell *matCellDef="let element"> {{element.playerName}} </td>
+                              </ng-container>
+                          
+                              <!-- Symbol Column -->
+                              <ng-container matColumnDef="results">
+                                <th mat-header-cell *matHeaderCellDef> {{ 'pg-tickets.results' | translate}} </th>
+                                <td mat-cell *matCellDef="let element"> {{element.results}} </td>
+                              </ng-container>
+                          
+                              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                            </table>
+                          
+                            <mat-paginator [pageSize]="50" [pageSizeOptions]="[10, 50, 100, 500]" showFirstLastButtons></mat-paginator>
+                          </div>
+                    </div>
+                </div>
+                <!-- NEW DATATABLE-->
+
+                <!-- Old Table--
+                <div class="row">
+                
+                    <div class="col-12">
+                        
+                        <table class="table table-striped" mdbTable mdbTableScroll scrollX="true" maxWidth="50%" bordered="true">
+                
+                            <thead>
+                                <tr>
+                                    <th>{{ 'pg-tickets.code' | translate }}</th>
+                                    <th>{{ 'pg-tickets.operator' | translate }}</th>
+                                    <th>{{ 'pg-tickets.player' | translate }}</th>
+                                    <th>{{ 'pg-tickets.results' | translate }}</th>
+                                </tr>
+                            </thead>
+                            
+                            <tbody>
+                                <tr *ngFor="let bets of bets; let i = index">
+                                    <td>{{ bets.id }}</td>
+                                    <td>{{ userNameToShow[i] }}</td>
+                                    <td>{{ bets.playerName }}</td>
+                                    <td>{{ bets.results }}</td>
+                                </tr>
+                            </tbody>
+                
+                        </table>
+                    </div>
+                </div>
+                !-- Old Table-->
+
+            </div>
+
+        </div>
+        <!-- Card -->
+    </div>
+</div>

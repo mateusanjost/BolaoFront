@@ -1,0 +1,152 @@
+<div class="container">
+    <!-- Card -->
+    <div class="card mb-5">
+        <!-- Card content -->
+
+        <div class="card-body bg-theme" *ngIf="!isLoaded" id="spinner-loading">
+            <!-- Loading (desapears when is loaded) -->
+            <div class="justify-content-center">Bolão...
+                <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body bg-theme" *ngIf="isLoaded">
+            <div class="row">
+                <div class="col-12 pt-3">
+                    <h3>{{ 'pg-settings.settings' | translate }}</h3>
+                    <div class="row">
+                        <div class="col-md-4">Login: {{user.login}} <a style="color: white; text-decoration: underline" (click)="frame2.show()">({{ 'pg-settings.change-password' | translate }})</a></div>
+                        <div class="col-md-4">
+                            <span *ngIf="creditVisibility">{{ 'pg-settings.credit' | translate }}: {{ownCredit}} </span>
+                            <span *ngIf="!creditVisibility">{{ 'pg-settings.credit' | translate }}: </span>
+                            <span (click)="toggleVisibility()">
+                                <i *ngIf="creditVisibility" class="fas fa-eye"></i>
+                                <i *ngIf="!creditVisibility" class="fas fa-eye-slash"></i>
+                            </span>
+                        </div>
+                        <div class="col-md-4">{{ 'pg-settings.name' | translate }}: {{user.name}} </div>
+                        <div class="col-md-4">{{ 'pg-settings.last-name' | translate }}: {{ user.lastName }}</div>
+                        <div class="col-md-4">E-mail: {{ user.email }}</div>
+                        <div class="col-md-4">{{ 'pg-settings.country' | translate }}: {{ user.country }}</div>
+                        <div class="col-md-4">{{ 'pg-settings.city' | translate }}: {{ user.city }}</div>
+                    </div>
+                    <div class="col-12" style="text-align: center;">
+                        <button class="mt-1 p-2 button-bg-theme button-font" type="button" mdbBtn (click)="frame.show()" mdbWavesEffect>{{ 'pg-settings.change-data' | translate }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Card -->
+</div>
+
+<!--Modal Edit User-->
+<div mdbModal #frame="mdbModal" class="modal fade" id="frameModalTop" tabindex="-1" role="dialog" onOpen="fullFillUserForm()"
+  aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}" >
+  <div class="modal-dialog modal-notify modal-primary" role="document">
+    <!--Content-->
+    <div class="modal-content bg-theme">
+      <!--Header-->
+      <div class="modal-header">
+        <p class="heading lead">{{ 'pg-settings.edit-user' | translate }}</p>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <div class="text-center">
+            <form style="color: #757575;" #f="ngForm">
+        
+                <!-- User Data -->
+                <mat-form-field class="w-100">
+                    <mat-label>{{ 'pg-settings.name' | translate }} *</mat-label>
+                    <input type="text" matInput [(ngModel)]="user.name" userName name="userName">
+                </mat-form-field>
+                <mat-form-field class="w-100">
+                    <mat-label>{{ 'pg-settings.last-name' | translate }}</mat-label>
+                    <input type="text" matInput [(ngModel)]="user.lastName" lastName name="lastName">
+                </mat-form-field>
+                <mat-form-field class="w-100">
+                    <mat-label>E-mail *</mat-label>
+                    <input type="text" matInput [(ngModel)]="user.email" userEmail ngModel name="userEmail">
+                </mat-form-field>
+                <mat-form-field class="w-100">
+                    <mat-label>{{ 'pg-settings.country' | translate }}</mat-label>
+                    <input type="text" matInput [(ngModel)]="user.country" country ngModel name="country">
+                </mat-form-field>
+                <mat-form-field class="w-100">
+                    <mat-label>{{ 'pg-settings.city' | translate }}</mat-label>
+                    <input type="text" matInput [(ngModel)]="user.city" city ngModel name="city">
+                </mat-form-field>
+        
+            </form>
+            <div class="row">
+                <div class="col-6">
+                    <button mdbBtn class="button-bg-theme button-font" (click)="editUser(f)">{{ 'pg-settings.save-changes' | translate }}</button>
+                </div>
+                <div class="col-6">
+                    <button mdbBtn color="warning" outline="true" (click)="closeModalUser()">{{ 'pg-settings.back' | translate }}</button>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+<!--Modal Edit User-->
+
+<!--Modal Change Password-->
+<div mdbModal #frame2="mdbModal" class="modal fade" id="frameModalTop" tabindex="-1" role="dialog" onOpen="fullFillUserForm()"
+  aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}" >
+  <div class="modal-dialog modal-notify modal-primary" role="document">
+    <!--Content-->
+    <div class="modal-content bg-theme">
+      <!--Header-->
+      <div class="modal-header">
+        <p class="heading lead">{{ 'pg-settings.change-password' | translate }}</p>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame2.hide()">
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <div class="text-center">
+            <form style="color: #757575;" #f2="ngForm">
+        
+                <!-- User Data -->
+                <mat-form-field class="w-100">
+                    <mat-label>{{ 'pg-settings.current-password' | translate }}</mat-label>
+                    <input type="password" matInput required ngModel currentPassword name="currentPassword">
+                </mat-form-field>
+                <mat-form-field class="w-100">
+                    <mat-label>{{ 'pg-settings.new-password' | translate }}</mat-label>
+                    <input type="password" matInput required ngModel newPassword name="newPassword">
+                </mat-form-field>
+                <mat-form-field class="w-100">
+                    <mat-label>{{ 'pg-settings.confirm-new' | translate }}</mat-label>
+                    <input type="password" matInput required ngModel newPassword name="confirmPassword">
+                </mat-form-field>
+            </form>
+            <div class="row">
+                <div class="col">
+                    <button mdbBtn class="button-bg-theme button-font" [disabled]="f2.invalid" (click)="changePassword(f2)">{{ 'pg-settings.change-password' | translate }}</button>
+                </div>
+                <div class="col-6">
+                    <button mdbBtn color="warning" outline="true" (click)="closeModalPassword()">{{ 'pg-settings.back' | translate }}</button>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+<!--Modal Change Password-->

@@ -1,0 +1,215 @@
+<!-- <div class="container">
+  <div class="row"> -->
+
+    <!-- Card -->
+    <div class="card mb-5">
+
+        <!-- Loading (desapears when is loaded) -->
+        <div *ngIf="!isLoaded" id="spinner-loading" class="card-body justify-content-center bg-theme">Bolão...
+                <div class="spinner-border"role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+        </div>
+
+      <!-- Card content -->
+      <div class="card-body bg-theme">
+
+        <!-- Title -->
+        <div class="col-12 pt-3">
+          <h3>{{ 'pg-manage-ticket.manage-ticket' | translate }}</h3>
+        </div>
+
+        <div class="col-12">
+          <mat-form-field>
+              <mat-label>{{ 'pg-tickets.choose-round' | translate }}</mat-label>
+              <mat-select>
+                  <mat-option *ngFor="let round of allRounds" [value]="round.id" (click)="changeRoundBets(round.id)">
+                      {{ 'pg-tickets.round' | translate }}: ID {{round.id}}
+                  </mat-option>
+              </mat-select>
+          </mat-form-field>
+      </div>
+
+        <!-- Text -->
+        <div class="col-12 mb-3">
+          <!-- Search form -->
+          <form class="form-inline waves-light" mdbWavesEffect>
+            <div class="md-form mt-0" style="color: white">
+              <mat-label>{{ 'pg-manage-ticket.ticket-code' | translate }}: </mat-label>
+              <input id="ticket-id" class="form-control mr-sm-2" type="text" required
+                style="background-color: white; padding: 5px;width: 50px; margin: 2px">
+              <button type="button" mdbBtn class="button-bg-theme button-font" mdbWavesEffect
+                (click)="searchTicket()">{{ 'pg-manage-ticket.search' | translate }}</button>
+            </div>
+          </form>
+          <div class="row content-hidden" id="result-text" [innerHtml]="resultSearch"></div>
+        </div>
+
+        <!-- NEW DATATABLE-->
+        <div class="row">
+          <div class="col-12">
+
+            <mat-form-field>
+              <mat-label>{{ 'pg-manage-ticket.filter' | translate}}</mat-label>
+              <input matInput (keyup)="applyFilter($event)">
+            </mat-form-field>
+
+            <div class="mat-elevation-z8">
+              <table mat-table [dataSource]="dataSource">
+            
+                <!-- Position Column -->
+                <ng-container matColumnDef="id">
+                  <th mat-header-cell *matHeaderCellDef> ID </th>
+                  <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="player">
+                  <th mat-header-cell *matHeaderCellDef> {{ 'pg-manage-ticket.player' | translate }} </th>
+                  <td mat-cell *matCellDef="let element"> {{element.playerName}} </td>
+                </ng-container>
+            
+                <!-- Name Column -->
+                <ng-container matColumnDef="status">
+                  <th mat-header-cell *matHeaderCellDef> status </th>
+                  <td mat-cell *matCellDef="let element">
+                    {{element.status == true ? ('pg-manage-ticket.activated' | translate) : ('pg-manage-ticket.canceled' | translate)}}
+                  </td>
+                </ng-container>
+                
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="actions">
+                  <th mat-header-cell *matHeaderCellDef> {{ 'pg-manage-ticket.actions' | translate }} </th>
+                  <td mat-cell *matCellDef="let element; let i = index">
+                    <button mdbBtn class="small-spaces" type="button" color="primary" (click)="makeTicket(i, 1)" mdbWavesEffect>
+                      <mdb-icon fas icon="eye"></mdb-icon>
+                    </button>
+                    <button *ngIf="element.status" mdbBtn class="small-spaces" type="button" (click)="makeTicket(i, 2)" color="red"
+                      mdbWavesEffect>
+                      <mdb-icon fas icon="ban"></mdb-icon>
+                    </button>
+                  </td>
+                </ng-container>
+            
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+            
+              <mat-paginator [pageSize]="50" [pageSizeOptions]="[10, 50, 100, 500]" showFirstLastButtons></mat-paginator>
+            </div>
+          </div>
+        </div>
+        <!-- NEW DATATABLE-->
+
+        <!-- OLD TABLE --
+        <div class="row">
+          
+          <table class="table table-striped" scrollX="true">
+
+            <thead>
+              <tr>
+                <th>{{ 'pg-manage-ticket.code' | translate }}</th>
+                <th>{{ 'pg-manage-ticket.player' | translate }}</th>
+                <th>{{ 'pg-manage-ticket.status' | translate }}</th>
+                <th>{{ 'pg-manage-ticket.actions' | translate }}</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr *ngFor="let ticket of bets; let i = index">
+                <th scope="row">{{ticket.id}}</th>
+                <td>{{ticket.playerName}}</td>
+                <td>{{ticket.status == true ? ('pg-manage-ticket.activated' | translate) : ('pg-manage-ticket.canceled' | translate)}}</td>
+                <td>
+                  <button mdbBtn class="small-spaces" type="button" color="primary" (click)="makeTicket(i, 1)"
+                    mdbWavesEffect>
+                    <mdb-icon fas icon="eye"></mdb-icon>
+                  </button>
+                  <button *ngIf="ticket.status" mdbBtn class="small-spaces" type="button" (click)="makeTicket(i, 2)"
+                    color="red" mdbWavesEffect>
+                    <mdb-icon fas icon="ban"></mdb-icon>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+
+          </table>
+        </div>
+        -- OLD TABLE -->
+
+      </div>
+
+    </div>
+    <!-- Card -->
+  <!-- </div>
+
+
+</div> -->
+
+<!--Modal show ticket-->
+<div mdbModal #frame2="mdbModal" class="modal fade" id="frameModalTop" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}" >
+  <div class="modal-dialog modal-notify modal-primary" role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header">
+        <p class="heading lead">{{ 'pg-manage-ticket.view-ticket' | translate }}</p>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame2.hide()">
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <div class="text-center">
+          <p id="final-msg" [innerHtml]="viewTicket"></p>
+        </div>
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer justify-content-center">
+        <a type="button" mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect
+          (click)="frame2.hide()" data-dismiss="modal">{{ 'pg-manage-ticket.back' | translate }}</a>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+<!--Modal show ticket-->
+
+<!--Modal cancel ticket-->
+<div mdbModal #frame3="mdbModal" class="modal fade" id="frameModalTop" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}" >
+  <div class="modal-dialog modal-notify modal-danger" role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header">
+        <p class="heading lead">{{ 'pg-manage-ticket.confirm-cancel' | translate }}</p>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame3.hide()">
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <div class="text-center">
+          <p id="final-msg" [innerHtml]="viewTicket"></p>
+        </div>
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer justify-content-center">
+        <a type="button" mdbBtn color="danger" class="waves-light" (click)="cancelTicket()" mdbWavesEffect>{{ 'pg-manage-ticket.confirm' | translate }}
+        </a>
+        <a type="button" mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect
+          (click)="frame3.hide()" data-dismiss="modal">{{ 'pg-manage-ticket.back' | translate }}</a>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+<!--Modal cancel ticket-->

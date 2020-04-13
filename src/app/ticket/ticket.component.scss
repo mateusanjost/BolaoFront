@@ -1,0 +1,32 @@
+.content-hidden{
+    visibility: hidden;
+}
+
+
+.goals {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+table{
+    color:white;
+    width: 100%;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+.mat-table{
+    background-color: white !important;
+}
+
+.mat-header-row.ng-star-inserted{
+    background-color: black !important;
+}
+
+.mat-paginator, .mat-paginator-page-size .mat-select-trigger{
+    color: white;
+    background-color: black;
+}

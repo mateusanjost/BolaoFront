@@ -1,0 +1,122 @@
+<!--Post result-->
+<div class="container">
+    <!-- Card -->
+    <div class="card mb-5">
+        <!-- Card content -->
+        <div class="card-body bg-theme">
+            <div class="row">
+                <div class="col-12 pt-3">
+                    <h3>{{ 'pg-post-result.post-result' | translate }}</h3>
+                </div>
+                <!-- Loading (desapears when is loaded) -->
+                <div *ngIf="!isLoaded" id="spinner-loading" class="justify-content-center">Bolão...
+                        <div class="spinner-border"role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                </div>
+                <!-- post result layout -->
+                <div class="col-12" *ngIf="isLoaded">
+                    <div class="col-12">
+                        
+                        <mat-form-field>
+                            <mat-label>{{ 'pg-post-result.choose-round' | translate }}</mat-label>
+                            <mat-select>
+                              <mat-option (click)="loadGames(round.id)" *ngFor="let round of roundsFinished" [value]="round.id">
+                                {{ 'pg-post-result.round' | translate }}: ID {{round.id}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                          
+                    </div>
+                    <div class="col-12">
+                        <table class="table table-striped white-text" mdbTable mdbTableScroll scrollX="true" maxWidth="100%" bordered="true">
+                            <tr>
+                                <th>{{ 'pg-post-result.date' | translate }}</th>
+                                <th>{{ 'pg-post-result.home-team' | translate }}</th>
+                                <th>{{ 'pg-post-result.score' | translate }}</th>
+                                <th>VS</th>
+                                <th>{{ 'pg-post-result.score' | translate }}</th>
+                                <th>{{ 'pg-post-result.away-team' | translate }}</th>
+                                <th>{{ 'pg-post-result.result' | translate }}</th>
+                            </tr>
+                            <tr id="spinner-loading2">
+                                <td colspan="7" *ngIf="isLoadingGames">
+                                    <!-- Loading (desapears when is loaded) -->
+                                    <div class="justify-content-center">Bolão...
+                                        <div class="spinner-border" role="status">
+                                            <span class="sr-only">Bolão...</span>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr *ngFor="let game of games; let i = index">
+                                <td>{{game.dateTime | date: 'dd/MM'}}</td>
+                                <td style="text-align: right;">
+                                    {{game.homeName}}
+                                </td>
+                                <td class="center-content">
+                                    <input #homeScore (input)="onChange('a', i, homeScore.value)" class="center-content field-size" type="text" value="{{game.homeTeamScore}}">
+                                </td>
+                                <td class="center-content">-</td>
+                                <td class="center-content">
+                                    <input #awayScore (input)="onChange('b', i, awayScore.value)" class="center-content field-size" type="text" value="{{game.awayTeamScore}}">
+                                </td>
+                                <td>{{game.awayName}}</td>
+                                <td class="center-content">{{result(game.homeTeamScore, game.awayTeamScore)}}</td>
+                            </tr>
+                        </table>
+                        <button type="button" mdbBtn class="button-bg-theme button-font" mdbWavesEffect
+                        (click)="modalPost.show()">
+                        {{ 'pg-post-result.publish-result' | translate }}
+                        </button>
+                    </div>
+                </div>
+                <!-- post result layout -->
+            </div>
+        </div>
+    </div>
+    <!-- Card -->
+</div>
+<!--Post result-->
+
+<!--Modal Confirm Post-->
+<div mdbModal #frame="mdbModal" class="modal fade" scrollY="true" maxHeight="200" id="frameModalTop" tabindex="-1"
+    role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+    [config]="{backdrop: false, ignoreBackdropClick: true}">
+    <div class="modal-dialog moda-notify" role="document">
+        <div class="modal-content bg-theme">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">{{ 'pg-post-result.confirm-result' | translate }}</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body mx-3">
+                <div class="row">
+                    <div class="col-9 center-content">
+                        <h4>{{ 'pg-post-result.match' | translate }}</h4>
+                    </div>
+                    <div class="col-3 center-content">
+                        <h4>{{ 'pg-post-result.result' | translate }}</h4>
+                    </div>
+                </div>
+                <div class="row" *ngFor="let game of games">
+                    <div class="col-9">
+                        {{game.homeName}} {{game.homeTeamScore}} - {{game.awayTeamScore}} {{game.awayName}}
+                    </div>
+                    <div class="col-3 center-content">
+                        {{result(game.homeTeamScore, game.awayTeamScore)}}
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <button mdbBtn color="default" class="waves-light button-font" (click)="modalPost.hide()" color="danger" mdbWavesEffect>{{ 'pg-post-result.back' | translate }}</button><br/>
+                <button mdbBtn color="default" class="waves-light button-bg-theme button-font" (click)="postResult()" mdbWavesEffect>{{ 'pg-post-result.confirm' | translate }}</button><br/>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--Modal Confirm Post-->

@@ -1,0 +1,127 @@
+<div class="container">
+    <div class="row">
+        <!-- Card -->
+        <div class="card w-100">
+
+            <!-- Card content -->
+
+            <div class="card-body bg-theme">
+                <h3>Banners</h3>
+                <p class="right-content">
+                    <button type="button" class="btn btn-success save-button" (click)="saveBannersState()">
+                        <mat-icon>save</mat-icon> <span class="aligned-with-icon">{{ 'pg-banners.save' | translate }}</span>
+                    </button>
+                </p>
+
+                <hr/>
+
+                <div class="row banners-imgs" *ngFor="let banners of bannersList; let i = index; let l = count" style="border: gray 1px solid;">
+                    <div class="col-sm-12 col-xl-4">
+                        <!--<img src="../../assets/banners/{{banners.FileName}}" alt="Sorte" width="210px" height="130px">-->
+                        <a (click)="openImage(banners.id)">
+                            <img class="img-responsive" src="../../assets/banners/{{banners.fileName}}" alt="Sorte" width="210px" height="130px">
+                        </a>
+                    </div>
+                    <div class="col-sm-12 col-xl-6">
+                        <mat-form-field appearance="fill">
+                            <mat-label>{{ 'pg-banners.title' | translate }}</mat-label>
+                            <input matInput value="{{banners.title}}" id="title{{banners.id}}">
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>{{ 'pg-banners.subtitle' | translate }}</mat-label>
+                            <input matInput value="{{banners.subtitle}}" id="subtitle{{banners.id}}">
+                        </mat-form-field>
+                        
+                    </div>
+                    <div class="col-sm-12 col-xl-2 right-content">
+                        <button *ngIf="(i != 0)" mat-mini-fab color="primary" (click)="changeOrder(i, i-1)">
+                            <mat-icon>keyboard_arrow_up</mat-icon>
+                        </button>
+                        <button *ngIf="((i + 1) != l)" mat-mini-fab color="accent" (click)="changeOrder(i, i+1)">
+                            <mat-icon>keyboard_arrow_down</mat-icon> 
+                        </button>
+                        <!--
+                        <button mat-mini-fab color="success" (click)="editChange(banners.id)" value="{{banners.id}}">
+                            <mat-icon>save</mat-icon>
+                        </button>
+                        -->
+                        <button mat-mini-fab color="warn" (click)="deleteDialog(banners.id)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h3>{{ 'pg-banners.add' | translate }} Banner</h3>
+                        <hr/>
+                    </div>
+                    <!--<div class="col-12">
+                        <input type="file" (change)="inputFileChange($event)" name="file-input"/>
+                        <input type="file" name="file-input"/>
+                        <button (click)="submit()">Enviar</button>
+                    </div>-->
+
+                    <div class="col-12">
+                        <!--<input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)" style="display:none;">-->
+                        <input type="file" #file placeholder="Choose file" (change)="onFileSelected($event)" style="display: none;">
+                        <button type="button" class="btn btn-danger" (click)="file.click()">{{ 'pg-banners.choose-image' | translate }}</button>
+                        <span>{{fileName}}</span>
+                        <mat-form-field appearance="fill">
+                            <mat-label>{{ 'pg-banners.title' | translate }}</mat-label>
+                            <input matInput  [formControl]="title">
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>{{ 'pg-banners.subtitle' | translate }}</mat-label>
+                            <input matInput  [formControl]="subtitle">
+                        </mat-form-field>
+                        <button type="button" class="btn btn-success" (click)="uploadFile(file.files)">{{ 'pg-banners.publish' | translate }}</button>
+                      </div>
+                </div>
+                
+
+            </div>
+
+        </div>
+        <!-- Card -->
+    </div>
+</div>
+
+<div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="col-12" [innerHtml]="showImage"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>{{ 'pg-banners.close' | translate }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div mdbModal #deleteModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-notify modal-danger" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h3 style="color: white; font-weight: bolder;">{{ 'pg-banners.confirm-title' | translate }}</h3>
+          <button type="button" class="close pull-right" aria-label="Close" (click)="deleteModal.hide()">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="col-12">
+            {{ 'pg-banners.warning-delete' | translate }}
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" mdbBtn class="waves-light button-bg-theme button-font" aria-label="Confirm" (click)="deleteBanner()" mdbWavesEffect>{{ 'pg-banners.confirm' | translate }}</button>
+          <button type="button" mdbBtn class="waves-light" color="primary" aria-label="Close" (click)="deleteModal.hide()" mdbWavesEffect>X {{ 'pg-banners.close' | translate }}</button>
+        </div>
+      </div>
+    </div>
+  </div>

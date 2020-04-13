@@ -1,0 +1,100 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+html, body { height: 100%; }
+body { 
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-image: url("~/assets/image/background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #999;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.cdk-global-overlay-wrapper, .cdk-overlay-container {
+    z-index: 99999 !important;
+ }
+
+ .bg-theme{
+    background-color: #1f1f1f !important;
+    color: white ;    
+ }
+
+ .button-bg-theme{
+    background-image: linear-gradient(#f8cb24, #e39711);    
+    &.button-font{
+        color:white ;
+        font-weight: 600;
+    }    
+ }
+
+ .list-group-item{
+    border: 1px solid rgba(255,255,255, 0.125);
+ }
+
+ .dropdown-menu{
+    a {
+        color: white !important;
+    }
+    a:hover{
+        background-color: #7f7f7f;
+    }
+ }
+
+ mat-label{
+    color: white;
+ }
+
+ .mat-form-field-label {
+    color: white !important; 
+ }
+
+ button {
+    span {
+        color: white;   
+    }     
+
+ }
+
+ .mat-table{
+    background-color: #1f1f1f !important;
+    .mat-header-cell {
+        color: white !important ;
+    }
+ }
+
+ hr{
+     background-color: white;
+     margin-top: 0.5rem;
+ }
+
+ .button-header{
+    border-bottom: 7px rgb(243, 192, 32) solid;
+}
+
+mat-nested-tree-node{
+    .mat-tree-node{
+        background-color: #1f1f1f !important;
+        color: white ;
+    }
+}
+
+.center-content {
+    text-align: center !important;
+}
+
+.right-content{
+    text-align: right !important;
+}
+
+.white-text {
+color: white !important;
+}
+
+.no-padding{
+    padding: 0px !important;
+}

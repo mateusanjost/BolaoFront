@@ -1,0 +1,111 @@
+<div class="container">
+    <!-- Card -->
+    <div class="card mb-5">
+        <!-- Card content -->
+
+        <div class="card-body bg-theme" *ngIf="!isLoaded" id="spinner-loading">
+            <!-- Loading (desapears when is loaded) -->
+            <div  class="justify-content-center">Bolão...
+                <div class="spinner-border"role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body bg-theme" *ngIf="isLoaded">
+            <div class="row">
+                <div class="col-12 pt-3">
+                    <h3>{{ 'pg-credit-transfer.credit-transfer' | translate }}</h3>
+                    <span *ngIf="creditVisibility">{{ 'pg-credit-transfer.your-credit-is' | translate }}: {{ownCredit}} </span>
+                    <span *ngIf="!creditVisibility">{{ 'pg-credit-transfer.your-credit-is' | translate }}: </span>
+                    <span (click)="toggleVisibility()">
+                            <i *ngIf="creditVisibility" class="fas fa-eye"></i>
+                            <i *ngIf="!creditVisibility" class="fas fa-eye-slash"></i>
+                        </span>
+                </div>
+                <div class="col-12" style="text-align: center;">
+                
+                    <form [formGroup]="formTransfer" (ngSubmit)="onSubmit()">
+                        <p>
+                            <mat-form-field>
+                                <mat-label>{{ 'pg-credit-transfer.transaction' | translate }} *</mat-label>
+                                <select matNativeControl [formControl]="type">
+                                    <option value="1">{{ 'pg-credit-transfer.deposit' | translate }}</option>
+                                    <option value="2">{{ 'pg-credit-transfer.withdraw' | translate }}</option>
+                                </select>
+                            </mat-form-field>
+                        </p>
+                        
+                        <p>
+                            <mat-form-field>
+                                <mat-label>{{ 'pg-credit-transfer.user' | translate }} *</mat-label>
+                                <input type="text" matInput [matAutocomplete]="auto"
+                                [formControl]="myControl" (ngModelChange)="updatedVal($event)"/>
+                                <mat-autocomplete #auto="matAutocomplete">
+                                    <mat-option
+                                    [ngClass]="{'hide-autocomplete': !showAutocomplete}"
+                                    *ngFor="let option of filteredOptions | async"
+                                    [value]="option.login"
+                                    (click)="getSelectedOption(option.id)">
+                                        {{option.login}}
+                                    </mat-option>
+                                </mat-autocomplete>
+                            </mat-form-field>
+                            <span [innerHtml]="userCredit"></span>
+                            <!--<mat-form-field>
+                                <mat-label>{{ 'pg-credit-transfer.user' | translate }} *</mat-label>
+                                <input type="text" matInput [matAutocomplete]="auto" [formControl]="myControl"/>
+                                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                        {{option.login}} {{option.credit | currency:'BRL':'symbol':'1.2-2'}}
+                                    </mat-option>
+                                </mat-autocomplete>
+                            </mat-form-field>-->
+                        </p>
+                        <p>
+                            <mat-form-field>
+                                <input style="color: white;" matInput placeholder="Valor *" [formControl]="credit">
+                            </mat-form-field>
+                        </p>
+                        <p>
+                            <button mdbBtn class="waves-light button-bg-theme button-font" mdbWavesEffect type="submit" [disabled]="!formTransfer.valid">
+                                {{ 'pg-credit-transfer.transfer' | translate }}
+                            </button>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Card -->
+</div>
+
+<!--Modal confirm -->
+<div mdbModal #frame="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content bg-theme">
+            <div class="modal-header text-center">
+                <h4 class="modal-title font-weight-bold" style="text-align: left;">{{ 'pg-credit-transfer.confirm-transfer' | translate }}</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body mx-3">
+                <div>
+                    <p>
+                        <span style="font-weight: bold">{{ 'pg-credit-transfer.type' | translate }}:  </span>{{transferType}}<br/>
+                        <span style="font-weight: bold">{{ 'pg-credit-transfer.to' | translate }}:  </span>{{childLogin}}<br/>
+                        <span style="font-weight: bold">{{ 'pg-credit-transfer.value' | translate }}: </span>{{valueToTransfer}}<br/>
+                    </p>
+                </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-start">
+                <button mdbBtn class="waves-light button-bg-theme button-font" (click)="confirmTransfer()" mdbWavesEffect>{{ 'pg-credit-transfer.confirm' | translate }}</button>
+                <button mdbBtn color="warning" outline="true" class="waves-light" (click)="frame.hide()" mdbWavesEffect>{{ 'pg-credit-transfer.close' | translate }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal confirm -->

@@ -1,0 +1,77 @@
+<div style="overflow: auto;">
+    <!-- Card -->
+    <div class="card">
+        <!-- Card content -->
+        <div class="card-body bg-theme">
+            <div class="col-12 pt-3">
+                <h3>{{ 'pg-transactions.transactions' | translate }}</h3>
+            </div>
+            <div class="mat-elevation-z8 container-table">
+                <table mat-table matSort [dataSource]="dataSource" >
+
+                    <ng-container matColumnDef="id" style="width: 50px;">
+                        <mat-header-cell [ngClass]="'idColumnWidth'" *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+                        <mat-cell [ngClass]="'idColumnWidth'" *matCellDef="let element">
+                            <span class="mobile-label">ID:</span>
+                            {{element.id}} 
+                        </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="date">
+                        <mat-header-cell *matHeaderCellDef> {{ 'pg-transactions.date' | translate }} </mat-header-cell>
+                        <mat-cell  *matCellDef="let element">
+                            <span class="mobile-label">{{ 'pg-transactions.date' | translate }}:</span>
+                            {{element.dateFormatted}} 
+                        </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="type">
+                        <mat-header-cell *matHeaderCellDef> {{ 'pg-transactions.moviment' | translate }} </mat-header-cell>
+                        <mat-cell  *matCellDef="let element">
+                            <span class="mobile-label">{{ 'pg-transactions.moviment' | translate }}:</span>
+                            {{element.typeDesc}} 
+                        </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="description">
+                        <mat-header-cell [ngClass]="'descColumnWidth'" *matHeaderCellDef> {{ 'pg-transactions.description' | translate }} </mat-header-cell>
+                        <mat-cell [ngClass]="'descColumnWidth'" *matCellDef="let element"> 
+                            <span class="mobile-label">{{ 'pg-transactions.description' | translate }}:</span>
+                            {{element.description}} 
+                        </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="creditIn">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'pg-transactions.in' | translate }} </mat-header-cell>
+                        <mat-cell  *matCellDef="let element"> 
+                            <span class="mobile-label">{{ 'pg-transactions.in' | translate }}:</span>
+                            {{element.creditIn | currency:'BRL':true}} 
+                        </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="creditOut">
+                        <mat-header-cell *matHeaderCellDef> {{ 'pg-transactions.out' | translate }} </mat-header-cell>
+                        <mat-cell  *matCellDef="let element">
+                            <span class="mobile-label">{{ 'pg-transactions.out' | translate }}:</span>
+                            {{element.creditOut | currency:'BRL':true}} 
+                        </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="credit">
+                        <mat-header-cell *matHeaderCellDef> {{ 'pg-transactions.balance' | translate }} </mat-header-cell>
+                        <mat-cell  *matCellDef="let element">
+                            <span class="mobile-label">{{ 'pg-transactions.balance' | translate }}:</span>
+                            {{element.balance | currency:'BRL':true}} 
+                        </mat-cell>
+                    </ng-container>
+
+                    <mat-header-row  *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+                    <mat-row  *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+                </table>
+                <mat-paginator class="bg-theme" [pageSize]="25" [pageSizeOptions]="[10, 25, 50]" showFirstLastButtons>
+                </mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>

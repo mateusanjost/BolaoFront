@@ -1,0 +1,60 @@
+.mat-icon-button {
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    margin: 4px;
+}
+
+.mat-tree-node {
+    background-color: #cccccc;
+    margin: 2px;
+}
+
+/* Important part */
+.modal-dialog{
+    overflow-y: initial !important
+}
+
+.modal-body {
+    height: 360px;
+    overflow-y: auto;
+}
+
+.example-tree ul,
+.example-tree li {
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.example-tree-invisible {
+    display: none;
+    list-style: none;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .mat-table{
+      background-color: white !important;
+  }
+
+  .mat-header-row.ng-star-inserted{
+      background-color: black !important;
+  }
+
+  .mat-paginator, .mat-paginator-page-size .mat-select-trigger{
+      color: white;
+      background-color: black;
+  }
+
+  .button-font.close-btn.mat-raised-button.mat-button-base{
+    color: black;
+    background-color: red;
+}

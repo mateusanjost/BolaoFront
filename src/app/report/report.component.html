@@ -1,0 +1,115 @@
+<div style="overflow: auto;">
+    <!-- Card -->
+    <div class="card mb-5">
+        <!-- Card content -->
+        <div class="card-body bg-theme">
+            <div class="col-12 pt-3">
+                <h3>{{ 'pg-report.reports' | translate }}</h3>
+            </div>
+            <form class="row" [formGroup]="reportForm">
+                <div class="row col-9">
+                <div class="col-6 pt-6">
+                    <mat-form-field>
+                        <mat-label>{{ 'pg-report.date-begin' | translate }}</mat-label>
+                        <input matInput [matDatepicker]="dateStart" formControlName="dateStart">
+                        <mat-datepicker-toggle matSuffix [for]="dateStart" style="color: black">
+                        </mat-datepicker-toggle>
+                        <mat-datepicker #dateStart></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="col-6 pt-6">
+                    <mat-form-field>
+                        <mat-label>{{ 'pg-report.date-end' | translate }}</mat-label>
+                        <input matInput [matDatepicker]="dateEnd" formControlName="dateEnd">
+                        <mat-datepicker-toggle matSuffix [for]="dateEnd" style="color: black">
+                        </mat-datepicker-toggle>
+                        <mat-datepicker #dateEnd></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="col-6 pt-4">
+                    <mat-form-field>
+                        <mat-label>{{ 'pg-report.jurisdiction' | translate }}</mat-label>
+                        <mat-select formControlName="jurisdictionId">
+                            <mat-option [value]="0">-</mat-option>
+                            <mat-option *ngFor="let jur of jurisdictions" [value]="jur.id">
+                                {{jur.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-6 pt-4">
+                    <mat-form-field>
+                        <mat-label>{{ 'pg-report.round' | translate }}</mat-label>
+                        <mat-select formControlName="roundId">
+                            <mat-option [value]="0">-</mat-option>
+                            <mat-option *ngFor="let round of rounds" [value]="round.id">
+                                {{round.number}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                </div>
+                
+                <div class="col-3 pl-0 my-auto">
+                    <button type="submit" mdbBtn class="waves-light button-bg-theme button-font"
+                        mdbWavesEffect (click)="getReport()">{{ 'pg-report.generate-report' | translate }}</button>
+                </div>
+            </form>
+
+            <div class="mat-elevation-z8 container-table">
+                <table mat-table matSort [dataSource]="dataSource">
+
+                    <ng-container matColumnDef="operator">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'pg-report.operator' | translate }} </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.operator}} </mat-cell>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="amountSold">
+                        <mat-header-cell *matHeaderCellDef> {{ 'pg-report.sold' | translate }} </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.amountSold}} </mat-cell>
+                    </ng-container>
+
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="prizeValue">
+                        <mat-header-cell *matHeaderCellDef> {{ 'pg-report.value-for-prize' | translate }} </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.prizeValue}} </mat-cell>
+                    </ng-container>
+
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="playerWinnings">
+                        <mat-header-cell *matHeaderCellDef> {{ 'pg-report.player-win' | translate }} </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.playerWinnings}} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="percentage">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> % {{ 'pg-report.to-hold' | translate }} </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.percentage}} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="amountToGive">
+                        <mat-header-cell *matHeaderCellDef> {{ 'pg-report.value-to-give' | translate }} </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.amountToGive}} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="amountToReceive">
+                        <mat-header-cell *matHeaderCellDef> {{ 'pg-report.value-to-get' | translate }} </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.amountToReceive}} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="wasPaid">
+                        <mat-header-cell *matHeaderCellDef> {{ 'pg-report.paid' | translate }} </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.wasPaid}} </mat-cell>
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+                </table>
+                <mat-paginator class="bg-theme" [pageSize]="25" [pageSizeOptions]="[10, 25, 50]"
+                    showFirstLastButtons></mat-paginator>
+            </div>
+        </div>
+    </div>
+    <!-- Card -->
+</div>

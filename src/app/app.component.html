@@ -1,0 +1,416 @@
+<!--Top page-->
+<div class="row top">
+    <div class="col-2"></div>
+    <div class="col-8 center content">
+        <a href="http://www.jogobrasil.com.br"><img src="../assets/image/logo.png" class="img-fluid"
+                alt="Bolao Futebol"></a>
+    </div>
+    <div class="col-2 lang-div no-padding">
+        <div class="dropdown-language">
+            <button class="dropbtn">
+                <img src="../assets/image/flags/{{activeLang}}.png"/>
+                <mat-icon aria-hidden="false" aria-label="Example home icon" color="black">keyboard_arrow_down</mat-icon>
+            </button>
+            <div class="dropdown-content">
+                <a [ngClass]="{'active': activeLang == 'pt'}" (click)="changeLanguage('pt')">
+                    <img src="../assets/image/flags/pt.png"/>
+                </a>
+                <a [ngClass]="{'active': activeLang == 'en'}" (click)="changeLanguage('en')">
+                    <img src="../assets/image/flags/en.png"/>
+                </a>
+                <a [ngClass]="{'active': activeLang == 'es'}" (click)="changeLanguage('es')">
+                    <img src="../assets/image/flags/es.png"/>
+                </a>
+                <a [ngClass]="{'active': activeLang == 'it'}" (click)="changeLanguage('it')">
+                    <img src="../assets/image/flags/it.png"/>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Top page-->
+
+<!-- NEW MENU MOBILE -->
+<div class="container">
+    <!-- menu mobile -->
+    <div class="col-12 mobile">
+        <div class="desktop-hide">
+            <button mat-raised-button class="col-6 button-bg-theme button-font" routerLink="/home"><mat-icon>stars</mat-icon>{{ 'menu.bet' | translate }}</button>
+            <button mat-raised-button class="col-6 button-bg-theme button-font" routerLink="/result"><mat-icon>assignment</mat-icon>{{ 'menu.result' | translate }}</button>
+            <button mat-raised-button class="col-6 button-bg-theme button-font" routerLink="/ticket"><mat-icon>description</mat-icon>{{ 'menu.tickets' | translate }}</button>
+            <button mat-raised-button class="col-6 button-bg-theme button-font" routerLink="/rule"><mat-icon>list</mat-icon>{{ 'menu.rules' | translate }}</button>
+            <button mat-raised-button class="col-6 button-bg-theme button-font" routerLink="/contact"><mat-icon> live_help</mat-icon>{{ 'menu.assistance' | translate }}</button>
+            <div class="col-12 nav-item dropdown btn-group" id="headerManager" (click)="listClick($event)" *ngIf="isLogged" dropdown>
+                <a dropdownToggle type="button" class="nav-link dropdown-toggle waves-light admin-style" mdbWavesEffect>
+                    <mat-icon>build</mat-icon>{{ 'menu.management' | translate }}<span class="caret"></span></a>
+                <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary bg-theme" role="menu">
+                    <a class="dropdown-item waves-light" routerLink="/settings" href="#" mdbWavesEffect>{{ 'menu.settings' | translate }}</a>
+                    <a class="dropdown-item waves-light" routerLink="/manage-ticket" href="#" mdbWavesEffect>{{ 'menu.manage-tickets' | translate }}</a>
+                    <a class="dropdown-item waves-light" routerLink="/report" href="#" mdbWavesEffect>{{ 'menu.reports' | translate }}</a>
+                    <a class="dropdown-item waves-light" routerLink="/transactions" href="#" mdbWavesEffect>{{ 'menu.transactions' | translate }}</a>
+                    <div *ngIf="(userAdmin.jurisdictionId < 7)" class="divider dropdown-divider"></div>
+                    <a *ngIf="(userAdmin.jurisdictionId < 7)" class="dropdown-item waves-light" routerLink="/jurisdiction" href="#" mdbWavesEffect>{{ 'menu.users' | translate }}</a>
+                    <a *ngIf="(userAdmin.jurisdictionId < 7)" class="dropdown-item waves-light" routerLink="/credit-transfer" href="#" mdbWavesEffect>{{ 'menu.credit-transfer' | translate }}</a>
+                    <div *ngIf="(userAdmin.jurisdictionId == 1)" class="divider dropdown-divider"></div>
+                    <a *ngIf="(userAdmin.jurisdictionId <= 2)" class="dropdown-item waves-light" routerLink="/banners" href="#" mdbWavesEffect>BANNERS</a>
+                    <a *ngIf="(userAdmin.jurisdictionId == 1)" class="dropdown-item waves-light" routerLink="/round" href="#" mdbWavesEffect>{{ 'menu.create-round' | translate }}</a>
+                    <a *ngIf="(userAdmin.jurisdictionId == 1)" class="dropdown-item waves-light" routerLink="/post-result" href="#" mdbWavesEffect>{{ 'menu.post-result' | translate }}</a>
+                    <a *ngIf="(userAdmin.jurisdictionId == 1)" class="dropdown-item waves-light" routerLink="/jackpot" href="#" mdbWavesEffect>{{ 'menu.edit-jackpot' | translate }}</a>
+                </div>
+            </div>
+            <div class="md-form my-0 with-icon">
+                <a class="nav-link waves-light admin-style" mdbWaverEffect (click)="frame3.show()" *ngIf="!isLogged">
+                    <i class="fas fa-address-card"></i> {{ 'menu.signup' | translate }}
+                </a>
+                <a class="nav-link waves-light admin-style" mdbWaverEffect (click)="frame.show()" *ngIf="!isLogged">
+                        <i class="fas fa-sign-in-alt"></i> {{ 'menu.signin' | translate }}
+                </a>
+                <a class="nav-link waves-light admin-style" mdbWaverEffect *ngIf="(isLogged && (warningBadge > 0) && (userAdmin.jurisdictionId == 1))" (click)="showWarnings()">
+                    <mat-icon matBadge="{{warningBadge}}" matBadgeColor="warn">warning</mat-icon>
+                    <!-- Include text description of the icon's meaning for screen-readers -->
+                    <span class="cdk-visually-hidden">
+                        {{ 'pg-app-component.rounds-to-bet' | translate }}: {{warningBadge}}
+                    </span>
+                </a>
+                <a class="nav-link waves-light admin-style user-logged" mdbWaverEffect *ngIf="isLogged" data-toggle="tooltip" data-placement="bottom">
+                    <div class="dropdown-userbtn">
+                        <i class="fas fa-user"></i> {{userAdmin.login}}
+                    </div>
+                    <div class="user-resume">
+                        <p style="margin-bottom: 0px;">
+                            {{ 'pg-app-component.credit' | translate }} {{userAdmin.credit  | currency:'BRL':true}}
+                        </p>
+                    </div>
+                </a>
+                <a class="nav-link waves-light admin-style" mdbWaverEffect (click)="logout()" *ngIf="isLogged" routerLink="/home">
+                    <i class="fas fa-sign-out-alt"></i> {{ 'menu.logout' | translate }}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- NEW MENU MOBILE -->
+
+<!--Menu-->
+<div class="col-md-12 menu mobile-hide">
+    <!--Navbar-->
+    <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark">
+
+        <!-- Collapsible content -->
+        <links>
+
+            <!-- Links -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item" id="headerHome" (click)="listClick($event)">
+                    <a routerLink="/home" class="nav-link waves-light" mdbWavesEffect>
+                        {{ 'menu.bet' | translate }}
+                    </a>
+                </li>
+                <li class="nav-item" id="headerResult" (click)="listClick($event)">
+                    <a routerLink="/result" class="nav-link waves-light" mdbWavesEffect>
+                        {{ 'menu.result' | translate }}
+                    </a>
+                </li>
+                <li class="nav-item" id="headerTicket" (click)="listClick($event)">
+                    <a routerLink="/ticket" class="nav-link waves-light" mdbWavesEffect>
+                        {{ 'menu.tickets' | translate }}
+                    </a>
+                </li>
+                <li class="nav-item" id="headerRule" (click)="listClick($event)">
+                    <a routerLink="/rule" class="nav-link waves-light" mdbWavesEffect>
+                        {{ 'menu.rules' | translate }}
+                    </a>
+                </li>
+                <li class="nav-item" id="headerContact" (click)="listClick($event)">
+                    <a routerLink="/contact" class="nav-link waves-light" mdbWavesEffect>
+                        {{ 'menu.assistance' | translate }}
+                    </a>
+                </li>
+                <li class="nav-item">
+
+                </li>
+                <li class="nav-item dropdown btn-group" id="headerManager" (click)="listClick($event)" *ngIf="isLogged" dropdown>
+                    <a dropdownToggle type="button" class="nav-link dropdown-toggle waves-light admin-style" mdbWavesEffect>
+                        {{ 'menu.management' | translate }}<span class="caret"></span></a>
+                    <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary bg-theme" role="menu">
+                        <a class="dropdown-item waves-light" routerLink="/settings" href="#" mdbWavesEffect>{{ 'menu.settings' | translate }}</a>
+                        <a class="dropdown-item waves-light" routerLink="/manage-ticket" href="#" mdbWavesEffect>{{ 'menu.manage-tickets' | translate }}</a>
+                        <a class="dropdown-item waves-light" routerLink="/report" href="#" mdbWavesEffect>{{ 'menu.reports' | translate }}</a>
+                        <a class="dropdown-item waves-light" routerLink="/transactions" href="#" mdbWavesEffect>{{ 'menu.transactions' | translate }}</a>
+                        <div *ngIf="(userAdmin.jurisdictionId < 7)" class="divider dropdown-divider"></div>
+                        <a *ngIf="(userAdmin.jurisdictionId < 7)" class="dropdown-item waves-light" routerLink="/jurisdiction" href="#" mdbWavesEffect>{{ 'menu.users' | translate }}</a>
+                        <a *ngIf="(userAdmin.jurisdictionId < 7)" class="dropdown-item waves-light" routerLink="/credit-transfer" href="#" mdbWavesEffect>{{ 'menu.credit-transfer' | translate }}</a>
+                        <div *ngIf="(userAdmin.jurisdictionId <= 2)" class="divider dropdown-divider"></div>
+                        <a *ngIf="(userAdmin.jurisdictionId <= 2)" class="dropdown-item waves-light" routerLink="/banners" href="#" mdbWavesEffect>BANNERS</a>
+                        <a *ngIf="(userAdmin.jurisdictionId == 1)" class="dropdown-item waves-light" routerLink="/round" href="#" mdbWavesEffect>{{ 'menu.create-round' | translate }}</a>
+                        <a *ngIf="(userAdmin.jurisdictionId == 1)" class="dropdown-item waves-light" routerLink="/manage-group" href="#" mdbWavesEffect>{{ 'menu.manage-group' | translate }}</a>
+                        <a *ngIf="(userAdmin.jurisdictionId == 1)" class="dropdown-item waves-light" routerLink="/post-result" href="#" mdbWavesEffect>{{ 'menu.post-result' | translate }}</a>
+                        <a *ngIf="(userAdmin.jurisdictionId == 1)" class="dropdown-item waves-light" routerLink="/jackpot" href="#" mdbWavesEffect>{{ 'menu.edit-jackpot' | translate }}</a>
+                    </div>
+                </li>
+            </ul>
+            <!-- Links -->
+
+            <!-- Login button -->
+            <div class="md-form my-0 with-icon">
+                <a class="nav-link waves-light admin-style" mdbWaverEffect (click)="frame3.show()" *ngIf="!isLogged">
+                    <i class="fas fa-address-card"></i> {{ 'menu.signup' | translate }}
+                </a>
+                <a class="nav-link waves-light admin-style" mdbWaverEffect (click)="frame.show()" *ngIf="!isLogged">
+                        <i class="fas fa-sign-in-alt"></i> {{ 'menu.signin' | translate }}
+                </a>
+                <a class="nav-link waves-light admin-style" mdbWaverEffect *ngIf="(isLogged && (warningBadge > 0) && (userAdmin.jurisdictionId == 1))" (click)="showWarnings()">
+                    <mat-icon matBadge="{{warningBadge}}" matBadgeColor="warn">warning</mat-icon>
+                    <!-- Include text description of the icon's meaning for screen-readers -->
+                    <span class="cdk-visually-hidden">
+                        {{ 'pg-app-component.rounds-to-bet' | translate }}: {{warningBadge}}
+                    </span>
+                </a>
+                <a class="nav-link waves-light admin-style user-logged" mdbWaverEffect *ngIf="isLogged" data-toggle="tooltip" data-placement="bottom">
+                    <div class="dropdown-userbtn">
+                        <i class="fas fa-user"></i> {{userAdmin.login}}
+                    </div>
+                    <div class="user-resume">
+                        <p style="margin-bottom: 0px;">
+                            {{ 'pg-app-component.credit' | translate }} {{userAdmin.credit  | currency:'BRL':true}}
+                        </p>
+                    </div>
+                </a>
+                <a class="nav-link waves-light admin-style" mdbWaverEffect (click)="logout()" *ngIf="isLogged" routerLink="/home">
+                    <i class="fas fa-sign-out-alt"></i> {{ 'menu.logout' | translate }}
+                </a>
+            </div>
+        </links>
+        <!-- Collapsible content -->
+
+        <!-- Hidden Navbar brand -->
+        <mdb-navbar-brand><a class="navbar-brand" style="color: rgb(0, 0, 0, 0)">|</a></mdb-navbar-brand>
+
+    </mdb-navbar>
+    <!--/.Navbar-->
+</div>
+<!--Menu-->
+
+<!--Content Pages-->
+<div class="container">
+    <div class="row p-2">
+        <div class="col-md-2">
+            <div class="row mt-2" style="background-color: #3d3d3d;">
+                <div class="col-12">
+                    <app-roundgroups></app-roundgroups>
+                </div>
+            </div>
+            <div class="row">
+                <!-- <div class="col-6 d-none d-lg-block side-column">
+                    <a href="#"><img class="img-fluid" src="../../assets/image/mobile-device.png"></a>
+                </div>
+                <div class="col-6 d-none d-lg-block side-column mb-0">
+                    <a href="#">layout MOBILE</a>
+                </div> -->
+                <div class="col-12 side-column mt-0 mb-0">
+                    <hr/>
+                    <!-- Search form -->
+                    <form class="form-inline md-form form-sm mt-0 pl-3">
+                        <input class="form-control form-control-sm ml-3 w-75" type="text"  id="idiomas" placeholder="{{ 'pg-app-component.search' | translate }}" aria-label="Search" style="margin: 0px !important;">
+                        <button class="btn btn-primary " style="box-shadow: none; padding: 0px; background-color:rgba(0, 0, 0, 0.0) !important"><i class="fas fa-search" aria-hidden="true"></i></button>
+                    </form>
+                </div>
+            </div>
+           
+           
+            <div (window:resize)="onResize($event)" class="mat"  (click)="funt();">
+                DESKTOP
+            </div> 
+
+        </div>
+        
+
+        <div class="col-md-8 mt-2 pl-1 pr-1">
+            <router-outlet></router-outlet>
+        </div>
+
+        <div class="col-md-2">
+            <div class="row mt-2" style="background-color: #3d3d3d;">
+                <div class="col-12 p-0">
+                    <div class="side-menu">{{ 'pg-app-component.your-bets' | translate }}</div>
+                    <div style="color: white; padding: 10px;">
+                        {{ 'pg-app-component.no-bets' | translate }}<br/><br/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Content Pages-->
+
+<app-loader></app-loader>
+
+<!-- Footer -->
+<div class="col-12 my-footer">
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-1 align-text-top">&copy; 2019 Copyright: jogobrasil.com.br
+    </div>
+    <!-- Copyright -->
+</div>
+<!-- Footer -->
+
+<!--Modal Login-->    <form onSubmit="getLogin()">
+<div mdbModal #frame="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content bg-theme">
+        
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">{{ 'pg-app-component.enter' | translate }}</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body mx-3">
+                <div class="md-form mb-5">
+                    <mdb-icon fas icon="user" class="prefix grey-text"></mdb-icon>
+                    <input type="text" id="defaultForm-name" [formControl]="loginFormModalName" class="form-control"
+                        mdbInput mdbValidate>
+                    <label for="defaultForm-name">{{ 'pg-app-component.user' | translate }}</label>
+                </div>
+
+                <div class="md-form mb-4">
+                    <mdb-icon fas icon="lock" class="prefix grey-text"></mdb-icon>
+                    <input onSubmit = "getLogin();" type="password" id="defaultForm-pass" [formControl]="loginFormModalPassword" class="form-control" mdbInput mdbValidate>
+                    <label for="defaultForm-pass">{{ 'pg-app-component.password' | translate }}</label>
+                    <p><a (click)="forgetPassword()" style="color: white">{{ 'pg-app-component.forget-user-password' | translate }}</a></p>
+                </div>
+
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <button mdbBtn color="default" class="waves-light button-bg-theme button-font" (click)="getLogin()" mdbWavesEffect>Login</button><br/>
+            </div>
+
+        </div>
+
+    </div>
+</div>    </form>
+<!--Modal Login-->
+
+<!--Modal Create Account -->
+<div mdbModal #frame3="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+    <div class="modal-dialog-scrollable" role="document">
+        <div class="modal-content bg-theme">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">{{ 'pg-app-component.register' | translate }}</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame3.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <!-- Loading (appears when is loading register) -->
+            <div class="modal-body mx-3" *ngIf="registerLoading" id="spinner-loading">{{ 'pg-app-component.registering' | translate }}...
+                <div class="spinner-border"role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+
+            <div class="modal-body mx-3" *ngIf="!registerLoading">
+              <div class="md-form mb-4">
+                <i class="fas fa-user prefix grey-text"></i>
+                <input type="text" id="orangeForm-login" name="orangeForm-login" [formControl]="userFormLogin" class="form-control" mdbInput mdbValidate>
+                <label for="orangeForm-login">{{ 'pg-app-component.user' | translate }} *</label>
+              </div>
+              <div class="md-form mb-4 " hidden>
+                <i class="fas fa-user prefix grey-text"></i>
+                <input type="text" id="orangeForm-name" name="orangeForm-name" class="form-control" [formControl]="userFormName" mdbInput mdbValidate>
+                <label data-error="wrong" data-success="right" for="orangeForm-name">{{ 'pg-app-component.name' | translate }} *</label>
+              </div>
+              <div class="md-form mb-4 " hidden>
+                <i class="fas fa-user prefix grey-text"></i>
+                <input type="text" id="orangeForm-lastname" name="orangeForm-lastname" class="form-control validate"  [formControl]="userFormLastName" mdbInput mdbValidate>
+                <label data-error="wrong" data-success="right" for="orangeForm-lastname">{{ 'pg-app-component.last-name' | translate }}</label>
+              </div>
+              <div class="md-form mb-4">
+                <i class="fas fa-envelope prefix grey-text"></i>
+                <input type="email" id="orangeForm-email" name="orangeForm-email" class="form-control" [formControl]="userFormEmail" mdbInput mdbValidate>
+                <label data-error="wrong" data-success="right" for="orangeForm-email">E-mail *</label>
+              </div>
+              <div class="md-form mb-4">
+                <i class="fas fa-envelope prefix grey-text"></i>
+                <input type="email" id="orangeForm-email2" name="orangeForm-email2" class="form-control"  [formControl]="userFormConfirmEmail" mdbInput mdbValidate>
+                <label data-error="wrong" data-success="right" for="orangeForm-email2">{{ 'pg-app-component.confirm' | translate }} e-mail *</label>
+              </div>
+              <div class="md-form mb-4 " hidden>
+                <i class="fas fa-location-arrow prefix grey-text"></i>
+                <input type="text" id="orangeForm-country" name="orangeForm-country" class="form-control" [formControl]="userFormCountry" mdbInput mdbValidate value="Brasil">
+                <label data-error="wrong" data-success="right" for="orangeForm-country">{{ 'pg-app-component.country' | translate }}</label>
+              </div>
+              <div class="md-form mb-4 " hidden>
+                <i class="fas fa-location-arrow prefix grey-text"></i>
+                <input type="text" id="orangeForm-city" name="orangeForm-city" class="form-control" [formControl]="userFormCity" mdbInput mdbValidate>
+                <label data-error="wrong" data-success="right" for="orangeForm-city">{{ 'pg-app-component.city' | translate }}</label>
+              </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <button mdbBtn class="waves-light button-bg-theme button-font" mdbWavesEffect (click)="register()">{{ 'pg-app-component.register' | translate }}</button>
+                <!--<button mdbBtn color="default" class="waves-light" (click)="frame3.hide()" mdbWavesEffect>Cancelar</button>-->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Create Account-->
+
+<!--Modal Forgot Password-->
+<div mdbModal #frame2="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content bg-theme">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">{{ 'pg-app-component.forgot-credentials' | translate }}</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame2.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3">
+                <div class="md-form mb-5">
+                    <mdb-icon fas icon="user" class="prefix grey-text"></mdb-icon>
+                    <input type="text" id="defaultForm-email3" [formControl]="forgotFormEmail" class="form-control validate"
+                        mdbInput mdbValidate>
+                    <!--<label for="defaultForm-email3">E-mail</label>-->
+                    <label data-error="Campo de e-mail obrigatório" for="defaultForm-email3">E-mail</label>
+                </div>
+
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <button mdbBtn color="default" class="waves-light button-bg-theme" (click)="sendLogin()" mdbWavesEffect>{{ 'pg-app-component.send-credentials' | translate }}</button><br/>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--Modal Forgot Password-->
+
+<!--Modal Message-->
+<div mdbModal #frameMessage="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+    <div class="modal-dialog modal-notify modal-success" role="document" id="msgModalStandard">
+        <div class="modal-content bg-theme">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold" [innerHtml]="titleToAdd"></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frameMessage.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3">
+                <div class="md-form mb-5">
+
+                    <p style="color: white" id="msg" [innerHtml]="msgToAdd"></p>
+
+                </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <button mdbBtn class="waves-light button-bg-theme button-font" (click)="frameMessage.hide()" mdbWavesEffect>OK</button><br/>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--Modal Forgot Password-->

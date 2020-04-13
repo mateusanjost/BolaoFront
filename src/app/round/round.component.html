@@ -1,0 +1,128 @@
+<div class="container">
+
+    <!-- Card -->
+    <div class="card mb-5">
+        <!-- Card content -->
+        <div class="card-body bg-theme">
+
+            <div *ngIf="!isLoaded" id="spinner-loading" class="justify-content-center">Bolão...
+                <div class="spinner-border"role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+
+            <!--Showing current round-->
+            <div class="row" *ngIf="isLoaded">
+                <div class="col-sm-12 col-md-7 pt-3">
+                    <h3>{{ 'pg-round.rounds' | translate }}</h3>
+            
+                    <form class="competition-form">
+            
+                        <mat-form-field class="competition-full-width">
+                            <input type="text" placeholder="{{ 'pg-round.competition' | translate }} *" aria-label="Competição" matInput [formControl]="myControl"
+                                [matAutocomplete]="auto">
+                            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                                <mat-option *ngFor="let competition of filteredOptions | async" [value]="competition"
+                                    (click)="seeGames()">
+                                    {{competition.Mani}}
+                                </mat-option>
+                            </mat-autocomplete>
+                        </mat-form-field>
+            
+                        <table class="table table-striped" mdbTable mdbTableScroll scrollX="true" maxWidth="100%" bordered="true">
+            
+                            <thead>
+                                <tr>
+                                    <th>{{ 'pg-round.date-hour' | translate }}</th>
+                                    <th>{{ 'pg-round.match' | translate }}</th>
+                                    <th>{{ 'pg-round.add' | translate }}</th>
+                                </tr>
+                            </thead>
+            
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <mat-form-field class="length-adjust">
+                                            <input matInput [matDatepicker]="picker" id="date-picker" #customdate>
+                                            <mat-datepicker-toggle matSuffix [for]="picker" placeholder="00/00/00"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker></mat-datepicker>
+                                        </mat-form-field>
+
+                                        <mat-form-field class="length-adjust center-content">
+                                            <input matInput #customtime id="hour-input" maxwidth="50px" placeholder="00:00">
+                                        </mat-form-field>
+                                    </td>
+                                    <td>
+                                        <mat-form-field style="max-width: 100px;">
+                                            <input #custommatch id="match-name" matInput placeholder="{{ 'pg-round.match-example' | translate }}">
+                                        </mat-form-field>
+                                    </td>
+                                    <td class="center-content">
+                                        <button class="m-0 p-2 button-bg-theme button-theme" type="button" mdbBtn color="primary"
+                                            mdbWavesEffect (click)="addGame(0, custommatch.value, customdate.value, customtime.value)">+</button>
+                                    </td>
+                                </tr>
+                                <tr *ngFor="let match of betradarMatches; let i = index">
+                                    <td>
+                                        {{ match.Events_Data2.EventsDisplayDate}}
+                                    </td>
+                                    <td>
+                                        {{ match.Events_Data2.EventsName }}
+                                    </td>
+                                    <td class="center-content">
+                                        <button *ngIf="checkExistingId(match.Events_Data2.EventsID)" class="m-0 p-2 button-bg-theme button-theme" type="button" mdbBtn color="primary"
+                                            mdbWavesEffect (click)="addGame(match.Events_Data2.EventsID, match.Events_Data2.EventsName, match.Events_Data2.EventsDate, match.Events_Data2.EventsTime)">+</button>
+                                        
+                                        <i *ngIf="!checkExistingId(match.Events_Data2.EventsID)" style="color: green" class="fas fa-check"></i>
+                                    </td>
+                                </tr>
+                            </tbody>
+            
+                        </table>
+            
+                    </form>
+                </div>
+            
+                <div class="col-sm-12 col-md-5 pt-3 new-round-panel">
+                    <p class="new-round-panel-title">{{ 'pg-round.scope-new-round' | translate }}</p>
+                    <hr />
+                
+                
+                    <form class="col-12 competition-form">
+                    
+                        <mat-form-field class="competition-full-width">
+                            <mat-label>{{ 'pg-round.round-value' | translate }}</mat-label>
+                            <span matPrefix>R$ </span>
+                            <input matInput value="10" class="center-content" id="round-value">
+                            <span matSuffix>,00</span>
+                        </mat-form-field>
+                    
+                    </form>
+
+                    <!-- new creation area -->
+                    <div class="col-12">
+                        <table class="competition-full-width">
+                            <tr *ngFor="let match of dataArray; let i = index">
+                                <td>{{ match.date | date: 'dd/MM/yy' }} {{match.hour}}</td>
+                                <td>{{match.game}}</td>
+                                <td>
+                                    <a (click)="removeGame(i)"><i class="far fa-trash-alt"></i></a>
+                                </td>
+                            </tr>
+                            <tr *ngIf="(dataArray.length > 0)">
+                                <td>{{ 'pg-round.matches' | translate }}: {{dataArray.length}}</td>
+                                <td colspan='2'>
+                                    <button class="side-align" mat-flat-button color="primary" (click)="onSubmit()">{{ 'pg-round.create' | translate }}</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                
+                </div>
+            
+            </div>
+            <!--Showing current round-->
+
+        <!-- Card -->
+    </div>
+</div>

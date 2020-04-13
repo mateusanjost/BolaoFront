@@ -1,0 +1,63 @@
+// .container {
+//     background-color: rgba(3, 3, 3, 0.8);
+// }
+
+.jackpot {
+    color: red;
+    font-weight: bolder;
+    margin-bottom: 25px;
+    font-size: 60px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.jackpot-title {
+    size: 10px;
+    margin-top: 5px;
+}
+
+.clean-spaces {
+    margin: 0px;
+    padding: 0px;
+}
+
+.small-spaces {
+    margin: 0px;
+    padding: 3px 5px;
+    border: solid 1px black;
+}
+
+.side-column {
+    background-color: #3d3d3d;
+}
+
+.btn-light {
+    height: 25px;
+    width: 60px;
+    background-color: #333 !important;
+    border: 1px solid white;
+    color: white;
+}
+
+.btn.btn-light:hover {
+    background-color: yellow !important;
+}
+
+a.btn.btn-light.side-menu:link {
+    color: black !important;
+}
+
+.my-body{
+    text-align: center;
+    color: white;
+    font-size: 12px;
+}
+
+.bg-yellow{
+    background-color: #e39711 !important;
+}
+
+.banner-limits{
+    max-width: 660 !important;
+    max-height: 300 !important;
+}
